@@ -13,6 +13,7 @@ on:
 permissions:
   contents: read
   pages: write
+  deployments: write
   id-token: write
 
 concurrency:
@@ -35,9 +36,17 @@ jobs:
         with:
           path: docs
       # One-time cleanup: a publish got stuck during the repo rename (Nov 5) and blocks new ones.
+      # Mark that commit's deployment records inactive and delete them, then cancel the Pages lock.
       - name: Clear stuck publish
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh api -X POST repos/${{ github.repository }}/pages/deployments/c5bc2bd6c39c2b313046c15aa9f3aca0db998bc0/cancel || true
+          STUCK: c5bc2bd6c39c2b313046c15aa9f3aca0db998bc0
+        run: |
+          for d in $(gh api "repos/${{ github.repository }}/deployments?sha=$STUCK" --jq '.[].id'); do
+            gh api -X POST repos/${{ github.repository }}/deployments/$d/statuses -f state=inactive >/dev/null || true
+            gh api -X DELETE repos/${{ github.repository }}/deployments/$d || true
+          done
+          gh api -X POST repos/${{ github.repository }}/pages/deployments/$STUCK/cancel || true
+          sleep 20
       - id: deploy
         uses: actions/deploy-pages@v5
