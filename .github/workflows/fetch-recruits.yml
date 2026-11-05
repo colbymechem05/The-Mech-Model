@@ -1,0 +1,32 @@
+name: Fetch recruiting rankings
+
+# One-off / once a year: download RSCI top-100 lists and save them to data/recruits.
+on:
+  workflow_dispatch:
+    inputs:
+      first:
+        description: "First high-school class"
+        default: "2020"
+      last:
+        description: "Last high-school class"
+        default: "2026"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install pandas lxml
+      - run: python scripts/fetch_rsci.py ${{ inputs.first }} ${{ inputs.last }}
+      - name: Save
+        run: |
+          git config user.name "mech-model-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/recruits
+          git diff --cached --quiet || (git commit -m "Recruiting rankings ${{ inputs.first }}-${{ inputs.last }}" && git pull --rebase -q && git push)
