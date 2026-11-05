@@ -45,11 +45,11 @@ body { background: var(--bg); color: var(--fg); font: 15px/1.45 var(--body); }
 button, select, input { font: inherit; color: inherit; }
 
 /* ---------- layout: sidebar + page ---------- */
-.app { display: grid; grid-template-columns: 196px minmax(0, 1fr); min-height: 100vh; }
+.app { display: grid; grid-template-columns: 206px minmax(0, 1fr); min-height: 100vh; }
 aside { background: var(--side); color: var(--side-fg); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; padding: 22px 0 18px; }
 .brand { display: flex; align-items: center; gap: 9px; padding: 0 16px 18px; border-bottom: 1px solid var(--side-line); }
-.brand img { width: 38px; height: 38px; }
-.brand b { font: 800 20px/0.95 var(--display); letter-spacing: .02em; text-transform: uppercase; color: #fff; }
+.brand img { width: 54px; height: 54px; }
+.brand b { font: 800 27px/0.92 var(--display); letter-spacing: .02em; text-transform: uppercase; color: #fff; }
 .brand b span { color: #3cc8f8; }
 .league { display: flex; margin: 16px 16px 10px; border: 1px solid rgba(255,255,255,.14); border-radius: 6px; overflow: hidden; }
 .league button { flex: 1; background: none; border: 0; padding: 7px 0; font: 600 12px var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--side-fg); cursor: pointer; }
@@ -81,18 +81,21 @@ input[type=checkbox] { accent-color: var(--orange); }
 
 /* ---------- stat strip ---------- */
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); border-bottom: 1px solid var(--line); }
-.stat { padding: 13px 16px 11px 0; margin-right: 16px; border-right: 1px solid var(--line); min-width: 0; }
+.stat { padding: 10px 16px 9px 0; margin-right: 16px; border-right: 1px solid var(--line); min-width: 0; }
 .stat:last-child { border-right: 0; margin-right: 0; }
-.stat .k { font: 600 11px var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-.stat .v { font: 600 29px/1.15 var(--num); font-variant-numeric: tabular-nums; }
+.stat .k { font: 600 10.5px var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.stat .v { font: 500 21px/1.3 var(--num); font-variant-numeric: tabular-nums; }
 .stat .v.o { color: var(--orange); }
-.stat .s { font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stat .s { font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ---------- sections ---------- */
+section[data-page="rankings"] > .sec:first-child { margin-top: 16px; }
 .sec { display: flex; justify-content: space-between; align-items: flex-end; gap: 14px; flex-wrap: wrap; margin: 28px 0 9px; }
 .sec h2 { margin: 0; font: 800 23px/1 var(--display); letter-spacing: .03em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
 .q { position: relative; display: inline-grid; place-items: center; width: 18px; height: 18px; border: 1px solid var(--line); border-radius: 50%; font: 600 11px var(--body); color: var(--muted); cursor: help; letter-spacing: 0; text-transform: none; }
 .q:hover, .q:focus { color: var(--fg); border-color: var(--muted); outline: none; }
+.mast-q { vertical-align: middle; position: relative; top: -6px; margin-left: 4px; }
+.mast-q .pop { text-transform: none; letter-spacing: 0; }
 .q .pop { position: absolute; left: 0; top: calc(100% + 8px); z-index: 30; width: 320px; padding: 11px 13px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); font: 400 13px/1.5 var(--body); color: var(--fg); text-align: left; display: none; }
 .q:hover .pop, .q:focus .pop { display: block; }
 .tools { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 13px; }
@@ -112,6 +115,7 @@ input[type=search] { min-width: 210px; }
 .scroll { overflow: auto; max-height: 720px; }
 table { width: 100%; border-collapse: collapse; font: 500 14px var(--body); }
 th { position: sticky; top: 0; z-index: 1; background: var(--bg); text-align: left; font: 600 11px var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 9px 9px; border-bottom: 2px solid var(--rule); white-space: nowrap; }
+#ranks th + th { border-left: 1px solid var(--line); }
 th button { background: none; border: 0; padding: 0; font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit; cursor: pointer; }
 th button:hover { color: var(--fg); }
 th[aria-sort="ascending"] button::after { content: " ↑"; color: var(--orange); }
@@ -171,7 +175,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 @media (max-width: 900px) {
   .app { grid-template-columns: minmax(0, 1fr); }
   .stat { padding-right: 10px; margin-right: 10px; }
-  .stat .v { font-size: 24px; }
+  .stat .v { font-size: 19px; }
   aside { position: static; height: auto; padding: 12px 0 0; }
   .brand { padding: 0 14px 12px; }
   .league { margin: 10px 14px; }
@@ -205,7 +209,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
   <main>
     <div class="mast">
-      <h1><span class="kicker" id="kicker">Today's lines</span><span id="title">—</span></h1>
+      <h1><span class="kicker" id="kicker">Today's lines</span><span id="title">—</span> <span class="q mast-q" id="rank-q" tabindex="0" hidden>?<span class="pop"><b>Net</b> = points per 100 possessions better than an average D1 team on a neutral floor (offense minus defense). <b>Offense</b> = points scored above average; <b>Defense</b> = points allowed above average, so lower is better. <b>Preseason</b> = where the team started; <b>Change</b> = how far results have moved them since. <b>Returning</b> = share of last season's minutes back. <b>Home</b> = points this team gets at home.</span></span></h1>
       <div class="filters" id="filters">
         <button class="chip" id="conf-all" aria-pressed="true">All</button>
         <button class="chip" id="conf-power" aria-pressed="false">Power 5</button>
@@ -256,7 +260,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     <!-- ===== Ratings ===== -->
     <section data-page="rankings" hidden>
       <div class="sec">
-        <h2>Power Ratings <span class="q" tabindex="0">?<span class="pop"><b>Net</b> = how many points per 100 possessions better than an average D1 team, on a neutral floor. <b>Offense</b> is points scored above average; <b>Defense</b> is points allowed above average (lower is better). <b>Preseason</b> is where the team started; <b>vs. pre</b> is how far results have moved them. <b>Home</b> is the points this team gets at home.</span></span></h2>
+        <span></span>
         <div class="tools">
           <input type="search" id="search" placeholder="Search teams" aria-label="Search teams">
           <label>Sort <select id="sort-rank"><option value="rank">Rank</option><option value="team">Name (A–Z)</option><option value="col" disabled>By column</option></select></label>
@@ -272,7 +276,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           <th data-col="D" class="num"><button>Defense</button></th>
           <th data-col="tempo" class="num"><button>Tempo</button></th>
           <th data-col="preseason" class="num"><button>Preseason</button></th>
-          <th data-col="vs_preseason" class="num"><button>vs. Pre</button></th>
+          <th data-col="vs_preseason" class="num" title="Change since preseason"><button>Change</button></th>
           <th data-col="returning_pct" class="num"><button>Returning</button></th>
           <th data-col="home_court" class="num"><button>Home</button></th>
           <th data-col="games" class="num"><button>G</button></th>
@@ -446,10 +450,11 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $$('.league button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.league === S.league)));
     $$('.nav button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === S.tab)));
     $$('section[data-page]').forEach((s) => { s.hidden = s.dataset.page !== S.tab; });
-    const heads = {today: ["Today's lines", longDate()], rankings: [`${lg()} power ratings`, 'The Rankings'],
-                   record: [`${lg()} track record`, 'How We\'re Doing'], how: ['How it works', 'The Mech Model']};
+    const heads = {today: ["Today's lines", longDate()], rankings: [lg(), 'Power Ratings'],
+                   record: [lg(), 'Track Record'], how: ['How it works', 'The Mech Model']};
     $('#kicker').textContent = heads[S.tab][0];
     $('#title').textContent = heads[S.tab][1];
+    $('#rank-q').hidden = S.tab !== 'rankings';
     $('#filters').hidden = S.tab === 'how' || S.tab === 'record';
     $('#conf-all').setAttribute('aria-pressed', String(!S.confs.size));
     $('#conf-power').setAttribute('aria-pressed', String(isPower()));
