@@ -18,7 +18,7 @@ OUT = D.ROOT / "output"
 LOGS = D.ROOT / "logs"
 PICK_EDGE = 3.0  # a "pick" vs. the Vegas number = Mech line differs by 3+ points
 # 2025-26 holdout (never used for tuning): the benchmark the live record is compared to
-BENCHMARK = {"mbb": {"avg_miss": 9.19, "winner_pct": 71.8}, "wbb": {"avg_miss": 9.70, "winner_pct": 76.5}}
+BENCHMARK = {"mbb": {"avg_miss": 9.19, "winner_pct": 71.8}, "wbb": {"avg_miss": 9.69, "winner_pct": 76.7}}
 
 
 def conferences(league: str) -> pd.Series:

@@ -81,6 +81,10 @@ def fit(games: pd.DataFrame, asof: pd.Timestamp, prior: pd.DataFrame | None,
 
     hi, ai = g.home_id.map(idx).values, g.away_id.map(idx).values
     home = (~g.neutral.values).astype(float)
+    team_hca = attrs.get("team_hca")  # optional per-team extra home edge (per 100), fixed
+    if team_hca is not None and m:
+        extra = home * g.home_id.map(team_hca).fillna(0).values
+        eff_h, eff_a = eff_h - extra / 2, eff_a + extra / 2
     rows = np.tile(np.arange(2 * m), 3)
     cols = np.concatenate([hi, ai, n + ai, n + hi, np.full(2 * m, 2 * n)])
     vals = np.concatenate([np.ones(4 * m), home / 2, -home / 2])
@@ -89,24 +93,29 @@ def fit(games: pd.DataFrame, asof: pd.Timestamp, prior: pd.DataFrame | None,
 
     p = np.zeros(2 * n + 1)
     pt = np.zeros(n)
+    team_w = np.ones(n)  # optional per-team multiplier on prior strength (prior column "w")
     if has_prior:
         pr = prior.reindex(teams)
         p[:n] = dials.carryover * pr.O.fillna(0).values
         p[n:2 * n] = dials.carryover * pr.D.fillna(0).values
         pt = dials.carryover * pr["T"].fillna(0).values
+        if "w" in pr:
+            team_w = pr.w.fillna(1.0).values
     p[2 * n] = attrs.get("hca", DEFAULT_HCA)
-    strength = np.concatenate([np.full(2 * n, dials.prior_games), [dials.hca_games]])
+    strength = np.concatenate([np.tile(dials.prior_games * team_w, 2), [dials.hca_games]])
     beta = _ridge(X, y, np.concatenate([w, w]), p, strength)
 
     Xt = sparse.csr_matrix((np.ones(2 * m), (np.tile(np.arange(m), 2), np.concatenate([hi, ai]))),
                            shape=(m, n))
-    T = _ridge(Xt, tempo40 - avg_tempo, w, pt, np.full(n, dials.prior_games))
+    T = _ridge(Xt, tempo40 - avg_tempo, w, pt, dials.prior_games * team_w)
 
     played = pd.concat([g.home_id, g.away_id]).value_counts()
     out = pd.DataFrame({"O": beta[:n], "D": beta[n:2 * n], "T": T}, index=teams)
     out["net"] = out.O - out.D
     out["games"] = played.reindex(out.index).fillna(0).astype(int)
     league = {"avg_eff": avg_eff, "avg_tempo": avg_tempo, "hca": beta[2 * n]}
+    if team_hca is not None:
+        league["team_hca"] = team_hca
     return out, league
 
 
@@ -115,7 +124,9 @@ def predict(r: pd.DataFrame, league: dict, home_ids, away_ids, neutral, sigma: f
     h, a = r.loc[list(home_ids)], r.loc[list(away_ids)]
     neutral = np.asarray(neutral, dtype=bool)
     tempo = league["avg_tempo"] + h["T"].values + a["T"].values
-    hc = np.where(neutral, 0.0, league["hca"] / 2)
+    extra = (pd.Series(list(home_ids)).map(league["team_hca"]).fillna(0).values
+             if "team_hca" in league else 0.0)
+    hc = np.where(neutral, 0.0, (league["hca"] + extra) / 2)
     eff_h = league["avg_eff"] + h.O.values + a.D.values + hc
     eff_a = league["avg_eff"] + a.O.values + h.D.values - hc
     pts_h, pts_a = eff_h * tempo / 100, eff_a * tempo / 100
@@ -139,6 +150,35 @@ def final_prior(games: pd.DataFrame, season: int, dials: Dials,
     out = r[["O", "D", "T"]].copy()
     out.attrs = {"hca": league["hca"], "avg_eff": league["avg_eff"], "avg_tempo": league["avg_tempo"]}
     return out
+
+
+TEAM_HCA_SHRINK = 200  # a team's own home history counts as n / (n + 200) of its raw edge
+
+
+def team_hca(games: pd.DataFrame, season: int, k: float = TEAM_HCA_SHRINK,
+             first: int = 2022, lookback: int = 4) -> pd.Series:
+    """Extra home edge per team (per 100 possessions, beyond the league value), from up to
+    `lookback` full seasons before `season` (2020-21 COVID season skipped).
+    For each season: full-season ratings, then each team's home-game residual minus its
+    road-game residual. Pooled across seasons and shrunk toward 0 by home games played."""
+    H, A = [], []
+    for s in range(max(first, season - lookback), season):
+        g = games[games.season == s]
+        if g.empty:
+            continue
+        r, lg = fit(g, g.date.max() + pd.Timedelta(days=1), None, Dials(hca_games=1.0))
+        d = d1_games(g)
+        d = d[~d.neutral & d.home_id.isin(r.index) & d.away_id.isin(r.index)]
+        res = (100 * d.margin.values / d.poss.values
+               - (r.loc[d.home_id, "net"].values - r.loc[d.away_id, "net"].values + lg["hca"]))
+        H.append(pd.Series(res, index=d.home_id.values))
+        A.append(pd.Series(-res, index=d.away_id.values))
+    if not H:
+        return pd.Series(dtype=float, name="team_hca")
+    H, A = pd.concat(H), pd.concat(A)
+    nh = H.groupby(level=0).size()
+    raw = H.groupby(level=0).mean() - A.groupby(level=0).mean().reindex(nh.index).fillna(0)
+    return (raw * nh / (nh + k)).rename("team_hca")
 
 
 def backtest(games: pd.DataFrame, season: int, prior: pd.DataFrame | None, dials: Dials,

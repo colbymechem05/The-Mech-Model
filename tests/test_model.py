@@ -86,6 +86,30 @@ def test_predict_matches_hand_math():
     assert p.spread_home - neutral.spread_home == pytest.approx(4.0 * tempo / 100)
 
 
+def test_team_home_court_adds_to_spread():
+    r = pd.DataFrame({"O": [0.0, 0.0], "D": [0.0, 0.0], "T": [0.0, 0.0]}, index=[1, 2])
+    lg = {"avg_eff": 100.0, "avg_tempo": 70.0, "hca": 4.0}
+    base = R.predict(r, lg, [1], [2], [False], 11.7).spread_home.item()
+    extra = R.predict(r, {**lg, "team_hca": pd.Series({1: 2.0})}, [1], [2], [False], 11.7).spread_home.item()
+    neutral = R.predict(r, {**lg, "team_hca": pd.Series({1: 2.0})}, [1], [2], [True], 11.7).spread_home.item()
+    assert base == pytest.approx(4.0 * 0.70) and extra == pytest.approx(6.0 * 0.70) and neutral == 0
+
+
+def test_team_home_court_recovered():
+    g = pd.concat([fake_league(n_teams=30, seed=s, hca=4.0, noise=4.0)[0]
+                   .assign(season=s, date=lambda d, s=s: d.date + pd.DateOffset(years=s - 2026),
+                           game_id=lambda d, s=s: d.game_id + 10000 * s)
+                   for s in (2023, 2024, 2025)], ignore_index=True)
+    boost = g.home_id == 0                       # team 0 gets +6 per 100 extra at home
+    poss = g.poss
+    g.loc[boost, "home_pts"] += 3 * poss[boost] / 100
+    g.loc[boost, "away_pts"] -= 3 * poss[boost] / 100
+    g["margin"] = g.home_pts - g.away_pts
+    th = R.team_hca(g, 2026, k=0, first=2023)
+    assert th[0] == pytest.approx(6.0, abs=1.5)            # found the real effect
+    assert th.idxmax() == 0 and th.drop(0).std() < 1.5     # everyone else is just noise
+
+
 def test_prior_counts_as_n_games():
     g, *_ = fake_league(n_teams=10)
     prior = pd.DataFrame({"O": 20.0, "D": 0.0, "T": 0.0}, index=range(10))

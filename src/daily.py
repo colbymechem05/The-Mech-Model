@@ -22,9 +22,9 @@ import talent as T  # noqa: E402
 OUT = D.ROOT / "output"
 LOGS = D.ROOT / "logs"
 HISTORY = [s for s in D.SEASONS if s < D.CURRENT]
-# Tuned on 2021-22..2024-25, checked on 2025-26 (see build log).
-SETTINGS = {"mbb": dict(new_value=-4.0, prior_games=8),
-            "wbb": dict(new_value=-4.0, prior_games=3)}
+# Tuned on 2021-22..2024-25, checked on 2025-26 (see build log; analysis/differentiators.py).
+SETTINGS = {"mbb": dict(new_value=-4.0, prior_games=6),
+            "wbb": dict(new_value=-4.0, prior_games=4)}
 
 
 def todays_games(league: str, day: pd.Timestamp) -> pd.DataFrame:
@@ -41,6 +41,7 @@ def rate(league: str, day: pd.Timestamp, refresh: bool):
     roster_now = P.season_stats(league, D.CURRENT, refresh=refresh)
     talent = T.TalentPrior(league, games, HISTORY, train=HISTORY, new_value=cfg["new_value"])
     prior = talent.prior(D.CURRENT, R.final_prior(games, D.CURRENT - 1, R.Dials()), roster_now)
+    prior.attrs["team_hca"] = R.team_hca(games, D.CURRENT)   # each team's own extra home edge
     dials = R.Dials(prior_games=cfg["prior_games"])
     r, lg_info = R.fit(games[games.season == D.CURRENT], day, prior, dials)
 
@@ -51,6 +52,8 @@ def rate(league: str, day: pd.Timestamp, refresh: bool):
     r["tempo"] = lg_info["avg_tempo"] + r["T"]
     r["preseason"] = (prior.O - prior.D).reindex(r.index)
     r["returning_pct"] = 100 * RS.returning(league, D.CURRENT, roster_now).reindex(r.index)
+    extra = prior.attrs["team_hca"].reindex(r.index).fillna(0)
+    r["home_court"] = (lg_info["hca"] + extra) * lg_info["avg_tempo"] / 100   # points
     return r, lg_info, dials
 
 
@@ -94,7 +97,7 @@ def run(day: pd.Timestamp, refresh: bool = True) -> None:
     LOGS.mkdir(exist_ok=True)
     for league in D.LEAGUES:
         r, lg_info, dials = rate(league, day, refresh)
-        r[["rank", "team", "net", "O", "D", "tempo", "games", "preseason", "returning_pct"]
+        r[["rank", "team", "net", "O", "D", "tempo", "games", "preseason", "returning_pct", "home_court"]
           ].round(1).to_csv(OUT / f"ratings_{league}.csv", index_label="team_id")
         lines = make_lines(league, day, r, lg_info, dials)
         lines.to_csv(OUT / f"lines_{league}_{day.date()}.csv", index=False)

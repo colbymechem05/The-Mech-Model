@@ -183,7 +183,7 @@ footer a { color: var(--muted); }
     </div>
     <div class="card">
       <h2>Power rankings</h2>
-      <p class="note">Net = offense minus defense, per 100 possessions vs. an average D1 team on a neutral floor. Defense is points allowed above average, so lower is better.</p>
+      <p class="note">Net = offense minus defense, per 100 possessions vs. an average D1 team on a neutral floor. Defense is points allowed above average, so lower is better. Home court = points this team gets at home: the league value plus its own edge from the last four seasons.</p>
       <div class="scroll">
         <table id="ranks">
           <thead><tr>
@@ -197,6 +197,7 @@ footer a { color: var(--muted); }
             <th data-col="preseason" class="num"><button>Preseason</button></th>
             <th data-col="vs_preseason" class="num"><button>vs. preseason</button></th>
             <th data-col="returning_pct" class="num"><button>Returning %</button></th>
+            <th data-col="home_court" class="num"><button>Home court</button></th>
             <th data-col="games" class="num"><button>Games</button></th>
           </tr></thead>
           <tbody></tbody>
@@ -405,7 +406,7 @@ footer a { color: var(--muted); }
       const tr = document.createElement('tr');
       tr.append(td(String(r.rank), 'num ' + (r.rank <= 25 ? 'accent' : 'faint')), td(r.team), td(r.conf, 'muted'),
         td(f1(r.net), 'num'), td(f1(r.O), 'num'), td(f1(r.D), 'num'), td(f1(r.tempo), 'num muted'),
-        td(f1(r.preseason), 'num muted'), td(signed(r.vs_preseason), 'num'), td(pct(r.returning_pct), 'num muted'),
+        td(f1(r.preseason), 'num muted'), td(signed(r.vs_preseason), 'num'), td(pct(r.returning_pct), 'num muted'), td(r.home_court === null || r.home_court === undefined ? '—' : '+' + f1(r.home_court), 'num muted'),
         td(String(r.games), 'num faint'));
       return tr;
     }));

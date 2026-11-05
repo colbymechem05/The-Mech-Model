@@ -1,0 +1,45 @@
+
+######## MBB ########  (avg miss in points; lower is better)
+
+A. Prior strength
+ worth N games  tune Nov-Jan  2025-26 Nov-Dec  2025-26 full
+             1         9.402            10.06          9.39
+             2         9.232             9.83          9.28
+             3         9.157             9.73          9.23
+             4         9.118             9.70          9.20
+             5         9.098             9.68          9.19
+             6         9.088             9.68          9.18
+             8         9.092             9.70          9.19
+            10         9.105             9.73          9.21
+            12         9.122             9.76          9.23
+            15         9.152             9.81          9.26
+            20         9.202             9.88          9.31
+            30         9.282             9.99          9.41
+
+B. Continuity-weighted prior (k=0 is today's model; k=2: everyone back = ~2.4x as many games, nobody back = ~0.4x)
+ worth N games  continuity k  tune Nov-Jan  2025-26 Nov-Dec  2025-26 full
+             4             0         9.118             9.70          9.20
+             4             1         9.125             9.71          9.21
+             4             2         9.145             9.73          9.22
+             4             3         9.168             9.78          9.24
+             8             0         9.092             9.70          9.19
+             8             1         9.090             9.71          9.20
+             8             2         9.105             9.73          9.21
+             8             3         9.118             9.75          9.23
+            16             0         9.162             9.83          9.27
+            16             1         9.155             9.83          9.27
+            16             2         9.152             9.83          9.28
+            16             3         9.157             9.84          9.29
+
+C. Team-specific home court (smaller k = trust each team's own history more)
+   shrink k  tune full season  2025-26 Nov-Dec  2025-26 full
+off (today)             9.010             9.70          9.19
+        400             9.007             9.70          9.19
+        200             9.003             9.70          9.19
+        100             9.007             9.71          9.20
+         50             9.013             9.72          9.21
+         25             9.033             9.74          9.23
+   biggest team effects for 2025-26 at k=100 (extra pts beyond league):
+   Utah Utes +3.8, Baylor Bears +2.6, Tennessee Volunteers +2.3, Houston Cougars +2.2, Purdue Boilermakers +2.2, Manhattan Jaspers -2.0, Lafayette Leopards -1.9, Navy Midshipmen -1.9, Buffalo Bulls -1.8, Merrimack Warriors -1.6
+
+(139s)
