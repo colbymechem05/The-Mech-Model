@@ -110,6 +110,28 @@ def test_team_home_court_recovered():
     assert th.idxmax() == 0 and th.drop(0).std() < 1.5     # everyone else is just noise
 
 
+def test_conference_pooling_moves_a_whole_conference():
+    """Conference B's priors are all 5 too high. Only teams 10-11 play cross-conference games;
+    with pooling, the rest of B moves down too (without it, they don't)."""
+    teams = list(range(20))
+    conf = pd.Series(["A"] * 10 + ["B"] * 10, index=teams)
+    rows = []
+    for k in range(6):                               # B teams 10, 11 lose to A as expected (even)
+        for b in (10, 11):
+            rows.append(dict(game_id=len(rows), season=2026, date=pd.Timestamp("2025-11-05") + pd.Timedelta(days=k),
+                             home_id=k, away_id=b, home="", away="", home_pts=70.0, away_pts=70.0, poss=70.0,
+                             minutes=40, neutral=True, home_d1=True, away_d1=True))
+    g = pd.DataFrame(rows)
+    g["margin"] = g.home_pts - g.away_pts
+    prior = pd.DataFrame({"O": [0.0] * 10 + [2.5] * 10, "D": [0.0] * 10 + [-2.5] * 10, "T": 0.0}, index=teams)
+    prior.attrs = {"hca": 0.0, "conf": conf}
+    off, _ = R.fit(g, pd.Timestamp("2025-12-01"), prior, R.Dials(prior_games=6, conf_games=0))
+    on, _ = R.fit(g, pd.Timestamp("2025-12-01"), prior, R.Dials(prior_games=6, conf_games=10))
+    assert off.loc[15, "net"] == pytest.approx(5.0)            # unplayed B team: untouched
+    assert on.loc[15, "net"] < 4.0                             # pooled: pulled down with its conference
+    assert on.loc[5, "net"] == pytest.approx(off.loc[5, "net"], abs=1.0)
+
+
 def test_prior_counts_as_n_games():
     g, *_ = fake_league(n_teams=10)
     prior = pd.DataFrame({"O": 20.0, "D": 0.0, "T": 0.0}, index=range(10))
@@ -122,7 +144,8 @@ def test_prior_counts_as_n_games():
 
 def test_roster_value_minutes_and_newcomers():
     tp = T.TalentPrior.__new__(T.TalentPrior)
-    tp.new_value, tp.d1 = -4.0, {1, 2}
+    tp.new_value, tp.d1, tp.new_coef = -4.0, {1, 2}, (-4.0, 0.0)
+    tp.truth = pd.DataFrame({"season": [2025, 2025], "team_id": [1, 2], "net": [0.0, 0.0]})
     tp.players = pd.DataFrame({"season": 2025, "athlete_id": range(7), "team_id": 1,
                                "minutes": 1000, "value": 2.0, "min_share": 1.0})
     # team 1: six returners at a full slot each (6 > 5 -> scaled to 5)
@@ -133,6 +156,9 @@ def test_roster_value_minutes_and_newcomers():
     assert rv.loc[1, "roster_value"] == pytest.approx(5 * 2.0)
     assert rv.loc[2, "roster_value"] == pytest.approx(1 * 2.0 + 4 * -4.0)
     assert rv.loc[2, "transfer_slots"] == pytest.approx(1)
+    tp.new_coef = (-4.0, 0.2)       # program-based newcomers: team 2 was +10 last season
+    tp.truth.loc[1, "net"] = 10.0
+    assert tp.roster_value(2026, roster).loc[2, "roster_value"] == pytest.approx(1 * 2.0 + 4 * -2.0)
 
 
 def test_log_is_append_only(tmp_path, monkeypatch):

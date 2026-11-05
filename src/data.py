@@ -99,6 +99,19 @@ def build(league: str, refresh_current: bool = True) -> pd.DataFrame:
     return games
 
 
+def conferences(league: str, season: int) -> pd.Series:
+    """team_id -> conference short name for a season (from that season's schedule)."""
+    download(league, season, refresh=False)
+    sc = pd.read_csv(RAW / f"{league}_schedule_{season}.csv", low_memory=False, usecols=[
+        "home_id", "home_conference_id", "away_id", "away_conference_id",
+        "groups_id", "groups_short_name", "conference_competition"])
+    names = (sc[sc.conference_competition == True]  # noqa: E712
+             .drop_duplicates("groups_id").set_index("groups_id").groups_short_name)
+    ids = pd.concat([sc.set_index("home_id").home_conference_id, sc.set_index("away_id").away_conference_id])
+    ids = ids[ids.notna() & ~ids.index.duplicated()]
+    return ids.map(names).dropna().rename("conf")
+
+
 def load_games(league: str) -> pd.DataFrame:
     """Read the games table built by build() (builds it from saved raw files if missing)."""
     f = ROOT / "data" / f"games_{league}.csv"

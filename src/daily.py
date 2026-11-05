@@ -25,6 +25,7 @@ HISTORY = [s for s in D.SEASONS if s < D.CURRENT]
 # Tuned on 2021-22..2024-25, checked on 2025-26 (see build log; analysis/differentiators.py).
 SETTINGS = {"mbb": dict(new_value=-4.0, prior_games=6),
             "wbb": dict(new_value=-4.0, prior_games=4)}
+CONF_GAMES = 30   # in-season conference pooling (analysis/buy_game_fix.py)
 
 
 def todays_games(league: str, day: pd.Timestamp) -> pd.DataFrame:
@@ -39,10 +40,12 @@ def rate(league: str, day: pd.Timestamp, refresh: bool):
     cfg = SETTINGS[league]
     games = D.build(league, refresh_current=refresh)
     roster_now = P.season_stats(league, D.CURRENT, refresh=refresh)
-    talent = T.TalentPrior(league, games, HISTORY, train=HISTORY, new_value=cfg["new_value"])
+    talent = T.TalentPrior(league, games, HISTORY, train=HISTORY, new_value=cfg["new_value"],
+                           conf_feature=True)
     prior = talent.prior(D.CURRENT, R.final_prior(games, D.CURRENT - 1, R.Dials()), roster_now)
     prior.attrs["team_hca"] = R.team_hca(games, D.CURRENT)   # each team's own extra home edge
-    dials = R.Dials(prior_games=cfg["prior_games"])
+    prior.attrs["conf"] = D.conferences(league, D.CURRENT)    # for conference pooling
+    dials = R.Dials(prior_games=cfg["prior_games"], conf_games=CONF_GAMES)
     r, lg_info = R.fit(games[games.season == D.CURRENT], day, prior, dials)
 
     d1 = D.d1_games(games)

@@ -35,6 +35,7 @@ class Dials:
     half_life_days: float = 0.0   # recency: game weight halves every N days (0 = off)
     margin_cap: float = 0.0       # cap per-game efficiency gap per 100 (0 = off)
     hca_games: float = 5000.0     # how firmly home court sticks to its prior value
+    conf_games: float = 0.0       # in-season conference pooling strength (0 = off); needs prior.attrs["conf"]
     sigma: dict = field(default_factory=lambda: {"mbb": 11.7, "wbb": 12.4})  # spread SD
 
 
@@ -88,7 +89,27 @@ def fit(games: pd.DataFrame, asof: pd.Timestamp, prior: pd.DataFrame | None,
     rows = np.tile(np.arange(2 * m), 3)
     cols = np.concatenate([hi, ai, n + ai, n + hi, np.full(2 * m, 2 * n)])
     vals = np.concatenate([np.ones(4 * m), home / 2, -home / 2])
-    X = sparse.csr_matrix((vals, (rows, cols)), shape=(2 * m, 2 * n + 1))
+    # optional conference effects: every team in a conference shares an extra offense and
+    # defense term (centered at 0), so a conference that's under/over-performing its
+    # priors moves together. Identified mostly by non-conference games.
+    conf = attrs.get("conf")
+    K = 0
+    if conf is not None and dials.conf_games > 0 and m:
+        cid = pd.Series(teams).map(conf)
+        codes = {c: k for k, c in enumerate(sorted(cid.dropna().unique()))}
+        K = len(codes)
+        tc = cid.map(codes).values                       # NaN for independents
+        hc_, ac_ = tc[hi], tc[ai]
+        r_, c_ = [], []
+        for eq_rows, off, de in ((np.arange(m), hc_, ac_), (np.arange(m, 2 * m), ac_, hc_)):
+            ok = ~np.isnan(off)
+            r_.append(eq_rows[ok]); c_.append(2 * n + 1 + off[ok].astype(int))
+            ok = ~np.isnan(de)
+            r_.append(eq_rows[ok]); c_.append(2 * n + 1 + K + de[ok].astype(int))
+        r_, c_ = np.concatenate(r_), np.concatenate(c_)
+        rows, cols = np.concatenate([rows, r_]), np.concatenate([cols, c_])
+        vals = np.concatenate([vals, np.ones(len(r_))])
+    X = sparse.csr_matrix((vals, (rows, cols)), shape=(2 * m, 2 * n + 1 + 2 * K))
     y = np.concatenate([eff_h, eff_a]) - avg_eff
 
     p = np.zeros(2 * n + 1)
@@ -102,8 +123,15 @@ def fit(games: pd.DataFrame, asof: pd.Timestamp, prior: pd.DataFrame | None,
         if "w" in pr:
             team_w = pr.w.fillna(1.0).values
     p[2 * n] = attrs.get("hca", DEFAULT_HCA)
-    strength = np.concatenate([np.tile(dials.prior_games * team_w, 2), [dials.hca_games]])
+    p = np.concatenate([p, np.zeros(2 * K)])
+    strength = np.concatenate([np.tile(dials.prior_games * team_w, 2), [dials.hca_games],
+                               np.full(2 * K, dials.conf_games)])
     beta = _ridge(X, y, np.concatenate([w, w]), p, strength)
+    if K:  # fold each conference's shared terms into its teams' ratings
+        add = np.where(np.isnan(tc), 0, 1)
+        k_ = np.nan_to_num(tc).astype(int)
+        beta[:n] += add * beta[2 * n + 1 + k_]
+        beta[n:2 * n] += add * beta[2 * n + 1 + K + k_]
 
     Xt = sparse.csr_matrix((np.ones(2 * m), (np.tile(np.arange(m), 2), np.concatenate([hi, ai]))),
                            shape=(m, n))

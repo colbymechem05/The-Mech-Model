@@ -15,6 +15,7 @@
 import numpy as np
 import pandas as pd
 
+import data as D
 import players as P
 import ratings as R
 
@@ -57,8 +58,15 @@ class TalentPrior:
     """Fit on training seasons, then build a preseason prior for any season."""
 
     def __init__(self, league: str, games: pd.DataFrame, seasons, train,
-                 alpha: float = 1.0, new_value: float = -4.0):
+                 alpha: float = 1.0, new_value: float = -4.0,
+                 new_by_program: bool = False, conf_feature: bool = False):
+        """new_by_program: newcomers' value depends on the program (learned from how past
+        newcomers played vs. their team's previous-season rating) instead of one number.
+        conf_feature: the team model also uses the conference's average last-season rating."""
         self.league, self.new_value = league, new_value
+        self.new_by_program, self.conf_feature = new_by_program, conf_feature
+        self.new_coef = (new_value, 0.0)
+        self.confs = {s: D.conferences(league, s) for s in seasons} if conf_feature else {}
         self.d1 = set(games[games.home_d1].home_id) | set(games[games.away_d1].away_id)
         self.truth = team_truth(games, seasons)
         p = player_table(league, seasons, self.truth)
@@ -76,12 +84,35 @@ class TalentPrior:
         p["value"] = (p.minutes * raw + SHRINK_MINUTES * LOW_VALUE) / (p.minutes + SHRINK_MINUTES)
         self.players = p
 
+        # 4b. newcomer value by program: newcomers' minutes-weighted value vs. team's last net
+        if new_by_program:
+            rows = []
+            for s in train:
+                if s - 1 not in seasons:
+                    continue
+                cur, prev = p[p.season == s], p[p.season == s - 1]
+                new = cur[~cur.athlete_id.isin(prev.athlete_id) & (cur.minutes > 0)]
+                agg = new.groupby("team_id").apply(
+                    lambda x: pd.Series({"v": np.average(x.value, weights=x.minutes), "w": x.minutes.sum()}),
+                    include_groups=False)
+                last = self.truth[self.truth.season == s - 1].set_index("team_id").net
+                agg["last_net"] = last.reindex(agg.index)
+                rows.append(agg.dropna())
+            nt = pd.concat(rows)
+            A = np.column_stack([np.ones(len(nt)), nt.last_net]) * np.sqrt(nt.w.values)[:, None]
+            self.new_coef = tuple(np.linalg.lstsq(A, nt.v.values * np.sqrt(nt.w.values), rcond=None)[0])
+
         # 5. team model, fitted on training seasons that have a previous season
         fs = [self._features(s, P.season_stats(league, s)) for s in train if s - 1 in seasons]
         f = pd.concat(fs, ignore_index=True)
         f = f.merge(self.truth[["season", "team_id", "net"]], on=["season", "team_id"])
-        A = np.column_stack([np.ones(len(f)), f.roster_value, f.last_net])
-        self.coef = np.linalg.lstsq(A, f.net.values, rcond=None)[0]
+        self.coef = np.linalg.lstsq(self._design(f), f.net.values, rcond=None)[0]
+
+    def _design(self, f: pd.DataFrame) -> np.ndarray:
+        cols = [np.ones(len(f)), f.roster_value.values, f.last_net.values]
+        if self.conf_feature:
+            cols.append(f.conf_last.values)
+        return np.column_stack(cols)
 
     def roster_value(self, season: int, roster_now: pd.DataFrame) -> pd.DataFrame:
         """4. Expected roster value per team for `season`."""
@@ -98,7 +129,9 @@ class TalentPrior:
         scale = (5 / slots).clip(upper=1.0)                 # more than 5 slots back: scale down
         r["share"] *= r.team_id.map(scale)
         filled = r.groupby("team_id").share.sum()
-        rv = (r.share * r.value.fillna(0)).groupby(r.team_id).sum() + (5 - filled) * self.new_value
+        last = self.truth[self.truth.season == season - 1].set_index("team_id").net
+        new_v = self.new_coef[0] + self.new_coef[1] * last.reindex(filled.index).fillna(last.quantile(0.2))
+        rv = (r.share * r.value.fillna(0)).groupby(r.team_id).sum() + (5 - filled) * new_v
         return pd.DataFrame({"roster_value": rv, "known_slots": filled,
                              "transfer_slots": (r.share * r.transfer).groupby(r.team_id).sum()})
 
@@ -106,8 +139,20 @@ class TalentPrior:
         f = self.roster_value(season, roster_now)
         last = self.truth[self.truth.season == season - 1].set_index("team_id").net
         f["last_net"] = last.reindex(f.index).fillna(last.quantile(0.2))  # new to D1: low
+        if self.conf_feature:
+            f["conf_last"] = self._conf_last(season, f.last_net)
         f["season"] = season
         return f.rename_axis("team_id").reset_index()
+
+    def _conf_last(self, season: int, last_net: pd.Series) -> pd.Series:
+        """Average last-season rating of the OTHER teams in each team's current conference."""
+        if season not in self.confs:
+            self.confs[season] = D.conferences(self.league, season)
+        conf = self.confs[season].reindex(last_net.index)
+        tot = last_net.groupby(conf).transform("sum")
+        cnt = last_net.groupby(conf).transform("count")
+        out = (tot - last_net) / (cnt - 1)
+        return out.where(cnt > 1).fillna(last_net.median())
 
     def prior(self, season: int, base: pd.DataFrame, roster_now: pd.DataFrame | None = None) -> pd.DataFrame:
         """Preseason prior: `base` (last season's O/D/T + attrs) with each team's net
@@ -122,8 +167,9 @@ class TalentPrior:
             ln = last.reindex(missing).fillna(last.quantile(0.2))
             f = pd.concat([f, pd.DataFrame({"roster_value": icpt + slope * ln, "last_net": ln},
                                            index=missing)])
-        a, b, c = self.coef
-        pred = a + b * f.roster_value + c * f.last_net
+            if self.conf_feature:
+                f["conf_last"] = self._conf_last(season, f.last_net)
+        pred = pd.Series(self._design(f) @ self.coef, index=f.index)
         out = base.copy()
         idx = out.index.intersection(pred.index)
         shift = (pred.loc[idx] - (out.loc[idx, "O"] - out.loc[idx, "D"])) / 2

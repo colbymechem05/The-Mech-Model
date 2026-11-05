@@ -1,0 +1,33 @@
+
+######## WBB ########
+Newcomer value learned: -1.74 + 0.10 x team's last-season net (a -15 team's newcomers: -3.2, a +20 team's: +0.2; today all -4)
+Team model with conference: net = 4.92 + 0.62 roster + 0.44 last + 0.19 conference avg
+  done: today
+  done: 1. newcomers by program
+  done: 2a. conference in preseason
+  done: 1 + 2a
+  done: 2b. conference pooling (10)
+  done: 2b. conference pooling (30)
+  done: 2b. conference pooling (100)
+  done: 2a + 2b (10)
+  done: 2a + 2b (20)
+  done: 2a + 2b (30)
+  done: 2a + 2b (50)
+  done: 1 + 2a + 2b (10)
+  done: 1 + 2a + 2b (30)
+  done: 1 + 2a + 2b (100)
+                     version  tune full  tune Nov-Dec  tune Power gap  25-26 Nov-Dec  25-26 full  25-26 Power gap
+                       today      9.627        10.221           4.068         10.376       9.692            3.660
+     1. newcomers by program      9.641        10.248           4.120         10.392       9.699            3.632
+ 2a. conference in preseason      9.606        10.169           3.102         10.318       9.666            2.589
+                      1 + 2a      9.618        10.194           3.100         10.333       9.671            2.509
+ 2b. conference pooling (10)      9.607        10.174           1.851         10.284       9.654            1.461
+ 2b. conference pooling (30)      9.606        10.172           2.683         10.286       9.655            2.233
+2b. conference pooling (100)      9.614        10.190           3.456         10.326       9.672            3.004
+                2a + 2b (10)      9.602        10.165           1.408         10.300       9.656            1.042
+                2a + 2b (20)      9.598        10.155           1.806         10.282       9.649            1.377
+                2a + 2b (30)      9.597        10.151           2.048         10.279       9.648            1.587
+                2a + 2b (50)      9.597        10.150           2.330         10.282       9.650            1.842
+            1 + 2a + 2b (10)      9.614        10.189           1.400         10.323       9.666            0.987
+            1 + 2a + 2b (30)      9.609        10.175           2.044         10.300       9.657            1.525
+           1 + 2a + 2b (100)      9.612        10.181           2.635         10.309       9.661            2.058
