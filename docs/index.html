@@ -65,6 +65,7 @@ tbody tr:hover td { background: rgba(255,255,255,.02); }
 .fav { color: var(--accent); }
 .strong { color: var(--fg); font-weight: 600; }
 .legend { color: var(--accent); }
+.tag { font-size: 10px; letter-spacing: .04em; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; margin-left: 6px; vertical-align: 1px; }
 .empty { color: var(--muted); padding: 14px 0; margin: 0; }
 .bars { display: grid; gap: 6px; }
 .bar-row { display: grid; grid-template-columns: 110px 1fr 46px; align-items: center; gap: 10px; font-size: 13px; }
@@ -138,7 +139,7 @@ footer a { color: var(--muted); }
     </div>
     <div class="card">
       <h2>Today's games</h2>
-      <p class="note"><span class="legend">Blue team</span> = the Mech favorite. Mech line and Vegas are both from that team's side (a + Vegas number means Vegas has them as the underdog). Gap = Mech minus Vegas: negative means the Mech model likes the favorite more. Bold = toss-up (under 4) or a gap of 3+. A game shows if either team is in a picked conference.</p>
+      <p class="note"><span class="legend">Blue team</span> = the Mech favorite. Mech line and Vegas are both from that team's side (a + Vegas number means Vegas has them as the underdog). Gap = Mech minus Vegas: negative means the Mech model likes the favorite more. Bold = toss-up (under 4) or a gap of 3+. <span class="tag" style="margin-left:0">N</span> = neutral site (the "home" team is just listed second). A game shows if either team is in a picked conference.</p>
       <div class="scroll">
         <table id="lines">
           <thead><tr>
@@ -149,7 +150,6 @@ footer a { color: var(--muted); }
             <th data-col="home_rank" class="num"><button>#</button></th>
             <th data-col="home"><button>Home</button></th>
             <th data-col="home_conf"><button>Conf</button></th>
-            <th data-col="site"><button>Site</button></th>
             <th data-col="my_line" class="num"><button>Mech line</button></th>
             <th data-col="fav_win_pct" class="num"><button>Win %</button></th>
             <th data-col="proj_score" class="num"><button>Proj. (A-H)</button></th>
@@ -282,6 +282,11 @@ footer a { color: var(--muted); }
   };
   const td = (text, cls) => { const c = document.createElement('td'); c.textContent = text; if (cls) c.className = cls; return c; };
   const fill = (tbody, rows) => tbody.replaceChildren(...rows);
+  const homeCell = (r, favHome) => {   // neutral-site games get a small "N" tag
+    const c = td(r.home, favHome ? 'fav' : '');
+    if (r.site) c.append(Object.assign(document.createElement('span'), {className: 'tag', textContent: 'N', title: 'Neutral site'}));
+    return c;
+  };
 
   // ---------- state <-> URL (so a link opens the same view) ----------
   const readHash = () => {
@@ -358,7 +363,7 @@ footer a { color: var(--muted); }
       const close = Math.abs(r.my_line) < TOSSUP, bigGap = r.gap !== null && Math.abs(r.gap) >= BIG_GAP;
       const favHome = r.spread_home >= 0;
       tr.append(td(r.tip, 'muted'), td(String(r.away_rank), 'num faint'), td(r.away, favHome ? '' : 'fav'), td(r.away_conf, 'muted'),
-        td(String(r.home_rank), 'num faint'), td(r.home, favHome ? 'fav' : ''), td(r.home_conf, 'muted'), td(r.site, 'muted'),
+        td(String(r.home_rank), 'num faint'), homeCell(r, favHome), td(r.home_conf, 'muted'),
         td(f1(r.my_line), 'num' + (close ? ' strong' : '')), td(pct(r.fav_win_pct), 'num'),
         td(r.proj_score, 'num'), td(f1(r.proj_tempo), 'num muted'), td(signed(r.vegas_line), 'num'),
         td(f1(r.torvik_line), 'num'), td(signed(r.gap), 'num' + (bigGap ? ' strong' : '')));
