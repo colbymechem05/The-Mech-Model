@@ -88,6 +88,24 @@ input[type=checkbox] { accent-color: var(--orange); }
 .stat .v.o { color: var(--orange); }
 .stat .s { font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
+/* rankings placeholder */
+.soon { padding: 40px 0; max-width: 560px; }
+.soon b { font: 800 26px var(--display); letter-spacing: .03em; text-transform: uppercase; }
+.soon p { font-size: 15.5px; line-height: 1.6; color: var(--fg); margin: 8px 0 0; }
+.soon a { color: var(--blue); }
+
+/* masthead help */
+.mast-q { vertical-align: middle; position: relative; top: -5px; margin-left: 4px; }
+.mast-q .pop { text-transform: none; letter-spacing: 0; white-space: normal; }
+
+/* ---------- one-line scoreboard ticker ---------- */
+.ticker { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 28px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.ticker .it { display: inline-flex; align-items: baseline; gap: 8px; }
+.ticker .it[hidden] { display: none; }
+.ticker .k { font: 600 10.5px var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.ticker b { font: 600 16px var(--num); font-variant-numeric: tabular-nums; color: var(--fg); }
+.ticker .t { font-size: 13.5px; color: var(--muted); }
+
 /* ---------- sections ---------- */
 section[data-page="rankings"] > .scroll:first-child { margin-top: 14px; }
 #rank-tools { margin-right: 8px; gap: 8px; }
@@ -205,7 +223,8 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     </div>
     <nav class="nav" role="tablist">
       <button role="tab" data-tab="today" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Today</button>
-      <button role="tab" data-tab="rankings" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Ratings</button>
+      <button role="tab" data-tab="rankings" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Power Ratings</button>
+      <button role="tab" data-tab="top25" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>Rankings</button>
       <button role="tab" data-tab="record" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>Track Record</button>
       <button role="tab" data-tab="how" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1 1-1 1.7M12 17h.01"/></svg>How It Works</button>
     </nav>
@@ -214,7 +233,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
   <main>
     <div class="mast">
-      <h1><span class="kicker" id="kicker">Today's lines</span><span id="title">—</span></h1>
+      <h1><span class="kicker" id="kicker">Today's lines</span><span id="title">—</span> <span class="q mast-q" id="pr-q" tabindex="0" hidden>?<span class="pop"><b>Power ratings are not rankings.</b> They measure how strong each team is right now (points per 100 possessions vs. an average D1 team), so any two teams can be compared and turned into a line and a win chance. A team can be rated above a team with a better record. Rankings judge résumés (who you&rsquo;ve beaten) and come later in the season.</span></span></h1>
       <div class="filters" id="filters">
         <div class="tools" id="rank-tools" hidden>
           <input type="search" id="search" placeholder="Search teams" aria-label="Search teams">
@@ -231,11 +250,11 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
     <!-- ===== Today ===== -->
     <section data-page="today">
-      <div class="stats">
-        <div class="stat"><div class="k">Games</div><div class="v" id="t-games">—</div><div class="s" id="t-scope">All conferences</div></div>
-        <div class="stat"><div class="k">Toss-ups</div><div class="v" id="t-tossups">—</div><div class="s">Line under 4</div></div>
-        <div class="stat"><div class="k">Closest line</div><div class="v" id="t-closest">—</div><div class="s" id="t-closest-team">—</div></div>
-        <div class="stat" id="t-gap-tile" hidden><div class="k">Biggest gap vs. Vegas</div><div class="v" id="t-gap">—</div><div class="s" id="t-gap-note">—</div></div>
+      <div class="ticker">
+        <span class="it"><span class="k">Games</span><b id="t-games">—</b><span class="t" id="t-scope">All conferences</span></span>
+        <span class="it" title="Games where the Mech line is under 4 points"><span class="k">Toss-ups</span><b id="t-tossups">—</b></span>
+        <span class="it"><span class="k">Closest</span><b id="t-closest">—</b><span class="t" id="t-closest-team">—</span></span>
+        <span class="it" id="t-gap-tile" hidden><span class="k">Biggest gap vs. Vegas</span><b id="t-gap">—</b><span class="t" id="t-gap-note">—</span></span>
       </div>
       <div class="sec">
         <h2>The Board <span class="q" tabindex="0">?<span class="pop">Every D1 game today with the Mech line, from the favorite's side. <b>Vegas</b> is also shown from that team's side (a + number means Vegas has them as the underdog). <b>Gap</b> = Mech minus Vegas: negative means the Mech model likes the favorite more. <b>N</b> = neutral site. Lines are locked before tip and never edited.</span></span></h2>
@@ -290,6 +309,14 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
       <div class="sec"><h2>Conference Strength <span class="q" tabindex="0">?<span class="pop">Average team rating in each conference (teams with 4+ members). Hover a bar for the best team and team count. Picked conferences are highlighted.</span></span></h2></div>
       <div class="bars" id="conf-bars"></div>
+    </section>
+
+    <!-- ===== Rankings (résumé, starts after Feast Week) ===== -->
+    <section data-page="top25" hidden>
+      <div class="soon">
+        <b>No rankings yet.</b>
+        <p>Rankings judge résumés, and in early November nobody has one. The first Mech rankings drop after the Thanksgiving-week tournaments, once teams have played real opponents. Until then, the <a href="#tab=rankings" data-go="rankings">power ratings</a> show who&rsquo;s strongest.</p>
+      </div>
     </section>
 
     <!-- ===== Track record ===== -->
@@ -383,7 +410,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 (() => {
   const POWER = ['SEC', 'Big Ten', 'Big 12', 'ACC', 'Big East'];
   const TOP_N = 100, TOSSUP = 4, BLOWOUT = 15, BIG_GAP = 3;
-  const PAGES = ['today', 'rankings', 'record', 'how'];
+  const PAGES = ['today', 'rankings', 'top25', 'record', 'how'];
   const S = {league: 'mbb', tab: 'today', confs: new Set(), sort: 'spread', scol: '', sdir: 'asc',
              hide: false, rall: false, rsort: 'rank', rcol: '', rdir: 'asc', q: ''};
   const D = {};
@@ -452,11 +479,12 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $$('.league button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.league === S.league)));
     $$('.nav button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === S.tab)));
     $$('section[data-page]').forEach((s) => { s.hidden = s.dataset.page !== S.tab; });
-    const heads = {today: ["Today's lines", longDate()], rankings: [lg(), 'Power Ratings'],
+    const heads = {today: ["Today's lines", longDate()], rankings: [lg(), 'Power Ratings'], top25: [lg(), 'Rankings'],
                    record: [lg(), 'Track Record'], how: ['How it works', 'The Mech Model']};
     $('#kicker').textContent = heads[S.tab][0];
     $('#title').textContent = heads[S.tab][1];
     $('#rank-tools').hidden = S.tab !== 'rankings';
+    $('#pr-q').hidden = S.tab !== 'rankings';
     $('#filters').hidden = S.tab === 'how' || S.tab === 'record';
     $('#conf-all').setAttribute('aria-pressed', String(!S.confs.size));
     $('#conf-power').setAttribute('aria-pressed', String(isPower()));
@@ -496,8 +524,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $('#t-gap-tile').hidden = !big;
     if (big) {
       $('#t-gap').textContent = Math.abs(big.gap).toFixed(1);
-      $('#t-gap-note').textContent = `${big.favorite}: Mech ${f1(big.my_line)}, Vegas ${signed(big.vegas_line)}`;
-      $('#t-gap-tile').title = $('#t-gap-note').textContent;
+      $('#t-gap-note').textContent = `${big.favorite} · Mech ${f1(big.my_line)}, Vegas ${signed(big.vegas_line)}`;
     }
     let g = all.filter((r) => !S.hide || Math.abs(r.my_line) < BLOWOUT);
     const by = {
@@ -657,6 +684,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   // ---------- controls ----------
   $$('.league button').forEach((b) => b.addEventListener('click', () => { S.league = b.dataset.league; render(); }));
   $$('.nav button').forEach((b) => b.addEventListener('click', () => { S.tab = b.dataset.tab; render(); window.scrollTo(0, 0); }));
+  $$('[data-go]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); S.tab = a.dataset.go; render(); }));
   $('#conf-btn').addEventListener('click', () => {
     const p = $('#conf-panel'); p.hidden = !p.hidden; $('#conf-btn').setAttribute('aria-expanded', String(!p.hidden));
   });
