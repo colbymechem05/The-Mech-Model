@@ -110,10 +110,18 @@ def make_lines(league: str, day: pd.Timestamp, r: pd.DataFrame, lg_info: dict,
 def append_log(league: str, lines: pd.DataFrame) -> int:
     """Add lines for games not already logged. Returns how many were added."""
     log = LOGS / f"predictions_{league}.csv"
-    if log.exists():
-        lines = lines[~lines.game_id.isin(pd.read_csv(log, usecols=["game_id"]).game_id)]
-    if len(lines):
-        lines.to_csv(log, mode="a", header=not log.exists(), index=False)
+    old = pd.read_csv(log) if log.exists() else None
+    if old is not None:
+        lines = lines[~lines.game_id.isin(old.game_id)]
+    if not len(lines):
+        return 0
+    if old is None:
+        lines.to_csv(log, index=False)
+    elif list(lines.columns) == list(old.columns):
+        lines.to_csv(log, mode="a", header=False, index=False)
+    else:  # columns changed since the log started: rewrite with the union (old rows untouched)
+        cols = list(old.columns) + [c for c in lines.columns if c not in old.columns]
+        pd.concat([old, lines], ignore_index=True)[cols].to_csv(log, index=False)
     return len(lines)
 
 

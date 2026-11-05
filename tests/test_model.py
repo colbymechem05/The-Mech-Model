@@ -179,6 +179,12 @@ def test_log_is_append_only(tmp_path, monkeypatch):
     log = pd.read_csv(tmp_path / "predictions_mbb.csv")
     assert list(log.game_id) == [1, 2, 3]
     assert log.loc[log.game_id == 2, "my_line"].item() == -7.0       # original kept
+    # a new column shows up later (this broke the Nov 5 run): file stays readable
+    newer = pd.DataFrame({"game_id": [4], "tip": ["19:00"], "my_line": [-1.5]})
+    assert daily.append_log("mbb", newer) == 1
+    log = pd.read_csv(tmp_path / "predictions_mbb.csv")
+    assert list(log.game_id) == [1, 2, 3, 4] and log.tip.isna().sum() == 3
+    assert log.loc[log.game_id == 2, "my_line"].item() == -7.0
 
 
 def test_vegas_line_parsing():
