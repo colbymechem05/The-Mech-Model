@@ -50,13 +50,13 @@ input[type=checkbox] { accent-color: var(--accent); }
 .card .note { color: var(--muted); font-size: 12px; margin: 4px 0 14px; }
 .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 14px; }
 .scroll { max-height: 640px; overflow: auto; }
-table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
-th { position: sticky; top: 0; background: var(--panel); text-align: left; font-weight: 500; color: var(--muted); font-size: 12px; border-bottom: 1px solid var(--line); padding: 8px 10px; white-space: nowrap; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 13px; }
+th { position: sticky; top: 0; background: var(--panel); text-align: left; font-weight: 500; color: var(--muted); font-size: 12px; border-bottom: 1px solid var(--line); padding: 8px 8px; white-space: nowrap; }
 th button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
 th button:hover { color: var(--fg); }
 th[aria-sort="ascending"] button::after { content: " ↑"; color: var(--accent); }
 th[aria-sort="descending"] button::after { content: " ↓"; color: var(--accent); }
-td { padding: 7px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+td { padding: 7px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
 tbody tr:hover td { background: rgba(255,255,255,.02); }
 .num { text-align: right; }
 .muted { color: var(--muted); }
@@ -74,6 +74,9 @@ tbody tr:hover td { background: rgba(255,255,255,.02); }
 .col { flex: 1; max-width: 70px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
 .col .fill { width: 100%; max-width: 32px; background: var(--accent); border-radius: 4px 4px 0 0; }
 .col .v { font-size: 12px; margin-bottom: 4px; }
+.col .pair { display: flex; align-items: flex-end; gap: 3px; width: 100%; max-width: 44px; height: 100%; justify-content: center; }
+.col .pair .fill { max-width: 20px; flex: 1; }
+.col .fill.vegas { background: var(--faint); }
 .col-labels { display: flex; gap: 18px; }
 .col-labels span { flex: 1; max-width: 70px; text-align: center; color: var(--muted); font-size: 12px; padding-top: 6px; }
 .bench { position: absolute; left: 0; right: 0; border-top: 1px dashed var(--muted); }
@@ -116,6 +119,7 @@ footer a { color: var(--muted); }
       <div class="tile"><p class="label">D1 games today</p><p class="big" id="t-games">—</p><p class="note">All conferences</p></div>
       <div class="tile"><p class="label">Toss-ups</p><p class="big" id="t-tossups">—</p><p class="note">Line under 4 points</p></div>
       <div class="tile"><p class="label">Closest line</p><p class="big" id="t-closest">—</p><p class="note" id="t-closest-team">—</p></div>
+      <div class="tile" id="t-gap-tile" hidden><p class="label">Biggest gap vs. Vegas</p><p class="big" id="t-gap">—</p><p class="note" id="t-gap-note">—</p></div>
     </div>
     <div class="tools">
       <label>Sort
@@ -131,7 +135,7 @@ footer a { color: var(--muted); }
     </div>
     <div class="card">
       <h2>Today's games</h2>
-      <p class="note">Lines are The Mech Model's, from the favorite's side. Vegas, Torvik and Gap columns appear once those feeds are connected. A game shows if either team is in a picked conference.</p>
+      <p class="note">Lines are The Mech Model's, from the favorite's side. Vegas is shown from the Mech favorite's side (+ means Vegas has them as the underdog); Gap = Mech minus Vegas, so negative means the Mech model likes the favorite more. Torvik appears once connected. A game shows if either team is in a picked conference.</p>
       <div class="scroll">
         <table id="lines">
           <thead><tr>
@@ -210,11 +214,21 @@ footer a { color: var(--muted); }
       <div class="tile"><p class="label">Average miss</p><p class="big" id="r-miss">—</p><p class="note">2025-26 test: <span id="r-bench-miss">—</span> points</p></div>
       <div class="tile"><p class="label">Winners picked</p><p class="big" id="r-win">—</p><p class="note">2025-26 test: <span id="r-bench-win">—</span></p></div>
     </div>
+    <div class="card" id="vegas-card" hidden>
+      <h2>Mech vs. Vegas</h2>
+      <p class="note">Games where a Vegas line was saved before tip-off. A "pick" is any game where the Mech line differs from Vegas by 3+ points, graded against the Vegas spread (52.4% is break-even at standard odds).</p>
+      <div class="tiles" style="margin-bottom:0">
+        <div class="tile"><p class="label">Games with a Vegas line</p><p class="big" id="v-graded">—</p></div>
+        <div class="tile"><p class="label">Average miss: Mech / Vegas</p><p class="big" id="v-miss">—</p></div>
+        <div class="tile"><p class="label">Mech closer to the final</p><p class="big" id="v-closer">—</p><p class="note">Of games with both lines</p></div>
+        <div class="tile"><p class="label">Picks vs. the number</p><p class="big" id="v-picks">—</p><p class="note" id="v-picks-note">—</p></div>
+      </div>
+    </div>
     <p class="empty" id="record-none" hidden>No graded games yet. Results post the morning after each game. November and December are the model's beta stretch, so expect bigger misses until conference play.</p>
     <div class="grid2">
       <div class="card">
         <h2>Average miss by month</h2>
-        <p class="note">Points between the Mech line and the final margin. Dashed line = 2025-26 test.</p>
+        <p class="note">Points between the line and the final margin. Blue = Mech, gray = Vegas (when saved). Dashed line = 2025-26 test.</p>
         <div id="months"></div>
       </div>
       <div class="card">
@@ -232,7 +246,7 @@ footer a { color: var(--muted); }
       <p class="note">Every graded line, newest first.</p>
       <div class="scroll">
         <table id="log">
-          <thead><tr><th>Date</th><th>Away</th><th>Home</th><th>Favorite</th><th class="num">Mech line</th><th class="num">Win %</th><th class="num">Final (A-H)</th><th class="num">Miss</th><th>Winner right?</th></tr></thead>
+          <thead><tr><th>Date</th><th>Away</th><th>Home</th><th>Favorite</th><th class="num">Mech line</th><th class="num">Vegas</th><th class="num">Win %</th><th class="num">Final (A-H)</th><th class="num">Miss</th><th class="num">Vegas miss</th><th>Winner right?</th><th>Closer</th><th>Pick</th></tr></thead>
           <tbody></tbody>
         </table>
       </div>
@@ -321,6 +335,13 @@ footer a { color: var(--muted); }
     $('#t-tossups').textContent = String(all.filter((r) => Math.abs(r.my_line) < TOSSUP).length);
     $('#t-closest').textContent = best ? f1(best.my_line) : '—';
     $('#t-closest-team').textContent = best ? best.favorite : 'No games today';
+    const withGap = all.filter((r) => r.gap !== null && r.gap !== undefined);
+    const big = withGap.reduce((a, r) => (a === null || Math.abs(r.gap) > Math.abs(a.gap) ? r : a), null);
+    $('#t-gap-tile').hidden = !big;
+    if (big) {
+      $('#t-gap').textContent = Math.abs(big.gap).toFixed(1);
+      $('#t-gap-note').textContent = `${big.favorite}: Mech ${f1(big.my_line)}, Vegas ${signed(big.vegas_line)}`;
+    }
     let g = all.filter((r) => inConf(r.home_conf, r.away_conf)).filter((r) => !S.hide || Math.abs(r.my_line) < BLOWOUT);
     const by = {
       spread: (a, b) => Math.abs(a.my_line) - Math.abs(b.my_line),
@@ -336,7 +357,7 @@ footer a { color: var(--muted); }
       tr.append(td(r.tip, 'muted'), td(String(r.away_rank), 'num faint'), td(r.away), td(r.away_conf, 'muted'),
         td(String(r.home_rank), 'num faint'), td(r.home), td(r.home_conf, 'muted'), td(r.site, 'muted'),
         td(r.favorite), td(f1(r.my_line), 'num' + (close ? ' accent' : '')), td(pct(r.fav_win_pct), 'num'),
-        td(r.proj_score, 'num'), td(f1(r.proj_tempo), 'num muted'), td(f1(r.vegas_line), 'num'),
+        td(r.proj_score, 'num'), td(f1(r.proj_tempo), 'num muted'), td(signed(r.vegas_line), 'num'),
         td(f1(r.torvik_line), 'num'), td(signed(r.gap), 'num' + (bigGap ? ' accent' : '')));
       return tr;
     }));
@@ -391,20 +412,36 @@ footer a { color: var(--muted); }
     $('#r-bench-miss').textContent = num(sum.bench_miss) === null ? '—' : num(sum.bench_miss).toFixed(2);
     $('#r-bench-win').textContent = pct(sum.bench_winner);
     $('#record-none').hidden = sum.graded !== 0;
+    $('#vegas-card').hidden = !sum.vegas_graded;
+    if (sum.vegas_graded) {
+      $('#v-graded').textContent = String(sum.vegas_graded);
+      $('#v-miss').textContent = `${num(sum.my_miss_v).toFixed(2)} / ${num(sum.vegas_miss).toFixed(2)}`;
+      $('#v-closer').textContent = pct(sum.closer_pct);
+      $('#v-picks').textContent = `${sum.pick_w}-${sum.pick_l}` + (sum.pick_p ? `-${sum.pick_p}` : '');
+      $('#v-picks-note').textContent = sum.pick_pct === null ? 'No picks yet' : `${pct(sum.pick_pct)} against the spread`;
+    }
 
     const months = rec.filter((r) => r.kind === 'month');
     const box = $('#months');
     if (!months.length) {
       box.replaceChildren(Object.assign(document.createElement('p'), {className: 'empty', textContent: 'Fills in as games are graded.'}));
     } else {
-      const top = Math.max(...months.map((m) => m.avg_miss), sum.bench_miss || 0) * 1.15;
+      const top = Math.max(...months.map((m) => Math.max(m.avg_miss, m.vegas_miss || 0)), sum.bench_miss || 0) * 1.15;
       const cols = document.createElement('div'); cols.className = 'cols';
       months.forEach((m) => {
         const col = document.createElement('div'); col.className = 'col';
         col.title = `${m.games} games · ${m.winner_pct.toFixed(1)}% winners`;
         const v = document.createElement('span'); v.className = 'v'; v.textContent = m.avg_miss.toFixed(1);
         const f = document.createElement('div'); f.className = 'fill'; f.style.height = (m.avg_miss / top * 100) + '%';
-        col.append(v, f); cols.append(col);
+        if (m.vegas_miss !== null && m.vegas_miss !== undefined) {
+          col.title += ` · Vegas missed by ${m.vegas_miss.toFixed(1)}`;
+          const pair = document.createElement('div'); pair.className = 'pair';
+          const vf = document.createElement('div'); vf.className = 'fill vegas'; vf.style.height = (m.vegas_miss / top * 100) + '%';
+          pair.append(f, vf); col.append(v, pair);
+        } else {
+          col.append(v, f);
+        }
+        cols.append(col);
       });
       if (sum.bench_miss) {
         const b = document.createElement('div'); b.className = 'bench'; b.style.bottom = (sum.bench_miss / top * 100) + '%';
@@ -429,8 +466,10 @@ footer a { color: var(--muted); }
     fill($('#log tbody'), games.map((r) => {
       const tr = document.createElement('tr');
       tr.append(td(r.date, 'muted'), td(r.away), td(r.home), td(r.favorite), td(f1(r.my_line), 'num'),
-        td(pct(r.fav_win_pct), 'num'), td(r.final, 'num'), td(f1(r.miss), 'num'),
-        td(r.winner, r.winner === 'Yes' ? 'accent' : 'muted'));
+        td(signed(r.vegas_line), 'num muted'), td(pct(r.fav_win_pct), 'num'), td(r.final, 'num'), td(f1(r.miss), 'num'),
+        td(f1(r.vegas_miss), 'num muted'), td(r.winner, r.winner === 'Yes' ? 'accent' : 'muted'),
+        td(r.closer || '—', r.closer === 'Mech' ? 'accent' : 'muted'),
+        td(r.pick_result || '—', r.pick_result === 'W' ? 'accent' : 'muted'));
       return tr;
     }));
     $('#log-none').hidden = games.length > 0;

@@ -6,6 +6,8 @@ from scipy.stats import norm
 
 import daily
 import data as D
+import export
+import odds
 import ratings as R
 import talent as T
 
@@ -118,6 +120,50 @@ def test_log_is_append_only(tmp_path, monkeypatch):
     log = pd.read_csv(tmp_path / "predictions_mbb.csv")
     assert list(log.game_id) == [1, 2, 3]
     assert log.loc[log.game_id == 2, "my_line"].item() == -7.0       # original kept
+
+
+def test_vegas_line_parsing():
+    assert odds.home_margin({"details": "DUKE -6.5"}, "DUKE", "UNC") == 6.5      # home favored
+    assert odds.home_margin({"details": "DUKE -6.5"}, "UNC", "DUKE") == -6.5     # away favored
+    assert odds.home_margin({"details": "EVEN"}, "A", "B") == 0.0
+    flags = {"details": "", "spread": -4.0, "awayTeamOdds": {"favorite": True}}
+    assert odds.home_margin(flags, "A", "B") == -4.0                            # fallback to flags
+    assert odds.home_margin({"details": "OFF"}, "A", "B") is None
+
+
+def test_vegas_parse_skips_started_games():
+    def event(gid, state, details):
+        return {"id": str(gid), "competitions": [{
+            "status": {"type": {"state": state}},
+            "odds": [{"details": details, "overUnder": 140.5, "provider": {"name": "Book"}}],
+            "competitors": [{"homeAway": "home", "team": {"abbreviation": "AUB"}},
+                            {"homeAway": "away", "team": {"abbreviation": "SELA"}}]}]}
+    board = {"events": [event(1, "pre", "AUB -18.5"), event(2, "in", "AUB -18.5"), event(3, "pre", "OFF")]}
+    v = odds.parse(board, pd.Timestamp("2026-11-04"))
+    assert list(v.game_id) == [1] and v.vegas_home.item() == 18.5 and v.vegas_total.item() == 140.5
+
+
+def test_vegas_grading(tmp_path, monkeypatch):
+    monkeypatch.setattr(export, "LOGS", tmp_path)
+    monkeypatch.setattr(odds, "LOGS", tmp_path)
+    # Mech: home by 10 / away by 2 / home by 1.   Vegas: home by 6 / home by 1 / home by 1.5
+    pd.DataFrame({"game_id": [1, 2, 3], "date": ["2026-11-04"] * 3, "away": list("abc"), "home": list("xyz"),
+                  "favorite": ["x", "b", "z"], "my_line": [-10.0, -2.0, -1.0], "fav_win_pct": [80.0, 56.0, 53.0],
+                  "spread_home": [10.0, -2.0, 1.0], "p_home": [0.8, 0.44, 0.53]}
+                 ).to_csv(tmp_path / "predictions_mbb.csv", index=False)
+    odds.save("mbb", pd.DataFrame({"game_id": [1, 2, 3], "date": ["2026-11-04"] * 3,
+                                   "vegas_home": [6.0, 1.0, 1.5], "vegas_total": [140.0] * 3,
+                                   "provider": ["Book"] * 3, "fetched_at": ["x"] * 3}))
+    finals = pd.DataFrame({"game_id": [1, 2, 3], "home_pts": [80, 70, 70], "away_pts": [72, 75, 69]})
+    monkeypatch.setattr(D, "load_games", lambda lg: finals.assign(margin=finals.home_pts - finals.away_pts))
+    x = export.grade("mbb").set_index("game_id")
+    assert list(x.vegas_line) == [-6.0, 1.0, -1.5]   # from the Mech favorite's side (Vegas had b as a 1-pt dog)
+    assert list(x.miss) == [2.0, 3.0, 0.0] and list(x.vegas_miss) == [2.0, 6.0, 0.5]
+    # game 1: edge +4 on home, home won by 8 vs 6 -> W.  game 2: edge -3 on away, away won -> W.
+    assert list(x[x.pick].pick_result) == ["W", "W"] and not x.loc[3, "pick"]
+    s = export.record("mbb")["summary"]
+    assert s["vegas_graded"] == 3 and s["pick_w"] == 2 and s["pick_l"] == 0
+    assert s["closer_pct"] == pytest.approx(100 * (0.5 + 1 + 1) / 3, abs=0.1)   # tie, Mech, Mech
 
 
 @needs_data

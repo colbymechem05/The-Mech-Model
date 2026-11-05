@@ -12,9 +12,11 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # run as a script
 import data as D  # noqa: E402
+import odds  # noqa: E402
 
 OUT = D.ROOT / "output"
 LOGS = D.ROOT / "logs"
+PICK_EDGE = 3.0  # a "pick" vs. the Vegas number = Mech line differs by 3+ points
 # 2025-26 holdout (never used for tuning): the benchmark the live record is compared to
 BENCHMARK = {"mbb": {"avg_miss": 9.19, "winner_pct": 71.8}, "wbb": {"avg_miss": 9.70, "winner_pct": 76.5}}
 
@@ -45,7 +47,20 @@ def grade(league: str) -> pd.DataFrame:
     x["miss"] = (x.spread_home - x.margin).abs()
     x["correct"] = (x.spread_home >= 0) == (x.margin > 0)
     x["fav_p"] = np.where(x.spread_home >= 0, x.p_home, 1 - x.p_home)
+    x = x.merge(odds.load(league)[["game_id", "vegas_home"]], on="game_id", how="left")
+    x["vegas_line"] = vegas_for_favorite(x.spread_home, x.vegas_home)
+    x["vegas_miss"] = (x.vegas_home - x.margin).abs()
+    # pick vs. the number: side the Mech line likes, graded against the Vegas spread
+    edge = x.spread_home - x.vegas_home
+    x["pick"] = edge.abs() >= PICK_EDGE
+    cover = np.sign(x.margin - x.vegas_home) * np.sign(edge)  # +1 win, -1 loss, 0 push
+    x["pick_result"] = np.select([cover > 0, cover < 0], ["W", "L"], "P")
     return x
+
+
+def vegas_for_favorite(spread_home, vegas_home):
+    """Vegas spread shown from the Mech favorite's side (e.g. -6.5 = Vegas has them by 6.5)."""
+    return np.where(spread_home >= 0, -vegas_home, vegas_home)
 
 
 def record(league: str) -> dict:
@@ -54,12 +69,22 @@ def record(league: str) -> dict:
     summary = {"kind": "summary", "league": league, "graded": len(x),
                "avg_miss": round(x.miss.mean(), 2) if len(x) else None,
                "winner_pct": round(100 * x.correct.mean(), 1) if len(x) else None,
-               "bench_miss": BENCHMARK[league]["avg_miss"], "bench_winner": BENCHMARK[league]["winner_pct"]}
+               "bench_miss": BENCHMARK[league]["avg_miss"], "bench_winner": BENCHMARK[league]["winner_pct"],
+               "vegas_graded": 0, "my_miss_v": None, "vegas_miss": None, "closer_pct": None,
+               "pick_w": 0, "pick_l": 0, "pick_p": 0, "pick_pct": None}
+    v = x[x.vegas_home.notna()] if len(x) else x
+    if len(v):
+        picks = v[v.pick].pick_result.value_counts()
+        w, l_, p = (int(picks.get(k, 0)) for k in "WLP")
+        summary.update(vegas_graded=len(v), my_miss_v=round(v.miss.mean(), 2),
+                       vegas_miss=round(v.vegas_miss.mean(), 2),
+                       closer_pct=round(100 * ((v.miss < v.vegas_miss) + 0.5 * (v.miss == v.vegas_miss)).mean(), 1),
+                       pick_w=w, pick_l=l_, pick_p=p, pick_pct=round(100 * w / (w + l_), 1) if w + l_ else None)
     if x.empty:
         return {"summary": summary, "games": [], "months": [], "calibration": []}
     x["month"] = pd.to_datetime(x.date).dt.strftime("%Y-%m")
     months = x.groupby("month").agg(games=("miss", "size"), avg_miss=("miss", "mean"),
-                                    winner_pct=("correct", "mean")).reset_index()
+                                    winner_pct=("correct", "mean"), vegas_miss=("vegas_miss", "mean")).reset_index()
     months["winner_pct"] *= 100
     labels = ["50-60%", "60-70%", "70-80%", "80-90%", "90-100%"]
     buckets = pd.cut(x.fav_p, [0.5, 0.6, 0.7, 0.8, 0.9, 1.0], labels=labels, include_lowest=True)
@@ -69,10 +94,15 @@ def record(league: str) -> dict:
     cal[["said", "won"]] *= 100
     x["final"] = x.away_pts.astype(int).astype(str) + "-" + x.home_pts.astype(int).astype(str)
     x["winner"] = np.where(x.correct, "Yes", "No")
+    has_v = x.vegas_home.notna()
+    x["closer"] = np.where(~has_v, None, np.where(x.miss < x.vegas_miss, "Mech",
+                           np.where(x.miss > x.vegas_miss, "Vegas", "Tie")))
+    x["pick_result"] = x.pick_result.where(has_v & x.pick)
     games = x.sort_values(["date", "miss"], ascending=[False, True])[[
-        "game_id", "date", "away", "home", "favorite", "my_line", "fav_win_pct", "final",
-        "miss", "winner"]]
-    tag = lambda df, kind: df.assign(kind=kind, league=league).round(2).to_dict("records")  # noqa: E731
+        "game_id", "date", "away", "home", "favorite", "my_line", "vegas_line", "fav_win_pct", "final",
+        "miss", "vegas_miss", "winner", "closer", "pick_result"]]
+    tag = lambda df, kind: (df.assign(kind=kind, league=league).round(2)  # noqa: E731
+                            .astype(object).where(lambda d: d.notna(), None).to_dict("records"))
     return {"summary": summary, "games": tag(games, "game"), "months": tag(months, "month"),
             "calibration": tag(cal.reset_index(drop=True), "calibration")}
 
@@ -93,7 +123,10 @@ def league_tables(league: str, day: pd.Timestamp) -> dict:
                           usecols=["game_id", "home_id", "away_id"]).set_index("game_id")
         lines["home_conf"] = lines.game_id.map(ids.home_id).map(conf).fillna("Ind.")
         lines["away_conf"] = lines.game_id.map(ids.away_id).map(conf).fillna("Ind.")
-        lines["gap"] = (lines.my_line - lines.vegas_line) if lines.vegas_line.notna().any() else None
+        vegas = odds.load(league).set_index("game_id")
+        lines["vegas_line"] = vegas_for_favorite(lines.spread_home, lines.game_id.map(vegas.vegas_home))
+        lines["vegas_total"] = lines.game_id.map(vegas.vegas_total)
+        lines["gap"] = (lines.my_line - lines.vegas_line).round(1)
         lines["tip24"] = lines.tip
         lines["tip"] = pd.to_datetime(lines.tip, format="%H:%M").dt.strftime("%-I:%M %p")
         lines["site"] = np.where(lines.neutral, "Neutral", "")
