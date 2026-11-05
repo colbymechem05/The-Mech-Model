@@ -1,0 +1,154 @@
+
+################ MBB ################
+
+1) Are dictators better teams? (end-of-season net rating by tier)
+           size  mean
+tier                 
+Chameleon   604   0.2
+Middle      605  -0.5
+Dictator    606   0.3
+
+2) After Jan 15: does each tier beat our line? (all games)
+           team-games  beat our line by  ± 1 SE
+tier                                           
+Chameleon        9668              0.15    0.11
+Middle           9655              0.02    0.11
+Dictator         9645             -0.16    0.11
+
+3) Dictator vs. chameleon head-to-head after Jan 15, dictator's view: 3301 games, beat line by -0.42 (± 0.19), won 49%
+
+4) NCAA tournament by tier
+           team-games  beat our line by  ± 1 SE
+tier                                           
+Chameleon         230             -0.52    0.79
+Middle            214              0.94    0.78
+Dictator          226             -0.36    0.81
+   dictator vs chameleon in the tournament: 78 games, beat line by +0.25 (± 1.57), won 51%
+
+5) After Jan 15 by conference type x tier
+                 team-games  beat our line by  ± 1 SE
+power tier                                           
+Power Chameleon        2445              0.04    0.23
+      Middle           2013              0.10    0.25
+      Dictator         2219              0.01    0.24
+non-P Chameleon        7223              0.18    0.13
+      Middle           7642             -0.00    0.12
+      Dictator         7426             -0.22    0.13
+
+6) Most consistent DICTATORS, 5 seasons (avg control percentile; seasons as a dictator):
+                         team          conf  avg_pct  dict_seasons  cham_seasons   net
+       North Texas Mean Green      American     96.0             5             0  10.2
+           Virginia Cavaliers           ACC     95.8             5             0  12.3
+              Cornell Big Red           Ivy     89.1             5             0   3.2
+                Towson Tigers           CAA     88.4             5             0   4.0
+            Air Force Falcons Mountain West     86.5             4             0 -10.3
+          Arkansas Razorbacks           SEC     86.3             5             0  15.5
+             Arizona Wildcats        Big 12     86.0             4             0  25.9
+         Alabama Crimson Tide           SEC     85.2             5             0  23.1
+             New Mexico Lobos Mountain West     85.2             4             0  11.8
+Cal State Northridge Matadors      Big West     83.8             4             0  -6.1
+
+   Most consistent CHAMELEONS:
+                      team      conf  avg_pct  dict_seasons  cham_seasons   net
+         Manhattan Jaspers      MAAC     15.8             0             5 -10.2
+          Longwood Lancers Big South     18.2             0             5  -0.7
+  Western Michigan Broncos       MAC     18.3             0             5 -11.3
+            Bucknell Bison   Patriot     19.6             0             5  -9.7
+            Monmouth Hawks       CAA     22.2             0             4  -5.2
+Loyola Maryland Greyhounds   Patriot     22.8             0             3 -11.7
+           Kansas Jayhawks    Big 12     24.0             0             3  20.8
+     Alabama State Hornets      SWAC     24.9             1             3 -12.0
+    Loyola Marymount Lions       WCC     24.9             0             4  -0.6
+ Eastern Illinois Panthers       OVC     25.0             1             4 -15.2
+
+   Among good programs (avg net > +10), dictators vs chameleons:
+                  team          conf  avg_pct  dict_seasons  cham_seasons  net
+North Texas Mean Green      American     96.0             5             0 10.2
+    Virginia Cavaliers           ACC     95.8             5             0 12.3
+   Arkansas Razorbacks           SEC     86.3             5             0 15.5
+      Arizona Wildcats        Big 12     86.0             4             0 25.9
+  Alabama Crimson Tide           SEC     85.2             5             0 23.1
+      New Mexico Lobos Mountain West     85.2             4             0 11.8
+       Kansas Jayhawks        Big 12     24.0             0             3 20.8
+     Utah State Aggies Mountain West     26.1             0             4 15.1
+           USC Trojans       Big Ten     26.3             1             4 10.5
+      Duke Blue Devils           ACC     27.0             1             4 27.7
+          Oregon Ducks       Big Ten     29.3             0             3 11.3
+          Baylor Bears        Big 12     30.0             0             3 19.5
+
+################ WBB ################
+
+1) Are dictators better teams? (end-of-season net rating by tier)
+           size  mean
+tier                 
+Chameleon   600  -1.6
+Middle      602   1.0
+Dictator    603   0.6
+
+2) After Jan 15: does each tier beat our line? (all games)
+           team-games  beat our line by  ± 1 SE
+tier                                           
+Chameleon        9128             -0.11    0.12
+Middle           9290             -0.09    0.12
+Dictator         9328              0.20    0.12
+
+3) Dictator vs. chameleon head-to-head after Jan 15, dictator's view: 3121 games, beat line by +0.44 (± 0.21), won 55%
+
+4) NCAA tournament by tier
+           team-games  beat our line by  ± 1 SE
+tier                                           
+Chameleon         193             -0.31    0.81
+Middle            239              0.08    0.81
+Dictator          238              0.17    0.81
+   dictator vs chameleon in the tournament: 75 games, beat line by +0.73 (± 1.47), won 44%
+
+5) After Jan 15 by conference type x tier
+                 team-games  beat our line by  ± 1 SE
+power tier                                           
+Power Chameleon        2034             -0.18    0.26
+      Middle           2133              0.28    0.26
+      Dictator         1983              0.09    0.28
+non-P Chameleon        7094             -0.09    0.14
+      Middle           7157             -0.20    0.13
+      Dictator         7345              0.23    0.14
+
+6) Most consistent DICTATORS, 5 seasons (avg control percentile; seasons as a dictator):
+                         team          conf  avg_pct  dict_seasons  cham_seasons   net
+                 Troy Trojans      Sun Belt     97.6             5             0   7.6
+             Oklahoma Sooners           SEC     96.8             5             0  27.1
+          UAlbany Great Danes      Am. East     96.1             5             0   1.8
+             Wyoming Cowgirls Mountain West     95.1             5             0   4.3
+           Vermont Catamounts      Am. East     95.0             5             0   6.6
+        Niagara Purple Eagles         Metro     93.0             5             0 -16.0
+North Carolina Central Eagles          MEAC     92.9             5             0 -18.7
+      Florida State Seminoles           ACC     92.3             5             0  19.2
+               Drexel Dragons           CAA     89.2             5             0   3.1
+   California Baptist Lancers           UAC     88.5             4             0   1.1
+
+   Most consistent CHAMELEONS:
+                      team      conf  avg_pct  dict_seasons  cham_seasons   net
+     Old Dominion Monarchs  Sun Belt     11.7             0             4   3.6
+   Northern Kentucky Norse   Horizon     16.1             0             5  -2.3
+             Yale Bulldogs       Ivy     16.2             0             4  -8.5
+           Bryant Bulldogs  Am. East     18.1             0             4 -11.5
+Alabama State Lady Hornets      SWAC     18.6             0             5 -21.3
+           Charlotte 49ers  American     18.8             0             4  -0.6
+       Radford Highlanders Big South     19.1             0             3 -13.2
+         Stanford Cardinal       ACC     20.4             0             4  30.6
+      Louisville Cardinals       ACC     20.7             0             5  29.7
+    Norfolk State Spartans      MEAC     21.1             0             4   2.8
+
+   Among good programs (avg net > +10), dictators vs chameleons:
+                    team     conf  avg_pct  dict_seasons  cham_seasons  net
+        Oklahoma Sooners      SEC     96.8             5             0 27.1
+ Florida State Seminoles      ACC     92.3             5             0 19.2
+       Green Bay Phoenix  Horizon     86.7             5             0 13.4
+    St. John's Red Storm Big East     86.5             5             0 10.2
+     Ohio State Buckeyes  Big Ten     84.8             4             0 29.7
+   Penn State Lady Lions  Big Ten     84.0             5             0 10.6
+       Stanford Cardinal      ACC     20.4             0             4 30.6
+    Louisville Cardinals      ACC     20.7             0             5 29.7
+Illinois Fighting Illini  Big Ten     26.0             1             4 17.2
+    Alabama Crimson Tide      SEC     27.5             1             3 24.8
+          Florida Gators      SEC     28.1             0             3 16.3
+      Creighton Bluejays Big East     28.4             0             3 21.9

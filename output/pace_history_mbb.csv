@@ -1,0 +1,1816 @@
+team,control,pct,tier,conf,season,net_final,team_name
+2,45.77,57.22,Middle,SEC,2022,21.2,Auburn Tigers
+5,6.41,13.61,Chameleon,C-USA,2022,13.92,UAB Blazers
+6,40.05,51.39,Middle,Sun Belt,2022,2.12,South Alabama Jaguars
+8,88.07,91.67,Dictator,SEC,2022,17.37,Arkansas Razorbacks
+9,14.86,22.22,Chameleon,Pac-12,2022,5.78,Arizona State Sun Devils
+12,101.92,99.72,Dictator,Pac-12,2022,25.3,Arizona Wildcats
+13,77.09,84.72,Dictator,Big West,2022,-12.08,Cal Poly Mustangs
+16,-20.71,2.78,Chameleon,Big Sky,2022,-13.1,Sacramento State Hornets
+21,51.65,63.33,Middle,Mountain West,2022,14.91,San Diego State Aztecs
+23,38.21,50.0,Middle,Mountain West,2022,-11.53,San José State Spartans
+24,36.93,48.06,Middle,Pac-12,2022,4.13,Stanford Cardinal
+25,92.23,93.89,Dictator,Pac-12,2022,1.03,California Golden Bears
+26,42.59,53.33,Middle,Pac-12,2022,22.3,UCLA Bruins
+27,50.72,62.22,Middle,Big West,2022,0.0,UC Riverside Highlanders
+28,68.84,80.0,Dictator,Big West,2022,-7.47,UC San Diego Tritons
+30,11.33,18.33,Chameleon,Pac-12,2022,12.98,USC Trojans
+36,0.3,9.72,Chameleon,Mountain West,2022,12.86,Colorado State Rams
+38,13.86,20.83,Chameleon,Pac-12,2022,9.1,Colorado Buffaloes
+41,14.71,21.94,Chameleon,Big East,2022,17.73,UConn Huskies
+42,19.26,27.22,Chameleon,Am. East,2022,-7.83,Hartford Hawks
+43,33.73,42.78,Middle,Ivy,2022,1.96,Yale Bulldogs
+44,27.51,36.94,Middle,Patriot,2022,-15.28,American University Eagles
+45,54.85,67.5,Dictator,A 10,2022,-4.87,George Washington Revolutionaries
+46,68.98,80.28,Dictator,Big East,2022,-1.74,Georgetown Hoyas
+47,64.63,76.94,Dictator,MEAC,2022,-3.58,Howard Bison
+48,39.4,51.11,Middle,CAA,2022,2.43,Delaware Blue Hens
+50,46.04,57.78,Middle,SWAC,2022,-11.23,Florida A&M Rattlers
+52,23.49,32.22,Chameleon,ACC,2022,4.74,Florida State Seminoles
+55,77.94,85.0,Dictator,ASUN,2022,2.42,Jacksonville State Gamecocks
+56,66.48,77.5,Dictator,ASUN,2022,-11.16,Stetson Hatters
+57,41.24,52.5,Middle,SEC,2022,11.65,Florida Gators
+58,89.98,92.78,Dictator,American,2022,-6.96,South Florida Bulls
+59,59.7,71.94,Dictator,ACC,2022,-0.7,Georgia Tech Yellow Jackets
+61,57.37,69.44,Dictator,SEC,2022,-4.78,Georgia Bulldogs
+62,54.66,67.22,Dictator,Big West,2022,0.57,Hawai'i Rainbow Warriors
+66,34.7,45.56,Middle,Big 12,2022,12.36,Iowa State Cyclones
+68,-29.83,1.67,Chameleon,Mountain West,2022,13.68,Boise State Broncos
+70,56.93,68.89,Dictator,Big Sky,2022,-14.15,Idaho Vandals
+71,23.62,32.78,Chameleon,MVC,2022,8.22,Bradley Braves
+77,49.49,61.39,Middle,Big Ten,2022,7.9,Northwestern Wildcats
+79,93.73,96.11,Dictator,MVC,2022,3.74,Southern Illinois Salukis
+82,19.5,27.78,Chameleon,Horizon,2022,-8.36,UIC Flames
+84,-17.1,3.33,Chameleon,Big Ten,2022,13.04,Indiana Hoosiers
+85,89.28,92.5,Dictator,Horizon,2022,-29.62,IU Indianapolis Jaguars
+87,51.11,63.06,Middle,ACC,2022,12.74,Notre Dame Fighting Irish
+91,87.94,91.39,Dictator,ASUN,2022,-2.63,Bellarmine Knights
+93,39.13,50.56,Middle,OVC,2022,16.1,Murray State Racers
+94,43.03,54.72,Middle,Horizon,2022,-0.77,Northern Kentucky Norse
+96,36.05,47.22,Middle,SEC,2022,23.97,Kentucky Wildcats
+97,38.71,50.28,Middle,ACC,2022,1.9,Louisville Cardinals
+98,33.89,43.33,Middle,C-USA,2022,4.25,Western Kentucky Hilltoppers
+99,26.11,35.0,Middle,SEC,2022,18.7,LSU Tigers
+103,42.91,54.17,Middle,ACC,2022,2.65,Boston College Eagles
+104,92.51,94.44,Dictator,Patriot,2022,-2.13,Boston University Terriers
+107,11.74,19.17,Chameleon,Patriot,2022,-17.88,Holy Cross Crusaders
+108,16.75,24.44,Chameleon,Ivy,2022,-3.38,Harvard Crimson
+111,52.67,65.0,Middle,CAA,2022,-6.69,Northeastern Huskies
+113,8.15,15.0,Chameleon,A 10,2022,-1.62,Massachusetts Minutemen
+116,51.97,63.61,Middle,NEC,2022,-5.31,Mount St. Mary's Mountaineers
+119,62.45,74.17,Dictator,CAA,2022,10.81,Towson Tigers
+120,19.02,26.94,Chameleon,Big Ten,2022,7.94,Maryland Terrapins
+127,28.56,38.61,Middle,Big Ten,2022,13.01,Michigan State Spartans
+130,29.44,39.72,Middle,Big Ten,2022,14.43,Michigan Wolverines
+135,21.51,29.72,Chameleon,Big Ten,2022,3.93,Minnesota Golden Gophers
+139,-5.37,5.83,Chameleon,A 10,2022,11.35,Saint Louis Billikens
+140,-16.15,3.61,Chameleon,Summit,2022,-3.6,Kansas City Roos
+142,23.61,32.5,Chameleon,SEC,2022,0.06,Missouri Tigers
+145,57.53,69.72,Dictator,SEC,2022,4.63,Ole Miss Rebels
+147,3.26,10.83,Chameleon,Big Sky,2022,3.01,Montana State Bobcats
+149,36.26,47.78,Middle,Big Sky,2022,-6.05,Montana Grizzlies
+150,-4.44,6.11,Chameleon,ACC,2022,23.04,Duke Blue Devils
+151,14.6,21.67,Chameleon,American,2022,-1.64,East Carolina Pirates
+152,17.38,25.0,Chameleon,ACC,2022,2.01,NC State Wolfpack
+153,25.81,34.72,Middle,ACC,2022,17.2,North Carolina Tar Heels
+154,8.34,15.28,Chameleon,ACC,2022,13.67,Wake Forest Demon Deacons
+155,49.04,60.56,Middle,Summit,2022,-18.88,North Dakota Fighting Hawks
+156,15.54,23.33,Chameleon,Big East,2022,10.74,Creighton Bluejays
+158,78.22,85.56,Dictator,Big Ten,2022,0.39,Nebraska Cornhuskers
+159,72.99,83.06,Dictator,Ivy,2022,-2.6,Dartmouth Big Green
+160,94.67,96.94,Dictator,Am. East,2022,-4.16,New Hampshire Wildcats
+161,33.95,43.89,Middle,NEC,2022,-18.31,Fairleigh Dickinson Knights
+163,56.38,68.61,Dictator,Ivy,2022,6.14,Princeton Tigers
+164,29.7,40.28,Middle,Big Ten,2022,8.36,Rutgers Scarlet Knights
+166,12.71,20.0,Chameleon,WAC,2022,9.5,New Mexico State Aggies
+167,98.85,97.78,Dictator,Mountain West,2022,-0.16,New Mexico Lobos
+171,26.9,36.67,Middle,Ivy,2022,-18.9,Columbia Lions
+172,92.61,94.72,Dictator,Ivy,2022,-1.4,Cornell Big Red
+179,35.54,46.67,Middle,A 10,2022,9.25,St. Bonaventure Bonnies
+183,22.08,31.11,Chameleon,ACC,2022,9.45,Syracuse Orange
+189,98.62,97.5,Dictator,MAC,2022,-9.06,Bowling Green Falcons
+193,-2.94,7.22,Chameleon,MAC,2022,-6.56,Miami (OH) RedHawks
+194,56.97,69.17,Dictator,Big Ten,2022,14.8,Ohio State Buckeyes
+195,-3.74,6.39,Chameleon,MAC,2022,4.14,Ohio Bobcats
+197,26.71,36.11,Middle,Big 12,2022,13.32,Oklahoma State Cowboys
+198,59.14,71.67,Dictator,Summit,2022,1.18,Oral Roberts Golden Eagles
+201,-7.12,5.56,Chameleon,Big 12,2022,14.24,Oklahoma Sooners
+202,35.65,46.94,Middle,American,2022,-0.92,Tulsa Golden Hurricane
+204,-23.26,2.22,Chameleon,Pac-12,2022,-6.55,Oregon State Beavers
+213,93.27,95.83,Dictator,Big Ten,2022,7.42,Penn State Nittany Lions
+218,67.04,78.33,Dictator,American,2022,3.56,Temple Owls
+219,-2.52,7.5,Chameleon,Ivy,2022,-3.01,Pennsylvania Quakers
+221,63.14,75.28,Dictator,ACC,2022,-3.99,Pittsburgh Panthers
+222,93.25,95.56,Dictator,Big East,2022,22.99,Villanova Wildcats
+225,25.49,34.44,Middle,Ivy,2022,-2.12,Brown Bears
+227,18.74,26.39,Chameleon,A 10,2022,3.41,Rhode Island Rams
+228,13.09,20.56,Chameleon,ACC,2022,9.58,Clemson Tigers
+231,-0.03,9.44,Chameleon,Southern,2022,10.94,Furman Paladins
+232,76.01,83.89,Dictator,CAA,2022,2.15,Charleston Cougars
+233,42.32,53.06,Middle,Summit,2022,-3.15,South Dakota Coyotes
+235,90.51,93.33,Dictator,American,2022,15.55,Memphis Tigers
+236,78.14,85.28,Dictator,Southern,2022,11.44,Chattanooga Mocs
+238,9.76,16.11,Chameleon,SEC,2022,10.95,Vanderbilt Commodores
+239,-30.73,1.39,Chameleon,Big 12,2022,25.15,Baylor Bears
+242,11.16,17.78,Chameleon,C-USA,2022,-3.82,Rice Owls
+245,21.89,30.83,Chameleon,SEC,2022,13.25,Texas A&M Aggies
+248,34.96,45.83,Middle,American,2022,27.86,Houston Cougars
+249,99.44,98.33,Dictator,C-USA,2022,12.84,North Texas Mean Green
+250,52.17,64.17,Middle,Sun Belt,2022,-4.8,UT Arlington Mavericks
+251,94.48,96.67,Dictator,Big 12,2022,19.59,Texas Longhorns
+252,-3.45,6.94,Chameleon,WCC,2022,11.65,BYU Cougars
+253,5.74,12.5,Chameleon,Big Sky,2022,0.74,Southern Utah Thunderbirds
+254,15.22,22.78,Chameleon,Pac-12,2022,3.46,Utah Utes
+256,15.3,23.06,Chameleon,CAA,2022,-4.09,James Madison Dukes
+257,16.04,23.61,Chameleon,A 10,2022,8.35,Richmond Spiders
+258,108.28,100.0,Dictator,ACC,2022,9.19,Virginia Cavaliers
+259,70.75,82.22,Dictator,ACC,2022,17.22,Virginia Tech Hokies
+261,31.73,41.39,Middle,Am. East,2022,14.62,Vermont Catamounts
+264,61.36,73.61,Dictator,Pac-12,2022,2.98,Washington Huskies
+265,22.6,31.67,Chameleon,Pac-12,2022,13.59,Washington State Cougars
+269,88.51,91.94,Dictator,Big East,2022,10.57,Marquette Golden Eagles
+270,49.43,61.11,Middle,Horizon,2022,-14.62,Milwaukee Panthers
+275,19.49,27.5,Chameleon,Big Ten,2022,13.49,Wisconsin Badgers
+276,64.46,76.67,Dictator,C-USA,2022,-5.15,Marshall Thundering Herd
+277,66.15,77.22,Dictator,Big 12,2022,9.47,West Virginia Mountaineers
+278,95.92,97.22,Dictator,Mountain West,2022,10.67,Fresno State Bulldogs
+279,57.85,70.0,Dictator,WCC,2022,-10.58,Pacific Tigers
+282,69.47,81.11,Dictator,MVC,2022,-4.05,Indiana State Sycamores
+288,31.8,41.67,Middle,ASUN,2022,-7.67,Lipscomb Bisons
+290,-11.58,4.17,Chameleon,Sun Belt,2022,-6.37,Georgia Southern Eagles
+292,81.84,88.33,Dictator,WAC,2022,-11.01,UT Rio Grande Valley Vaqueros
+294,62.01,73.89,Dictator,ASUN,2022,0.55,Jacksonville Dolphins
+295,80.53,87.22,Dictator,C-USA,2022,-1.28,Old Dominion Monarchs
+299,39.35,50.83,Middle,Big West,2022,0.09,Long Beach State Beach
+300,84.81,90.28,Dictator,Big West,2022,3.59,UC Irvine Anteaters
+301,4.24,12.22,Chameleon,WCC,2022,-5.32,San Diego Toreros
+302,18.5,25.83,Chameleon,Big West,2022,-3.16,UC Davis Aggies
+304,81.28,87.78,Dictator,Big Sky,2022,-17.05,Idaho State Bengals
+305,11.57,18.89,Chameleon,Big East,2022,5.6,DePaul Blue Demons
+309,43.89,55.83,Middle,Sun Belt,2022,0.0,Louisiana Ragin' Cajuns
+311,26.19,35.28,Middle,Am. East,2022,-20.07,Maine Black Bears
+314,54.24,66.11,Middle,MAAC,2022,8.94,Iona Gaels
+315,83.14,89.72,Dictator,MAAC,2022,-0.96,Niagara Purple Eagles
+322,7.75,14.72,Chameleon,Patriot,2022,-12.44,Lafayette Leopards
+324,33.29,42.5,Middle,Sun Belt,2022,1.97,Coastal Carolina Chanticleers
+325,12.13,19.44,Chameleon,Horizon,2022,0.02,Cleveland State Vikings
+326,63.63,76.39,Dictator,Sun Belt,2022,2.72,Texas State Bobcats
+328,-0.29,9.17,Chameleon,Mountain West,2022,11.77,Utah State Aggies
+331,57.92,70.28,Dictator,Big Sky,2022,-3.34,Eastern Washington Eagles
+333,54.58,66.94,Dictator,SEC,2022,14.95,Alabama Crimson Tide
+338,-1.57,8.33,Chameleon,ASUN,2022,-3.55,Kennesaw State Owls
+339,73.88,83.33,Dictator,MVC,2022,-15.32,Evansville Purple Aces
+344,63.3,75.83,Dictator,SEC,2022,12.59,Mississippi State Bulldogs
+349,58.74,71.11,Dictator,Patriot,2022,-8.77,Army Black Knights
+350,50.35,61.94,Middle,CAA,2022,1.44,UNC Wilmington Seahawks
+356,6.17,13.33,Chameleon,Big Ten,2022,18.18,Illinois Fighting Illini
+357,43.44,55.28,Middle,Southland,2022,-4.88,Texas A&M-Corpus Christi Islanders
+399,34.17,44.44,Middle,Am. East,2022,-8.68,UAlbany Great Danes
+526,46.87,58.33,Middle,ASUN,2022,-1.85,Florida Gulf Coast Eagles
+2000,60.27,72.78,Dictator,WAC,2022,3.74,Abilene Christian Wildcats
+2005,99.24,98.06,Dictator,Mountain West,2022,-8.85,Air Force Falcons
+2006,67.18,78.89,Dictator,MAC,2022,3.6,Akron Zips
+2010,56.08,67.78,Dictator,SWAC,2022,-12.98,Alabama A&M Bulldogs
+2011,63.12,75.0,Dictator,SWAC,2022,-11.63,Alabama State Hornets
+2016,14.18,21.11,Chameleon,SWAC,2022,-7.5,Alcorn State Braves
+2026,88.56,92.22,Dictator,Sun Belt,2022,0.24,App State Mountaineers
+2029,21.38,29.44,Chameleon,SWAC,2022,-20.72,Arkansas-Pine Bluff Golden Lions
+2031,68.0,79.44,Dictator,Sun Belt,2022,-14.66,Little Rock Trojans
+2032,27.89,37.22,Middle,Sun Belt,2022,-1.27,Arkansas State Red Wolves
+2046,3.51,11.39,Chameleon,OVC,2022,-9.79,Austin Peay Governors
+2050,47.76,58.89,Middle,MAC,2022,-7.84,Ball State Cardinals
+2057,52.47,64.44,Middle,OVC,2022,10.82,Belmont Bruins
+2065,31.03,40.83,Middle,SWAC,2022,-15.36,Bethune-Cookman Wildcats
+2066,-0.8,8.61,Chameleon,Am. East,2022,-9.15,Binghamton Bearcats
+2083,21.32,29.17,Chameleon,Patriot,2022,-15.05,Bucknell Bison
+2084,67.16,78.61,Dictator,MAC,2022,4.41,Buffalo Bulls
+2086,83.09,89.44,Dictator,Big East,2022,0.81,Butler Bulldogs
+2097,101.65,99.44,Dictator,Big South,2022,-2.23,Campbell Fighting Camels
+2099,44.85,56.11,Middle,MAAC,2022,-7.0,Canisius Golden Griffins
+2110,40.72,51.94,Middle,ASUN,2022,-14.62,Central Arkansas Bears
+2115,17.09,24.72,Chameleon,NEC,2022,-18.13,Central Connecticut Blue Devils
+2116,-8.73,4.72,Chameleon,American,2022,5.57,UCF Knights
+2117,24.33,33.61,Middle,MAC,2022,-14.04,Central Michigan Chippewas
+2127,58.17,70.83,Dictator,Big South,2022,-18.88,Charleston Southern Buccaneers
+2130,18.83,26.67,Chameleon,WAC,2022,-16.77,Chicago State Cougars
+2132,53.23,65.28,Middle,American,2022,7.02,Cincinnati Bearcats
+2142,16.11,23.89,Chameleon,Patriot,2022,5.43,Colgate Raiders
+2154,80.16,86.94,Dictator,MEAC,2022,-11.28,Coppin State Eagles
+2166,71.33,82.78,Dictator,A 10,2022,13.51,Davidson Wildcats
+2168,82.32,89.17,Dictator,A 10,2022,13.86,Dayton Flyers
+2169,-9.05,4.44,Chameleon,MEAC,2022,-23.27,Delaware State Hornets
+2172,26.75,36.39,Middle,Summit,2022,-9.88,Denver Pioneers
+2174,3.97,11.67,Chameleon,Horizon,2022,-4.39,Detroit Mercy Titans
+2181,8.7,15.56,Chameleon,MVC,2022,9.9,Drake Bulldogs
+2182,8.8,15.83,Chameleon,CAA,2022,1.71,Drexel Dragons
+2184,40.92,52.22,Middle,A 10,2022,-9.31,Duquesne Dukes
+2193,29.05,39.17,Middle,Southern,2022,-1.33,East Tennessee State Buccaneers
+2197,14.48,21.39,Chameleon,OVC,2022,-24.9,Eastern Illinois Panthers
+2198,81.25,87.5,Dictator,ASUN,2022,-6.07,Eastern Kentucky Colonels
+2199,62.52,74.44,Dictator,MAC,2022,-12.37,Eastern Michigan Eagles
+2210,66.95,78.06,Dictator,CAA,2022,-7.48,Elon Phoenix
+2217,100.36,99.17,Dictator,MAAC,2022,-1.84,Fairfield Stags
+2226,29.65,40.0,Middle,C-USA,2022,4.13,Florida Atlantic Owls
+2229,45.83,57.5,Middle,C-USA,2022,-7.53,Florida International Panthers
+2230,19.73,28.06,Chameleon,A 10,2022,-0.69,Fordham Rams
+2239,54.21,65.83,Middle,Big West,2022,1.51,Cal State Fullerton Titans
+2241,48.46,60.28,Middle,Big South,2022,0.71,Gardner-Webb Runnin' Bulldogs
+2244,31.37,41.11,Middle,A 10,2022,4.97,George Mason Patriots
+2247,28.13,38.33,Middle,Sun Belt,2022,0.88,Georgia State Panthers
+2250,51.03,62.78,Middle,WCC,2022,29.29,Gonzaga Bulldogs
+2253,67.68,79.17,Dictator,WAC,2022,8.74,Grand Canyon Lopes
+2261,75.2,83.61,Dictator,Big South,2022,-13.36,Hampton Pirates
+2272,54.55,66.67,Middle,Big South,2022,-6.03,High Point Panthers
+2275,11.29,18.06,Chameleon,CAA,2022,4.12,Hofstra Pride
+2277,2.34,10.0,Chameleon,Southland,2022,-15.66,Houston Christian Huskies
+2287,18.47,25.56,Chameleon,MVC,2022,-0.89,Illinois State Redbirds
+2294,44.89,56.39,Middle,Big Ten,2022,21.09,Iowa Hawkeyes
+2296,37.58,49.44,Middle,SWAC,2022,-8.66,Jackson State Tigers
+2305,35.23,46.39,Middle,Big 12,2022,24.67,Kansas Jayhawks
+2306,5.8,12.78,Chameleon,Big 12,2022,10.2,Kansas State Wildcats
+2309,56.15,68.33,Dictator,MAC,2022,1.77,Kent State Golden Flashes
+2320,40.61,51.67,Middle,WAC,2022,-18.23,Lamar Cardinals
+2325,60.26,72.5,Dictator,A 10,2022,-4.59,La Salle Explorers
+2329,24.18,33.06,Chameleon,Patriot,2022,-10.29,Lehigh Mountain Hawks
+2335,82.05,88.61,Dictator,ASUN,2022,4.68,Liberty Flames
+2344,-21.06,2.5,Chameleon,Big South,2022,3.25,Longwood Lancers
+2348,54.43,66.39,Middle,C-USA,2022,7.15,Louisiana Tech Bulldogs
+2349,18.71,26.11,Chameleon,Am. East,2022,-4.55,UMass Lowell River Hawks
+2350,49.56,61.67,Middle,MVC,2022,17.38,Loyola Chicago Ramblers
+2351,6.88,14.17,Chameleon,WCC,2022,-3.92,Loyola Marymount Lions
+2352,-35.14,0.28,Chameleon,Patriot,2022,-6.02,Loyola Maryland Greyhounds
+2363,-31.18,1.11,Chameleon,MAAC,2022,-7.37,Manhattan Jaspers
+2368,76.42,84.44,Dictator,MAAC,2022,-1.73,Marist Red Foxes
+2377,86.28,90.83,Dictator,Southland,2022,-10.92,McNeese Cowboys
+2378,20.52,28.61,Chameleon,Am. East,2022,-4.21,UMBC Retrievers
+2379,20.33,28.33,Chameleon,MEAC,2022,-11.21,Maryland Eastern Shore Hawks
+2382,54.04,65.56,Middle,Southern,2022,-1.81,Mercer Bears
+2390,13.03,20.28,Chameleon,ACC,2022,11.64,Miami Hurricanes
+2393,42.75,53.89,Middle,C-USA,2022,7.95,Middle Tennessee Blue Raiders
+2400,85.52,90.56,Dictator,SWAC,2022,-23.06,Mississippi Valley State Delta Devils
+2405,-8.43,5.0,Chameleon,MAAC,2022,1.81,Monmouth Hawks
+2413,45.42,56.94,Middle,OVC,2022,4.88,Morehead State Eagles
+2415,76.24,84.17,Dictator,MEAC,2022,-9.86,Morgan State Bears
+2426,79.25,86.39,Dictator,Patriot,2022,0.63,Navy Midshipmen
+2427,-18.25,3.06,Chameleon,Big South,2022,-2.52,UNC Asheville Bulldogs
+2428,4.11,11.94,Chameleon,MEAC,2022,-8.78,North Carolina Central Eagles
+2429,30.14,40.56,Middle,C-USA,2022,-2.3,Charlotte 49ers
+2430,90.16,93.06,Dictator,Southern,2022,-0.9,UNC Greensboro Spartans
+2433,27.96,37.5,Middle,Sun Belt,2022,-8.89,UL Monroe Warhawks
+2437,48.19,60.0,Middle,Summit,2022,-19.49,Omaha Mavericks
+2439,35.22,46.11,Middle,Mountain West,2022,7.29,UNLV Rebels
+2440,87.51,91.11,Dictator,Mountain West,2022,2.66,Nevada Wolf Pack
+2443,100.15,98.89,Dictator,Southland,2022,-6.85,LSU New Orleans Privateers
+2447,33.85,43.06,Middle,Southland,2022,-1.29,Nicholls Colonels
+2448,47.88,59.17,Middle,Big South,2022,-9.22,North Carolina A&T Aggies
+2449,7.39,14.44,Chameleon,Summit,2022,0.52,North Dakota State Bison
+2450,33.93,43.61,Middle,MEAC,2022,0.24,Norfolk State Spartans
+2453,3.14,10.56,Chameleon,ASUN,2022,-11.78,North Alabama Lions
+2454,26.25,35.56,Middle,ASUN,2022,-8.73,North Florida Ospreys
+2458,11.36,18.61,Chameleon,Big Sky,2022,-3.13,Northern Colorado Bears
+2459,-13.38,3.89,Chameleon,MAC,2022,-11.24,Northern Illinois Huskies
+2460,56.11,68.06,Dictator,MVC,2022,7.59,Northern Iowa Panthers
+2463,42.71,53.61,Middle,Big West,2022,-15.31,Cal State Northridge Matadors
+2464,25.29,34.17,Middle,Big Sky,2022,-15.74,Northern Arizona Lumberjacks
+2466,91.8,93.61,Dictator,Southland,2022,-14.67,Northwestern State Demons
+2473,60.12,72.22,Dictator,Horizon,2022,0.67,Oakland Golden Grizzlies
+2483,43.2,55.0,Middle,Pac-12,2022,9.1,Oregon Ducks
+2492,37.49,49.17,Middle,WCC,2022,-9.99,Pepperdine Waves
+2501,42.93,54.44,Middle,WCC,2022,-1.44,Portland Pilots
+2502,66.78,77.78,Dictator,Big Sky,2022,-7.19,Portland State Vikings
+2504,92.88,95.0,Dictator,SWAC,2022,-9.57,Prairie View A&M Panthers
+2506,78.55,85.83,Dictator,Big South,2022,-7.86,Presbyterian Blue Hose
+2507,24.79,33.89,Middle,Big East,2022,13.44,Providence Friars
+2509,-31.29,0.83,Chameleon,Big Ten,2022,21.81,Purdue Boilermakers
+2514,45.22,56.67,Middle,MAAC,2022,-4.15,Quinnipiac Bobcats
+2515,23.15,31.94,Chameleon,Big South,2022,-9.13,Radford Highlanders
+2520,47.57,58.61,Middle,MAAC,2022,-4.45,Rider Broncs
+2523,37.01,48.33,Middle,Horizon,2022,-12.84,Robert Morris Colonials
+2529,28.01,38.06,Middle,NEC,2022,-12.32,Sacred Heart Pioneers
+2534,20.79,28.89,Chameleon,WAC,2022,2.08,Sam Houston Bearkats
+2535,34.01,44.17,Middle,Southern,2022,-1.43,Samford Bulldogs
+2539,16.53,24.17,Chameleon,WCC,2022,16.19,San Francisco Dons
+2540,36.24,47.5,Middle,Big West,2022,3.83,UC Santa Barbara Gauchos
+2541,47.94,59.72,Middle,WCC,2022,9.61,Santa Clara Broncos
+2545,17.68,25.28,Chameleon,Southland,2022,-7.43,SE Louisiana Lions
+2546,82.16,88.89,Dictator,OVC,2022,-5.95,Southeast Missouri State Redhawks
+2547,32.93,42.22,Middle,WAC,2022,3.58,Seattle U Redhawks
+2550,34.28,44.72,Middle,Big East,2022,12.15,Seton Hall Pirates
+2561,81.52,88.06,Dictator,MAAC,2022,-5.66,Siena Saints
+2565,-32.68,0.56,Chameleon,OVC,2022,-9.68,SIU Edwardsville Cougars
+2567,22.28,31.39,Chameleon,American,2022,11.77,SMU Mustangs
+2569,69.81,81.39,Dictator,MEAC,2022,-11.39,South Carolina State Bulldogs
+2571,60.34,73.06,Dictator,Summit,2022,10.71,South Dakota State Jackrabbits
+2572,-0.51,8.89,Chameleon,C-USA,2022,-17.07,Southern Miss Golden Eagles
+2579,93.79,96.39,Dictator,SEC,2022,5.83,South Carolina Gamecocks
+2582,62.96,74.72,Dictator,SWAC,2022,-2.08,Southern Jaguars
+2597,28.0,37.78,Middle,NEC,2022,-12.3,St. Francis Brooklyn Terriers
+2598,12.32,19.72,Chameleon,NEC,2022,-13.91,Saint Francis Red Wolves
+2599,93.0,95.28,Dictator,Big East,2022,11.38,St. John's Red Storm
+2603,69.46,80.83,Dictator,A 10,2022,0.23,Saint Joseph's Hawks
+2608,70.77,82.5,Dictator,WCC,2022,17.65,Saint Mary's Gaels
+2612,3.43,11.11,Chameleon,MAAC,2022,6.57,Saint Peter's Peacocks
+2617,6.85,13.89,Chameleon,WAC,2022,4.14,Stephen F. Austin Lumberjacks
+2619,37.41,48.89,Middle,Am. East,2022,-5.36,Stony Brook Seawolves
+2623,15.02,22.5,Chameleon,MVC,2022,11.21,Missouri State Bears
+2627,84.23,90.0,Dictator,WAC,2022,-2.79,Tarleton State Texans
+2628,46.21,58.06,Middle,Big 12,2022,14.21,TCU Horned Frogs
+2630,99.51,98.61,Dictator,OVC,2022,-10.89,UT Martin Skyhawks
+2633,24.19,33.33,Chameleon,SEC,2022,23.77,Tennessee Volunteers
+2634,2.97,10.28,Chameleon,OVC,2022,-7.56,Tennessee State Tigers
+2635,29.27,39.44,Middle,OVC,2022,-6.33,Tennessee Tech Golden Eagles
+2636,21.75,30.56,Chameleon,C-USA,2022,-13.12,UTSA Roadrunners
+2638,47.89,59.44,Middle,C-USA,2022,0.83,UTEP Miners
+2640,34.64,45.28,Middle,SWAC,2022,-0.45,Texas Southern Tigers
+2641,70.3,81.67,Dictator,Big 12,2022,23.47,Texas Tech Red Raiders
+2643,41.97,52.78,Middle,Southern,2022,-5.89,The Citadel Bulldogs
+2649,32.44,41.94,Middle,MAC,2022,9.79,Toledo Rockets
+2653,10.06,16.67,Chameleon,Sun Belt,2022,-1.64,Troy Trojans
+2655,10.95,17.5,Chameleon,American,2022,6.92,Tulane Green Wave
+2670,21.51,30.28,Chameleon,A 10,2022,11.17,VCU Rams
+2674,69.09,80.56,Dictator,MVC,2022,-2.51,Valparaiso Beacons
+2678,21.51,30.0,Chameleon,Southern,2022,-0.01,VMI Keydets
+2681,10.54,16.94,Chameleon,NEC,2022,3.66,Wagner Seahawks
+2692,34.4,45.0,Middle,Big Sky,2022,0.23,Weber State Wildcats
+2697,37.92,49.72,Middle,,2022,-10.35,West Florida Argonauts
+2710,51.98,63.89,Middle,Summit,2022,-5.3,Western Illinois Leathernecks
+2711,6.14,13.06,Chameleon,MAC,2022,-15.57,Western Michigan Broncos
+2717,59.13,71.39,Dictator,Southern,2022,-11.12,Western Carolina Catamounts
+2724,-3.56,6.67,Chameleon,American,2022,7.3,Wichita State Shockers
+2729,37.38,48.61,Middle,CAA,2022,-16.36,William & Mary Tribe
+2737,28.78,38.89,Middle,Big South,2022,1.02,Winthrop Eagles
+2739,79.07,86.11,Dictator,Horizon,2022,-16.13,Green Bay Phoenix
+2747,63.29,75.56,Dictator,Southern,2022,5.23,Wofford Terriers
+2750,9.96,16.39,Chameleon,Horizon,2022,0.43,Wright State Raiders
+2751,26.51,35.83,Middle,Mountain West,2022,11.28,Wyoming Cowboys
+2752,10.95,17.22,Chameleon,Big East,2022,12.65,Xavier Musketeers
+2754,-2.05,8.06,Chameleon,Horizon,2022,-5.56,Youngstown State Penguins
+2755,50.92,62.5,Middle,SWAC,2022,-11.43,Grambling Tigers
+2771,92.25,94.17,Dictator,NEC,2022,-10.14,Merrimack Warriors
+2803,58.03,70.56,Dictator,NEC,2022,-1.7,Bryant Bulldogs
+2837,49.41,60.83,Middle,,2022,-0.39,East Texas A&M Lions
+2856,-25.75,1.94,Chameleon,WAC,2022,-3.44,California Baptist Lancers
+2870,63.48,76.11,Dictator,Horizon,2022,-4.16,Purdue Fort Wayne Mastodons
+2885,60.83,73.33,Dictator,Am. East,2022,-15.43,NJIT Highlanders
+2900,68.33,79.72,Dictator,Summit,2022,-10.85,St. Thomas Tommies
+2908,-2.3,7.78,Chameleon,Big South,2022,-7.93,South Carolina Upstate Spartans
+2916,-7.98,5.28,Chameleon,Southland,2022,-19.84,Incarnate Word Cardinals
+2934,43.86,55.56,Middle,Big West,2022,-8.08,Cal State Bakersfield Roadrunners
+3084,52.67,64.72,Middle,WAC,2022,4.68,Utah Valley Wolverines
+3101,79.89,86.67,Dictator,WAC,2022,-8.62,Utah Tech Trailblazers
+112358,70.36,81.94,Dictator,NEC,2022,-4.93,Long Island University Sharks
+2,40.01,50.14,Middle,SEC,2023,14.77,Auburn Tigers
+5,73.85,85.12,Dictator,CUSA,2023,13.46,UAB Blazers
+6,18.38,23.14,Chameleon,Sun Belt,2023,7.33,South Alabama Jaguars
+8,82.06,90.63,Dictator,SEC,2023,16.37,Arkansas Razorbacks
+9,52.44,63.91,Middle,Pac-12,2023,10.85,Arizona State Sun Devils
+12,79.43,88.43,Dictator,Pac-12,2023,19.69,Arizona Wildcats
+13,34.19,42.7,Middle,Big West,2023,-10.53,Cal Poly Mustangs
+16,61.17,74.66,Dictator,Big Sky,2023,-4.5,Sacramento State Hornets
+21,3.95,14.05,Chameleon,Mountain West,2023,17.85,San Diego State Aztecs
+23,78.95,88.15,Dictator,Mountain West,2023,5.23,San José State Spartans
+24,29.52,36.36,Middle,Pac-12,2023,7.72,Stanford Cardinal
+25,78.27,87.88,Dictator,Pac-12,2023,-10.46,California Golden Bears
+26,9.01,16.25,Chameleon,Pac-12,2023,25.05,UCLA Bruins
+27,19.93,25.07,Chameleon,Big West,2023,1.75,UC Riverside Highlanders
+28,37.96,47.66,Middle,Big West,2023,-8.61,UC San Diego Tritons
+30,-2.63,8.26,Chameleon,Pac-12,2023,12.29,USC Trojans
+36,22.54,28.93,Chameleon,Mountain West,2023,4.35,Colorado State Rams
+38,77.04,86.78,Dictator,Pac-12,2023,9.86,Colorado Buffaloes
+41,3.36,13.77,Chameleon,Big East,2023,26.44,UConn Huskies
+42,40.54,50.96,Middle,,2023,-26.24,Hartford Hawks
+43,23.85,31.4,Chameleon,Ivy,2023,13.51,Yale Bulldogs
+44,107.91,99.17,Dictator,Patriot,2023,-5.82,American University Eagles
+45,12.57,18.18,Chameleon,A-10,2023,-2.95,George Washington Revolutionaries
+46,-7.71,5.79,Chameleon,Big East,2023,-5.62,Georgetown Hoyas
+47,59.45,73.0,Dictator,MEAC,2023,-3.31,Howard Bison
+48,42.93,54.27,Middle,CAA,2023,-4.2,Delaware Blue Hens
+50,53.23,65.01,Middle,SWAC,2023,-19.98,Florida A&M Rattlers
+52,23.95,31.96,Chameleon,ACC,2023,-4.47,Florida State Seminoles
+55,42.62,53.72,Middle,ASUN,2023,-6.08,Jacksonville State Gamecocks
+56,82.71,91.18,Dictator,ASUN,2023,-0.19,Stetson Hatters
+57,61.32,74.93,Dictator,SEC,2023,10.27,Florida Gators
+58,6.18,15.43,Chameleon,American,2023,0.81,South Florida Bulls
+59,49.04,61.16,Middle,ACC,2023,-1.28,Georgia Tech Yellow Jackets
+61,36.94,47.11,Middle,SEC,2023,-0.77,Georgia Bulldogs
+62,19.63,24.52,Chameleon,Big West,2023,3.4,Hawai'i Rainbow Warriors
+66,56.41,67.22,Dictator,Big 12,2023,15.18,Iowa State Cyclones
+68,47.52,58.4,Middle,Mountain West,2023,13.88,Boise State Broncos
+70,30.05,37.74,Middle,Big Sky,2023,-10.02,Idaho Vandals
+71,49.63,62.26,Middle,MVC,2023,10.09,Bradley Braves
+77,41.92,52.62,Middle,Big Ten,2023,13.36,Northwestern Wildcats
+79,51.16,63.36,Middle,MVC,2023,3.41,Southern Illinois Salukis
+82,73.64,84.85,Dictator,MVC,2023,-9.95,UIC Flames
+84,51.3,63.64,Middle,Big Ten,2023,15.51,Indiana Hoosiers
+85,34.95,43.25,Middle,Horizon,2023,-21.33,IU Indianapolis Jaguars
+87,92.74,95.59,Dictator,ACC,2023,-1.06,Notre Dame Fighting Irish
+88,68.36,79.61,Dictator,OVC,2023,-7.03,Southern Indiana Screaming Eagles
+91,105.47,98.9,Dictator,ASUN,2023,-7.7,Bellarmine Knights
+93,-7.3,6.06,Chameleon,MVC,2023,-4.64,Murray State Racers
+94,83.88,91.74,Dictator,Horizon,2023,1.16,Northern Kentucky Norse
+96,-5.15,6.61,Chameleon,SEC,2023,15.4,Kentucky Wildcats
+97,15.63,19.83,Chameleon,ACC,2023,-11.8,Louisville Cardinals
+98,28.08,35.54,Middle,CUSA,2023,-1.02,Western Kentucky Hilltoppers
+99,53.39,65.29,Middle,SEC,2023,-0.14,LSU Tigers
+103,-29.46,1.93,Chameleon,ACC,2023,-2.04,Boston College Eagles
+104,27.6,35.26,Middle,Patriot,2023,-5.09,Boston University Terriers
+107,9.49,16.53,Chameleon,Patriot,2023,-13.8,Holy Cross Crusaders
+108,56.94,68.04,Dictator,Ivy,2023,1.9,Harvard Crimson
+111,49.6,61.98,Middle,CAA,2023,-10.86,Northeastern Huskies
+113,56.7,67.77,Dictator,A-10,2023,-2.28,Massachusetts Minutemen
+116,-7.78,5.51,Chameleon,MAAC,2023,-7.18,Mount St. Mary's Mountaineers
+119,84.47,92.01,Dictator,CAA,2023,4.36,Towson Tigers
+120,-6.35,6.34,Chameleon,Big Ten,2023,15.77,Maryland Terrapins
+127,47.71,59.23,Middle,Big Ten,2023,14.2,Michigan State Spartans
+130,31.96,40.5,Middle,Big Ten,2023,11.8,Michigan Wolverines
+135,70.37,81.82,Dictator,Big Ten,2023,-5.53,Minnesota Golden Gophers
+139,30.15,38.02,Middle,A-10,2023,6.49,Saint Louis Billikens
+140,81.31,90.08,Dictator,Summit,2023,-10.99,Kansas City Roos
+142,72.04,84.02,Dictator,SEC,2023,11.0,Missouri Tigers
+145,20.38,26.17,Chameleon,SEC,2023,3.4,Ole Miss Rebels
+147,16.55,20.66,Chameleon,Big Sky,2023,4.99,Montana State Bobcats
+149,72.0,83.75,Dictator,Big Sky,2023,0.57,Montana Grizzlies
+150,10.17,16.8,Chameleon,ACC,2023,17.68,Duke Blue Devils
+151,13.82,19.01,Chameleon,American,2023,-1.77,East Carolina Pirates
+152,59.49,73.28,Dictator,ACC,2023,12.17,NC State Wolfpack
+153,35.57,44.63,Middle,ACC,2023,12.93,North Carolina Tar Heels
+154,48.16,60.06,Middle,ACC,2023,7.03,Wake Forest Demon Deacons
+155,48.44,60.61,Middle,Summit,2023,-8.15,North Dakota Fighting Hawks
+156,10.53,17.08,Chameleon,Big East,2023,19.17,Creighton Bluejays
+158,39.6,49.59,Middle,Big Ten,2023,4.81,Nebraska Cornhuskers
+159,31.62,39.94,Middle,Ivy,2023,-6.6,Dartmouth Big Green
+160,72.7,84.57,Dictator,Am. East,2023,-7.66,New Hampshire Wildcats
+161,36.14,45.45,Middle,NEC,2023,-6.28,Fairleigh Dickinson Knights
+163,45.46,56.75,Middle,Ivy,2023,8.37,Princeton Tigers
+164,4.26,14.33,Chameleon,Big Ten,2023,14.95,Rutgers Scarlet Knights
+166,36.69,46.56,Middle,WAC,2023,-1.67,New Mexico State Aggies
+167,86.5,92.56,Dictator,Mountain West,2023,10.81,New Mexico Lobos
+171,19.12,23.97,Chameleon,Ivy,2023,-14.71,Columbia Lions
+172,88.65,93.66,Dictator,Ivy,2023,3.63,Cornell Big Red
+179,44.03,55.65,Middle,A-10,2023,-1.64,St. Bonaventure Bonnies
+183,27.36,34.71,Middle,ACC,2023,3.43,Syracuse Orange
+189,58.82,71.9,Dictator,MAC,2023,-8.31,Bowling Green Falcons
+193,-0.9,11.02,Chameleon,MAC,2023,-8.24,Miami (OH) RedHawks
+194,29.02,36.09,Middle,Big Ten,2023,12.67,Ohio State Buckeyes
+195,52.65,64.46,Middle,MAC,2023,3.73,Ohio Bobcats
+197,37.02,47.38,Middle,Big 12,2023,12.38,Oklahoma State Cowboys
+198,34.56,42.98,Middle,Summit,2023,12.86,Oral Roberts Golden Eagles
+201,66.07,78.51,Dictator,Big 12,2023,10.17,Oklahoma Sooners
+202,33.92,42.15,Middle,American,2023,-13.67,Tulsa Golden Hurricane
+204,45.86,57.58,Middle,Pac-12,2023,-5.11,Oregon State Beavers
+213,62.48,76.58,Dictator,Big Ten,2023,13.27,Penn State Nittany Lions
+218,11.26,17.36,Chameleon,American,2023,3.32,Temple Owls
+219,25.28,32.78,Chameleon,Ivy,2023,3.51,Pennsylvania Quakers
+221,-0.91,10.74,Chameleon,ACC,2023,10.69,Pittsburgh Panthers
+222,57.99,69.7,Dictator,Big East,2023,10.47,Villanova Wildcats
+225,93.15,96.42,Dictator,Ivy,2023,0.34,Brown Bears
+227,31.98,40.77,Middle,A-10,2023,-6.27,Rhode Island Rams
+228,27.54,34.99,Middle,ACC,2023,10.53,Clemson Tigers
+231,19.87,24.79,Chameleon,Southern,2023,8.31,Furman Paladins
+232,49.21,61.43,Middle,CAA,2023,12.29,Charleston Cougars
+233,17.69,22.31,Chameleon,Summit,2023,-11.1,South Dakota Coyotes
+235,57.83,69.15,Dictator,American,2023,15.83,Memphis Tigers
+236,42.88,53.99,Middle,Southern,2023,0.03,Chattanooga Mocs
+238,91.48,95.32,Dictator,SEC,2023,7.68,Vanderbilt Commodores
+239,21.82,28.37,Chameleon,Big 12,2023,17.63,Baylor Bears
+242,92.85,96.14,Dictator,CUSA,2023,-2.87,Rice Owls
+245,-1.02,10.47,Chameleon,SEC,2023,14.63,Texas A&M Aggies
+248,66.71,78.79,Dictator,American,2023,28.47,Houston Cougars
+249,109.05,99.72,Dictator,CUSA,2023,15.17,North Texas Mean Green
+250,12.38,17.91,Chameleon,WAC,2023,-7.08,UT Arlington Mavericks
+251,0.32,11.57,Chameleon,Big 12,2023,22.3,Texas Longhorns
+252,58.5,71.07,Dictator,WCC,2023,9.28,BYU Cougars
+253,69.6,80.72,Dictator,WAC,2023,4.88,Southern Utah Thunderbirds
+254,-19.78,3.31,Chameleon,Pac-12,2023,10.33,Utah Utes
+256,22.83,29.2,Chameleon,Sun Belt,2023,7.98,James Madison Dukes
+257,48.04,59.78,Middle,A-10,2023,1.25,Richmond Spiders
+258,97.26,97.52,Dictator,ACC,2023,14.87,Virginia Cavaliers
+259,29.87,36.91,Middle,ACC,2023,9.46,Virginia Tech Hokies
+261,58.45,70.8,Dictator,Am. East,2023,6.26,Vermont Catamounts
+264,55.35,66.94,Dictator,Pac-12,2023,3.74,Washington Huskies
+265,84.55,92.29,Dictator,Pac-12,2023,10.25,Washington State Cougars
+269,23.92,31.68,Chameleon,Big East,2023,18.29,Marquette Golden Eagles
+270,71.49,82.92,Dictator,Horizon,2023,-3.65,Milwaukee Panthers
+275,95.29,96.97,Dictator,Big Ten,2023,10.06,Wisconsin Badgers
+276,67.67,79.06,Dictator,Sun Belt,2023,10.42,Marshall Thundering Herd
+277,1.94,12.67,Chameleon,Big 12,2023,16.03,West Virginia Mountaineers
+278,48.85,60.88,Middle,Mountain West,2023,0.79,Fresno State Bulldogs
+279,32.31,41.05,Middle,WCC,2023,-2.49,Pacific Tigers
+282,77.57,87.6,Dictator,MVC,2023,8.1,Indiana State Sycamores
+284,25.34,33.06,Chameleon,NEC,2023,-10.93,Stonehill Skyhawks
+288,14.71,19.56,Chameleon,ASUN,2023,1.0,Lipscomb Bisons
+290,31.08,38.57,Middle,Sun Belt,2023,-2.22,Georgia Southern Eagles
+292,122.78,100.0,Dictator,WAC,2023,-7.12,UT Rio Grande Valley Vaqueros
+294,95.91,97.25,Dictator,ASUN,2023,-5.03,Jacksonville Dolphins
+295,59.45,72.73,Dictator,Sun Belt,2023,0.01,Old Dominion Monarchs
+299,77.44,87.33,Dictator,Big West,2023,0.28,Long Beach State Beach
+300,42.58,53.44,Middle,Big West,2023,6.2,UC Irvine Anteaters
+301,52.84,64.74,Middle,WCC,2023,-5.0,San Diego Toreros
+302,65.19,77.96,Dictator,Big West,2023,0.9,UC Davis Aggies
+304,20.34,25.9,Chameleon,Big Sky,2023,-6.36,Idaho State Bengals
+305,46.58,57.85,Middle,Big East,2023,-0.06,DePaul Blue Demons
+309,53.99,66.39,Middle,Sun Belt,2023,7.94,Louisiana Ragin' Cajuns
+311,53.89,66.12,Middle,Am. East,2023,-7.22,Maine Black Bears
+314,21.45,27.82,Chameleon,MAAC,2023,12.68,Iona Gaels
+315,80.87,89.26,Dictator,MAAC,2023,-5.55,Niagara Purple Eagles
+322,92.74,95.87,Dictator,Patriot,2023,-5.8,Lafayette Leopards
+324,-4.65,7.16,Chameleon,Sun Belt,2023,-9.55,Coastal Carolina Chanticleers
+325,89.26,94.21,Dictator,Horizon,2023,-0.24,Cleveland State Vikings
+326,63.51,76.86,Dictator,Sun Belt,2023,-1.57,Texas State Bobcats
+328,53.74,65.56,Middle,Mountain West,2023,15.19,Utah State Aggies
+331,14.37,19.28,Chameleon,Big Sky,2023,3.9,Eastern Washington Eagles
+333,87.09,93.11,Dictator,SEC,2023,26.6,Alabama Crimson Tide
+338,17.38,21.76,Chameleon,ASUN,2023,3.31,Kennesaw State Owls
+339,58.29,70.25,Dictator,MVC,2023,-17.9,Evansville Purple Aces
+344,53.82,65.84,Middle,SEC,2023,11.96,Mississippi State Bulldogs
+349,24.83,32.23,Chameleon,Patriot,2023,-3.93,Army Black Knights
+350,41.47,52.07,Middle,CAA,2023,1.14,UNC Wilmington Seahawks
+356,62.02,76.03,Dictator,Big Ten,2023,14.35,Illinois Fighting Illini
+357,57.91,69.42,Dictator,Southland,2023,0.29,Texas A&M-Corpus Christi Islanders
+399,-22.98,2.75,Chameleon,Am. East,2023,-14.74,UAlbany Great Danes
+526,-10.6,4.68,Chameleon,ASUN,2023,-0.75,Florida Gulf Coast Eagles
+2000,-15.95,4.13,Chameleon,WAC,2023,-2.43,Abilene Christian Wildcats
+2005,73.98,85.4,Dictator,Mountain West,2023,0.34,Air Force Falcons
+2006,39.36,48.76,Middle,MAC,2023,6.78,Akron Zips
+2010,87.67,93.39,Dictator,SWAC,2023,-10.24,Alabama A&M Bulldogs
+2011,-4.99,6.89,Chameleon,SWAC,2023,-16.47,Alabama State Hornets
+2016,23.09,29.48,Chameleon,SWAC,2023,-7.05,Alcorn State Braves
+2026,35.16,44.08,Middle,Sun Belt,2023,-0.65,App State Mountaineers
+2029,45.65,57.3,Middle,SWAC,2023,-12.89,Arkansas-Pine Bluff Golden Lions
+2031,43.73,55.37,Middle,OVC,2023,-11.21,Little Rock Trojans
+2032,70.27,81.54,Dictator,Sun Belt,2023,-8.97,Arkansas State Red Wolves
+2046,65.02,77.41,Dictator,ASUN,2023,-13.49,Austin Peay Governors
+2050,31.17,38.84,Middle,MAC,2023,1.07,Ball State Cardinals
+2057,1.55,12.4,Chameleon,MVC,2023,4.44,Belmont Bruins
+2065,-21.01,3.03,Chameleon,SWAC,2023,-17.35,Bethune-Cookman Wildcats
+2066,36.91,46.83,Middle,Am. East,2023,-9.49,Binghamton Bearcats
+2083,1.18,12.12,Chameleon,Patriot,2023,-8.37,Bucknell Bison
+2084,108.21,99.45,Dictator,MAC,2023,-2.3,Buffalo Bulls
+2086,25.9,33.61,Middle,Big East,2023,2.92,Butler Bulldogs
+2097,47.09,58.13,Middle,Big South,2023,-3.45,Campbell Fighting Camels
+2099,-51.25,0.55,Chameleon,MAAC,2023,-5.51,Canisius Golden Griffins
+2110,67.75,79.34,Dictator,ASUN,2023,-14.49,Central Arkansas Bears
+2115,58.12,69.97,Dictator,NEC,2023,-12.64,Central Connecticut Blue Devils
+2116,56.48,67.49,Dictator,American,2023,12.54,UCF Knights
+2117,36.4,46.28,Middle,MAC,2023,-14.11,Central Michigan Chippewas
+2127,-1.34,9.92,Chameleon,Big South,2023,-9.41,Charleston Southern Buccaneers
+2130,41.9,52.34,Middle,,2023,-9.57,Chicago State Cougars
+2132,-51.35,0.28,Chameleon,American,2023,12.58,Cincinnati Bearcats
+2142,-8.87,4.96,Chameleon,Patriot,2023,7.05,Colgate Raiders
+2154,82.88,91.46,Dictator,MEAC,2023,-14.38,Coppin State Eagles
+2166,2.51,13.22,Chameleon,A-10,2023,1.85,Davidson Wildcats
+2168,81.06,89.81,Dictator,A-10,2023,11.01,Dayton Flyers
+2169,5.12,14.6,Chameleon,MEAC,2023,-18.35,Delaware State Hornets
+2172,32.92,41.6,Middle,Summit,2023,-9.56,Denver Pioneers
+2174,8.53,15.98,Chameleon,Horizon,2023,-1.4,Detroit Mercy Titans
+2181,5.56,14.88,Chameleon,MVC,2023,11.81,Drake Bulldogs
+2182,99.23,98.35,Dictator,CAA,2023,-0.24,Drexel Dragons
+2184,13.41,18.73,Chameleon,A-10,2023,3.47,Duquesne Dukes
+2193,-16.6,3.86,Chameleon,Southern,2023,-5.21,East Tennessee State Buccaneers
+2197,-31.71,1.38,Chameleon,OVC,2023,-14.53,Eastern Illinois Panthers
+2198,47.79,59.5,Middle,ASUN,2023,0.89,Eastern Kentucky Colonels
+2199,69.32,80.44,Dictator,MAC,2023,-11.95,Eastern Michigan Eagles
+2210,-4.57,7.44,Chameleon,CAA,2023,-13.85,Elon Phoenix
+2217,36.14,45.73,Middle,MAAC,2023,-5.64,Fairfield Stags
+2226,-39.59,1.1,Chameleon,CUSA,2023,18.36,Florida Atlantic Owls
+2229,21.42,27.55,Chameleon,CUSA,2023,-3.27,Florida International Panthers
+2230,76.39,86.5,Dictator,A-10,2023,2.35,Fordham Rams
+2239,47.63,58.68,Middle,Big West,2023,3.59,Cal State Fullerton Titans
+2241,23.17,30.03,Chameleon,Big South,2023,-0.75,Gardner-Webb Runnin' Bulldogs
+2244,33.59,41.87,Middle,A-10,2023,1.62,George Mason Patriots
+2247,70.74,82.64,Dictator,Sun Belt,2023,-8.24,Georgia State Panthers
+2250,57.73,68.6,Dictator,WCC,2023,20.69,Gonzaga Bulldogs
+2253,61.43,75.21,Dictator,WAC,2023,4.9,Grand Canyon Lopes
+2261,22.15,28.65,Chameleon,CAA,2023,-16.77,Hampton Pirates
+2272,97.54,97.8,Dictator,Big South,2023,-9.43,High Point Panthers
+2275,70.19,81.27,Dictator,CAA,2023,9.34,Hofstra Pride
+2277,31.52,39.67,Middle,Southland,2023,-18.31,Houston Christian Huskies
+2287,64.07,77.13,Dictator,MVC,2023,-8.32,Illinois State Redbirds
+2294,50.76,62.53,Middle,Big Ten,2023,13.37,Iowa Hawkeyes
+2296,31.39,39.39,Middle,SWAC,2023,-10.5,Jackson State Tigers
+2305,6.04,15.15,Chameleon,Big 12,2023,19.87,Kansas Jayhawks
+2306,23.44,30.58,Chameleon,Big 12,2023,15.89,Kansas State Wildcats
+2309,41.98,52.89,Middle,MAC,2023,11.46,Kent State Golden Flashes
+2320,39.55,49.31,Middle,Southland,2023,-18.68,Lamar Cardinals
+2325,23.27,30.3,Chameleon,A-10,2023,-4.19,La Salle Explorers
+2329,60.67,73.83,Dictator,Patriot,2023,-7.55,Lehigh Mountain Hawks
+2335,60.81,74.1,Dictator,ASUN,2023,14.09,Liberty Flames
+2344,16.13,20.39,Chameleon,Big South,2023,2.09,Longwood Lancers
+2348,29.87,37.19,Middle,CUSA,2023,0.04,Louisiana Tech Bulldogs
+2349,17.08,20.94,Chameleon,Am. East,2023,5.75,UMass Lowell River Hawks
+2350,58.32,70.52,Dictator,A-10,2023,-7.05,Loyola Chicago Ramblers
+2351,7.74,15.7,Chameleon,WCC,2023,3.81,Loyola Marymount Lions
+2352,35.68,44.9,Middle,Patriot,2023,-11.92,Loyola Maryland Greyhounds
+2363,-40.91,0.83,Chameleon,MAAC,2023,-9.15,Manhattan Jaspers
+2368,58.94,72.18,Dictator,MAAC,2023,-7.32,Marist Red Foxes
+2377,29.64,36.64,Middle,Southland,2023,-14.4,McNeese Cowboys
+2378,2.14,12.95,Chameleon,Am. East,2023,-4.36,UMBC Retrievers
+2379,20.84,27.0,Chameleon,MEAC,2023,-5.75,Maryland Eastern Shore Hawks
+2382,77.23,87.05,Dictator,Southern,2023,-3.52,Mercer Bears
+2390,23.11,29.75,Chameleon,ACC,2023,14.92,Miami Hurricanes
+2393,32.47,41.32,Middle,CUSA,2023,4.37,Middle Tennessee Blue Raiders
+2400,-2.22,8.54,Chameleon,SWAC,2023,-20.5,Mississippi Valley State Delta Devils
+2405,-2.05,9.64,Chameleon,CAA,2023,-18.12,Monmouth Hawks
+2413,23.55,31.13,Chameleon,OVC,2023,-4.95,Morehead State Eagles
+2415,-27.85,2.2,Chameleon,MEAC,2023,-10.03,Morgan State Bears
+2426,68.38,79.89,Dictator,Patriot,2023,1.03,Navy Midshipmen
+2427,19.58,24.24,Chameleon,Big South,2023,1.38,UNC Asheville Bulldogs
+2428,38.09,47.93,Middle,MEAC,2023,0.42,North Carolina Central Eagles
+2429,88.9,93.94,Dictator,CUSA,2023,5.82,Charlotte 49ers
+2430,34.0,42.42,Middle,Southern,2023,5.34,UNC Greensboro Spartans
+2433,21.03,27.27,Chameleon,Sun Belt,2023,-9.53,UL Monroe Warhawks
+2437,13.18,18.46,Chameleon,Summit,2023,-12.06,Omaha Mavericks
+2439,28.4,35.81,Middle,Mountain West,2023,6.23,UNLV Rebels
+2440,45.64,57.02,Middle,Mountain West,2023,10.85,Nevada Wolf Pack
+2443,59.14,72.45,Dictator,Southland,2023,-14.71,LSU New Orleans Privateers
+2447,57.11,68.32,Dictator,Southland,2023,-6.97,Nicholls Colonels
+2448,-4.09,7.71,Chameleon,CAA,2023,-11.76,North Carolina A&T Aggies
+2449,-8.47,5.23,Chameleon,Summit,2023,-3.5,North Dakota State Bison
+2450,26.17,34.16,Middle,MEAC,2023,-0.85,Norfolk State Spartans
+2453,30.74,38.29,Middle,ASUN,2023,-7.29,North Alabama Lions
+2454,-3.74,7.99,Chameleon,ASUN,2023,-5.67,North Florida Ospreys
+2458,40.85,51.52,Middle,Big Sky,2023,-4.79,Northern Colorado Bears
+2459,74.47,85.95,Dictator,MAC,2023,-5.67,Northern Illinois Huskies
+2460,34.98,43.8,Middle,MVC,2023,-2.91,Northern Iowa Panthers
+2463,74.82,86.23,Dictator,Big West,2023,-13.4,Cal State Northridge Matadors
+2464,-2.06,9.37,Chameleon,Big Sky,2023,-3.58,Northern Arizona Lumberjacks
+2466,44.17,55.92,Middle,Southland,2023,-2.26,Northwestern State Demons
+2473,20.26,25.62,Chameleon,Horizon,2023,-8.17,Oakland Golden Grizzlies
+2483,2.59,13.5,Chameleon,Pac-12,2023,12.91,Oregon Ducks
+2492,91.27,95.04,Dictator,WCC,2023,-2.19,Pepperdine Waves
+2501,51.13,63.09,Middle,WCC,2023,-0.45,Portland Pilots
+2502,79.88,88.71,Dictator,Big Sky,2023,-5.61,Portland State Vikings
+2504,18.52,23.42,Chameleon,SWAC,2023,-7.23,Prairie View A&M Panthers
+2506,65.12,77.69,Dictator,Big South,2023,-15.06,Presbyterian Blue Hose
+2507,20.7,26.72,Chameleon,Big East,2023,12.96,Providence Friars
+2509,79.94,88.98,Dictator,Big Ten,2023,20.6,Purdue Boilermakers
+2511,18.91,23.69,Chameleon,ASUN,2023,-1.72,Queens University Royals
+2514,20.02,25.34,Chameleon,MAAC,2023,0.87,Quinnipiac Bobcats
+2515,17.32,21.49,Chameleon,Big South,2023,1.14,Radford Highlanders
+2520,25.91,33.88,Middle,MAAC,2023,-0.93,Rider Broncs
+2523,43.02,54.55,Middle,Horizon,2023,-4.51,Robert Morris Colonials
+2529,61.47,75.48,Dictator,NEC,2023,-10.57,Sacred Heart Pioneers
+2534,70.59,82.37,Dictator,WAC,2023,10.65,Sam Houston Bearkats
+2535,34.98,43.53,Middle,Southern,2023,4.03,Samford Bulldogs
+2539,68.96,80.17,Dictator,WCC,2023,4.74,San Francisco Dons
+2540,25.8,33.33,Chameleon,Big West,2023,5.46,UC Santa Barbara Gauchos
+2541,17.25,21.21,Chameleon,WCC,2023,7.19,Santa Clara Broncos
+2545,48.22,60.33,Middle,Southland,2023,-6.32,SE Louisiana Lions
+2546,81.75,90.36,Dictator,OVC,2023,-5.42,Southeast Missouri State Redhawks
+2547,18.11,22.87,Chameleon,WAC,2023,1.53,Seattle U Redhawks
+2550,45.22,56.47,Middle,Big East,2023,10.51,Seton Hall Pirates
+2561,-18.37,3.58,Chameleon,MAAC,2023,-1.0,Siena Saints
+2565,16.04,20.11,Chameleon,OVC,2023,-3.38,SIU Edwardsville Cougars
+2567,-1.19,10.19,Chameleon,American,2023,-2.48,SMU Mustangs
+2569,86.9,92.84,Dictator,MEAC,2023,-16.2,South Carolina State Bulldogs
+2571,57.8,68.87,Dictator,Summit,2023,0.25,South Dakota State Jackrabbits
+2572,29.95,37.47,Middle,Sun Belt,2023,6.95,Southern Miss Golden Eagles
+2579,74.22,85.67,Dictator,SEC,2023,-6.68,South Carolina Gamecocks
+2582,71.77,83.47,Dictator,SWAC,2023,-6.8,Southern Jaguars
+2597,36.26,46.01,Middle,NEC,2023,-16.3,St. Francis Brooklyn Terriers
+2598,26.54,34.44,Middle,NEC,2023,-12.61,Saint Francis Red Wolves
+2599,89.86,94.77,Dictator,Big East,2023,7.19,St. John's Red Storm
+2603,39.09,48.48,Middle,A-10,2023,-1.42,Saint Joseph's Hawks
+2608,72.13,84.3,Dictator,WCC,2023,20.07,Saint Mary's Gaels
+2612,104.65,98.62,Dictator,MAAC,2023,-9.82,Saint Peter's Peacocks
+2617,51.02,62.81,Middle,WAC,2023,2.19,Stephen F. Austin Lumberjacks
+2619,58.75,71.63,Dictator,CAA,2023,-13.51,Stony Brook Seawolves
+2623,93.34,96.69,Dictator,MVC,2023,1.7,Missouri State Bears
+2627,35.23,44.35,Middle,WAC,2023,-0.69,Tarleton State Texans
+2628,40.89,51.79,Middle,Big 12,2023,15.53,TCU Horned Frogs
+2630,58.57,71.35,Dictator,OVC,2023,-6.47,UT Martin Skyhawks
+2633,-2.15,8.82,Chameleon,SEC,2023,24.55,Tennessee Volunteers
+2634,52.63,64.19,Middle,OVC,2023,-7.59,Tennessee State Tigers
+2635,36.07,45.18,Middle,OVC,2023,-7.89,Tennessee Tech Golden Eagles
+2636,40.83,51.24,Middle,CUSA,2023,-9.99,UTSA Roadrunners
+2638,20.68,26.45,Chameleon,CUSA,2023,-1.55,UTEP Miners
+2640,40.13,50.41,Middle,SWAC,2023,-10.17,Texas Southern Tigers
+2641,-26.87,2.48,Chameleon,Big 12,2023,11.09,Texas Tech Red Raiders
+2643,25.15,32.51,Chameleon,Southern,2023,-12.88,The Citadel Bulldogs
+2649,69.77,80.99,Dictator,MAC,2023,9.26,Toledo Rockets
+2653,61.96,75.76,Dictator,Sun Belt,2023,4.06,Troy Trojans
+2655,98.74,98.07,Dictator,American,2023,4.55,Tulane Green Wave
+2670,49.23,61.71,Middle,A-10,2023,11.61,VCU Rams
+2674,54.1,66.67,Middle,MVC,2023,-9.44,Valparaiso Beacons
+2678,-11.8,4.41,Chameleon,Southern,2023,-17.8,VMI Keydets
+2681,61.03,74.38,Dictator,NEC,2023,-8.64,Wagner Seahawks
+2692,47.69,58.95,Middle,Big Sky,2023,-2.05,Weber State Wildcats
+2710,-2.07,9.09,Chameleon,Summit,2023,-7.52,Western Illinois Leathernecks
+2711,-29.5,1.65,Chameleon,MAC,2023,-12.26,Western Michigan Broncos
+2717,43.48,55.1,Middle,Southern,2023,-4.76,Western Carolina Catamounts
+2724,31.29,39.12,Middle,American,2023,4.83,Wichita State Shockers
+2729,62.46,76.31,Dictator,CAA,2023,-12.03,William & Mary Tribe
+2737,11.34,17.63,Chameleon,Big South,2023,-5.65,Winthrop Eagles
+2739,39.45,49.04,Middle,Horizon,2023,-24.97,Green Bay Phoenix
+2747,59.68,73.55,Dictator,Southern,2023,-3.93,Wofford Terriers
+2750,70.39,82.09,Dictator,Horizon,2023,-0.1,Wright State Raiders
+2751,39.87,49.86,Middle,Mountain West,2023,-0.92,Wyoming Cowboys
+2752,89.62,94.49,Dictator,Big East,2023,16.24,Xavier Musketeers
+2754,17.55,22.04,Chameleon,Horizon,2023,5.01,Youngstown State Penguins
+2755,0.48,11.85,Chameleon,SWAC,2023,-0.48,Grambling Tigers
+2771,17.84,22.59,Chameleon,NEC,2023,-9.42,Merrimack Warriors
+2803,80.92,89.53,Dictator,Am. East,2023,-0.33,Bryant Bulldogs
+2815,38.36,48.21,Middle,OVC,2023,-14.57,Lindenwood Lions
+2837,65.52,78.24,Dictator,Southland,2023,-9.76,East Texas A&M Lions
+2856,40.23,50.69,Middle,WAC,2023,0.38,California Baptist Lancers
+2870,31.74,40.22,Middle,Horizon,2023,-4.37,Purdue Fort Wayne Mastodons
+2885,43.41,54.82,Middle,Am. East,2023,-12.1,NJIT Highlanders
+2900,45.03,56.2,Middle,Summit,2023,-0.71,St. Thomas Tommies
+2908,21.48,28.1,Chameleon,Big South,2023,-6.68,South Carolina Upstate Spartans
+2916,-0.21,11.29,Chameleon,Southland,2023,-15.0,Incarnate Word Cardinals
+2934,82.23,90.91,Dictator,Big West,2023,-10.34,Cal State Bakersfield Roadrunners
+3084,42.03,53.17,Middle,WAC,2023,11.04,Utah Valley Wolverines
+3101,23.5,30.85,Chameleon,WAC,2023,0.65,Utah Tech Trailblazers
+112358,71.65,83.2,Dictator,NEC,2023,-25.13,Long Island University Sharks
+2,64.76,77.13,Dictator,SEC,2024,25.54,Auburn Tigers
+5,9.46,19.83,Chameleon,American,2024,5.12,UAB Blazers
+6,-21.31,1.65,Chameleon,Sun Belt,2024,-5.55,South Alabama Jaguars
+8,82.23,89.81,Dictator,SEC,2024,3.6,Arkansas Razorbacks
+9,52.51,63.64,Middle,Pac-12,2024,1.25,Arizona State Sun Devils
+12,102.2,97.52,Dictator,Pac-12,2024,26.37,Arizona Wildcats
+13,21.3,31.13,Chameleon,Big West,2024,-16.5,Cal Poly Mustangs
+16,6.08,14.33,Chameleon,Big Sky,2024,-12.19,Sacramento State Hornets
+21,-17.54,3.03,Chameleon,Mountain West,2024,17.34,San Diego State Aztecs
+23,43.68,55.37,Middle,Mountain West,2024,-6.54,San José State Spartans
+24,26.55,38.02,Middle,Pac-12,2024,4.73,Stanford Cardinal
+25,-36.67,0.55,Chameleon,Pac-12,2024,2.51,California Golden Bears
+26,55.65,67.77,Dictator,Pac-12,2024,5.52,UCLA Bruins
+27,9.73,20.66,Chameleon,Big West,2024,-4.36,UC Riverside Highlanders
+28,56.39,69.15,Dictator,Big West,2024,4.06,UC San Diego Tritons
+30,72.34,82.37,Dictator,Pac-12,2024,7.87,USC Trojans
+36,32.41,45.73,Middle,Mountain West,2024,15.18,Colorado State Rams
+38,30.5,43.25,Middle,Pac-12,2024,16.66,Colorado Buffaloes
+41,63.01,74.38,Dictator,Big East,2024,31.98,UConn Huskies
+42,76.47,85.4,Dictator,,2024,-14.34,Hartford Hawks
+43,68.62,79.89,Dictator,Ivy,2024,8.82,Yale Bulldogs
+44,86.15,92.29,Dictator,Patriot,2024,-7.62,American University Eagles
+45,81.44,88.71,Dictator,A-10,2024,-2.39,George Washington Revolutionaries
+46,26.7,38.29,Middle,Big East,2024,-4.03,Georgetown Hoyas
+47,7.95,17.36,Chameleon,MEAC,2024,-7.11,Howard Bison
+48,24.61,35.81,Middle,CAA,2024,0.9,Delaware Blue Hens
+50,16.63,26.72,Chameleon,SWAC,2024,-17.04,Florida A&M Rattlers
+52,43.98,56.2,Middle,ACC,2024,7.89,Florida State Seminoles
+55,72.06,81.82,Dictator,CUSA,2024,-2.56,Jacksonville State Gamecocks
+56,38.12,50.41,Middle,ASUN,2024,-4.46,Stetson Hatters
+57,78.59,85.95,Dictator,SEC,2024,15.47,Florida Gators
+58,17.53,27.82,Chameleon,American,2024,8.5,South Florida Bulls
+59,41.94,53.72,Middle,ACC,2024,2.0,Georgia Tech Yellow Jackets
+61,19.01,28.93,Chameleon,SEC,2024,7.33,Georgia Bulldogs
+62,48.99,61.71,Middle,Big West,2024,-0.22,Hawai'i Rainbow Warriors
+66,7.73,16.53,Chameleon,Big 12,2024,25.94,Iowa State Cyclones
+68,57.57,70.25,Dictator,Mountain West,2024,15.23,Boise State Broncos
+70,56.62,69.42,Dictator,Big Sky,2024,-12.71,Idaho Vandals
+71,49.88,61.98,Middle,MVC,2024,12.0,Bradley Braves
+77,82.17,89.53,Dictator,Big Ten,2024,13.05,Northwestern Wildcats
+79,69.07,80.44,Dictator,MVC,2024,4.92,Southern Illinois Salukis
+82,-12.32,4.96,Chameleon,MVC,2024,-2.18,UIC Flames
+84,3.4,11.29,Chameleon,Big Ten,2024,5.79,Indiana Hoosiers
+85,19.1,29.2,Chameleon,Horizon,2024,-24.66,IU Indianapolis Jaguars
+87,84.52,90.91,Dictator,ACC,2024,2.25,Notre Dame Fighting Irish
+88,42.69,54.27,Middle,OVC,2024,-13.5,Southern Indiana Screaming Eagles
+91,72.62,82.64,Dictator,ASUN,2024,-12.74,Bellarmine Knights
+93,32.87,46.28,Middle,MVC,2024,0.38,Murray State Racers
+94,30.39,42.7,Middle,Horizon,2024,-1.96,Northern Kentucky Norse
+96,83.39,90.08,Dictator,SEC,2024,17.18,Kentucky Wildcats
+97,-14.35,4.13,Chameleon,ACC,2024,-4.14,Louisville Cardinals
+98,97.99,96.42,Dictator,CUSA,2024,2.79,Western Kentucky Hilltoppers
+99,48.22,60.33,Middle,SEC,2024,6.8,LSU Tigers
+103,34.94,48.48,Middle,ACC,2024,9.15,Boston College Eagles
+104,10.71,22.04,Chameleon,Patriot,2024,-8.12,Boston University Terriers
+107,74.25,83.75,Dictator,Patriot,2024,-17.99,Holy Cross Crusaders
+108,29.48,41.87,Middle,Ivy,2024,-3.97,Harvard Crimson
+111,-10.44,5.51,Chameleon,CAA,2024,-5.32,Northeastern Huskies
+113,22.16,32.51,Chameleon,A-10,2024,8.59,Massachusetts Minutemen
+116,41.55,53.17,Middle,MAAC,2024,-3.98,Mount St. Mary's Mountaineers
+119,91.73,93.94,Dictator,CAA,2024,2.48,Towson Tigers
+120,19.45,29.48,Chameleon,Big Ten,2024,10.06,Maryland Terrapins
+127,52.41,63.36,Middle,Big Ten,2024,18.44,Michigan State Spartans
+130,3.61,11.57,Chameleon,Big Ten,2024,1.78,Michigan Wolverines
+135,1.75,10.19,Chameleon,Big Ten,2024,8.52,Minnesota Golden Gophers
+139,14.36,24.79,Chameleon,A-10,2024,-3.56,Saint Louis Billikens
+140,15.16,25.9,Chameleon,Summit,2024,-3.55,Kansas City Roos
+142,6.38,15.15,Chameleon,SEC,2024,0.65,Missouri Tigers
+145,10.49,21.49,Chameleon,SEC,2024,7.21,Ole Miss Rebels
+147,3.9,12.12,Chameleon,Big Sky,2024,-4.08,Montana State Bobcats
+149,39.52,51.79,Middle,Big Sky,2024,1.06,Montana Grizzlies
+150,3.7,11.85,Chameleon,ACC,2024,24.2,Duke Blue Devils
+151,56.29,68.87,Dictator,American,2024,-2.69,East Carolina Pirates
+152,33.44,46.56,Middle,ACC,2024,12.78,NC State Wolfpack
+153,48.51,60.61,Middle,ACC,2024,23.48,North Carolina Tar Heels
+154,-3.13,9.09,Chameleon,ACC,2024,15.65,Wake Forest Demon Deacons
+155,-15.51,3.58,Chameleon,Summit,2024,-4.92,North Dakota Fighting Hawks
+156,34.65,47.66,Middle,Big East,2024,22.09,Creighton Bluejays
+158,15.31,26.17,Chameleon,Big Ten,2024,14.6,Nebraska Cornhuskers
+159,45.86,57.85,Middle,Ivy,2024,-15.82,Dartmouth Big Green
+160,91.59,93.66,Dictator,Am. East,2024,-3.73,New Hampshire Wildcats
+161,81.24,88.43,Dictator,NEC,2024,-12.61,Fairleigh Dickinson Knights
+163,84.2,90.36,Dictator,Ivy,2024,11.86,Princeton Tigers
+164,-1.93,9.64,Chameleon,Big Ten,2024,5.76,Rutgers Scarlet Knights
+166,43.0,54.55,Middle,CUSA,2024,-10.93,New Mexico State Aggies
+167,84.69,91.18,Dictator,Mountain West,2024,16.95,New Mexico Lobos
+171,30.56,43.53,Middle,Ivy,2024,-3.89,Columbia Lions
+172,92.32,94.21,Dictator,Ivy,2024,7.2,Cornell Big Red
+179,66.6,78.24,Dictator,A-10,2024,8.12,St. Bonaventure Bonnies
+183,74.47,84.02,Dictator,ACC,2024,7.11,Syracuse Orange
+189,7.48,16.25,Chameleon,MAC,2024,-4.31,Bowling Green Falcons
+193,6.16,14.6,Chameleon,MAC,2024,-5.68,Miami (OH) RedHawks
+194,68.24,79.61,Dictator,Big Ten,2024,13.15,Ohio State Buckeyes
+195,9.62,20.11,Chameleon,MAC,2024,2.77,Ohio Bobcats
+197,-18.51,2.48,Chameleon,Big 12,2024,3.84,Oklahoma State Cowboys
+198,23.68,34.44,Middle,Summit,2024,-7.18,Oral Roberts Golden Eagles
+201,22.32,33.06,Chameleon,Big 12,2024,14.59,Oklahoma Sooners
+202,25.43,36.09,Middle,American,2024,-2.29,Tulsa Golden Hurricane
+204,57.63,70.52,Dictator,Pac-12,2024,-1.34,Oregon State Beavers
+213,63.38,75.48,Dictator,Big Ten,2024,8.22,Penn State Nittany Lions
+218,-4.03,8.82,Chameleon,American,2024,-2.65,Temple Owls
+219,72.29,82.09,Dictator,Ivy,2024,-3.18,Pennsylvania Quakers
+221,26.08,37.19,Middle,ACC,2024,15.52,Pittsburgh Panthers
+222,64.54,76.58,Dictator,Big East,2024,14.9,Villanova Wildcats
+225,21.32,31.4,Chameleon,Ivy,2024,-2.2,Brown Bears
+227,-10.39,5.79,Chameleon,A-10,2024,-4.2,Rhode Island Rams
+228,27.36,39.39,Middle,ACC,2024,17.13,Clemson Tigers
+231,62.72,73.55,Dictator,Southern,2024,2.32,Furman Paladins
+232,71.24,80.72,Dictator,CAA,2024,7.31,Charleston Cougars
+233,30.8,44.08,Middle,Summit,2024,-12.96,South Dakota Coyotes
+235,76.37,85.12,Dictator,American,2024,9.27,Memphis Tigers
+236,20.93,30.3,Chameleon,Southern,2024,2.7,Chattanooga Mocs
+238,16.81,27.0,Chameleon,SEC,2024,-4.28,Vanderbilt Commodores
+239,21.19,30.85,Chameleon,Big 12,2024,21.65,Baylor Bears
+242,14.12,24.24,Chameleon,American,2024,-5.29,Rice Owls
+245,47.7,59.5,Middle,SEC,2024,14.04,Texas A&M Aggies
+248,73.48,82.92,Dictator,Big 12,2024,31.66,Houston Cougars
+249,102.59,97.8,Dictator,American,2024,9.77,North Texas Mean Green
+250,47.55,59.23,Middle,WAC,2024,3.82,UT Arlington Mavericks
+251,18.67,28.65,Chameleon,Big 12,2024,16.83,Texas Longhorns
+252,40.2,52.34,Middle,Big 12,2024,21.24,BYU Cougars
+253,39.11,51.52,Middle,WAC,2024,-5.5,Southern Utah Thunderbirds
+254,47.78,59.78,Middle,Pac-12,2024,14.92,Utah Utes
+256,85.35,91.46,Dictator,Sun Belt,2024,12.12,James Madison Dukes
+257,6.74,15.7,Chameleon,A-10,2024,8.78,Richmond Spiders
+258,100.58,96.97,Dictator,ACC,2024,10.43,Virginia Cavaliers
+259,-7.16,7.71,Chameleon,ACC,2024,12.31,Virginia Tech Hokies
+261,94.68,95.32,Dictator,Am. East,2024,7.07,Vermont Catamounts
+264,64.72,76.86,Dictator,Pac-12,2024,11.18,Washington Huskies
+265,63.37,75.21,Dictator,Pac-12,2024,14.69,Washington State Cougars
+269,62.24,73.28,Dictator,Big East,2024,20.24,Marquette Golden Eagles
+270,2.63,10.47,Chameleon,Horizon,2024,-3.89,Milwaukee Panthers
+275,10.64,21.76,Chameleon,Big Ten,2024,17.38,Wisconsin Badgers
+276,75.49,84.57,Dictator,Sun Belt,2024,-5.32,Marshall Thundering Herd
+277,9.27,18.73,Chameleon,Big 12,2024,-0.09,West Virginia Mountaineers
+278,46.19,58.4,Middle,Mountain West,2024,-6.3,Fresno State Bulldogs
+279,4.17,12.67,Chameleon,WCC,2024,-23.59,Pacific Tigers
+282,84.35,90.63,Dictator,MVC,2024,16.53,Indiana State Sycamores
+284,34.44,47.38,Middle,NEC,2024,-19.21,Stonehill Skyhawks
+288,48.84,61.16,Middle,ASUN,2024,0.32,Lipscomb Bisons
+290,5.73,14.05,Chameleon,Sun Belt,2024,-9.0,Georgia Southern Eagles
+292,102.93,98.07,Dictator,WAC,2024,-15.46,UT Rio Grande Valley Vaqueros
+294,38.8,50.69,Middle,ASUN,2024,-8.77,Jacksonville Dolphins
+295,6.2,14.88,Chameleon,Sun Belt,2024,-9.19,Old Dominion Monarchs
+299,93.19,94.49,Dictator,Big West,2024,-0.09,Long Beach State Beach
+300,20.54,30.03,Chameleon,Big West,2024,10.13,UC Irvine Anteaters
+301,77.08,85.67,Dictator,WCC,2024,-7.12,San Diego Toreros
+302,17.41,27.55,Chameleon,Big West,2024,-0.4,UC Davis Aggies
+304,75.71,84.85,Dictator,Big Sky,2024,-6.07,Idaho State Bengals
+305,-11.73,5.23,Chameleon,Big East,2024,-13.41,DePaul Blue Demons
+309,35.47,49.04,Middle,Sun Belt,2024,1.84,Louisiana Ragin' Cajuns
+311,47.91,60.06,Middle,Am. East,2024,-3.9,Maine Black Bears
+314,29.31,41.6,Middle,MAAC,2024,-2.59,Iona Gaels
+315,32.36,45.45,Middle,MAAC,2024,-6.34,Niagara Purple Eagles
+322,-17.98,2.75,Chameleon,Patriot,2024,-10.98,Lafayette Leopards
+324,9.67,20.39,Chameleon,Sun Belt,2024,-12.19,Coastal Carolina Chanticleers
+325,45.11,57.02,Middle,Horizon,2024,-1.68,Cleveland State Vikings
+326,51.11,62.81,Middle,Sun Belt,2024,-2.64,Texas State Bobcats
+328,9.35,19.28,Chameleon,Mountain West,2024,13.39,Utah State Aggies
+331,27.17,39.12,Middle,Big Sky,2024,1.75,Eastern Washington Eagles
+333,61.59,72.73,Dictator,SEC,2024,22.52,Alabama Crimson Tide
+338,106.27,98.9,Dictator,ASUN,2024,-6.72,Kennesaw State Owls
+339,21.13,30.58,Chameleon,MVC,2024,-4.19,Evansville Purple Aces
+344,-6.09,8.26,Chameleon,SEC,2024,14.47,Mississippi State Bulldogs
+349,95.04,95.59,Dictator,Patriot,2024,-15.47,Army Black Knights
+350,-7.81,6.61,Chameleon,CAA,2024,5.23,UNC Wilmington Seahawks
+356,60.35,72.18,Dictator,Big Ten,2024,21.66,Illinois Fighting Illini
+357,56.64,69.7,Dictator,Southland,2024,-1.19,Texas A&M-Corpus Christi Islanders
+399,80.34,87.33,Dictator,Am. East,2024,-3.9,UAlbany Great Danes
+526,58.08,70.8,Dictator,ASUN,2024,-5.56,Florida Gulf Coast Eagles
+2000,8.96,18.46,Chameleon,WAC,2024,-4.28,Abilene Christian Wildcats
+2005,80.1,86.78,Dictator,Mountain West,2024,-8.3,Air Force Falcons
+2006,58.74,71.07,Dictator,MAC,2024,5.39,Akron Zips
+2010,22.05,32.23,Chameleon,SWAC,2024,-13.83,Alabama A&M Bulldogs
+2011,-13.66,4.41,Chameleon,SWAC,2024,-10.92,Alabama State Hornets
+2016,58.99,71.35,Dictator,SWAC,2024,-10.52,Alcorn State Braves
+2026,52.32,63.09,Middle,Sun Belt,2024,9.73,App State Mountaineers
+2029,95.1,95.87,Dictator,SWAC,2024,-14.93,Arkansas-Pine Bluff Golden Lions
+2031,89.7,93.11,Dictator,OVC,2024,-0.77,Little Rock Trojans
+2032,54.88,66.39,Middle,Sun Belt,2024,2.7,Arkansas State Red Wolves
+2046,68.7,80.17,Dictator,ASUN,2024,-5.14,Austin Peay Governors
+2050,75.42,84.3,Dictator,MAC,2024,-6.44,Ball State Cardinals
+2057,54.07,65.56,Middle,MVC,2024,4.08,Belmont Bruins
+2065,55.19,66.67,Middle,SWAC,2024,-10.66,Bethune-Cookman Wildcats
+2066,53.59,65.29,Middle,Am. East,2024,-7.41,Binghamton Bearcats
+2083,12.81,23.42,Chameleon,Patriot,2024,-6.58,Bucknell Bison
+2084,24.38,35.26,Middle,MAC,2024,-17.76,Buffalo Bulls
+2086,19.56,29.75,Chameleon,Big East,2024,10.54,Butler Bulldogs
+2097,62.86,74.1,Dictator,CAA,2024,-11.11,Campbell Fighting Camels
+2099,-7.46,6.89,Chameleon,MAAC,2024,-6.41,Canisius Golden Griffins
+2110,22.34,33.33,Chameleon,ASUN,2024,-17.28,Central Arkansas Bears
+2115,28.05,40.22,Middle,NEC,2024,-4.73,Central Connecticut Blue Devils
+2116,24.06,34.99,Middle,Big 12,2024,11.35,UCF Knights
+2117,24.06,34.71,Middle,MAC,2024,-8.65,Central Michigan Chippewas
+2127,63.86,75.76,Dictator,Big South,2024,-13.08,Charleston Southern Buccaneers
+2130,34.44,47.11,Middle,,2024,-9.74,Chicago State Cougars
+2132,7.32,15.98,Chameleon,Big 12,2024,15.91,Cincinnati Bearcats
+2142,28.03,39.94,Middle,Patriot,2024,3.5,Colgate Raiders
+2154,35.87,49.31,Middle,MEAC,2024,-24.52,Coppin State Eagles
+2166,63.2,74.93,Dictator,A-10,2024,3.9,Davidson Wildcats
+2168,93.43,94.77,Dictator,A-10,2024,16.32,Dayton Flyers
+2169,66.17,77.69,Dictator,MEAC,2024,-9.28,Delaware State Hornets
+2172,56.17,68.6,Dictator,Summit,2024,-6.03,Denver Pioneers
+2174,-16.21,3.31,Chameleon,Horizon,2024,-19.24,Detroit Mercy Titans
+2181,30.0,42.15,Middle,MVC,2024,14.11,Drake Bulldogs
+2182,71.52,81.54,Dictator,CAA,2024,5.06,Drexel Dragons
+2184,-19.65,2.2,Chameleon,A-10,2024,8.15,Duquesne Dukes
+2193,52.57,63.91,Middle,Southern,2024,-1.28,East Tennessee State Buccaneers
+2197,16.46,26.45,Chameleon,OVC,2024,-11.01,Eastern Illinois Panthers
+2198,-4.76,8.54,Chameleon,ASUN,2024,-3.75,Eastern Kentucky Colonels
+2199,79.02,86.23,Dictator,MAC,2024,-14.53,Eastern Michigan Eagles
+2210,7.86,17.08,Chameleon,CAA,2024,-11.94,Elon Phoenix
+2217,43.66,55.1,Middle,MAAC,2024,0.77,Fairfield Stags
+2226,14.67,25.07,Chameleon,American,2024,15.31,Florida Atlantic Owls
+2229,59.05,71.63,Dictator,CUSA,2024,-9.11,Florida International Panthers
+2230,43.76,55.65,Middle,A-10,2024,-1.88,Fordham Rams
+2239,26.77,38.57,Middle,Big West,2024,-5.05,Cal State Fullerton Titans
+2241,45.76,57.58,Middle,Big South,2024,-2.9,Gardner-Webb Runnin' Bulldogs
+2244,55.63,67.49,Dictator,A-10,2024,7.86,George Mason Patriots
+2247,10.87,22.31,Chameleon,Sun Belt,2024,-3.55,Georgia State Panthers
+2250,14.14,24.52,Chameleon,WCC,2024,21.32,Gonzaga Bulldogs
+2253,1.08,9.92,Chameleon,WAC,2024,14.21,Grand Canyon Lopes
+2261,61.62,73.0,Dictator,CAA,2024,-17.17,Hampton Pirates
+2272,41.11,52.89,Middle,Big South,2024,5.65,High Point Panthers
+2275,25.92,36.91,Middle,CAA,2024,5.69,Hofstra Pride
+2277,85.62,91.74,Dictator,Southland,2024,-20.8,Houston Christian Huskies
+2287,26.22,37.47,Middle,MVC,2024,-2.06,Illinois State Redbirds
+2294,106.65,99.17,Dictator,Big Ten,2024,12.09,Iowa Hawkeyes
+2296,38.84,51.24,Middle,SWAC,2024,-10.16,Jackson State Tigers
+2305,-37.55,0.28,Chameleon,Big 12,2024,16.74,Kansas Jayhawks
+2306,28.68,41.32,Middle,Big 12,2024,10.04,Kansas State Wildcats
+2309,-7.42,7.16,Chameleon,MAC,2024,0.87,Kent State Golden Flashes
+2320,66.78,78.51,Dictator,Southland,2024,-2.77,Lamar Cardinals
+2325,35.07,48.76,Middle,A-10,2024,-2.53,La Salle Explorers
+2329,64.42,76.31,Dictator,Patriot,2024,-4.86,Lehigh Mountain Hawks
+2330,42.05,53.99,Middle,NEC,2024,-8.3,Le Moyne Dolphins
+2335,36.51,49.59,Middle,CUSA,2024,3.39,Liberty Flames
+2344,13.87,23.97,Chameleon,Big South,2024,0.72,Longwood Lancers
+2348,60.07,71.9,Dictator,CUSA,2024,8.35,Louisiana Tech Bulldogs
+2349,47.37,58.95,Middle,Am. East,2024,2.83,UMass Lowell River Hawks
+2350,14.81,25.34,Chameleon,A-10,2024,7.63,Loyola Chicago Ramblers
+2351,53.23,64.74,Middle,WCC,2024,-1.79,Loyola Marymount Lions
+2352,4.41,12.95,Chameleon,Patriot,2024,-16.92,Loyola Maryland Greyhounds
+2363,21.88,31.96,Chameleon,MAAC,2024,-15.08,Manhattan Jaspers
+2368,56.76,69.97,Dictator,MAAC,2024,-1.7,Marist Red Foxes
+2377,54.61,66.12,Middle,Southland,2024,12.66,McNeese Cowboys
+2378,81.99,89.26,Dictator,Am. East,2024,-6.92,UMBC Retrievers
+2379,32.35,45.18,Middle,MEAC,2024,-18.69,Maryland Eastern Shore Hawks
+2382,23.6,33.88,Middle,Southern,2024,-3.99,Mercer Bears
+2390,79.74,86.5,Dictator,ACC,2024,7.49,Miami Hurricanes
+2393,102.15,97.25,Dictator,CUSA,2024,-9.55,Middle Tennessee Blue Raiders
+2400,61.38,72.45,Dictator,SWAC,2024,-31.86,Mississippi Valley State Delta Devils
+2405,22.2,32.78,Chameleon,CAA,2024,-2.08,Monmouth Hawks
+2413,9.29,19.01,Chameleon,OVC,2024,5.76,Morehead State Eagles
+2415,30.23,42.42,Middle,MEAC,2024,-17.0,Morgan State Bears
+2426,27.77,39.67,Middle,Patriot,2024,-11.06,Navy Midshipmen
+2427,73.94,83.2,Dictator,Big South,2024,0.09,UNC Asheville Bulldogs
+2428,53.11,64.19,Middle,MEAC,2024,-5.53,North Carolina Central Eagles
+2429,95.11,96.14,Dictator,American,2024,4.25,Charlotte 49ers
+2430,64.05,76.03,Dictator,Southern,2024,1.97,UNC Greensboro Spartans
+2433,26.88,38.84,Middle,Sun Belt,2024,-10.96,UL Monroe Warhawks
+2437,4.08,12.4,Chameleon,Summit,2024,-5.9,Omaha Mavericks
+2439,45.95,58.13,Middle,Mountain West,2024,9.11,UNLV Rebels
+2440,-2.0,9.37,Chameleon,Mountain West,2024,14.81,Nevada Wolf Pack
+2443,71.48,81.27,Dictator,Southland,2024,-17.2,LSU New Orleans Privateers
+2447,-14.86,3.86,Chameleon,Southland,2024,-4.98,Nicholls Colonels
+2448,28.42,41.05,Middle,CAA,2024,-18.07,North Carolina A&T Aggies
+2449,89.7,93.39,Dictator,Summit,2024,-7.21,North Dakota State Bison
+2450,40.24,52.62,Middle,MEAC,2024,-3.58,Norfolk State Spartans
+2453,11.62,22.87,Chameleon,ASUN,2024,-5.77,North Alabama Lions
+2454,-36.01,0.83,Chameleon,ASUN,2024,-5.59,North Florida Ospreys
+2458,55.87,68.32,Dictator,Big Sky,2024,-2.35,Northern Colorado Bears
+2459,8.73,17.91,Chameleon,MAC,2024,-10.57,Northern Illinois Huskies
+2460,55.49,66.94,Dictator,MVC,2024,4.64,Northern Iowa Panthers
+2463,89.24,92.56,Dictator,Big West,2024,-4.42,Cal State Northridge Matadors
+2464,26.47,37.74,Middle,Big Sky,2024,-12.7,Northern Arizona Lumberjacks
+2466,2.91,11.02,Chameleon,Southland,2024,-15.02,Northwestern State Demons
+2473,8.19,17.63,Chameleon,Horizon,2024,4.37,Oakland Golden Grizzlies
+2483,-20.66,1.93,Chameleon,Pac-12,2024,11.78,Oregon Ducks
+2492,5.35,13.77,Chameleon,WCC,2024,-3.96,Pepperdine Waves
+2501,28.28,40.5,Middle,WCC,2024,-11.46,Portland Pilots
+2502,23.18,33.61,Middle,Big Sky,2024,-5.3,Portland State Vikings
+2504,65.65,77.41,Dictator,SWAC,2024,-14.74,Prairie View A&M Panthers
+2506,30.65,43.8,Middle,Big South,2024,-7.26,Presbyterian Blue Hose
+2507,67.27,78.79,Dictator,Big East,2024,11.5,Providence Friars
+2509,38.83,50.96,Middle,Big Ten,2024,28.39,Purdue Boilermakers
+2511,80.71,88.15,Dictator,ASUN,2024,-7.62,Queens University Royals
+2514,43.12,54.82,Middle,MAAC,2024,0.68,Quinnipiac Bobcats
+2515,74.24,83.47,Dictator,Big South,2024,-4.44,Radford Highlanders
+2520,-8.45,6.06,Chameleon,MAAC,2024,-3.19,Rider Broncs
+2523,-7.32,7.44,Chameleon,Horizon,2024,-9.23,Robert Morris Colonials
+2529,-8.06,6.34,Chameleon,NEC,2024,-7.25,Sacred Heart Pioneers
+2534,18.13,28.37,Chameleon,CUSA,2024,1.19,Sam Houston Bearkats
+2535,80.17,87.05,Dictator,Southern,2024,9.33,Samford Bulldogs
+2539,32.23,44.9,Middle,WCC,2024,12.23,San Francisco Dons
+2540,17.73,28.1,Chameleon,Big West,2024,-2.68,UC Santa Barbara Gauchos
+2541,-21.76,1.38,Chameleon,WCC,2024,5.23,Santa Clara Broncos
+2545,66.23,77.96,Dictator,Southland,2024,-10.4,SE Louisiana Lions
+2546,34.92,48.21,Middle,OVC,2024,-18.82,Southeast Missouri State Redhawks
+2547,9.4,19.56,Chameleon,WAC,2024,6.44,Seattle U Redhawks
+2550,21.32,31.68,Chameleon,Big East,2024,11.94,Seton Hall Pirates
+2561,5.07,13.22,Chameleon,MAAC,2024,-21.61,Siena Saints
+2565,86.06,92.01,Dictator,OVC,2024,-7.24,SIU Edwardsville Cougars
+2567,32.55,46.01,Middle,American,2024,11.61,SMU Mustangs
+2569,48.57,60.88,Middle,MEAC,2024,-10.76,South Carolina State Bulldogs
+2571,13.27,23.69,Chameleon,Summit,2024,3.31,South Dakota State Jackrabbits
+2572,23.64,34.16,Middle,Sun Belt,2024,-5.37,Southern Miss Golden Eagles
+2579,89.48,92.84,Dictator,SEC,2024,11.24,South Carolina Gamecocks
+2582,10.25,21.21,Chameleon,SWAC,2024,-6.67,Southern Jaguars
+2598,53.33,65.01,Middle,NEC,2024,-19.24,Saint Francis Red Wolves
+2599,37.63,49.86,Middle,Big East,2024,17.41,St. John's Red Storm
+2603,-22.65,1.1,Chameleon,A-10,2024,8.14,Saint Joseph's Hawks
+2608,94.55,95.04,Dictator,WCC,2024,20.8,Saint Mary's Gaels
+2612,80.51,87.6,Dictator,MAAC,2024,-1.46,Saint Peter's Peacocks
+2617,67.56,79.06,Dictator,WAC,2024,-0.74,Stephen F. Austin Lumberjacks
+2619,24.46,35.54,Middle,CAA,2024,-0.72,Stony Brook Seawolves
+2623,-6.25,7.99,Chameleon,MVC,2024,1.15,Missouri State Bears
+2627,34.4,46.83,Middle,WAC,2024,2.84,Tarleton State Texans
+2628,55.54,67.22,Dictator,Big 12,2024,14.89,TCU Horned Frogs
+2630,104.7,98.62,Dictator,OVC,2024,-2.63,UT Martin Skyhawks
+2633,43.87,55.92,Middle,SEC,2024,24.43,Tennessee Volunteers
+2634,11.83,23.14,Chameleon,OVC,2024,-7.55,Tennessee State Tigers
+2635,41.7,53.44,Middle,OVC,2024,-15.24,Tennessee Tech Golden Eagles
+2636,25.78,36.64,Middle,American,2024,-6.74,UTSA Roadrunners
+2638,44.0,56.47,Middle,CUSA,2024,-1.49,UTEP Miners
+2640,-13.18,4.68,Chameleon,SWAC,2024,-7.58,Texas Southern Tigers
+2641,62.83,73.83,Dictator,Big 12,2024,15.77,Texas Tech Red Raiders
+2643,71.37,80.99,Dictator,Southern,2024,-5.98,The Citadel Bulldogs
+2649,10.04,20.94,Chameleon,MAC,2024,3.56,Toledo Rockets
+2653,54.47,65.84,Middle,Sun Belt,2024,3.55,Troy Trojans
+2655,68.12,79.34,Dictator,American,2024,2.66,Tulane Green Wave
+2670,53.12,64.46,Middle,A-10,2024,9.9,VCU Rams
+2674,39.62,52.07,Middle,MVC,2024,-10.54,Valparaiso Beacons
+2678,50.34,62.26,Middle,Southern,2024,-22.09,VMI Keydets
+2681,108.07,99.72,Dictator,NEC,2024,-8.01,Wagner Seahawks
+2692,110.49,100.0,Dictator,Big Sky,2024,2.53,Weber State Wildcats
+2710,45.18,57.3,Middle,OVC,2024,-6.57,Western Illinois Leathernecks
+2711,7.78,16.8,Chameleon,MAC,2024,-10.29,Western Michigan Broncos
+2717,6.44,15.43,Chameleon,Southern,2024,5.57,Western Carolina Catamounts
+2724,44.1,56.75,Middle,American,2024,0.9,Wichita State Shockers
+2729,32.07,44.63,Middle,CAA,2024,-12.03,William & Mary Tribe
+2737,5.13,13.5,Chameleon,Big South,2024,0.09,Winthrop Eagles
+2739,103.23,98.35,Dictator,Horizon,2024,-4.32,Green Bay Phoenix
+2747,31.51,44.35,Middle,Southern,2024,-2.6,Wofford Terriers
+2750,48.96,61.43,Middle,Horizon,2024,1.58,Wright State Raiders
+2751,30.46,42.98,Middle,Mountain West,2024,-0.77,Wyoming Cowboys
+2752,11.28,22.59,Chameleon,Big East,2024,11.38,Xavier Musketeers
+2754,55.68,68.04,Dictator,Horizon,2024,4.29,Youngstown State Penguins
+2755,47.27,58.68,Middle,SWAC,2024,-8.69,Grambling Tigers
+2771,28.35,40.77,Middle,NEC,2024,-1.73,Merrimack Warriors
+2803,107.34,99.45,Dictator,Am. East,2024,-0.08,Bryant Bulldogs
+2815,37.92,50.14,Middle,OVC,2024,-19.86,Lindenwood Lions
+2837,50.94,62.53,Middle,Southland,2024,-15.76,East Texas A&M Lions
+2856,34.89,47.93,Middle,WAC,2024,-2.03,California Baptist Lancers
+2870,81.89,88.98,Dictator,Horizon,2024,2.21,Purdue Fort Wayne Mastodons
+2885,8.86,18.18,Chameleon,Am. East,2024,-15.18,NJIT Highlanders
+2900,100.36,96.69,Dictator,Summit,2024,2.96,St. Thomas Tommies
+2908,15.04,25.62,Chameleon,Big South,2024,-9.25,South Carolina Upstate Spartans
+2916,2.89,10.74,Chameleon,Southland,2024,-16.3,Incarnate Word Cardinals
+2934,80.61,87.88,Dictator,Big West,2024,-5.84,Cal State Bakersfield Roadrunners
+3084,17.33,27.27,Chameleon,WAC,2024,-0.38,Utah Valley Wolverines
+3101,25.75,36.36,Middle,WAC,2024,-8.56,Utah Tech Trailblazers
+112358,63.14,74.66,Dictator,NEC,2024,-17.01,Long Island University Sharks
+2,22.94,28.02,Chameleon,SEC,2025,32.54,Auburn Tigers
+5,36.67,41.48,Middle,American,2025,6.49,UAB Blazers
+6,91.51,96.98,Dictator,Sun Belt,2025,4.75,South Alabama Jaguars
+8,58.81,71.15,Dictator,SEC,2025,17.02,Arkansas Razorbacks
+9,-13.9,4.4,Chameleon,Big 12,2025,8.43,Arizona State Sun Devils
+12,52.65,62.91,Middle,Big 12,2025,24.53,Arizona Wildcats
+13,88.34,95.05,Dictator,Big West,2025,-2.19,Cal Poly Mustangs
+16,72.56,82.97,Dictator,Big Sky,2025,-17.04,Sacramento State Hornets
+21,20.94,26.37,Chameleon,Mountain West,2025,12.73,San Diego State Aztecs
+23,-1.3,9.62,Chameleon,Mountain West,2025,-2.67,San José State Spartans
+24,-7.36,6.87,Chameleon,ACC,2025,7.95,Stanford Cardinal
+25,12.38,20.05,Chameleon,ACC,2025,3.09,California Golden Bears
+26,44.52,51.1,Middle,Big Ten,2025,21.27,UCLA Bruins
+27,36.54,41.21,Middle,Big West,2025,-0.82,UC Riverside Highlanders
+28,52.69,63.19,Middle,Big West,2025,18.11,UC San Diego Tritons
+30,-0.24,10.44,Chameleon,Big Ten,2025,11.44,USC Trojans
+36,28.96,32.42,Chameleon,Mountain West,2025,15.26,Colorado State Rams
+38,33.71,36.81,Middle,Big 12,2025,6.71,Colorado Buffaloes
+41,69.33,81.04,Dictator,Big East,2025,19.8,UConn Huskies
+43,-27.67,0.82,Chameleon,Ivy,2025,12.18,Yale Bulldogs
+44,67.19,79.12,Dictator,Patriot,2025,-5.61,American University Eagles
+45,34.02,37.64,Middle,A-10,2025,3.35,George Washington Revolutionaries
+46,-1.62,9.34,Chameleon,Big East,2025,7.15,Georgetown Hoyas
+47,41.05,46.15,Middle,MEAC,2025,-10.68,Howard Bison
+48,14.81,21.7,Chameleon,CAA,2025,-4.6,Delaware Blue Hens
+50,48.53,58.52,Middle,SWAC,2025,-11.99,Florida A&M Rattlers
+52,49.27,59.07,Middle,ACC,2025,6.51,Florida State Seminoles
+55,46.16,55.49,Middle,CUSA,2025,3.85,Jacksonville State Gamecocks
+56,13.38,20.6,Chameleon,ASUN,2025,-19.47,Stetson Hatters
+57,43.67,49.73,Middle,SEC,2025,31.73,Florida Gators
+58,14.21,21.15,Chameleon,American,2025,-2.84,South Florida Bulls
+59,15.87,22.8,Chameleon,ACC,2025,3.81,Georgia Tech Yellow Jackets
+61,13.99,20.88,Chameleon,SEC,2025,16.79,Georgia Bulldogs
+62,57.1,68.13,Dictator,Big West,2025,-5.61,Hawai'i Rainbow Warriors
+66,52.59,62.36,Middle,Big 12,2025,24.22,Iowa State Cyclones
+68,21.47,26.65,Chameleon,Mountain West,2025,15.3,Boise State Broncos
+70,45.22,53.57,Middle,Big Sky,2025,-8.67,Idaho Vandals
+71,31.38,34.89,Middle,MVC,2025,8.61,Bradley Braves
+77,57.16,68.41,Dictator,Big Ten,2025,13.69,Northwestern Wildcats
+79,28.91,32.14,Chameleon,MVC,2025,-2.39,Southern Illinois Salukis
+82,-12.92,4.95,Chameleon,MVC,2025,-0.64,UIC Flames
+84,58.22,70.05,Dictator,Big Ten,2025,13.64,Indiana Hoosiers
+85,57.66,68.96,Dictator,Horizon,2025,-12.02,IU Indianapolis Jaguars
+87,56.15,66.76,Dictator,ACC,2025,5.31,Notre Dame Fighting Irish
+88,-5.4,7.69,Chameleon,OVC,2025,-13.35,Southern Indiana Screaming Eagles
+91,60.3,73.08,Dictator,ASUN,2025,-17.23,Bellarmine Knights
+93,46.35,56.32,Middle,MVC,2025,1.82,Murray State Racers
+94,60.35,73.35,Dictator,Horizon,2025,-4.61,Northern Kentucky Norse
+96,81.62,91.76,Dictator,SEC,2025,22.39,Kentucky Wildcats
+97,3.6,13.19,Chameleon,ACC,2025,19.44,Louisville Cardinals
+98,102.64,98.9,Dictator,CUSA,2025,-0.11,Western Kentucky Hilltoppers
+99,60.93,74.18,Dictator,SEC,2025,7.66,LSU Tigers
+103,45.55,54.4,Middle,ACC,2025,-3.84,Boston College Eagles
+104,81.41,91.21,Dictator,Patriot,2025,-9.63,Boston University Terriers
+107,38.3,43.96,Middle,Patriot,2025,-11.14,Holy Cross Crusaders
+108,53.5,64.29,Middle,Ivy,2025,-6.59,Harvard Crimson
+111,8.14,16.48,Chameleon,CAA,2025,-2.68,Northeastern Huskies
+113,56.76,67.31,Dictator,A-10,2025,-4.38,Massachusetts Minutemen
+116,76.01,86.26,Dictator,MAAC,2025,-5.13,Mount St. Mary's Mountaineers
+119,80.32,90.11,Dictator,CAA,2025,0.97,Towson Tigers
+120,70.92,81.87,Dictator,Big Ten,2025,25.37,Maryland Terrapins
+127,44.93,52.47,Middle,Big Ten,2025,24.61,Michigan State Spartans
+130,52.75,63.46,Middle,Big Ten,2025,20.33,Michigan Wolverines
+135,84.92,94.23,Dictator,Big Ten,2025,5.89,Minnesota Golden Gophers
+139,15.82,22.53,Chameleon,A-10,2025,3.98,Saint Louis Billikens
+140,81.6,91.48,Dictator,Summit,2025,-4.84,Kansas City Roos
+142,-5.0,7.97,Chameleon,SEC,2025,20.96,Missouri Tigers
+145,26.32,30.77,Chameleon,SEC,2025,19.67,Ole Miss Rebels
+147,60.92,73.9,Dictator,Big Sky,2025,-1.71,Montana State Bobcats
+149,38.14,43.13,Middle,Big Sky,2025,-0.22,Montana Grizzlies
+150,56.94,67.86,Dictator,ACC,2025,37.36,Duke Blue Devils
+151,-7.22,7.14,Chameleon,American,2025,-1.11,East Carolina Pirates
+152,70.2,81.59,Dictator,ACC,2025,2.66,NC State Wolfpack
+153,79.75,89.29,Dictator,ACC,2025,18.14,North Carolina Tar Heels
+154,2.49,11.54,Chameleon,ACC,2025,8.75,Wake Forest Demon Deacons
+155,27.66,31.59,Chameleon,Summit,2025,-7.73,North Dakota Fighting Hawks
+156,38.88,44.51,Middle,Big East,2025,17.01,Creighton Bluejays
+158,4.89,13.74,Chameleon,Big Ten,2025,13.65,Nebraska Cornhuskers
+159,67.41,79.4,Dictator,Ivy,2025,-1.82,Dartmouth Big Green
+160,-23.67,1.65,Chameleon,Am. East,2025,-19.94,New Hampshire Wildcats
+161,43.29,49.45,Middle,NEC,2025,-10.15,Fairleigh Dickinson Knights
+163,-0.06,10.71,Chameleon,Ivy,2025,-0.95,Princeton Tigers
+164,21.78,27.2,Chameleon,Big Ten,2025,8.64,Rutgers Scarlet Knights
+166,36.53,40.93,Middle,CUSA,2025,2.31,New Mexico State Aggies
+167,80.18,89.84,Dictator,Mountain West,2025,15.63,New Mexico Lobos
+171,37.08,42.03,Middle,Ivy,2025,-7.73,Columbia Lions
+172,57.48,68.68,Dictator,Ivy,2025,4.63,Cornell Big Red
+179,68.79,80.49,Dictator,A-10,2025,4.89,St. Bonaventure Bonnies
+183,57.89,69.51,Dictator,ACC,2025,1.94,Syracuse Orange
+189,43.97,50.27,Middle,MAC,2025,-9.02,Bowling Green Falcons
+193,37.34,42.58,Middle,MAC,2025,1.64,Miami (OH) RedHawks
+194,19.5,25.27,Chameleon,Big Ten,2025,17.16,Ohio State Buckeyes
+195,42.86,48.9,Middle,MAC,2025,-1.03,Ohio Bobcats
+197,49.3,59.34,Middle,Big 12,2025,4.24,Oklahoma State Cowboys
+198,10.63,19.51,Chameleon,Summit,2025,-13.64,Oral Roberts Golden Eagles
+201,49.75,59.89,Middle,SEC,2025,14.33,Oklahoma Sooners
+202,36.78,41.76,Middle,American,2025,-8.05,Tulsa Golden Hurricane
+204,58.81,70.88,Dictator,WCC,2025,8.92,Oregon State Beavers
+213,81.04,90.93,Dictator,Big Ten,2025,12.88,Penn State Nittany Lions
+218,16.64,23.9,Chameleon,American,2025,-0.49,Temple Owls
+219,33.63,36.54,Middle,Ivy,2025,-10.86,Pennsylvania Quakers
+221,55.36,65.66,Middle,ACC,2025,12.7,Pittsburgh Panthers
+222,93.74,97.25,Dictator,Big East,2025,14.39,Villanova Wildcats
+225,46.38,56.59,Middle,Ivy,2025,-3.2,Brown Bears
+227,61.18,74.45,Dictator,A-10,2025,1.16,Rhode Island Rams
+228,83.96,92.58,Dictator,ACC,2025,20.46,Clemson Tigers
+231,65.62,77.47,Dictator,SoCon,2025,2.83,Furman Paladins
+232,72.46,82.69,Dictator,CAA,2025,1.17,Charleston Cougars
+233,90.76,96.15,Dictator,Summit,2025,-5.08,South Dakota Coyotes
+235,44.68,51.65,Middle,American,2025,13.77,Memphis Tigers
+236,30.48,34.34,Middle,SoCon,2025,6.15,Chattanooga Mocs
+238,66.54,78.3,Dictator,SEC,2025,14.49,Vanderbilt Commodores
+239,40.48,45.33,Middle,Big 12,2025,19.08,Baylor Bears
+242,29.34,32.69,Chameleon,American,2025,-2.12,Rice Owls
+245,4.78,13.46,Chameleon,SEC,2025,20.41,Texas A&M Aggies
+248,86.92,94.51,Dictator,Big 12,2025,34.42,Houston Cougars
+249,112.44,100.0,Dictator,American,2025,11.08,North Texas Mean Green
+250,48.2,58.24,Middle,WAC,2025,-5.26,UT Arlington Mavericks
+251,-37.03,0.55,Chameleon,SEC,2025,15.72,Texas Longhorns
+252,-23.4,1.92,Chameleon,Big 12,2025,20.07,BYU Cougars
+253,25.21,28.85,Chameleon,WAC,2025,-11.99,Southern Utah Thunderbirds
+254,56.94,67.58,Dictator,Big 12,2025,9.55,Utah Utes
+256,25.5,30.22,Chameleon,Sun Belt,2025,0.09,James Madison Dukes
+257,59.15,71.98,Dictator,A-10,2025,-7.33,Richmond Spiders
+258,108.83,99.45,Dictator,ACC,2025,3.46,Virginia Cavaliers
+259,50.16,60.71,Middle,ACC,2025,-1.28,Virginia Tech Hokies
+261,83.98,92.86,Dictator,Am. East,2025,-5.05,Vermont Catamounts
+264,-8.08,6.59,Chameleon,Big Ten,2025,2.91,Washington Huskies
+265,80.77,90.38,Dictator,WCC,2025,2.94,Washington State Cougars
+269,16.33,23.35,Chameleon,Big East,2025,19.36,Marquette Golden Eagles
+270,13.25,20.33,Chameleon,Horizon,2025,3.09,Milwaukee Panthers
+275,3.02,12.09,Chameleon,Big Ten,2025,22.28,Wisconsin Badgers
+276,42.1,47.8,Middle,Sun Belt,2025,-0.05,Marshall Thundering Herd
+277,64.3,76.92,Dictator,Big 12,2025,14.02,West Virginia Mountaineers
+278,79.98,89.56,Dictator,Mountain West,2025,-9.07,Fresno State Bulldogs
+279,16.37,23.63,Chameleon,WCC,2025,-11.26,Pacific Tigers
+282,89.47,95.6,Dictator,MVC,2025,-2.71,Indiana State Sycamores
+284,88.05,94.78,Dictator,NEC,2025,-11.87,Stonehill Skyhawks
+288,31.39,35.16,Middle,ASUN,2025,8.91,Lipscomb Bisons
+290,47.15,57.14,Middle,Sun Belt,2025,-6.83,Georgia Southern Eagles
+292,35.09,39.84,Middle,Southland,2025,-5.34,UT Rio Grande Valley Vaqueros
+294,41.12,46.43,Middle,ASUN,2025,-2.32,Jacksonville Dolphins
+295,20.8,25.82,Chameleon,Sun Belt,2025,-10.66,Old Dominion Monarchs
+299,77.83,87.91,Dictator,Big West,2025,-13.49,Long Beach State Beach
+300,-1.75,9.07,Chameleon,Big West,2025,11.12,UC Irvine Anteaters
+301,42.67,48.35,Middle,WCC,2025,-12.74,San Diego Toreros
+302,35.09,39.56,Middle,Big West,2025,-7.15,UC Davis Aggies
+304,46.64,56.87,Middle,Big Sky,2025,-3.01,Idaho State Bengals
+305,-3.94,8.52,Chameleon,Big East,2025,2.56,DePaul Blue Demons
+309,36.47,40.66,Middle,Sun Belt,2025,-13.31,Louisiana Ragin' Cajuns
+311,5.43,14.01,Chameleon,Am. East,2025,-2.02,Maine Black Bears
+314,62.41,75.0,Dictator,MAAC,2025,-6.07,Iona Gaels
+315,58.88,71.43,Dictator,MAAC,2025,-11.35,Niagara Purple Eagles
+322,29.53,32.97,Chameleon,Patriot,2025,-8.31,Lafayette Leopards
+324,75.07,85.16,Dictator,Sun Belt,2025,-13.44,Coastal Carolina Chanticleers
+325,30.02,33.79,Middle,Horizon,2025,0.4,Cleveland State Vikings
+326,64.57,77.2,Dictator,Sun Belt,2025,-2.25,Texas State Bobcats
+328,2.89,11.81,Chameleon,Mountain West,2025,14.71,Utah State Aggies
+331,-9.55,6.04,Chameleon,Big Sky,2025,-10.29,Eastern Washington Eagles
+333,90.72,95.88,Dictator,SEC,2025,27.34,Alabama Crimson Tide
+338,54.18,64.84,Middle,CUSA,2025,1.87,Kennesaw State Owls
+339,7.74,16.21,Chameleon,MVC,2025,-7.87,Evansville Purple Aces
+344,32.21,36.26,Middle,SEC,2025,17.86,Mississippi State Bulldogs
+349,23.21,28.3,Chameleon,Patriot,2025,-10.98,Army Black Knights
+350,-26.89,1.1,Chameleon,CAA,2025,6.02,UNC Wilmington Seahawks
+356,77.27,87.36,Dictator,Big Ten,2025,22.44,Illinois Fighting Illini
+357,-10.77,5.77,Chameleon,Southland,2025,1.05,Texas A&M-Corpus Christi Islanders
+399,24.26,28.57,Chameleon,Am. East,2025,-7.03,UAlbany Great Danes
+526,81.04,90.66,Dictator,ASUN,2025,-0.71,Florida Gulf Coast Eagles
+2000,22.88,27.75,Chameleon,WAC,2025,-5.91,Abilene Christian Wildcats
+2005,96.46,98.08,Dictator,Mountain West,2025,-13.4,Air Force Falcons
+2006,84.59,93.68,Dictator,MAC,2025,6.5,Akron Zips
+2010,46.21,55.77,Middle,SWAC,2025,-22.16,Alabama A&M Bulldogs
+2011,30.97,34.62,Middle,SWAC,2025,-7.1,Alabama State Hornets
+2016,66.26,78.02,Dictator,SWAC,2025,-13.93,Alcorn State Braves
+2026,44.54,51.37,Middle,Sun Belt,2025,-0.23,App State Mountaineers
+2029,97.87,98.35,Dictator,SWAC,2025,-25.55,Arkansas-Pine Bluff Golden Lions
+2031,-15.06,3.57,Chameleon,OVC,2025,-3.65,Little Rock Trojans
+2032,-25.19,1.37,Chameleon,Sun Belt,2025,9.27,Arkansas State Red Wolves
+2046,68.74,80.22,Dictator,ASUN,2025,-9.09,Austin Peay Governors
+2050,3.09,12.36,Chameleon,MAC,2025,-7.49,Ball State Cardinals
+2057,55.94,66.48,Middle,MVC,2025,2.52,Belmont Bruins
+2065,9.63,18.13,Chameleon,SWAC,2025,-9.14,Bethune-Cookman Wildcats
+2066,50.37,60.99,Middle,Am. East,2025,-11.54,Binghamton Bearcats
+2083,-37.56,0.27,Chameleon,Patriot,2025,-2.76,Bucknell Bison
+2084,40.81,45.6,Middle,MAC,2025,-16.4,Buffalo Bulls
+2086,-12.53,5.49,Chameleon,Big East,2025,8.58,Butler Bulldogs
+2097,9.94,18.96,Chameleon,CAA,2025,-3.38,Campbell Fighting Camels
+2099,6.98,15.38,Chameleon,MAAC,2025,-21.05,Canisius Golden Griffins
+2110,46.24,56.04,Middle,ASUN,2025,-17.05,Central Arkansas Bears
+2115,33.86,37.36,Middle,NEC,2025,0.25,Central Connecticut Blue Devils
+2116,69.63,81.32,Dictator,Big 12,2025,8.99,UCF Knights
+2117,75.73,85.99,Dictator,MAC,2025,-3.2,Central Michigan Chippewas
+2127,29.85,33.52,Middle,Big South,2025,-11.19,Charleston Southern Buccaneers
+2130,-22.22,2.2,Chameleon,NEC,2025,-22.37,Chicago State Cougars
+2132,35.98,40.11,Middle,Big 12,2025,14.08,Cincinnati Bearcats
+2142,63.26,75.55,Dictator,Patriot,2025,-5.78,Colgate Raiders
+2154,-1.07,9.89,Chameleon,MEAC,2025,-23.42,Coppin State Eagles
+2166,-12.84,5.22,Chameleon,A-10,2025,1.03,Davidson Wildcats
+2168,14.33,21.43,Chameleon,A-10,2025,9.06,Dayton Flyers
+2169,45.17,53.3,Middle,MEAC,2025,-10.47,Delaware State Hornets
+2172,8.55,17.58,Chameleon,Summit,2025,-11.22,Denver Pioneers
+2174,31.51,35.44,Middle,Horizon,2025,-15.23,Detroit Mercy Titans
+2181,103.47,99.18,Dictator,MVC,2025,13.52,Drake Bulldogs
+2182,76.5,86.81,Dictator,CAA,2025,-0.76,Drexel Dragons
+2184,76.14,86.54,Dictator,A-10,2025,1.71,Duquesne Dukes
+2193,9.87,18.68,Chameleon,SoCon,2025,2.46,East Tennessee State Buccaneers
+2197,-21.3,2.47,Chameleon,OVC,2025,-12.17,Eastern Illinois Panthers
+2198,25.48,29.67,Chameleon,ASUN,2025,-1.77,Eastern Kentucky Colonels
+2199,6.07,14.56,Chameleon,MAC,2025,-8.7,Eastern Michigan Eagles
+2210,78.76,88.74,Dictator,CAA,2025,-1.63,Elon Phoenix
+2217,20.36,25.55,Chameleon,MAAC,2025,-13.77,Fairfield Stags
+2226,34.9,39.01,Middle,American,2025,4.27,Florida Atlantic Owls
+2229,27.57,31.32,Chameleon,CUSA,2025,-7.62,Florida International Panthers
+2230,45.31,53.85,Middle,A-10,2025,-5.79,Fordham Rams
+2239,34.47,38.46,Middle,Big West,2025,-20.12,Cal State Fullerton Titans
+2241,37.12,42.31,Middle,Big South,2025,-7.47,Gardner-Webb Runnin' Bulldogs
+2244,68.09,79.67,Dictator,A-10,2025,9.71,George Mason Patriots
+2247,22.33,27.47,Chameleon,Sun Belt,2025,-7.88,Georgia State Panthers
+2250,59.07,71.7,Dictator,WCC,2025,26.93,Gonzaga Bulldogs
+2253,77.51,87.64,Dictator,WAC,2025,5.89,Grand Canyon Lopes
+2261,34.55,38.74,Middle,CAA,2025,-3.05,Hampton Pirates
+2272,6.34,14.84,Chameleon,Big South,2025,9.69,High Point Panthers
+2275,60.75,73.63,Dictator,CAA,2025,-3.57,Hofstra Pride
+2277,40.95,45.88,Middle,Southland,2025,-9.29,Houston Christian Huskies
+2287,59.6,72.25,Dictator,MVC,2025,3.22,Illinois State Redbirds
+2294,109.01,99.73,Dictator,Big Ten,2025,11.08,Iowa Hawkeyes
+2296,45.73,54.95,Middle,SWAC,2025,-6.85,Jackson State Tigers
+2305,-17.7,3.02,Chameleon,Big 12,2025,21.1,Kansas Jayhawks
+2306,-14.24,4.12,Chameleon,Big 12,2025,9.61,Kansas State Wildcats
+2309,38.2,43.68,Middle,MAC,2025,4.8,Kent State Golden Flashes
+2320,50.1,60.44,Middle,Southland,2025,0.22,Lamar Cardinals
+2325,41.43,46.98,Middle,A-10,2025,-4.44,La Salle Explorers
+2329,43.22,49.18,Middle,Patriot,2025,-8.67,Lehigh Mountain Hawks
+2330,5.88,14.29,Chameleon,NEC,2025,-17.72,Le Moyne Dolphins
+2335,63.05,75.27,Dictator,CUSA,2025,11.14,Liberty Flames
+2344,1.8,11.26,Chameleon,Big South,2025,-2.79,Longwood Lancers
+2348,71.69,82.14,Dictator,CUSA,2025,2.65,Louisiana Tech Bulldogs
+2349,41.37,46.7,Middle,Am. East,2025,-4.91,UMass Lowell River Hawks
+2350,19.25,24.73,Chameleon,A-10,2025,4.43,Loyola Chicago Ramblers
+2351,-4.48,8.24,Chameleon,WCC,2025,-0.88,Loyola Marymount Lions
+2352,15.16,21.98,Chameleon,Patriot,2025,-10.29,Loyola Maryland Greyhounds
+2363,20.83,26.1,Chameleon,MAAC,2025,-4.48,Manhattan Jaspers
+2368,59.85,72.53,Dictator,MAAC,2025,-6.14,Marist Red Foxes
+2377,60.17,72.8,Dictator,Southland,2025,13.51,McNeese Cowboys
+2378,49.26,58.79,Middle,Am. East,2025,-9.88,UMBC Retrievers
+2379,16.33,23.08,Chameleon,MEAC,2025,-21.9,Maryland Eastern Shore Hawks
+2382,64.18,76.37,Dictator,SoCon,2025,-6.92,Mercer Bears
+2385,95.2,97.8,Dictator,NEC,2025,-15.26,Mercyhurst Lakers
+2390,15.8,22.25,Chameleon,ACC,2025,-3.64,Miami Hurricanes
+2393,45.65,54.67,Middle,CUSA,2025,3.78,Middle Tennessee Blue Raiders
+2400,44.17,50.82,Middle,SWAC,2025,-43.0,Mississippi Valley State Delta Devils
+2405,3.3,12.64,Chameleon,CAA,2025,-7.01,Monmouth Hawks
+2413,49.82,60.16,Middle,OVC,2025,-12.47,Morehead State Eagles
+2415,54.64,65.11,Middle,MEAC,2025,-14.32,Morgan State Bears
+2426,34.94,39.29,Middle,Patriot,2025,-7.39,Navy Midshipmen
+2427,31.63,35.71,Middle,Big South,2025,-2.94,UNC Asheville Bulldogs
+2428,42.3,48.08,Middle,MEAC,2025,-11.84,North Carolina Central Eagles
+2429,55.73,65.93,Middle,American,2025,-7.34,Charlotte 49ers
+2430,74.91,84.62,Dictator,SoCon,2025,2.22,UNC Greensboro Spartans
+2433,-7.19,7.42,Chameleon,Sun Belt,2025,-17.9,UL Monroe Warhawks
+2437,45.14,53.02,Middle,Summit,2025,0.05,Omaha Mavericks
+2439,68.17,79.95,Dictator,Mountain West,2025,5.19,UNLV Rebels
+2440,73.76,84.34,Dictator,Mountain West,2025,8.68,Nevada Wolf Pack
+2443,52.62,62.64,Middle,Southland,2025,-17.94,LSU New Orleans Privateers
+2447,-1.76,8.79,Chameleon,Southland,2025,-0.27,Nicholls Colonels
+2448,64.02,76.1,Dictator,CAA,2025,-14.19,North Carolina A&T Aggies
+2449,72.66,83.24,Dictator,Summit,2025,3.75,North Dakota State Bison
+2450,29.84,33.24,Chameleon,MEAC,2025,-0.07,Norfolk State Spartans
+2453,8.26,17.03,Chameleon,ASUN,2025,5.2,North Alabama Lions
+2454,84.27,93.13,Dictator,ASUN,2025,-7.72,North Florida Ospreys
+2458,72.39,82.42,Dictator,Big Sky,2025,3.82,Northern Colorado Bears
+2459,50.64,61.54,Middle,MAC,2025,-17.95,Northern Illinois Huskies
+2460,58.66,70.33,Dictator,MVC,2025,6.76,Northern Iowa Panthers
+2463,89.16,95.33,Dictator,Big West,2025,4.32,Cal State Northridge Matadors
+2464,1.22,10.99,Chameleon,Big Sky,2025,-5.83,Northern Arizona Lumberjacks
+2466,91.5,96.7,Dictator,Southland,2025,-5.09,Northwestern State Demons
+2473,93.82,97.53,Dictator,Horizon,2025,-1.46,Oakland Golden Grizzlies
+2483,40.09,45.05,Middle,Big Ten,2025,18.31,Oregon Ducks
+2492,43.82,50.0,Middle,WCC,2025,-5.95,Pepperdine Waves
+2501,9.44,17.86,Chameleon,WCC,2025,-11.09,Portland Pilots
+2502,-14.98,3.85,Chameleon,Big Sky,2025,-2.81,Portland State Vikings
+2504,47.27,57.42,Middle,SWAC,2025,-19.85,Prairie View A&M Panthers
+2506,75.62,85.71,Dictator,Big South,2025,-5.4,Presbyterian Blue Hose
+2507,78.04,88.46,Dictator,Big East,2025,5.59,Providence Friars
+2509,47.43,57.69,Middle,Big Ten,2025,22.32,Purdue Boilermakers
+2511,-0.62,10.16,Chameleon,ASUN,2025,-2.95,Queens University Royals
+2514,58.04,69.78,Dictator,MAAC,2025,-1.76,Quinnipiac Bobcats
+2515,82.43,92.03,Dictator,Big South,2025,-0.2,Radford Highlanders
+2520,69.01,80.77,Dictator,MAAC,2025,-11.28,Rider Broncs
+2523,34.15,37.91,Middle,Horizon,2025,3.17,Robert Morris Colonials
+2529,44.1,50.55,Middle,MAAC,2025,-5.79,Sacred Heart Pioneers
+2534,54.13,64.56,Middle,CUSA,2025,-2.2,Sam Houston Bearkats
+2535,25.49,29.95,Chameleon,SoCon,2025,4.8,Samford Bulldogs
+2539,7.12,15.93,Chameleon,WCC,2025,10.99,San Francisco Dons
+2540,33.78,37.09,Middle,Big West,2025,1.33,UC Santa Barbara Gauchos
+2541,10.0,19.23,Chameleon,WCC,2025,14.17,Santa Clara Broncos
+2545,25.4,29.4,Chameleon,Southland,2025,-2.05,SE Louisiana Lions
+2546,45.95,55.22,Middle,OVC,2025,-1.26,Southeast Missouri State Redhawks
+2547,32.05,35.99,Middle,WAC,2025,1.75,Seattle U Redhawks
+2550,72.8,83.52,Dictator,Big East,2025,-4.65,Seton Hall Pirates
+2561,3.47,12.91,Chameleon,MAAC,2025,-4.73,Siena Saints
+2565,39.24,44.78,Middle,OVC,2025,-3.02,SIU Edwardsville Cougars
+2567,56.31,67.03,Dictator,ACC,2025,14.29,SMU Mustangs
+2569,9.77,18.41,Chameleon,MEAC,2025,-0.89,South Carolina State Bulldogs
+2571,27.77,31.87,Chameleon,Summit,2025,3.69,South Dakota State Jackrabbits
+2572,66.07,77.75,Dictator,Sun Belt,2025,-10.61,Southern Miss Golden Eagles
+2579,45.03,52.75,Middle,SEC,2025,8.21,South Carolina Gamecocks
+2582,8.17,16.76,Chameleon,SWAC,2025,-3.96,Southern Jaguars
+2598,-15.95,3.3,Chameleon,NEC,2025,-11.0,Saint Francis Red Wolves
+2599,41.54,47.25,Middle,Big East,2025,23.24,St. John's Red Storm
+2603,55.88,66.21,Middle,A-10,2025,9.03,Saint Joseph's Hawks
+2608,77.06,87.09,Dictator,WCC,2025,20.86,Saint Mary's Gaels
+2612,91.13,96.43,Dictator,MAAC,2025,-8.21,Saint Peter's Peacocks
+2617,53.12,64.01,Middle,Southland,2025,-8.08,Stephen F. Austin Lumberjacks
+2619,52.2,62.09,Middle,CAA,2025,-14.96,Stony Brook Seawolves
+2623,73.42,83.79,Dictator,MVC,2025,-5.54,Missouri State Bears
+2627,51.18,61.81,Middle,WAC,2025,-12.5,Tarleton State Texans
+2628,8.53,17.31,Chameleon,Big 12,2025,7.09,TCU Horned Frogs
+2630,64.26,76.65,Dictator,OVC,2025,-8.81,UT Martin Skyhawks
+2633,55.06,65.38,Middle,SEC,2025,27.84,Tennessee Volunteers
+2634,63.65,75.82,Dictator,OVC,2025,-4.92,Tennessee State Tigers
+2635,41.83,47.53,Middle,OVC,2025,-9.72,Tennessee Tech Golden Eagles
+2636,83.71,92.31,Dictator,American,2025,-2.44,UTSA Roadrunners
+2638,18.53,24.45,Chameleon,CUSA,2025,0.07,UTEP Miners
+2640,73.67,84.07,Dictator,SWAC,2025,-8.26,Texas Southern Tigers
+2641,66.94,78.85,Dictator,Big 12,2025,26.04,Texas Tech Red Raiders
+2643,75.06,84.89,Dictator,SoCon,2025,-21.8,The Citadel Bulldogs
+2649,61.47,74.73,Dictator,MAC,2025,-5.38,Toledo Rockets
+2653,7.11,15.66,Chameleon,Sun Belt,2025,6.84,Troy Trojans
+2655,44.72,51.92,Middle,American,2025,1.19,Tulane Green Wave
+2670,37.69,42.86,Middle,A-10,2025,19.08,VCU Rams
+2674,-17.85,2.75,Chameleon,MVC,2025,-3.65,Valparaiso Beacons
+2678,16.8,24.18,Chameleon,SoCon,2025,-10.98,VMI Keydets
+2681,101.27,98.63,Dictator,NEC,2025,-15.33,Wagner Seahawks
+2692,52.83,63.74,Middle,Big Sky,2025,-10.93,Weber State Wildcats
+2698,38.4,44.23,Middle,ASUN,2025,-16.75,West Georgia Wolves
+2710,84.72,93.96,Dictator,OVC,2025,-15.34,Western Illinois Leathernecks
+2711,26.58,31.04,Chameleon,MAC,2025,-9.64,Western Michigan Broncos
+2717,84.34,93.41,Dictator,SoCon,2025,-16.66,Western Carolina Catamounts
+2724,42.69,48.63,Middle,American,2025,1.78,Wichita State Shockers
+2729,45.5,54.12,Middle,CAA,2025,-4.01,William & Mary Tribe
+2737,75.39,85.44,Dictator,Big South,2025,-0.05,Winthrop Eagles
+2739,36.07,40.38,Middle,Horizon,2025,-14.71,Green Bay Phoenix
+2747,79.59,89.01,Dictator,SoCon,2025,3.44,Wofford Terriers
+2750,-13.48,4.67,Chameleon,Horizon,2025,-3.31,Wright State Raiders
+2751,47.75,57.97,Middle,Mountain West,2025,-3.84,Wyoming Cowboys
+2752,26.15,30.49,Chameleon,Big East,2025,15.8,Xavier Musketeers
+2754,25.28,29.12,Chameleon,Horizon,2025,-2.08,Youngstown State Penguins
+2755,34.35,38.19,Middle,SWAC,2025,-11.8,Grambling Tigers
+2771,38.18,43.41,Middle,MAAC,2025,-1.08,Merrimack Warriors
+2803,58.75,70.6,Dictator,Am. East,2025,2.54,Bryant Bulldogs
+2815,57.71,69.23,Dictator,OVC,2025,-12.35,Lindenwood Lions
+2837,6.54,15.11,Chameleon,Southland,2025,-14.44,East Texas A&M Lions
+2856,44.88,52.2,Middle,WAC,2025,-0.91,California Baptist Lancers
+2870,-8.7,6.32,Chameleon,Horizon,2025,1.38,Purdue Fort Wayne Mastodons
+2885,50.37,61.26,Middle,Am. East,2025,-18.56,NJIT Highlanders
+2900,11.49,19.78,Chameleon,Summit,2025,4.24,St. Thomas Tommies
+2908,77.87,88.19,Dictator,Big South,2025,-16.55,South Carolina Upstate Spartans
+2916,66.91,78.57,Dictator,Southland,2025,-4.3,Incarnate Word Cardinals
+2934,49.35,59.62,Middle,Big West,2025,-6.37,Cal State Bakersfield Roadrunners
+3084,21.75,26.92,Chameleon,WAC,2025,4.93,Utah Valley Wolverines
+3101,19.34,25.0,Chameleon,WAC,2025,-11.56,Utah Tech Trailblazers
+112358,30.36,34.07,Middle,NEC,2025,-8.35,Long Island University Sharks
+2,32.56,40.27,Middle,SEC,2026,16.89,Auburn Tigers
+5,6.5,15.62,Chameleon,American,2026,4.04,UAB Blazers
+6,58.55,67.12,Dictator,Sun Belt,2026,-2.05,South Alabama Jaguars
+8,82.0,88.22,Dictator,SEC,2026,23.06,Arkansas Razorbacks
+9,49.54,60.55,Middle,Big 12,2026,8.41,Arizona State Sun Devils
+12,70.19,81.64,Dictator,Big 12,2026,33.54,Arizona Wildcats
+13,98.72,97.26,Dictator,Big West,2026,-4.74,Cal Poly Mustangs
+16,79.49,87.4,Dictator,Big Sky,2026,-8.51,Sacramento State Hornets
+21,51.02,61.64,Middle,Mountain West,2026,14.02,San Diego State Aztecs
+23,62.04,72.05,Dictator,Mountain West,2026,-6.97,San José State Spartans
+24,23.86,31.51,Chameleon,ACC,2026,10.51,Stanford Cardinal
+25,-21.64,3.84,Chameleon,ACC,2026,10.11,California Golden Bears
+26,37.08,45.75,Middle,Big Ten,2026,17.76,UCLA Bruins
+27,77.39,86.58,Dictator,Big West,2026,-9.06,UC Riverside Highlanders
+28,83.7,89.32,Dictator,Big West,2026,3.32,UC San Diego Tritons
+30,2.49,12.33,Chameleon,Big Ten,2026,8.01,USC Trojans
+36,82.34,88.77,Dictator,Mountain West,2026,7.45,Colorado State Rams
+38,28.35,35.62,Middle,Big 12,2026,8.27,Colorado Buffaloes
+41,54.52,65.21,Middle,Big East,2026,26.94,UConn Huskies
+43,48.33,59.18,Middle,Ivy,2026,10.99,Yale Bulldogs
+44,-20.81,4.38,Chameleon,Patriot,2026,-5.53,American University Eagles
+45,38.07,46.85,Middle,A-10,2026,10.17,George Washington Revolutionaries
+46,43.74,53.42,Middle,Big East,2026,7.7,Georgetown Hoyas
+47,92.32,94.52,Dictator,MEAC,2026,-0.56,Howard Bison
+48,84.53,90.41,Dictator,CUSA,2026,-10.6,Delaware Blue Hens
+50,-10.91,7.4,Chameleon,SWAC,2026,-13.26,Florida A&M Rattlers
+52,84.35,89.86,Dictator,ACC,2026,10.73,Florida State Seminoles
+55,69.46,80.82,Dictator,CUSA,2026,-2.94,Jacksonville State Gamecocks
+56,-12.83,6.3,Chameleon,Atlantic Sun,2026,-13.51,Stetson Hatters
+57,6.12,15.34,Chameleon,SEC,2026,31.03,Florida Gators
+58,64.34,75.07,Dictator,American,2026,16.09,South Florida Bulls
+59,40.68,48.77,Middle,ACC,2026,-0.32,Georgia Tech Yellow Jackets
+61,103.93,98.08,Dictator,SEC,2026,18.65,Georgia Bulldogs
+62,39.17,47.67,Middle,Big West,2026,5.76,Hawai'i Rainbow Warriors
+66,2.7,12.88,Chameleon,Big 12,2026,30.03,Iowa State Cyclones
+68,31.75,39.73,Middle,Mountain West,2026,11.97,Boise State Broncos
+70,48.28,58.9,Middle,Big Sky,2026,1.08,Idaho Vandals
+71,66.0,77.26,Dictator,MVC,2026,3.91,Bradley Braves
+77,29.17,36.44,Middle,Big Ten,2026,10.78,Northwestern Wildcats
+79,63.66,73.97,Dictator,MVC,2026,4.64,Southern Illinois Salukis
+82,9.35,17.53,Chameleon,MVC,2026,5.41,UIC Flames
+84,12.48,21.1,Chameleon,Big Ten,2026,16.09,Indiana Hoosiers
+85,100.1,97.81,Dictator,Horizon,2026,-12.38,IU Indianapolis Jaguars
+87,59.0,68.22,Dictator,ACC,2026,6.63,Notre Dame Fighting Irish
+88,7.26,16.16,Chameleon,OVC,2026,-15.93,Southern Indiana Screaming Eagles
+91,34.35,42.19,Middle,Atlantic Sun,2026,-9.15,Bellarmine Knights
+93,78.84,87.12,Dictator,MVC,2026,4.57,Murray State Racers
+94,42.09,51.23,Middle,Horizon,2026,0.11,Northern Kentucky Norse
+96,51.81,62.74,Middle,SEC,2026,19.98,Kentucky Wildcats
+97,52.95,63.84,Middle,ACC,2026,24.05,Louisville Cardinals
+98,16.63,23.84,Chameleon,CUSA,2026,1.14,Western Kentucky Hilltoppers
+99,14.08,23.01,Chameleon,SEC,2026,11.23,LSU Tigers
+103,41.47,50.14,Middle,ACC,2026,0.3,Boston College Eagles
+104,107.78,99.45,Dictator,Patriot,2026,-6.03,Boston University Terriers
+107,40.54,48.49,Middle,Patriot,2026,-14.28,Holy Cross Crusaders
+108,77.2,86.3,Dictator,Ivy,2026,1.88,Harvard Crimson
+111,29.89,37.53,Middle,CAA,2026,-8.79,Northeastern Huskies
+113,75.65,85.21,Dictator,MAC,2026,-1.35,Massachusetts Minutemen
+116,44.2,53.97,Middle,MAAC,2026,-8.64,Mount St. Mary's Mountaineers
+119,85.74,91.78,Dictator,CAA,2026,1.26,Towson Tigers
+120,35.34,43.56,Middle,Big Ten,2026,0.59,Maryland Terrapins
+127,15.05,23.56,Chameleon,Big Ten,2026,25.81,Michigan State Spartans
+130,104.51,98.36,Dictator,Big Ten,2026,36.84,Michigan Wolverines
+135,98.27,96.71,Dictator,Big Ten,2026,7.95,Minnesota Golden Gophers
+139,65.38,76.16,Dictator,A-10,2026,20.56,Saint Louis Billikens
+140,-24.25,3.01,Chameleon,Summit,2026,-22.92,Kansas City Roos
+142,5.77,15.07,Chameleon,SEC,2026,11.93,Missouri Tigers
+145,64.62,75.34,Dictator,SEC,2026,9.58,Ole Miss Rebels
+147,55.04,65.48,Middle,Big Sky,2026,2.83,Montana State Bobcats
+149,25.45,33.42,Middle,Big Sky,2026,-2.1,Montana Grizzlies
+150,24.67,32.6,Chameleon,ACC,2026,36.12,Duke Blue Devils
+151,9.09,17.26,Chameleon,American,2026,-7.82,East Carolina Pirates
+152,20.47,28.49,Chameleon,ACC,2026,17.97,NC State Wolfpack
+153,5.01,14.79,Chameleon,ACC,2026,19.43,North Carolina Tar Heels
+154,66.38,78.63,Dictator,ACC,2026,10.52,Wake Forest Demon Deacons
+155,21.6,30.14,Chameleon,Summit,2026,-9.68,North Dakota Fighting Hawks
+156,38.85,47.12,Middle,Big East,2026,8.18,Creighton Bluejays
+158,-10.69,7.67,Chameleon,Big Ten,2026,23.58,Nebraska Cornhuskers
+159,42.74,51.78,Middle,Ivy,2026,-7.12,Dartmouth Big Green
+160,42.98,52.05,Middle,Am. East,2026,-17.33,New Hampshire Wildcats
+161,19.87,27.4,Chameleon,NEC,2026,-15.42,Fairleigh Dickinson Knights
+163,-4.63,9.04,Chameleon,Ivy,2026,-6.37,Princeton Tigers
+164,52.23,63.29,Middle,Big Ten,2026,0.73,Rutgers Scarlet Knights
+166,41.41,49.86,Middle,CUSA,2026,-0.42,New Mexico State Aggies
+167,44.99,54.79,Middle,Mountain West,2026,15.61,New Mexico Lobos
+171,-31.91,2.19,Chameleon,Ivy,2026,-0.19,Columbia Lions
+172,91.73,93.97,Dictator,Ivy,2026,1.89,Cornell Big Red
+179,49.12,59.73,Middle,A-10,2026,2.66,St. Bonaventure Bonnies
+183,19.38,26.3,Chameleon,ACC,2026,8.43,Syracuse Orange
+189,58.6,67.4,Dictator,MAC,2026,3.17,Bowling Green Falcons
+193,50.25,61.1,Middle,MAC,2026,9.54,Miami (OH) RedHawks
+194,-42.53,1.37,Chameleon,Big Ten,2026,19.29,Ohio State Buckeyes
+195,43.34,52.33,Middle,MAC,2026,-4.58,Ohio Bobcats
+197,120.93,100.0,Dictator,Big 12,2026,8.28,Oklahoma State Cowboys
+198,-64.68,0.27,Chameleon,Summit,2026,-11.91,Oral Roberts Golden Eagles
+201,45.52,56.16,Middle,SEC,2026,15.18,Oklahoma Sooners
+202,-14.52,5.48,Chameleon,American,2026,14.32,Tulsa Golden Hurricane
+204,58.24,66.85,Dictator,WCC,2026,-2.0,Oregon State Beavers
+213,6.6,15.89,Chameleon,Big Ten,2026,0.51,Penn State Nittany Lions
+218,72.23,83.29,Dictator,American,2026,0.77,Temple Owls
+219,24.18,32.05,Chameleon,Ivy,2026,0.82,Pennsylvania Quakers
+221,84.65,90.68,Dictator,ACC,2026,5.41,Pittsburgh Panthers
+222,60.71,70.96,Dictator,Big East,2026,16.82,Villanova Wildcats
+225,3.8,13.97,Chameleon,Ivy,2026,-9.16,Brown Bears
+227,41.1,49.04,Middle,A-10,2026,2.81,Rhode Island Rams
+228,66.19,77.81,Dictator,ACC,2026,17.54,Clemson Tigers
+231,46.96,57.26,Middle,SoCon,2026,-0.01,Furman Paladins
+232,17.3,24.38,Chameleon,CAA,2026,0.22,Charleston Cougars
+233,65.67,76.71,Dictator,Summit,2026,-9.82,South Dakota Coyotes
+235,12.28,20.55,Chameleon,American,2026,2.67,Memphis Tigers
+236,67.42,79.18,Dictator,SoCon,2026,-10.29,Chattanooga Mocs
+238,47.31,57.81,Middle,SEC,2026,24.57,Vanderbilt Commodores
+239,35.54,43.84,Middle,Big 12,2026,14.23,Baylor Bears
+242,62.94,72.88,Dictator,American,2026,-6.19,Rice Owls
+245,96.1,95.34,Dictator,SEC,2026,15.81,Texas A&M Aggies
+248,84.13,89.59,Dictator,Big 12,2026,30.79,Houston Cougars
+249,75.05,84.38,Dictator,American,2026,2.02,North Texas Mean Green
+250,45.13,55.34,Middle,UAC,2026,0.14,UT Arlington Mavericks
+251,70.25,81.92,Dictator,SEC,2026,17.22,Texas Longhorns
+252,44.35,54.52,Middle,Big 12,2026,20.93,BYU Cougars
+253,33.88,41.37,Middle,UAC,2026,-9.42,Southern Utah Thunderbirds
+254,3.05,13.7,Chameleon,Big 12,2026,1.99,Utah Utes
+256,50.16,60.82,Middle,Sun Belt,2026,-2.98,James Madison Dukes
+257,-11.0,7.12,Chameleon,A-10,2026,1.85,Richmond Spiders
+258,75.19,84.93,Dictator,ACC,2026,23.69,Virginia Cavaliers
+259,-13.24,6.03,Chameleon,ACC,2026,12.25,Virginia Tech Hokies
+261,81.14,87.95,Dictator,Am. East,2026,-3.5,Vermont Catamounts
+264,30.02,38.08,Middle,Big Ten,2026,12.88,Washington Huskies
+265,33.88,41.1,Middle,WCC,2026,1.28,Washington State Cougars
+269,43.51,52.6,Middle,Big East,2026,7.3,Marquette Golden Eagles
+270,59.77,69.04,Dictator,Horizon,2026,-7.33,Milwaukee Panthers
+275,20.11,27.95,Chameleon,Big Ten,2026,19.85,Wisconsin Badgers
+276,9.71,18.36,Chameleon,Sun Belt,2026,-0.68,Marshall Thundering Herd
+277,97.88,96.44,Dictator,Big 12,2026,13.06,West Virginia Mountaineers
+278,18.62,25.48,Chameleon,Mountain West,2026,1.64,Fresno State Bulldogs
+279,38.98,47.4,Middle,WCC,2026,3.94,Pacific Tigers
+282,36.2,44.66,Middle,MVC,2026,-2.41,Indiana State Sycamores
+284,43.75,53.7,Middle,NEC,2026,-14.37,Stonehill Skyhawks
+288,31.46,39.18,Middle,Atlantic Sun,2026,-1.36,Lipscomb Bisons
+290,66.94,78.9,Dictator,Sun Belt,2026,-5.12,Georgia Southern Eagles
+292,14.05,22.47,Chameleon,Southland,2026,3.99,UT Rio Grande Valley Vaqueros
+294,72.56,83.56,Dictator,Atlantic Sun,2026,-10.46,Jacksonville Dolphins
+295,2.42,12.05,Chameleon,Sun Belt,2026,-5.65,Old Dominion Monarchs
+299,36.77,45.21,Middle,Big West,2026,-7.12,Long Beach State Beach
+300,49.2,60.0,Middle,Big West,2026,4.73,UC Irvine Anteaters
+301,22.97,31.23,Chameleon,WCC,2026,-6.66,San Diego Toreros
+302,43.64,53.15,Middle,Big West,2026,-0.94,UC Davis Aggies
+304,54.46,64.93,Middle,Big Sky,2026,-6.38,Idaho State Bengals
+305,26.49,34.52,Middle,Big East,2026,5.42,DePaul Blue Demons
+309,93.33,94.79,Dictator,Sun Belt,2026,-13.22,Louisiana Ragin' Cajuns
+311,66.35,78.36,Dictator,Am. East,2026,-16.64,Maine Black Bears
+314,35.14,43.01,Middle,MAAC,2026,-5.22,Iona Gaels
+315,97.41,95.89,Dictator,MAAC,2026,-16.77,Niagara Purple Eagles
+322,0.97,11.23,Chameleon,Patriot,2026,-13.62,Lafayette Leopards
+324,29.16,36.16,Middle,Sun Belt,2026,-5.87,Coastal Carolina Chanticleers
+325,14.39,23.29,Chameleon,Horizon,2026,-14.29,Cleveland State Vikings
+326,-11.16,6.85,Chameleon,Sun Belt,2026,-6.59,Texas State Bobcats
+328,17.3,24.66,Chameleon,Mountain West,2026,20.39,Utah State Aggies
+331,41.19,49.59,Middle,Big Sky,2026,-1.13,Eastern Washington Eagles
+333,98.87,97.53,Dictator,SEC,2026,24.01,Alabama Crimson Tide
+338,82.09,88.49,Dictator,CUSA,2026,1.33,Kennesaw State Owls
+339,21.53,29.86,Chameleon,MVC,2026,-12.8,Evansville Purple Aces
+344,18.92,26.03,Chameleon,SEC,2026,4.35,Mississippi State Bulldogs
+349,19.86,27.12,Chameleon,Patriot,2026,-16.32,Army Black Knights
+350,51.63,62.19,Middle,CAA,2026,5.94,UNC Wilmington Seahawks
+356,9.61,18.08,Chameleon,Big Ten,2026,31.14,Illinois Fighting Illini
+357,21.89,30.68,Chameleon,Southland,2026,-0.83,Texas A&M-Corpus Christi Islanders
+399,29.38,36.71,Middle,Am. East,2026,-12.46,UAlbany Great Danes
+526,37.27,46.03,Middle,Atlantic Sun,2026,-5.68,Florida Gulf Coast Eagles
+2000,31.56,39.45,Middle,UAC,2026,-7.2,Abilene Christian Wildcats
+2005,53.86,64.38,Middle,Mountain West,2026,-21.27,Air Force Falcons
+2006,71.75,82.74,Dictator,MAC,2026,12.8,Akron Zips
+2010,69.08,80.27,Dictator,SWAC,2026,-12.72,Alabama A&M Bulldogs
+2011,-24.17,3.56,Chameleon,SWAC,2026,-14.11,Alabama State Hornets
+2016,46.5,56.71,Middle,SWAC,2026,-21.19,Alcorn State Braves
+2026,90.47,92.6,Dictator,Sun Belt,2026,-1.48,App State Mountaineers
+2029,90.93,93.42,Dictator,SWAC,2026,-14.01,Arkansas-Pine Bluff Golden Lions
+2031,60.3,70.14,Dictator,OVC,2026,-11.58,Little Rock Trojans
+2032,86.42,92.05,Dictator,Sun Belt,2026,1.91,Arkansas State Red Wolves
+2046,54.24,64.66,Middle,Atlantic Sun,2026,1.19,Austin Peay Governors
+2050,71.36,82.47,Dictator,MAC,2026,-10.3,Ball State Cardinals
+2057,-0.16,10.68,Chameleon,MVC,2026,12.09,Belmont Bruins
+2065,-28.95,2.74,Chameleon,SWAC,2026,-7.91,Bethune-Cookman Wildcats
+2066,30.66,38.9,Middle,Am. East,2026,-22.06,Binghamton Bearcats
+2083,25.21,33.15,Chameleon,Patriot,2026,-15.5,Bucknell Bison
+2084,51.74,62.47,Middle,MAC,2026,-1.69,Buffalo Bulls
+2086,35.82,44.38,Middle,Big East,2026,8.38,Butler Bulldogs
+2097,35.79,44.11,Middle,CAA,2026,-2.28,Campbell Fighting Camels
+2099,83.4,89.04,Dictator,MAAC,2026,-18.14,Canisius Golden Griffins
+2110,19.95,27.67,Chameleon,Atlantic Sun,2026,1.48,Central Arkansas Bears
+2115,28.36,35.89,Middle,NEC,2026,-10.03,Central Connecticut Blue Devils
+2116,-11.51,6.58,Chameleon,Big 12,2026,11.68,UCF Knights
+2117,26.57,35.07,Middle,MAC,2026,-9.0,Central Michigan Chippewas
+2127,60.11,69.86,Dictator,Big South,2026,-4.25,Charleston Southern Buccaneers
+2130,-38.65,1.64,Chameleon,NEC,2026,-17.49,Chicago State Cougars
+2132,21.03,29.59,Chameleon,Big 12,2026,14.49,Cincinnati Bearcats
+2142,60.43,70.68,Dictator,Patriot,2026,-4.57,Colgate Raiders
+2154,58.71,67.95,Dictator,MEAC,2026,-26.86,Coppin State Eagles
+2166,66.13,77.53,Dictator,A-10,2026,4.48,Davidson Wildcats
+2168,-2.98,10.14,Chameleon,A-10,2026,11.11,Dayton Flyers
+2169,34.7,42.74,Middle,MEAC,2026,-24.28,Delaware State Hornets
+2172,-3.17,9.86,Chameleon,Summit,2026,-5.34,Denver Pioneers
+2174,76.44,85.48,Dictator,Horizon,2026,-4.2,Detroit Mercy Titans
+2181,68.62,80.0,Dictator,MVC,2026,-1.92,Drake Bulldogs
+2182,78.24,86.85,Dictator,CAA,2026,-3.25,Drexel Dragons
+2184,57.58,66.58,Middle,A-10,2026,3.37,Duquesne Dukes
+2193,42.68,51.51,Middle,SoCon,2026,3.03,East Tennessee State Buccaneers
+2197,63.44,73.15,Dictator,OVC,2026,-13.51,Eastern Illinois Panthers
+2198,-18.39,5.21,Chameleon,Atlantic Sun,2026,-9.68,Eastern Kentucky Colonels
+2199,31.85,40.0,Middle,MAC,2026,-5.38,Eastern Michigan Eagles
+2210,4.02,14.25,Chameleon,CAA,2026,-4.41,Elon Phoenix
+2217,-14.48,5.75,Chameleon,MAAC,2026,-5.79,Fairfield Stags
+2226,47.6,58.36,Middle,American,2026,3.86,Florida Atlantic Owls
+2229,58.61,67.67,Dictator,CUSA,2026,-1.7,Florida International Panthers
+2230,105.83,99.18,Dictator,A-10,2026,0.34,Fordham Rams
+2239,108.02,99.73,Dictator,Big West,2026,-1.91,Cal State Fullerton Titans
+2241,79.76,87.67,Dictator,Big South,2026,-25.24,Gardner-Webb Runnin' Bulldogs
+2244,63.5,73.42,Dictator,A-10,2026,7.32,George Mason Patriots
+2247,-9.92,7.95,Chameleon,Sun Belt,2026,-11.69,Georgia State Panthers
+2250,45.32,55.89,Middle,WCC,2026,27.66,Gonzaga Bulldogs
+2253,18.85,25.75,Chameleon,Mountain West,2026,11.35,Grand Canyon Lopes
+2261,-5.34,8.77,Chameleon,CAA,2026,-8.24,Hampton Pirates
+2272,26.48,34.25,Middle,Big South,2026,12.17,High Point Panthers
+2275,43.54,52.88,Middle,CAA,2026,9.16,Hofstra Pride
+2277,76.68,86.03,Dictator,Southland,2026,-10.34,Houston Christian Huskies
+2287,35.25,43.29,Middle,MVC,2026,8.67,Illinois State Redbirds
+2294,105.29,98.9,Dictator,Big Ten,2026,21.29,Iowa Hawkeyes
+2296,65.1,75.62,Dictator,SWAC,2026,-20.78,Jackson State Tigers
+2305,45.06,55.07,Middle,Big 12,2026,21.42,Kansas Jayhawks
+2306,104.73,98.63,Dictator,Big 12,2026,5.41,Kansas State Wildcats
+2309,95.4,95.07,Dictator,MAC,2026,0.84,Kent State Golden Flashes
+2320,39.43,47.95,Middle,Southland,2026,-4.91,Lamar Cardinals
+2325,62.04,71.78,Dictator,A-10,2026,-6.04,La Salle Explorers
+2329,18.08,25.21,Chameleon,Patriot,2026,-9.34,Lehigh Mountain Hawks
+2330,26.52,34.79,Middle,NEC,2026,-9.11,Le Moyne Dolphins
+2335,56.3,66.03,Middle,CUSA,2026,4.89,Liberty Flames
+2344,25.12,32.88,Chameleon,Big South,2026,-6.63,Longwood Lancers
+2348,85.3,91.51,Dictator,CUSA,2026,-2.63,Louisiana Tech Bulldogs
+2349,29.81,37.26,Middle,Am. East,2026,-12.6,UMass Lowell River Hawks
+2350,2.1,11.51,Chameleon,A-10,2026,-10.13,Loyola Chicago Ramblers
+2351,13.01,21.64,Chameleon,WCC,2026,-0.26,Loyola Marymount Lions
+2352,25.66,33.7,Middle,Patriot,2026,-13.12,Loyola Maryland Greyhounds
+2363,10.73,19.18,Chameleon,MAAC,2026,-15.11,Manhattan Jaspers
+2368,37.97,46.58,Middle,MAAC,2026,-0.07,Marist Red Foxes
+2377,-62.84,0.55,Chameleon,Southland,2026,12.88,McNeese Cowboys
+2378,30.41,38.63,Middle,Am. East,2026,-0.26,UMBC Retrievers
+2379,76.47,85.75,Dictator,MEAC,2026,-18.36,Maryland Eastern Shore Hawks
+2382,27.3,35.34,Middle,SoCon,2026,0.15,Mercer Bears
+2385,97.51,96.16,Dictator,NEC,2026,-8.56,Mercyhurst Lakers
+2390,60.4,70.41,Dictator,ACC,2026,18.81,Miami Hurricanes
+2393,13.17,21.92,Chameleon,CUSA,2026,0.78,Middle Tennessee Blue Raiders
+2400,-46.4,1.1,Chameleon,SWAC,2026,-32.06,Mississippi Valley State Delta Devils
+2405,41.91,50.96,Middle,CAA,2026,-0.37,Monmouth Hawks
+2413,11.15,19.73,Chameleon,OVC,2026,-8.83,Morehead State Eagles
+2415,47.05,57.53,Middle,MEAC,2026,-20.47,Morgan State Bears
+2426,48.28,58.63,Middle,Patriot,2026,3.45,Navy Midshipmen
+2427,41.52,50.41,Middle,Big South,2026,-4.6,UNC Asheville Bulldogs
+2428,21.75,30.41,Chameleon,MEAC,2026,-18.71,North Carolina Central Eagles
+2429,91.06,93.7,Dictator,American,2026,-0.97,Charlotte 49ers
+2430,-4.03,9.59,Chameleon,SoCon,2026,-11.12,UNC Greensboro Spartans
+2433,63.8,74.25,Dictator,Sun Belt,2026,-20.3,UL Monroe Warhawks
+2437,13.19,22.19,Chameleon,Summit,2026,-7.28,Omaha Mavericks
+2439,65.93,76.99,Dictator,Mountain West,2026,4.62,UNLV Rebels
+2440,65.56,76.44,Dictator,Mountain West,2026,10.73,Nevada Wolf Pack
+2441,96.99,95.62,Dictator,NEC,2026,-14.48,New Haven Chargers
+2443,46.93,56.99,Middle,Southland,2026,-3.28,LSU New Orleans Privateers
+2447,8.65,16.44,Chameleon,Southland,2026,-6.01,Nicholls Colonels
+2448,59.28,68.49,Dictator,CAA,2026,-9.05,North Carolina A&T Aggies
+2449,26.03,33.97,Middle,Summit,2026,5.4,North Dakota State Bison
+2450,-20.46,4.66,Chameleon,MEAC,2026,-12.4,Norfolk State Spartans
+2453,53.83,64.11,Middle,Atlantic Sun,2026,-17.59,North Alabama Lions
+2454,63.84,74.52,Dictator,Atlantic Sun,2026,-16.13,North Florida Ospreys
+2458,-4.54,9.32,Chameleon,Big Sky,2026,1.52,Northern Colorado Bears
+2459,2.55,12.6,Chameleon,MAC,2026,-16.38,Northern Illinois Huskies
+2460,90.87,92.88,Dictator,MVC,2026,10.67,Northern Iowa Panthers
+2463,85.18,91.23,Dictator,Big West,2026,-1.63,Cal State Northridge Matadors
+2464,47.33,58.08,Middle,Big Sky,2026,-13.95,Northern Arizona Lumberjacks
+2466,29.57,36.99,Middle,Southland,2026,-10.21,Northwestern State Demons
+2473,60.82,71.23,Dictator,Horizon,2026,0.26,Oakland Golden Grizzlies
+2483,22.94,30.96,Chameleon,Big Ten,2026,4.61,Oregon Ducks
+2492,32.71,40.55,Middle,WCC,2026,-10.0,Pepperdine Waves
+2501,-19.06,4.93,Chameleon,WCC,2026,-5.85,Portland Pilots
+2502,11.61,20.0,Chameleon,Big Sky,2026,1.57,Portland State Vikings
+2504,84.92,90.96,Dictator,SWAC,2026,-11.51,Prairie View A&M Panthers
+2506,98.64,96.99,Dictator,Big South,2026,-7.09,Presbyterian Blue Hose
+2507,88.82,92.33,Dictator,Big East,2026,9.66,Providence Friars
+2509,51.17,61.92,Middle,Big Ten,2026,28.19,Purdue Boilermakers
+2511,9.77,18.63,Chameleon,Atlantic Sun,2026,-1.85,Queens University Royals
+2514,45.94,56.44,Middle,MAAC,2026,-2.53,Quinnipiac Bobcats
+2515,59.96,69.32,Dictator,Big South,2026,-5.92,Radford Highlanders
+2520,70.81,82.19,Dictator,MAAC,2026,-21.73,Rider Broncs
+2523,92.26,94.25,Dictator,Horizon,2026,1.61,Robert Morris Colonials
+2529,19.46,26.58,Chameleon,MAAC,2026,-9.83,Sacred Heart Pioneers
+2534,34.08,41.64,Middle,CUSA,2026,5.15,Sam Houston Bearkats
+2535,20.81,29.32,Chameleon,SoCon,2026,-2.92,Samford Bulldogs
+2539,52.03,63.01,Middle,WCC,2026,2.69,San Francisco Dons
+2540,29.98,37.81,Middle,Big West,2026,2.16,UC Santa Barbara Gauchos
+2541,41.85,50.68,Middle,WCC,2026,17.33,Santa Clara Broncos
+2545,14.08,22.74,Chameleon,Southland,2026,-9.99,SE Louisiana Lions
+2546,17.24,24.11,Chameleon,OVC,2026,-3.7,Southeast Missouri State Redhawks
+2547,3.04,13.42,Chameleon,WCC,2026,4.09,Seattle U Redhawks
+2550,8.82,16.71,Chameleon,Big East,2026,13.29,Seton Hall Pirates
+2561,63.64,73.7,Dictator,MAAC,2026,1.01,Siena Saints
+2565,73.26,83.84,Dictator,OVC,2026,-5.56,SIU Edwardsville Cougars
+2567,-38.44,1.92,Chameleon,ACC,2026,15.81,SMU Mustangs
+2569,48.34,59.45,Middle,MEAC,2026,-22.4,South Carolina State Bulldogs
+2571,12.76,21.37,Chameleon,Summit,2026,-2.06,South Dakota State Jackrabbits
+2572,10.85,19.45,Chameleon,Sun Belt,2026,-3.7,Southern Miss Golden Eagles
+2579,55.23,65.75,Middle,SEC,2026,5.19,South Carolina Gamecocks
+2582,61.81,71.51,Dictator,SWAC,2026,-9.79,Southern Jaguars
+2598,57.31,66.3,Middle,NEC,2026,-20.2,Saint Francis Red Wolves
+2599,24.46,32.33,Chameleon,Big East,2026,23.84,St. John's Red Storm
+2603,8.88,16.99,Chameleon,A-10,2026,3.89,Saint Joseph's Hawks
+2608,52.41,63.56,Middle,WCC,2026,20.28,Saint Mary's Gaels
+2612,36.96,45.48,Middle,MAAC,2026,-5.19,Saint Peter's Peacocks
+2617,41.15,49.32,Middle,Southland,2026,8.59,Stephen F. Austin Lumberjacks
+2619,90.88,93.15,Dictator,CAA,2026,-4.9,Stony Brook Seawolves
+2623,36.69,44.93,Middle,CUSA,2026,-2.46,Missouri State Bears
+2627,74.38,84.11,Dictator,UAC,2026,-4.72,Tarleton State Texans
+2628,12.29,20.82,Chameleon,Big 12,2026,15.03,TCU Horned Frogs
+2630,44.22,54.25,Middle,OVC,2026,-2.29,UT Martin Skyhawks
+2633,4.98,14.52,Chameleon,SEC,2026,24.39,Tennessee Volunteers
+2634,75.13,84.66,Dictator,OVC,2026,-0.14,Tennessee State Tigers
+2635,-48.38,0.82,Chameleon,OVC,2026,-11.43,Tennessee Tech Golden Eagles
+2636,-1.64,10.41,Chameleon,American,2026,-18.31,UTSA Roadrunners
+2638,69.49,81.1,Dictator,CUSA,2026,-8.41,UTEP Miners
+2640,34.26,41.92,Middle,SWAC,2026,-13.85,Texas Southern Tigers
+2641,20.22,28.22,Chameleon,Big 12,2026,22.18,Texas Tech Red Raiders
+2643,49.24,60.27,Middle,SoCon,2026,-19.15,The Citadel Bulldogs
+2649,30.09,38.36,Middle,MAC,2026,3.28,Toledo Rockets
+2653,-6.17,8.49,Chameleon,Sun Belt,2026,1.84,Troy Trojans
+2655,50.46,61.37,Middle,American,2026,-4.24,Tulane Green Wave
+2670,37.91,46.3,Middle,A-10,2026,15.78,VCU Rams
+2674,20.79,29.04,Chameleon,MVC,2026,0.28,Valparaiso Beacons
+2678,34.63,42.47,Middle,SoCon,2026,-23.7,VMI Keydets
+2681,2.73,13.15,Chameleon,NEC,2026,-10.28,Wagner Seahawks
+2692,9.5,17.81,Chameleon,Big Sky,2026,-2.14,Weber State Wildcats
+2698,-7.06,8.22,Chameleon,Atlantic Sun,2026,-11.31,West Georgia Wolves
+2710,62.88,72.6,Dictator,OVC,2026,-25.84,Western Illinois Leathernecks
+2711,20.66,28.77,Chameleon,MAC,2026,-8.73,Western Michigan Broncos
+2717,-31.81,2.47,Chameleon,SoCon,2026,-3.63,Western Carolina Catamounts
+2724,45.15,55.62,Middle,American,2026,11.14,Wichita State Shockers
+2729,84.5,90.14,Dictator,CAA,2026,2.64,William & Mary Tribe
+2737,69.19,80.55,Dictator,Big South,2026,2.74,Winthrop Eagles
+2739,68.29,79.73,Dictator,Horizon,2026,-3.74,Green Bay Phoenix
+2747,11.93,20.27,Chameleon,SoCon,2026,-5.61,Wofford Terriers
+2750,62.84,72.33,Dictator,Horizon,2026,3.05,Wright State Raiders
+2751,-24.22,3.29,Chameleon,Mountain West,2026,6.65,Wyoming Cowboys
+2752,59.47,68.77,Dictator,Big East,2026,5.23,Xavier Musketeers
+2754,64.09,74.79,Dictator,Horizon,2026,-2.63,Youngstown State Penguins
+2755,2.38,11.78,Chameleon,SWAC,2026,-10.63,Grambling Tigers
+2771,66.26,78.08,Dictator,MAAC,2026,-0.21,Merrimack Warriors
+2803,60.09,69.59,Dictator,Am. East,2026,-19.35,Bryant Bulldogs
+2815,67.89,79.45,Dictator,OVC,2026,-6.56,Lindenwood Lions
+2837,-0.02,10.96,Chameleon,Southland,2026,-11.25,East Texas A&M Lions
+2856,65.18,75.89,Dictator,UAC,2026,4.93,California Baptist Lancers
+2870,10.0,18.9,Chameleon,Horizon,2026,-7.17,Purdue Fort Wayne Mastodons
+2885,24.13,31.78,Chameleon,Am. East,2026,-15.51,NJIT Highlanders
+2900,17.64,24.93,Chameleon,Summit,2026,5.96,St. Thomas Tommies
+2908,39.95,48.22,Middle,Big South,2026,-9.52,South Carolina Upstate Spartans
+2916,72.2,83.01,Dictator,Southland,2026,-7.57,Incarnate Word Cardinals
+2934,33.62,40.82,Middle,Big West,2026,-15.52,Cal State Bakersfield Roadrunners
+3084,69.91,81.37,Dictator,UAC,2026,8.59,Utah Valley Wolverines
+3101,19.51,26.85,Chameleon,UAC,2026,-2.77,Utah Tech Trailblazers
+112358,-21.01,4.11,Chameleon,NEC,2026,-2.64,Long Island University Sharks
