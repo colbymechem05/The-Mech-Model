@@ -36,11 +36,13 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      # past seasons' raw files rarely change: keep them between runs
+      # raw files + built game tables: keep them between runs (the Vegas-only run reuses them)
       - name: Restore raw data cache
         uses: actions/cache@v6
         with:
-          path: data/raw
+          path: |
+            data/raw
+            data/games_*.csv
           key: raw-${{ github.run_id }}
           restore-keys: raw-
 

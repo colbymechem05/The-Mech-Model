@@ -100,8 +100,11 @@ def build(league: str, refresh_current: bool = True) -> pd.DataFrame:
 
 
 def load_games(league: str) -> pd.DataFrame:
-    """Read the games table built by build()."""
-    return pd.read_csv(ROOT / "data" / f"games_{league}.csv", parse_dates=["date"])
+    """Read the games table built by build() (builds it from saved raw files if missing)."""
+    f = ROOT / "data" / f"games_{league}.csv"
+    if not f.exists():
+        build(league, refresh_current=False)
+    return pd.read_csv(f, parse_dates=["date"])
 
 
 def d1_games(games: pd.DataFrame) -> pd.DataFrame:
