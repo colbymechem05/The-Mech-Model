@@ -17,7 +17,18 @@
   --radius: 10px; --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --serif: "Iowan Old Style", "Charter", Georgia, serif;
 }
+[data-theme="light"] {
+  --bg: #f5f7fa; --panel: #ffffff; --panel-2: #eef2f6; --line: #dde3ea;
+  --fg: #17202b; --muted: #5a6676; --faint: #8b96a5;
+  --accent: #1b7fd6; --accent-dim: rgba(27, 127, 214, .12);
+  --hover: rgba(0,0,0,.025); --shadow: 0 12px 32px rgba(20,30,45,.14);
+}
+:root { --hover: rgba(255,255,255,.02); --shadow: 0 12px 32px rgba(0,0,0,.45); color-scheme: dark; }
+[data-theme="light"] { color-scheme: light; }
 * { box-sizing: border-box; }
+.head-right { display: flex; align-items: center; gap: 12px; }
+.theme { font: inherit; font-size: 12px; color: var(--muted); background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; cursor: pointer; }
+.theme:hover { color: var(--accent); }
 body { margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.5 var(--sans); }
 .wrap { max-width: 1400px; margin: 0 auto; padding: 28px 32px 64px; }
 header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 20px; }
@@ -38,7 +49,7 @@ nav.bar { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; paddin
 .ctl { cursor: pointer; }
 input[type=search] { min-width: 220px; }
 .conf { position: relative; }
-.conf-panel { position: absolute; z-index: 10; right: 0; top: calc(100% + 6px); width: min(380px, 92vw); max-height: 420px; overflow: auto; background: var(--panel-2); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 12px 32px rgba(0,0,0,.45); padding: 12px; }
+.conf-panel { position: absolute; z-index: 10; right: 0; top: calc(100% + 6px); width: min(380px, 92vw); max-height: 420px; overflow: auto; background: var(--panel-2); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 12px; }
 .conf-quick { display: flex; gap: 6px; margin-bottom: 10px; }
 .conf-quick button { font: inherit; font-size: 12px; background: transparent; color: var(--accent); border: 1px solid var(--line); border-radius: 6px; padding: 3px 10px; cursor: pointer; }
 .conf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 12px; }
@@ -51,6 +62,10 @@ input[type=checkbox] { accent-color: var(--accent); }
 .tile .label { color: var(--muted); font-size: 12px; margin: 0 0 4px; }
 .tile .big { font: 400 30px/1.2 var(--serif); margin: 0; font-variant-numeric: tabular-nums; }
 .tile .note { color: var(--muted); font-size: 12px; margin: 4px 0 0; }
+.tiles.compact .tile { padding: 10px 16px; }
+.tiles.compact .tile .label { margin: 0; }
+.tiles.compact .tile .big { font-size: 22px; line-height: 1.25; }
+.tiles.compact .tile .note { margin: 1px 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .card { margin-bottom: 22px; }
 .card h2 { font-size: 15px; font-weight: 600; margin: 0; }
 .card .note { color: var(--muted); font-size: 12px; margin: 4px 0 14px; }
@@ -63,7 +78,7 @@ th button:hover { color: var(--fg); }
 th[aria-sort="ascending"] button::after { content: " ↑"; color: var(--accent); }
 th[aria-sort="descending"] button::after { content: " ↓"; color: var(--accent); }
 td { padding: 7px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
-tbody tr:hover td { background: rgba(255,255,255,.02); }
+tbody tr:hover td { background: var(--hover); }
 .num { text-align: right; }
 .muted { color: var(--muted); }
 .faint { color: var(--faint); }
@@ -105,12 +120,18 @@ footer a:hover { color: var(--accent); }
 [hidden] { display: none !important; }
 @media (max-width: 700px) { .wrap { padding: 18px 14px 48px; } .grid2 { grid-template-columns: 1fr; } }
 </style>
+<script>
+  try { if (localStorage.getItem('mech-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
+</script>
 </head>
 <body>
 <div class="wrap">
   <header>
     <div class="brand"><img src="assets/logo-128.png" alt="The Mech Model logo"><h1>The <span>Mech</span> Model</h1></div>
-    <p class="sub">Lines for <span id="date-label">—</span> · updated <span id="updated">—</span></p>
+    <div class="head-right">
+      <p class="sub">Lines for <span id="date-label">—</span> · updated <span id="updated">—</span></p>
+      <button class="theme" id="theme" aria-label="Switch light or dark mode">☀ Light</button>
+    </div>
   </header>
 
   <nav class="bar">
@@ -134,8 +155,8 @@ footer a:hover { color: var(--accent); }
   </nav>
 
   <section data-page="today">
-    <div class="tiles">
-      <div class="tile"><p class="label">D1 games today</p><p class="big" id="t-games">—</p><p class="note">All conferences</p></div>
+    <div class="tiles compact">
+      <div class="tile"><p class="label">D1 games today</p><p class="big" id="t-games">—</p><p class="note" id="t-scope">All conferences</p></div>
       <div class="tile"><p class="label">Toss-ups</p><p class="big" id="t-tossups">—</p><p class="note">Line under 4 points</p></div>
       <div class="tile"><p class="label">Closest line</p><p class="big" id="t-closest">—</p><p class="note" id="t-closest-team">—</p></div>
       <div class="tile" id="t-gap-tile" hidden><p class="label">Biggest gap vs. Vegas</p><p class="big" id="t-gap">—</p><p class="note" id="t-gap-note">—</p></div>
@@ -181,11 +202,6 @@ footer a:hover { color: var(--accent); }
   </section>
 
   <section data-page="rankings" hidden>
-    <div class="card">
-      <h2>Conference strength</h2>
-      <p class="note">Average team rating (points per 100 possessions better than an average D1 team). Picked conferences are highlighted.</p>
-      <div class="bars" id="conf-bars"></div>
-    </div>
     <div class="tools">
       <input type="search" id="search" placeholder="Search teams" aria-label="Search teams">
       <label>Sort
@@ -223,6 +239,11 @@ footer a:hover { color: var(--accent); }
         <button class="ctl" id="show-all">Show all teams</button>
         <button class="ctl" id="show-top" hidden>Show top 100</button>
       </div>
+    </div>
+    <div class="card">
+      <h2>Conference strength</h2>
+      <p class="note">Average team rating (points per 100 possessions better than an average D1 team). Picked conferences are highlighted.</p>
+      <div class="bars" id="conf-bars"></div>
     </div>
   </section>
 
@@ -362,12 +383,14 @@ footer a:hover { color: var(--accent); }
   }
 
   function renderToday() {
-    const all = ofLeague(D.lines);
+    const everything = ofLeague(D.lines);
+    const all = everything.filter((r) => inConf(r.home_conf, r.away_conf));   // tiles follow the conference filter
+    $('#t-scope').textContent = $('#conf-label').textContent === 'All' ? 'All conferences' : $('#conf-label').textContent;
     const best = all.reduce((a, r) => (a === null || Math.abs(r.my_line) < Math.abs(a.my_line) ? r : a), null);
     $('#t-games').textContent = String(all.length);
     $('#t-tossups').textContent = String(all.filter((r) => Math.abs(r.my_line) < TOSSUP).length);
     $('#t-closest').textContent = best ? f1(best.my_line) : '—';
-    $('#t-closest-team').textContent = best ? best.favorite : 'No games today';
+    $('#t-closest-team').textContent = best ? best.favorite : (everything.length ? 'No games in this filter' : 'No games today');
     const withGap = all.filter((r) => r.gap !== null && r.gap !== undefined);
     const big = withGap.reduce((a, r) => (a === null || Math.abs(r.gap) > Math.abs(a.gap) ? r : a), null);
     $('#t-gap-tile').hidden = !big;
@@ -375,7 +398,7 @@ footer a:hover { color: var(--accent); }
       $('#t-gap').textContent = Math.abs(big.gap).toFixed(1);
       $('#t-gap-note').textContent = `${big.favorite}: Mech ${f1(big.my_line)}, Vegas ${signed(big.vegas_line)}`;
     }
-    let g = all.filter((r) => inConf(r.home_conf, r.away_conf)).filter((r) => !S.hide || Math.abs(r.my_line) < BLOWOUT);
+    let g = all.filter((r) => !S.hide || Math.abs(r.my_line) < BLOWOUT);
     const by = {
       spread: (a, b) => Math.abs(a.my_line) - Math.abs(b.my_line),
       tip: (a, b) => cmp(a.tip24, b.tip24),
@@ -399,7 +422,7 @@ footer a:hover { color: var(--accent); }
     // Vegas / Torvik / Gap stay hidden until those feeds deliver numbers
     const heads = $$('#lines thead th');
     ['vegas_line', 'torvik_line', 'gap'].forEach((col) => {
-      const show = all.some((r) => r[col] !== null && r[col] !== undefined);
+      const show = everything.some((r) => r[col] !== null && r[col] !== undefined);
       const n = heads.findIndex((th) => th.dataset.col === col) + 1;
       $$(`#lines tr > :nth-child(${n})`).forEach((c) => { c.hidden = !show; });
     });
@@ -517,6 +540,20 @@ footer a:hover { color: var(--accent); }
     if (S.tab === 'record') renderRecord();
     writeHash();
   }
+
+  // ---------- light / dark ----------
+  const themeBtn = $('#theme');
+  const paintTheme = () => {
+    const light = document.documentElement.dataset.theme === 'light';
+    themeBtn.textContent = light ? '☾ Dark' : '☀ Light';
+  };
+  themeBtn.addEventListener('click', () => {
+    const light = document.documentElement.dataset.theme !== 'light';
+    if (light) document.documentElement.dataset.theme = 'light'; else delete document.documentElement.dataset.theme;
+    try { localStorage.setItem('mech-theme', light ? 'light' : 'dark'); } catch (e) {}
+    paintTheme();
+  });
+  paintTheme();
 
   // ---------- controls ----------
   $$('.seg button').forEach((b) => b.addEventListener('click', () => { S.league = b.dataset.league; render(); }));
