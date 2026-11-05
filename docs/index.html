@@ -90,7 +90,7 @@ input[type=checkbox] { accent-color: var(--orange); }
 
 /* rankings placeholder */
 .soon { padding: 40px 0; max-width: 560px; }
-.soon b { font: 800 26px var(--display); letter-spacing: .03em; text-transform: uppercase; }
+.soon > b { font: 800 26px var(--display); letter-spacing: .03em; text-transform: uppercase; }
 .soon p { font-size: 15.5px; line-height: 1.6; color: var(--fg); margin: 8px 0 0; }
 .soon a { color: var(--blue); }
 
@@ -315,7 +315,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     <section data-page="top25" hidden>
       <div class="soon">
         <b>No rankings yet.</b>
-        <p>Rankings judge résumés, and in early November nobody has one. The first Mech rankings drop after the Thanksgiving-week tournaments, once teams have played real opponents. Until then, the <a href="#tab=rankings" data-go="rankings">power ratings</a> show who&rsquo;s strongest.</p>
+        <p>In my opinion, teams should not be ranked until after the Thanksgiving tournaments. Rankings judge résumés, and in early November nobody has a true one. The first Mech rankings will drop <b class="d">December 1</b>, once teams have played real opponents. Until then, the <a href="#tab=rankings" data-go="rankings">power ratings</a> show who&rsquo;s strongest.</p>
       </div>
     </section>
 
@@ -355,6 +355,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
         <table id="log"><thead><tr><th>Date</th><th>Away</th><th>Home</th><th class="num">Mech</th><th class="num">Vegas</th><th class="num">Win %</th><th class="num">Final</th><th class="num">Miss</th><th class="num">Vegas miss</th><th>Winner</th><th>Closer</th><th>Pick</th></tr></thead><tbody></tbody></table>
       </div>
       <p class="empty" id="log-none" hidden>Fills in as games are graded.</p>
+      <button class="btn" id="log-more" hidden>Show more</button>
     </section>
 
     <!-- ===== How it works ===== -->
@@ -389,7 +390,11 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
         <p>Nothing goes in on a hunch. Every idea gets replayed over five past seasons, day by day, using only the games played before each date, then graded on a season the model never trained on. If it doesn't make the lines more accurate, it's out. Ideas that didn't make the cut, like capping blowouts, stayed out.</p>
         <p>On the 2025-26 test season the model missed the final margin by about <b>9.1 points</b> per men's game and <b>9.7</b> per women's game, picking the winner 72% and 77% of the time.</p>
 
-        <h3><span>06</span>What's different here</h3>
+        <h3><span>06</span>Power ratings vs. rankings</h3>
+        <p>Power ratings and rankings answer different questions. Power ratings ask <b>who's strongest right now</b>: they're what the lines come from, and a team can be rated above a team with a better record. Rankings ask <b>who's earned the most</b>, based on who you've played and beaten.</p>
+        <p>In my opinion, teams should not be ranked until after the Thanksgiving tournaments. In early November nobody has a true résumé, so the first Mech rankings will drop December 1. How they're built will be explained here when they launch.</p>
+
+        <h3><span>07</span>What's different here</h3>
         <ul>
           <li>Team-specific home court instead of one number for everybody.</li>
           <li>Conference-aware ratings that adjust fast in November.</li>
@@ -412,7 +417,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   const TOP_N = 100, TOSSUP = 4, BLOWOUT = 15, BIG_GAP = 3;
   const PAGES = ['today', 'rankings', 'top25', 'record', 'how'];
   const S = {league: 'mbb', tab: 'today', confs: new Set(), sort: 'spread', scol: '', sdir: 'asc',
-             hide: false, rall: false, rsort: 'rank', rcol: '', rdir: 'asc', q: ''};
+             hide: false, rall: false, logn: 200, rsort: 'rank', rcol: '', rdir: 'asc', q: ''};
   const D = {};
   let COLOR = {};
   const $ = (sel) => document.querySelector(sel);
@@ -483,7 +488,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
                    record: [lg(), 'Track Record'], how: ['How it works', 'The Mech Model']};
     $('#kicker').textContent = heads[S.tab][0];
     $('#title').textContent = heads[S.tab][1];
-    $('#rank-tools').hidden = S.tab !== 'rankings';
+    $('#rank-tools').hidden = S.tab !== 'rankings' && S.tab !== 'top25';
     $('#pr-q').hidden = S.tab !== 'rankings';
     $('#filters').hidden = S.tab === 'how' || S.tab === 'record';
     $('#conf-all').setAttribute('aria-pressed', String(!S.confs.size));
@@ -650,7 +655,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $('#cal-none').hidden = cal.length > 0;
 
     const games = rec.filter((r) => r.kind === 'game');
-    fill($('#log tbody'), games.map((r) => {
+    fill($('#log tbody'), games.slice(0, S.logn).map((r) => {
       const tr = el('tr');
       tr.append(td(r.date, 'num muted'), teamCell(r.away, {fav: r.favorite === r.away}), teamCell(r.home, {fav: r.favorite === r.home}),
         td(f1(r.my_line), 'num'), td(signed(r.vegas_line), 'num muted'), td(pct(r.fav_win_pct), 'num'), td(r.final, 'num'),
@@ -660,6 +665,9 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       return tr;
     }));
     $('#log-none').hidden = games.length > 0;
+    const more = games.length - S.logn;
+    $('#log-more').hidden = more <= 0;
+    $('#log-more').textContent = `Show ${Math.min(200, Math.max(more, 0))} more (${games.length} total)`;
   }
 
   function render() {
@@ -682,7 +690,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   paintTheme();
 
   // ---------- controls ----------
-  $$('.league button').forEach((b) => b.addEventListener('click', () => { S.league = b.dataset.league; render(); }));
+  $$('.league button').forEach((b) => b.addEventListener('click', () => { S.league = b.dataset.league; S.logn = 200; render(); }));
   $$('.nav button').forEach((b) => b.addEventListener('click', () => { S.tab = b.dataset.tab; render(); window.scrollTo(0, 0); }));
   $$('[data-go]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); S.tab = a.dataset.go; render(); }));
   $('#conf-btn').addEventListener('click', () => {
@@ -697,6 +705,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   $('#hide').addEventListener('change', (e) => { S.hide = e.target.checked; render(); });
   $('#sort-rank').addEventListener('change', (e) => { S.rsort = e.target.value; render(); });
   $('#search').addEventListener('input', (e) => { S.q = e.target.value; render(); });
+  $('#log-more').addEventListener('click', () => { S.logn += 200; render(); });
   $('#show-all').addEventListener('click', () => { S.rall = true; render(); });
   $('#show-top').addEventListener('click', () => { S.rall = false; render(); });
   const headerSort = (sel, colKey, dirKey, modeKey) => $(sel + ' thead').addEventListener('click', (e) => {
