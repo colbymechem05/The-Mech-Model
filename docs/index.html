@@ -89,15 +89,18 @@ input[type=checkbox] { accent-color: var(--orange); }
 .stat .s { font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ---------- sections ---------- */
-section[data-page="rankings"] > .sec:first-child { margin-top: 16px; }
+section[data-page="rankings"] > .scroll:first-child { margin-top: 14px; }
+#rank-tools { margin-right: 8px; gap: 8px; }
+#rank-tools input[type=search] { min-width: 180px; }
 .sec { display: flex; justify-content: space-between; align-items: flex-end; gap: 14px; flex-wrap: wrap; margin: 28px 0 9px; }
 .sec h2 { margin: 0; font: 800 23px/1 var(--display); letter-spacing: .03em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
 .q { position: relative; display: inline-grid; place-items: center; width: 18px; height: 18px; border: 1px solid var(--line); border-radius: 50%; font: 600 11px var(--body); color: var(--muted); cursor: help; letter-spacing: 0; text-transform: none; }
 .q:hover, .q:focus { color: var(--fg); border-color: var(--muted); outline: none; }
-.mast-q { vertical-align: middle; position: relative; top: -6px; margin-left: 4px; }
-.mast-q .pop { text-transform: none; letter-spacing: 0; }
+.hq { width: 13px; height: 13px; font-size: 9px; margin-left: 5px; vertical-align: 1px; }
 .q .pop { position: absolute; left: 0; top: calc(100% + 8px); z-index: 30; width: 320px; padding: 11px 13px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); font: 400 13px/1.5 var(--body); color: var(--fg); text-align: left; display: none; }
 .q:hover .pop, .q:focus .pop { display: block; }
+.hq .pop { white-space: normal; top: calc(100% + 6px); width: 250px; letter-spacing: 0; text-transform: none; font-weight: 400; }
+.hq.r .pop { left: auto; right: 0; }
 .tools { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 13px; }
 .tools label { display: inline-flex; align-items: center; gap: 7px; }
 select, input[type=search] { background: var(--panel); border: 1px solid var(--line); border-radius: 5px; padding: 5px 9px; font-size: 13px; color: var(--fg); }
@@ -116,6 +119,8 @@ input[type=search] { min-width: 210px; }
 table { width: 100%; border-collapse: collapse; font: 500 14px var(--body); }
 th { position: sticky; top: 0; z-index: 1; background: var(--bg); text-align: left; font: 600 11px var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: 9px 9px; border-bottom: 2px solid var(--rule); white-space: nowrap; }
 #ranks th + th { border-left: 1px solid var(--line); }
+#ranks th { letter-spacing: .06em; padding: 9px 7px; }
+#ranks td { padding-left: 7px; padding-right: 7px; }
 th button { background: none; border: 0; padding: 0; font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit; cursor: pointer; }
 th button:hover { color: var(--fg); }
 th[aria-sort="ascending"] button::after { content: " ↑"; color: var(--orange); }
@@ -209,8 +214,12 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
   <main>
     <div class="mast">
-      <h1><span class="kicker" id="kicker">Today's lines</span><span id="title">—</span> <span class="q mast-q" id="rank-q" tabindex="0" hidden>?<span class="pop"><b>Net</b> = points per 100 possessions better than an average D1 team on a neutral floor (offense minus defense). <b>Offense</b> = points scored above average; <b>Defense</b> = points allowed above average, so lower is better. <b>Preseason</b> = where the team started; <b>Change</b> = how far results have moved them since. <b>Returning</b> = share of last season's minutes back. <b>Home</b> = points this team gets at home.</span></span></h1>
+      <h1><span class="kicker" id="kicker">Today's lines</span><span id="title">—</span></h1>
       <div class="filters" id="filters">
+        <div class="tools" id="rank-tools" hidden>
+          <input type="search" id="search" placeholder="Search teams" aria-label="Search teams">
+          <select id="sort-rank" aria-label="Sort"><option value="rank">Sort: Rank</option><option value="team">Sort: Name (A–Z)</option><option value="col" disabled>Sort: By column</option></select>
+        </div>
         <button class="chip" id="conf-all" aria-pressed="true">All</button>
         <button class="chip" id="conf-power" aria-pressed="false">Power 5</button>
         <div class="conf">
@@ -259,26 +268,19 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
     <!-- ===== Ratings ===== -->
     <section data-page="rankings" hidden>
-      <div class="sec">
-        <span></span>
-        <div class="tools">
-          <input type="search" id="search" placeholder="Search teams" aria-label="Search teams">
-          <label>Sort <select id="sort-rank"><option value="rank">Rank</option><option value="team">Name (A–Z)</option><option value="col" disabled>By column</option></select></label>
-        </div>
-      </div>
       <div class="scroll">
         <table id="ranks"><thead><tr>
           <th data-col="rank" class="num"><button>Rk</button></th>
           <th data-col="team"><button>Team</button></th>
           <th data-col="conf"><button>Conf</button></th>
-          <th data-col="net" class="num"><button>Net</button></th>
-          <th data-col="O" class="num"><button>Offense</button></th>
-          <th data-col="D" class="num"><button>Defense</button></th>
-          <th data-col="tempo" class="num"><button>Tempo</button></th>
-          <th data-col="preseason" class="num"><button>Preseason</button></th>
-          <th data-col="vs_preseason" class="num" title="Change since preseason"><button>Change</button></th>
-          <th data-col="returning_pct" class="num"><button>Returning</button></th>
-          <th data-col="home_court" class="num"><button>Home</button></th>
+          <th data-col="net" class="num"><button>Net</button><span class="q hq" tabindex="0">?<span class="pop">Points per 100 possessions better than an average D1 team on a neutral floor. Offense minus defense. This is what the ranking sorts by.</span></span></th>
+          <th data-col="O" class="num"><button>Offense</button><span class="q hq" tabindex="0">?<span class="pop">Points scored per 100 possessions above an average D1 offense, adjusted for who they played.</span></span></th>
+          <th data-col="D" class="num"><button>Defense</button><span class="q hq" tabindex="0">?<span class="pop">Points allowed per 100 possessions compared to an average D1 defense, adjusted for who they played. Lower is better.</span></span></th>
+          <th data-col="tempo" class="num"><button>Tempo</button><span class="q hq" tabindex="0">?<span class="pop">Possessions per 40 minutes this team plays at against an average opponent.</span></span></th>
+          <th data-col="preseason" class="num"><button>Preseason</button><span class="q hq" tabindex="0">?<span class="pop">Net rating before any games: built from the roster, last season, the conference and recruiting rankings.</span></span></th>
+          <th data-col="vs_preseason" class="num"><button>Change</button><span class="q hq r" tabindex="0">?<span class="pop">How far the Net rating has moved from preseason based on this season's games. Plus = playing better than expected, minus = worse.</span></span></th>
+          <th data-col="returning_pct" class="num"><button>Returning</button><span class="q hq r" tabindex="0">?<span class="pop">Share of last season's minutes that are back on this roster.</span></span></th>
+          <th data-col="home_court" class="num"><button>Home</button><span class="q hq r" tabindex="0">?<span class="pop">Points this team gets at home: the league average plus its own home edge from the last four seasons.</span></span></th>
           <th data-col="games" class="num"><button>G</button></th>
         </tr></thead><tbody></tbody></table>
       </div>
@@ -454,7 +456,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
                    record: [lg(), 'Track Record'], how: ['How it works', 'The Mech Model']};
     $('#kicker').textContent = heads[S.tab][0];
     $('#title').textContent = heads[S.tab][1];
-    $('#rank-q').hidden = S.tab !== 'rankings';
+    $('#rank-tools').hidden = S.tab !== 'rankings';
     $('#filters').hidden = S.tab === 'how' || S.tab === 'record';
     $('#conf-all').setAttribute('aria-pressed', String(!S.confs.size));
     $('#conf-power').setAttribute('aria-pressed', String(isPower()));
@@ -670,6 +672,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   $('#show-all').addEventListener('click', () => { S.rall = true; render(); });
   $('#show-top').addEventListener('click', () => { S.rall = false; render(); });
   const headerSort = (sel, colKey, dirKey, modeKey) => $(sel + ' thead').addEventListener('click', (e) => {
+    if (e.target.closest('.q')) return;
     const th = e.target.closest('th[data-col]'); if (!th) return;
     const col = th.dataset.col;
     S[dirKey] = S[colKey] === col && S[dirKey] === 'asc' ? 'desc' : 'asc';
