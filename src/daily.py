@@ -25,8 +25,8 @@ OUT = D.ROOT / "output"
 LOGS = D.ROOT / "logs"
 HISTORY = [s for s in D.SEASONS if s < D.CURRENT]
 # Tuned on 2021-22..2024-25, checked on 2025-26 (see build log; analysis/differentiators.py).
-SETTINGS = {"mbb": dict(new_value=-4.0, prior_games=6),
-            "wbb": dict(new_value=-4.0, prior_games=4)}
+SETTINGS = {"mbb": dict(new_value=-4.0, prior_games=6, recruits="feature"),   # RSCI top 100 freshmen
+            "wbb": dict(new_value=-4.0, prior_games=4, recruits=None)}       # no women's data yet
 CONF_GAMES = 30   # in-season conference pooling (analysis/buy_game_fix.py)
 # Buy games: Power team at home vs. a non-Power visitor in Nov-Dec. Extra points for the home
 # team = a + b x our spread (analysis/buy_game_term.py, fitted on 2021-22..2025-26).
@@ -57,7 +57,7 @@ def rate(league: str, day: pd.Timestamp, refresh: bool):
     games = D.build(league, refresh_current=refresh)
     roster_now = P.season_stats(league, D.CURRENT, refresh=refresh)
     talent = T.TalentPrior(league, games, HISTORY, train=HISTORY, new_value=cfg["new_value"],
-                           conf_feature=True)
+                           conf_feature=True, recruit_mode=cfg["recruits"])
     prior = talent.prior(D.CURRENT, R.final_prior(games, D.CURRENT - 1, R.Dials()), roster_now)
     prior.attrs["team_hca"] = R.team_hca(games, D.CURRENT)   # each team's own extra home edge
     prior.attrs["conf"] = D.conferences(league, D.CURRENT)    # for conference pooling

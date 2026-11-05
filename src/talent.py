@@ -18,6 +18,7 @@ import pandas as pd
 import data as D
 import players as P
 import ratings as R
+import recruits as RC
 
 GAMESCORE = {"points": 1.0, "field_goals_made": 0.4, "field_goals_attempted": -0.7,
              "free_throws_made": 0.4, "free_throws_attempted": -0.4,
@@ -59,7 +60,8 @@ class TalentPrior:
 
     def __init__(self, league: str, games: pd.DataFrame, seasons, train,
                  alpha: float = 1.0, new_value: float = -4.0,
-                 new_by_program: bool = False, conf_feature: bool = False):
+                 new_by_program: bool = False, conf_feature: bool = False,
+                 recruit_mode: str | None = None):
         """new_by_program: newcomers' value depends on the program (learned from how past
         newcomers played vs. their team's previous-season rating) instead of one number.
         conf_feature: the team model also uses the conference's average last-season rating."""
@@ -67,6 +69,10 @@ class TalentPrior:
         self.new_by_program, self.conf_feature = new_by_program, conf_feature
         self.new_coef = (new_value, 0.0)
         self.confs = {s: D.conferences(league, s) for s in seasons} if conf_feature else {}
+        # recruit_mode: None (off), "roster" (ranked freshmen's expected value added into the
+        # roster value) or "feature" (a separate term in the team model, weight learned)
+        self.recruit_mode = recruit_mode
+        self.recruits = RC.load(league) if recruit_mode else None
         self.d1 = set(games[games.home_d1].home_id) | set(games[games.away_d1].away_id)
         self.truth = team_truth(games, seasons)
         p = player_table(league, seasons, self.truth)
@@ -102,6 +108,29 @@ class TalentPrior:
             A = np.column_stack([np.ones(len(nt)), nt.last_net]) * np.sqrt(nt.w.values)[:, None]
             self.new_coef = tuple(np.linalg.lstsq(A, nt.v.values * np.sqrt(nt.w.values), rcond=None)[0])
 
+        # 4c. recruiting curves: what a freshman in each RSCI tier actually adds (minutes share
+        # and share x value), relative to a typical unranked newcomer, from training seasons
+        if recruit_mode:
+            rows = []
+            for s in train:
+                m = RC.match(self.recruits[self.recruits.season == s], P.season_stats(league, s))
+                m = m.merge(p[p.season == s][["athlete_id", "team_id", "min_share", "value"]]
+                            .rename(columns={"team_id": "played_team"}), on=["athlete_id", "played_team"], how="left")
+                rows.append(m)
+            x = pd.concat(rows)
+            x["min_share"] = x.min_share.fillna(0.0)
+            x["contrib"] = x.min_share * x.value.fillna(0.0)
+            new = []
+            for s in train:
+                if s - 1 in seasons:
+                    a, b = p[p.season == s], p[p.season == s - 1]
+                    new.append(a[~a.athlete_id.isin(b.athlete_id) & (a.minutes > 0) & ~a.athlete_id.isin(x.athlete_id.dropna())])
+            n = pd.concat(new)
+            self.v_typical = float(np.average(n.value, weights=n.minutes))
+            t = x.groupby("tier", observed=False).agg(share=("min_share", "mean"), contrib=("contrib", "mean"))
+            self.tier_boost = (t.contrib - t.share * self.v_typical).rename("boost")
+            self.tier_table = t.assign(boost=self.tier_boost)
+
         # 5. team model, fitted on training seasons that have a previous season
         fs = [self._features(s, P.season_stats(league, s)) for s in train if s - 1 in seasons]
         f = pd.concat(fs, ignore_index=True)
@@ -112,7 +141,20 @@ class TalentPrior:
         cols = [np.ones(len(f)), f.roster_value.values, f.last_net.values]
         if self.conf_feature:
             cols.append(f.conf_last.values)
+        if self.recruit_mode == "feature":
+            cols.append(f.recruit.values)
         return np.column_stack(cols)
+
+    def recruit_boost(self, season: int, roster_now: pd.DataFrame) -> pd.Series:
+        """Per team: sum of its ranked freshmen's expected boost. A recruit counts for the team
+        he's actually playing for if he's on a roster, otherwise the school he signed with."""
+        r = self.recruits[self.recruits.season == season]
+        if r.empty:
+            return pd.Series(dtype=float)
+        m = RC.match(r, roster_now)
+        team = m.played_team.fillna(m.team_id)
+        b = m.tier.map(self.tier_boost).astype(float)
+        return b.groupby(team).sum()
 
     def roster_value(self, season: int, roster_now: pd.DataFrame) -> pd.DataFrame:
         """4. Expected roster value per team for `season`."""
@@ -141,6 +183,12 @@ class TalentPrior:
         f["last_net"] = last.reindex(f.index).fillna(last.quantile(0.2))  # new to D1: low
         if self.conf_feature:
             f["conf_last"] = self._conf_last(season, f.last_net)
+        if self.recruit_mode:
+            boost = self.recruit_boost(season, roster_now).reindex(f.index).fillna(0.0)
+            if self.recruit_mode == "roster":
+                f["roster_value"] += boost
+            else:
+                f["recruit"] = boost
         f["season"] = season
         return f.rename_axis("team_id").reset_index()
 
@@ -169,6 +217,12 @@ class TalentPrior:
                                            index=missing)])
             if self.conf_feature:
                 f["conf_last"] = self._conf_last(season, f.last_net)
+            if self.recruit_mode:
+                boost = self.recruit_boost(season, roster_now).reindex(missing).fillna(0.0)
+                if self.recruit_mode == "roster":
+                    f.loc[missing, "roster_value"] += boost
+                else:
+                    f.loc[missing, "recruit"] = boost
         pred = pd.Series(self._design(f) @ self.coef, index=f.index)
         out = base.copy()
         idx = out.index.intersection(pred.index)

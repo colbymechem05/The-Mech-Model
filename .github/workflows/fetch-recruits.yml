@@ -2,6 +2,8 @@ name: Fetch recruiting rankings
 
 # One-off / once a year: download RSCI top-100 lists and save them to data/recruits.
 on:
+  schedule:
+    - cron: "23 14 1 10 *"   # Oct 1 every year: pick up the new freshman class
   workflow_dispatch:
     inputs:
       first:
@@ -23,7 +25,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pandas lxml
-      - run: python scripts/fetch_rsci.py ${{ inputs.first }} ${{ inputs.last }}
+      - run: python scripts/fetch_rsci.py ${{ inputs.first || '2020' }} ${{ inputs.last || '' }}$( [ -z "${{ inputs.last }}" ] && date +%Y )
       - name: Save
         run: |
           git config user.name "mech-model-bot"

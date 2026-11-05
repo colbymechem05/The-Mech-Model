@@ -1,0 +1,20 @@
+done None
+done roster
+done feature
+
+What a freshman adds by RSCI tier (learned from 2020-21..2024-25 freshmen):
+        share  contrib  boost
+tier                         
+1-5      0.54     2.74   3.81
+6-10     0.54     1.09   2.18
+11-25    0.46     0.81   1.74
+26-50    0.33     0.17   0.83
+51-75    0.25    -0.23   0.26
+76-100   0.22    -0.24   0.21
+typical unranked newcomer value: -2.00
+Team model (feature): net = 4.88 + 0.56 + 0.40 + 0.15 + 0.92   [intercept, roster, last season, conference, recruits]
+
+              version  tune full  tune Nov-Dec  25-26 Nov-Dec  25-26 full  preseason miss (tune)  preseason miss 25-26
+today (flat freshmen)      8.985         9.298          9.614       9.153                  4.697                 5.133
+               roster      8.983         9.291          9.593       9.144                  4.669                 5.090
+              feature      8.982         9.290          9.584       9.139                  4.673                 5.065

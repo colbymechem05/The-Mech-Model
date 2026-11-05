@@ -8,6 +8,7 @@ import daily
 import data as D
 import export
 import odds
+import recruits as RC
 import ratings as R
 import talent as T
 
@@ -168,6 +169,17 @@ def test_buy_game_boost():
     assert list(b) == [pytest.approx(2.33), 0, 0, 0]          # only Power home vs non-Power, not neutral
     assert daily.buy_boost("wbb", nov, [1], [2], [False], [20.0], conf)[0] == pytest.approx(0.61 + 1.6)
     assert daily.buy_boost("mbb", jan, [1], [2], [False], [20.0], conf)[0] == 0   # Nov-Dec only
+
+
+def test_recruit_name_matching():
+    assert RC.norm_name("Kenyon Martin Jr.") == "kenyon martin"
+    assert "ace bailey" in RC._variants('Arious "Ace" Bailey')
+    stats = pd.DataFrame({"athlete_id": [1, 2, 3], "team_id": [10, 20, 30], "minutes": [500, 300, 100],
+                          "name": ["Ace Bailey", "Trey Kaufman-Renn", "John Smith"]})
+    rec = pd.DataFrame({"player": ['Arious "Ace" Bailey', "Trey Kaufman", "Nobody Here"],
+                        "team_id": [99, 20, 30]})            # Bailey signed elsewhere, played for 10
+    m = RC.match(rec, stats)
+    assert list(m.played_team.fillna(-1)) == [10, 20, -1]
 
 
 def test_log_is_append_only(tmp_path, monkeypatch):
