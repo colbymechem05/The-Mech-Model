@@ -125,15 +125,22 @@ def append_log(league: str, lines: pd.DataFrame) -> int:
     return len(lines)
 
 
-def run(day: pd.Timestamp, refresh: bool = True) -> None:
+def run(day: pd.Timestamp, refresh: bool = True, force: bool = False) -> None:
+    """A second run on the same day (backup schedule, manual click) keeps the day's lines
+    as first made, so the site always matches the log. --force remakes them."""
     OUT.mkdir(exist_ok=True)
     LOGS.mkdir(exist_ok=True)
     for league in D.LEAGUES:
         r, lg_info, dials, conf = rate(league, day, refresh)
         r[["rank", "team", "net", "O", "D", "tempo", "games", "preseason", "returning_pct", "home_court"]
           ].round(1).to_csv(OUT / f"ratings_{league}.csv", index_label="team_id")
-        lines = make_lines(league, day, r, lg_info, dials, conf)
-        lines.to_csv(OUT / f"lines_{league}_{day.date()}.csv", index=False)
+        f = OUT / f"lines_{league}_{day.date()}.csv"
+        if f.exists() and f.stat().st_size > 1 and not force:
+            lines = pd.read_csv(f)
+            print(f"{league}: keeping today's lines as first made ({len(lines)} games)")
+        else:
+            lines = make_lines(league, day, r, lg_info, dials, conf)
+            lines.to_csv(f, index=False)
         added = append_log(league, lines) if len(lines) else 0
         print(f"{league}: {len(r)} teams | {len(lines)} lines for {day.date()} "
               f"({added} new to log) | home court {R.hca_points(lg_info):.2f} pts")
@@ -142,4 +149,4 @@ def run(day: pd.Timestamp, refresh: bool = True) -> None:
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     run(pd.Timestamp(args[0]) if args else pd.Timestamp.now(tz="America/Chicago").normalize().tz_localize(None),
-        refresh="--no-refresh" not in sys.argv)
+        refresh="--no-refresh" not in sys.argv, force="--force" in sys.argv)

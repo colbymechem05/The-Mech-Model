@@ -264,3 +264,10 @@ def test_daily_run_end_to_end(tmp_path, monkeypatch):
         lines = pd.read_csv(tmp_path / "out" / f"lines_{lg}_2026-11-04.csv")
         assert len(lines) > 0 and (lines.my_line <= 0).all()
         assert lines.fav_win_pct.between(50, 100).all()
+    # a second run the same day keeps the lines as first made
+    f = tmp_path / "out" / "lines_mbb_2026-11-04.csv"
+    first = pd.read_csv(f)
+    first.loc[0, "my_line"] = -99.0
+    first.to_csv(f, index=False)
+    daily.run(pd.Timestamp("2026-11-04"), refresh=False)
+    assert pd.read_csv(f).loc[0, "my_line"] == -99.0

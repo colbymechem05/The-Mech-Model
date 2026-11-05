@@ -3,6 +3,7 @@ name: Daily run
 on:
   schedule:
     - cron: "17 13 * * *"   # 7:17 AM Central (13:17 UTC; 8:17 AM during daylight time): full run
+    - cron: "47 14 * * *"   # 8:47 AM Central: backup in case GitHub skips the 7:17 run (keeps lines if already made)
     - cron: "47 21 * * *"   # 3:47 PM Central: refresh Vegas lines only (Mech lines stay as made)
   workflow_dispatch:         # "Run workflow" button for a manual run
     inputs:
