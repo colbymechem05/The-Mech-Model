@@ -161,6 +161,15 @@ def test_roster_value_minutes_and_newcomers():
     assert tp.roster_value(2026, roster).loc[2, "roster_value"] == pytest.approx(1 * 2.0 + 4 * -2.0)
 
 
+def test_buy_game_boost():
+    conf = pd.Series({1: "SEC", 2: "SWAC", 3: "ACC"})
+    nov, jan = pd.Timestamp("2026-11-10"), pd.Timestamp("2027-01-10")
+    b = daily.buy_boost("mbb", nov, [1, 1, 2, 1], [2, 3, 1, 2], [False, False, False, True], [20.0] * 4, conf)
+    assert list(b) == [pytest.approx(2.33), 0, 0, 0]          # only Power home vs non-Power, not neutral
+    assert daily.buy_boost("wbb", nov, [1], [2], [False], [20.0], conf)[0] == pytest.approx(0.61 + 1.6)
+    assert daily.buy_boost("mbb", jan, [1], [2], [False], [20.0], conf)[0] == 0   # Nov-Dec only
+
+
 def test_log_is_append_only(tmp_path, monkeypatch):
     monkeypatch.setattr(daily, "LOGS", tmp_path)
     lines = pd.DataFrame({"game_id": [1, 2], "my_line": [-3.5, -7.0]})

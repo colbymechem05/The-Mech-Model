@@ -10,7 +10,9 @@ Outputs per league (mbb, wbb):
 import sys
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
+from scipy.stats import norm
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # run as a script
 import data as D  # noqa: E402
@@ -26,6 +28,20 @@ HISTORY = [s for s in D.SEASONS if s < D.CURRENT]
 SETTINGS = {"mbb": dict(new_value=-4.0, prior_games=6),
             "wbb": dict(new_value=-4.0, prior_games=4)}
 CONF_GAMES = 30   # in-season conference pooling (analysis/buy_game_fix.py)
+# Buy games: Power team at home vs. a non-Power visitor in Nov-Dec. Extra points for the home
+# team = a + b x our spread (analysis/buy_game_term.py, fitted on 2021-22..2025-26).
+POWER = {"SEC", "Big Ten", "Big 12", "ACC", "Big East", "Pac-12"}
+BUY_BOOST = {"mbb": (2.33, 0.0), "wbb": (0.61, 0.08)}
+
+
+def buy_boost(league: str, day: pd.Timestamp, home_ids, away_ids, neutral, spread, conf) -> np.ndarray:
+    """Points added to the home side in buy games (0 everywhere else)."""
+    if day.month not in (11, 12):
+        return np.zeros(len(spread))
+    a, b = BUY_BOOST[league]
+    buy = (pd.Series(list(home_ids)).map(conf).isin(POWER).values
+           & ~pd.Series(list(away_ids)).map(conf).isin(POWER).values & ~np.asarray(neutral, dtype=bool))
+    return np.where(buy, np.maximum(a + b * np.asarray(spread), 0.0), 0.0)
 
 
 def todays_games(league: str, day: pd.Timestamp) -> pd.DataFrame:
@@ -57,16 +73,22 @@ def rate(league: str, day: pd.Timestamp, refresh: bool):
     r["returning_pct"] = 100 * RS.returning(league, D.CURRENT, roster_now).reindex(r.index)
     extra = prior.attrs["team_hca"].reindex(r.index).fillna(0)
     r["home_court"] = (lg_info["hca"] + extra) * lg_info["avg_tempo"] / 100   # points
-    return r, lg_info, dials
+    return r, lg_info, dials, prior.attrs["conf"]
 
 
 def make_lines(league: str, day: pd.Timestamp, r: pd.DataFrame, lg_info: dict,
-               dials: R.Dials) -> pd.DataFrame:
+               dials: R.Dials, conf: pd.Series | None = None) -> pd.DataFrame:
     g = todays_games(league, day)
     g = g[g.home_id.isin(r.index) & g.away_id.isin(r.index)]   # D1 vs D1 only
     if g.empty:
         return pd.DataFrame()
     p = R.predict(r, lg_info, g.home_id, g.away_id, g.neutral, dials.sigma[league])
+    if conf is not None:
+        extra = buy_boost(league, day, g.home_id, g.away_id, g.neutral, p.spread_home.values, conf)
+        p["home_pts"] += extra / 2
+        p["away_pts"] -= extra / 2
+        p["spread_home"] += extra
+        p["p_home"] = norm.cdf(p.spread_home / dials.sigma[league])
     g, fav_home = g.reset_index(drop=True), p.spread_home >= 0
     return pd.DataFrame({
         "date": day.date(), "game_id": g.game_id,
@@ -99,10 +121,10 @@ def run(day: pd.Timestamp, refresh: bool = True) -> None:
     OUT.mkdir(exist_ok=True)
     LOGS.mkdir(exist_ok=True)
     for league in D.LEAGUES:
-        r, lg_info, dials = rate(league, day, refresh)
+        r, lg_info, dials, conf = rate(league, day, refresh)
         r[["rank", "team", "net", "O", "D", "tempo", "games", "preseason", "returning_pct", "home_court"]
           ].round(1).to_csv(OUT / f"ratings_{league}.csv", index_label="team_id")
-        lines = make_lines(league, day, r, lg_info, dials)
+        lines = make_lines(league, day, r, lg_info, dials, conf)
         lines.to_csv(OUT / f"lines_{league}_{day.date()}.csv", index=False)
         added = append_log(league, lines) if len(lines) else 0
         print(f"{league}: {len(r)} teams | {len(lines)} lines for {day.date()} "
