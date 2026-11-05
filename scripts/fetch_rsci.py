@@ -14,7 +14,7 @@ URL = "https://www.basketball-reference.com/awards/recruit_rankings_{}.html"
 
 
 def fetch(year: int) -> pd.DataFrame:
-    req = urllib.request.Request(URL.format(year), headers={"User-Agent": "Mozilla/5.0 (the-mech-model; personal research)"})
+    req = urllib.request.Request(URL.format(year), headers={"User-Agent": "Mozilla/5.0 (the-meech-model; personal research)"})
     with urllib.request.urlopen(req, timeout=60) as r:
         html = r.read().decode("utf-8", "replace")
     t = pd.read_html(io.StringIO(html))[0]

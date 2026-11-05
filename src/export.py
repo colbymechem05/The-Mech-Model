@@ -16,7 +16,7 @@ import odds  # noqa: E402
 
 OUT = D.ROOT / "output"
 LOGS = D.ROOT / "logs"
-PICK_EDGE = 3.0  # a "pick" vs. the Vegas number = Mech line differs by 3+ points
+PICK_EDGE = 3.0  # a "pick" vs. the Vegas number = Meech line differs by 3+ points
 # 2025-26 holdout (never used for tuning): the benchmark the live record is compared to
 BENCHMARK = {"mbb": {"avg_miss": 9.14, "winner_pct": 72.1}, "wbb": {"avg_miss": 9.65, "winner_pct": 76.6}}
 
@@ -51,7 +51,7 @@ def grade(league: str) -> pd.DataFrame:
     x = x.merge(odds.load(league)[["game_id", "vegas_home"]], on="game_id", how="left")
     x["vegas_line"] = vegas_for_favorite(x.spread_home, x.vegas_home)
     x["vegas_miss"] = (x.vegas_home - x.margin).abs()
-    # pick vs. the number: side the Mech line likes, graded against the Vegas spread
+    # pick vs. the number: side the Meech line likes, graded against the Vegas spread
     edge = x.spread_home - x.vegas_home
     x["pick"] = edge.abs() >= PICK_EDGE
     cover = np.sign(x.margin - x.vegas_home) * np.sign(edge)  # +1 win, -1 loss, 0 push
@@ -60,7 +60,7 @@ def grade(league: str) -> pd.DataFrame:
 
 
 def vegas_for_favorite(spread_home, vegas_home):
-    """Vegas spread shown from the Mech favorite's side (e.g. -6.5 = Vegas has them by 6.5)."""
+    """Vegas spread shown from the Meech favorite's side (e.g. -6.5 = Vegas has them by 6.5)."""
     return np.where(spread_home >= 0, -vegas_home, vegas_home)
 
 
@@ -96,7 +96,7 @@ def record(league: str) -> dict:
     x["final"] = x.away_pts.astype(int).astype(str) + "-" + x.home_pts.astype(int).astype(str)
     x["winner"] = np.where(x.correct, "Yes", "No")
     has_v = x.vegas_home.notna()
-    x["closer"] = np.where(~has_v, None, np.where(x.miss < x.vegas_miss, "Mech",
+    x["closer"] = np.where(~has_v, None, np.where(x.miss < x.vegas_miss, "Meech",
                            np.where(x.miss > x.vegas_miss, "Vegas", "Tie")))
     x["pick_result"] = x.pick_result.where(has_v & x.pick)
     games = x.sort_values(["date", "miss"], ascending=[False, True])[[
@@ -153,7 +153,7 @@ def export(day: pd.Timestamp) -> Path:
     for lg in D.LEAGUES:
         for name, rows in league_tables(lg, day).items():
             tables.setdefault(name, []).extend(rows)
-    tables["info"] = [{"model": "The Mech Model", "date": str(day.date()),
+    tables["info"] = [{"model": "The Meech Model", "date": str(day.date()),
                        "date_label": day.strftime("%a, %b %-d"),
                        "updated": pd.Timestamp.now(tz="America/Chicago").strftime("%b %-d, %-I:%M %p CT")}]
     for name, rows in tables.items():

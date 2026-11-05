@@ -1,9 +1,9 @@
-# The Mech Model
+# The Meech Model
 
 Predictive power ratings and daily game lines for men's (`mbb`) and women's (`wbb`) D1 college basketball:
 opponent-adjusted efficiency, roster-based preseason ratings, and a logged track record.
 
-**Website:** https://colbymechem05.github.io/The-Mech-Model/
+**Website:** https://colbymechem05.github.io/The-Meech-Model/
 
 ## Automatic daily run
 GitHub Actions (`.github/workflows/daily.yml`) runs every morning at 7:17 AM Central (plus a 3:47 PM Vegas-line refresh): downloads last night's
@@ -32,7 +32,7 @@ Needs Python 3.11+ and `pip install -r requirements.txt`. Data downloads automat
 | `src/daily.py` | Daily run: ratings, today's lines, append-only prediction log |
 | `src/odds.py` | Vegas lines from ESPN's scoreboard → `logs/vegas_{lg}.csv` (last pre-tip line per game) |
 | `src/export.py` | Website data: one JSON per dataset in `docs/data/` (lines, rankings, conferences, track record, info) |
-| `docs/index.html` | The Mech Model website (GitHub Pages serves the `docs/` folder) |
+| `docs/index.html` | The Meech Model website (GitHub Pages serves the `docs/` folder) |
 | `analysis/` | Studies: home court & blowouts, talent prior test |
 | `tests/` | Automated checks (rating recovery on a fake league, no-peeking, prediction math, log, end-to-end) |
 

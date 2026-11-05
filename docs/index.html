@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Mech Model</title>
+<title>The Meech Model</title>
 <meta name="description" content="Predictive power ratings and daily lines for men's and women's D1 college basketball.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
@@ -47,6 +47,8 @@ button, select, input { font: inherit; color: inherit; }
 /* ---------- layout: sidebar + page ---------- */
 .app { display: grid; grid-template-columns: 206px minmax(0, 1fr); min-height: 100vh; }
 aside { background: var(--side); color: var(--side-fg); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; padding: 22px 0 18px; }
+aside > * { flex-shrink: 0; }
+aside { overflow-y: auto; }
 .brand { display: flex; align-items: center; gap: 9px; padding: 0 16px 18px; border-bottom: 1px solid var(--side-line); }
 .brand img { width: 54px; height: 54px; }
 .brand b { font: 800 27px/0.92 var(--display); letter-spacing: .02em; text-transform: uppercase; color: #fff; }
@@ -216,7 +218,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 <body>
 <div class="app">
   <aside>
-    <div class="brand"><img src="assets/logo-128.png" alt="The Mech Model logo"><b>The <span>Mech</span><br>Model</b></div>
+    <div class="brand"><img src="assets/logo-128.png" alt="The Meech Model logo"><b>The <span>Meech</span><br>Model</b></div>
     <div class="league" aria-label="League">
       <button data-league="mbb" aria-pressed="true">Men's</button>
       <button data-league="wbb" aria-pressed="false">Women's</button>
@@ -252,14 +254,14 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     <section data-page="today">
       <div class="ticker">
         <span class="it"><span class="k">Games</span><b id="t-games">—</b><span class="t" id="t-scope">All conferences</span></span>
-        <span class="it" title="Games where the Mech line is under 4 points"><span class="k">Toss-ups</span><b id="t-tossups">—</b></span>
+        <span class="it" title="Games where the Meech line is under 4 points"><span class="k">Toss-ups</span><b id="t-tossups">—</b></span>
         <span class="it"><span class="k">Closest</span><b id="t-closest">—</b><span class="t" id="t-closest-team">—</span></span>
         <span class="it" id="t-gap-tile" hidden><span class="k">Biggest gap vs. Vegas</span><b id="t-gap">—</b><span class="t" id="t-gap-note">—</span></span>
       </div>
       <div class="sec">
-        <h2>The Board <span class="q" tabindex="0">?<span class="pop">Every D1 game today with the Mech line, from the favorite's side. <b>Vegas</b> is also shown from that team's side (a + number means Vegas has them as the underdog). <b>Gap</b> = Mech minus Vegas: negative means the Mech model likes the favorite more. <b>N</b> = neutral site. Lines are locked before tip and never edited.</span></span></h2>
+        <h2>The Board <span class="q" tabindex="0">?<span class="pop">Every D1 game today with the Meech line, from the favorite's side. <b>Vegas</b> is also shown from that team's side (a + number means Vegas has them as the underdog). <b>Gap</b> = Meech minus Vegas: negative means the Meech model likes the favorite more. <b>N</b> = neutral site. Lines are locked before tip and never edited.</span></span></h2>
         <div class="tools">
-          <div class="legend"><span class="lb">Mech favorite</span><span class="lo">Toss-up (line &lt;4)</span></div>
+          <div class="legend"><span class="lb">Meech favorite</span><span class="lo">Toss-up (line &lt;4)</span></div>
           <label>Sort <select id="sort-today">
             <option value="spread">Closest spread</option><option value="tip">Tip time</option>
             <option value="gap" id="opt-gap">Biggest gap vs. Vegas</option><option value="matchup">Best matchup</option>
@@ -274,7 +276,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           <th data-col="away"><button>Away</button></th>
           <th data-col="home_rank" class="num"><button>#</button></th>
           <th data-col="home"><button>Home</button></th>
-          <th data-col="my_line" class="num"><button>Mech</button></th>
+          <th data-col="my_line" class="num"><button>Meech</button></th>
           <th data-col="fav_win_pct" class="num"><button>Win %</button></th>
           <th data-col="proj_score" class="num"><button>Proj.</button></th>
           <th data-col="proj_tempo" class="num"><button>Pace</button></th>
@@ -315,7 +317,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     <section data-page="top25" hidden>
       <div class="soon">
         <b>No rankings yet.</b>
-        <p>In my opinion, teams should not be ranked until after the Thanksgiving tournaments. Rankings judge résumés, and in early November nobody has a true one. The first Mech rankings will drop <b class="d">December 1</b>, once teams have played real opponents. Until then, the <a href="#tab=rankings" data-go="rankings">power ratings</a> show who&rsquo;s strongest.</p>
+        <p>In my opinion, teams should not be ranked until after the Thanksgiving tournaments. Rankings judge résumés, and in early November nobody has a true one. The first Meech rankings will drop <b class="d">December 1</b>, once teams have played real opponents. Until then, the <a href="#tab=rankings" data-go="rankings">power ratings</a> show who&rsquo;s strongest.</p>
       </div>
     </section>
 
@@ -329,18 +331,18 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <p class="empty" id="record-none" hidden>No graded games yet. Results post the morning after each game.</p>
 
       <div id="vegas-card" hidden>
-        <div class="sec"><h2>Mech vs. Vegas <span class="q" tabindex="0">?<span class="pop">Only games where a Vegas line was saved before tip. A <b>pick</b> is any game where the Mech line differs from Vegas by 3+ points, graded against the Vegas spread. 52.4% is break-even at standard odds.</span></span></h2></div>
+        <div class="sec"><h2>Meech vs. Vegas <span class="q" tabindex="0">?<span class="pop">Only games where a Vegas line was saved before tip. A <b>pick</b> is any game where the Meech line differs from Vegas by 3+ points, graded against the Vegas spread. 52.4% is break-even at standard odds.</span></span></h2></div>
         <div class="stats">
           <div class="stat"><div class="k">Games with a line</div><div class="v" id="v-graded">—</div><div class="s">&nbsp;</div></div>
-          <div class="stat"><div class="k">Avg miss: Mech / Vegas</div><div class="v" id="v-miss">—</div><div class="s">&nbsp;</div></div>
-          <div class="stat"><div class="k">Mech closer</div><div class="v" id="v-closer">—</div><div class="s">Of games with both lines</div></div>
+          <div class="stat"><div class="k">Avg miss: Meech / Vegas</div><div class="v" id="v-miss">—</div><div class="s">&nbsp;</div></div>
+          <div class="stat"><div class="k">Meech closer</div><div class="v" id="v-closer">—</div><div class="s">Of games with both lines</div></div>
           <div class="stat"><div class="k">Picks vs. the number</div><div class="v o" id="v-picks">—</div><div class="s" id="v-picks-note">—</div></div>
         </div>
       </div>
 
       <div class="grid2">
         <div>
-          <div class="sec"><h2>Miss by Month <span class="q" tabindex="0">?<span class="pop">Average points between the line and the final margin. Blue = Mech, gray = Vegas (when saved). Dashed orange = the 2025-26 test result.</span></span></h2></div>
+          <div class="sec"><h2>Miss by Month <span class="q" tabindex="0">?<span class="pop">Average points between the line and the final margin. Blue = Meech, gray = Vegas (when saved). Dashed orange = the 2025-26 test result.</span></span></h2></div>
           <div id="months"></div>
         </div>
         <div>
@@ -350,9 +352,9 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
         </div>
       </div>
 
-      <div class="sec"><h2>Game Log <span class="q" tabindex="0">?<span class="pop">Every graded line, newest first. Blue team = the Mech favorite. <b>Closer</b> = whose line landed nearer the final. <b>Pick</b> = result against the Vegas spread when the lines differed by 3+.</span></span></h2></div>
+      <div class="sec"><h2>Game Log <span class="q" tabindex="0">?<span class="pop">Every graded line, newest first. Blue team = the Meech favorite. <b>Closer</b> = whose line landed nearer the final. <b>Pick</b> = result against the Vegas spread when the lines differed by 3+.</span></span></h2></div>
       <div class="scroll">
-        <table id="log"><thead><tr><th>Date</th><th>Away</th><th>Home</th><th class="num">Mech</th><th class="num">Vegas</th><th class="num">Win %</th><th class="num">Final</th><th class="num">Miss</th><th class="num">Vegas miss</th><th>Winner</th><th>Closer</th><th>Pick</th></tr></thead><tbody></tbody></table>
+        <table id="log"><thead><tr><th>Date</th><th>Away</th><th>Home</th><th class="num">Meech</th><th class="num">Vegas</th><th class="num">Win %</th><th class="num">Final</th><th class="num">Miss</th><th class="num">Vegas miss</th><th>Winner</th><th>Closer</th><th>Pick</th></tr></thead><tbody></tbody></table>
       </div>
       <p class="empty" id="log-none" hidden>Fills in as games are graded.</p>
       <button class="btn" id="log-more" hidden>Show more</button>
@@ -361,7 +363,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     <!-- ===== How it works ===== -->
     <section data-page="how" hidden>
       <div class="how">
-        <p>The Mech Model rates every Division I men's and women's basketball team and puts out a line for every game, every morning, before tip. Every line gets graded against the final score and against Vegas, and nothing gets edited after the fact. The point is simple: see if a model built from scratch can hang with the numbers everybody else uses.</p>
+        <p>The Meech Model rates every Division I men's and women's basketball team and puts out a line for every game, every morning, before tip. Every line gets graded against the final score and against Vegas, and nothing gets edited after the fact. The point is simple: see if a model built from scratch can hang with the numbers everybody else uses.</p>
 
         <h3><span>01</span>Rating every team</h3>
         <p>Everything starts with possessions. A team that scores 85 in a track meet and a team that scores 65 in a grinder can be equally good, so every game gets converted to points per 100 possessions. Then each team gets three numbers, all adjusted for who they played:</p>
@@ -392,7 +394,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
         <h3><span>06</span>Power ratings vs. rankings</h3>
         <p>Power ratings and rankings answer different questions. Power ratings ask <b>who's strongest right now</b>: they're what the lines come from, and a team can be rated above a team with a better record. Rankings ask <b>who's earned the most</b>, based on who you've played and beaten.</p>
-        <p>In my opinion, teams should not be ranked until after the Thanksgiving tournaments. In early November nobody has a true résumé, so the first Mech rankings will drop December 1. How they're built will be explained here when they launch.</p>
+        <p>In my opinion, teams should not be ranked until after the Thanksgiving tournaments. In early November nobody has a true résumé, so the first Meech rankings will drop December 1. How they're built will be explained here when they launch.</p>
 
         <h3><span>07</span>What's different here</h3>
         <ul>
@@ -407,7 +409,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       </div>
     </section>
 
-    <footer><span>© 2026 The Mech Model</span><span>For entertainment only. Not betting advice. 1-800-GAMBLER</span></footer>
+    <footer><span>© 2026 The Meech Model</span><span>For entertainment only. Not betting advice. 1-800-GAMBLER</span></footer>
   </main>
 </div>
 
@@ -485,7 +487,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $$('.nav button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === S.tab)));
     $$('section[data-page]').forEach((s) => { s.hidden = s.dataset.page !== S.tab; });
     const heads = {today: ["Today's lines", longDate()], rankings: [lg(), 'Power Ratings'], top25: [lg(), 'Rankings'],
-                   record: [lg(), 'Track Record'], how: ['How it works', 'The Mech Model']};
+                   record: [lg(), 'Track Record'], how: ['How it works', 'The Meech Model']};
     $('#kicker').textContent = heads[S.tab][0];
     $('#title').textContent = heads[S.tab][1];
     $('#rank-tools').hidden = S.tab !== 'rankings' && S.tab !== 'top25';
@@ -529,7 +531,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $('#t-gap-tile').hidden = !big;
     if (big) {
       $('#t-gap').textContent = Math.abs(big.gap).toFixed(1);
-      $('#t-gap-note').textContent = `${big.favorite} · Mech ${f1(big.my_line)}, Vegas ${signed(big.vegas_line)}`;
+      $('#t-gap-note').textContent = `${big.favorite} · Meech ${f1(big.my_line)}, Vegas ${signed(big.vegas_line)}`;
     }
     let g = all.filter((r) => !S.hide || Math.abs(r.my_line) < BLOWOUT);
     const by = {
@@ -660,7 +662,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       tr.append(td(r.date, 'num muted'), teamCell(r.away, {fav: r.favorite === r.away}), teamCell(r.home, {fav: r.favorite === r.home}),
         td(f1(r.my_line), 'num'), td(signed(r.vegas_line), 'num muted'), td(pct(r.fav_win_pct), 'num'), td(r.final, 'num'),
         td(f1(r.miss), 'num'), td(f1(r.vegas_miss), 'num muted'), td(r.winner, r.winner === 'Yes' ? 'good' : 'muted'),
-        td(r.closer || '—', r.closer === 'Mech' ? 'good' : 'muted'),
+        td(r.closer || '—', r.closer === 'Meech' ? 'good' : 'muted'),
         td(r.pick_result || '—', r.pick_result === 'W' ? 'hot' : 'muted'));
       return tr;
     }));

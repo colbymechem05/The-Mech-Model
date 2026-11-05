@@ -22,5 +22,5 @@ for lg, pg in {"mbb": 6, "wbb": 4}.items():
         x["season"] = s; rows.append(x)
     X = pd.concat(rows)
     t = X.groupby("when").res_p.agg(["size", "mean", "sem"]).round(2)
-    print(f"\n{lg.upper()} Power vs non-Power games, Power team's result minus the Mech line (current model, 2022-23..2025-26):\n{t.to_string()}")
+    print(f"\n{lg.upper()} Power vs non-Power games, Power team's result minus the Meech line (current model, 2022-23..2025-26):\n{t.to_string()}")
     print(X.groupby(["season"]).res_p.mean().round(2).to_dict(), "(Nov-Dec by season:)", X[X.when=="Nov-Dec"].groupby("season").res_p.mean().round(2).to_dict())

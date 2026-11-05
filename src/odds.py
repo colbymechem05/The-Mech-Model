@@ -29,7 +29,7 @@ COLUMNS = ["game_id", "date", "vegas_home", "vegas_total", "provider", "fetched_
 def get_json(url: str, tries: int = 3) -> dict:
     for i in range(tries):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": "the-mech-model"})
+            req = urllib.request.Request(url, headers={"User-Agent": "the-meech-model"})
             with urllib.request.urlopen(req, timeout=30) as r:
                 return json.load(r)
         except Exception:

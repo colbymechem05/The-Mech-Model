@@ -223,7 +223,7 @@ def test_vegas_parse_skips_started_games():
 def test_vegas_grading(tmp_path, monkeypatch):
     monkeypatch.setattr(export, "LOGS", tmp_path)
     monkeypatch.setattr(odds, "LOGS", tmp_path)
-    # Mech: home by 10 / away by 2 / home by 1.   Vegas: home by 6 / home by 1 / home by 1.5
+    # Meech: home by 10 / away by 2 / home by 1.   Vegas: home by 6 / home by 1 / home by 1.5
     pd.DataFrame({"game_id": [1, 2, 3], "date": ["2026-11-04"] * 3, "away": list("abc"), "home": list("xyz"),
                   "favorite": ["x", "b", "z"], "my_line": [-10.0, -2.0, -1.0], "fav_win_pct": [80.0, 56.0, 53.0],
                   "spread_home": [10.0, -2.0, 1.0], "p_home": [0.8, 0.44, 0.53]}
@@ -234,13 +234,13 @@ def test_vegas_grading(tmp_path, monkeypatch):
     finals = pd.DataFrame({"game_id": [1, 2, 3], "home_pts": [80, 70, 70], "away_pts": [72, 75, 69]})
     monkeypatch.setattr(D, "load_games", lambda lg: finals.assign(margin=finals.home_pts - finals.away_pts))
     x = export.grade("mbb").set_index("game_id")
-    assert list(x.vegas_line) == [-6.0, 1.0, -1.5]   # from the Mech favorite's side (Vegas had b as a 1-pt dog)
+    assert list(x.vegas_line) == [-6.0, 1.0, -1.5]   # from the Meech favorite's side (Vegas had b as a 1-pt dog)
     assert list(x.miss) == [2.0, 3.0, 0.0] and list(x.vegas_miss) == [2.0, 6.0, 0.5]
     # game 1: edge +4 on home, home won by 8 vs 6 -> W.  game 2: edge -3 on away, away won -> W.
     assert list(x[x.pick].pick_result) == ["W", "W"] and not x.loc[3, "pick"]
     s = export.record("mbb")["summary"]
     assert s["vegas_graded"] == 3 and s["pick_w"] == 2 and s["pick_l"] == 0
-    assert s["closer_pct"] == pytest.approx(100 * (0.5 + 1 + 1) / 3, abs=0.1)   # tie, Mech, Mech
+    assert s["closer_pct"] == pytest.approx(100 * (0.5 + 1 + 1) / 3, abs=0.1)   # tie, Meech, Meech
 
 
 @needs_data
