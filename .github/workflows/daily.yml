@@ -73,9 +73,3 @@ jobs:
             git push
           fi
 
-      # one-time check: is the cbbdata (Torvik) service still up? Shows as a notice on the run.
-      - name: Check cbbdata
-        continue-on-error: true
-        run: |
-          code=$(curl -s -o /dev/null -w "%{http_code}" -m 20 -X POST https://www.cbbdata.com/api/auth/login -d '{}' -H 'Content-Type: application/json' || true)
-          echo "::notice::cbbdata login endpoint answered HTTP $code"
