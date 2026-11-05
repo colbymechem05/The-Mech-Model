@@ -1,7 +1,7 @@
-"""Export everything the dashboard needs into one JSON file.
+"""Export everything the website dashboard (docs/index.html) needs as JSON.
 
 Run after daily.py:  python src/export.py [YYYY-MM-DD]
-Output: output/dash/*.json (one file per dashboard dataset)
+Output: docs/data/*.json (one file per dashboard dataset; GitHub Pages serves docs/)
 """
 import json
 import sys
@@ -107,7 +107,7 @@ def league_tables(league: str, day: pd.Timestamp) -> dict:
 
 def export(day: pd.Timestamp) -> Path:
     """One JSON file per dashboard dataset (both leagues, with a league column)."""
-    folder = OUT / "dash"
+    folder = D.ROOT / "docs" / "data"
     folder.mkdir(parents=True, exist_ok=True)
     tables = {}
     for lg in D.LEAGUES:

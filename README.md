@@ -3,10 +3,12 @@
 Predictive power ratings and daily game lines for men's (`mbb`) and women's (`wbb`) D1 college basketball:
 opponent-adjusted efficiency, roster-based preseason ratings, and a logged track record.
 
+**Website:** https://colbymechem05.github.io/The-Mech-Model/
+
 ## Automatic daily run
 GitHub Actions (`.github/workflows/daily.yml`) runs every morning at 7:17 AM Central: downloads last night's
-results, grades yesterday's lines, rates every D1 team, makes today's lines, rebuilds the dashboard data, runs
-the checks, and commits `output/` and `logs/` back to the repo. Run it by hand from the **Actions** tab →
+results, grades yesterday's lines, rates every D1 team, makes today's lines, rebuilds the website data, runs
+the checks, and commits `output/`, `logs/` and `docs/data/` back to the repo. Run it by hand from the **Actions** tab →
 **Daily run** → **Run workflow**.
 
 ## Run it
@@ -28,8 +30,8 @@ Needs Python 3.11+ and `pip install -r requirements.txt`. Data downloads automat
 | `src/rosters.py` | Returning-minutes share (shown in the ratings output) |
 | `src/elo.py` | Elo baseline: the simple benchmark the engine must beat |
 | `src/daily.py` | Daily run: ratings, today's lines, append-only prediction log |
-| `src/export.py` | Dashboard data: one JSON per dataset in `output/dash/` (lines, rankings, conferences, track record, info) |
-| `dashboard/index.html` | The Mech Model dashboard page |
+| `src/export.py` | Website data: one JSON per dataset in `docs/data/` (lines, rankings, conferences, track record, info) |
+| `docs/index.html` | The Mech Model website (GitHub Pages serves the `docs/` folder) |
 | `analysis/` | Studies: home court & blowouts, talent prior test |
 | `tests/` | Automated checks (rating recovery on a fake league, no-peeking, prediction math, log, end-to-end) |
 
