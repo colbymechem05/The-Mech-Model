@@ -34,5 +34,10 @@ jobs:
       - uses: actions/upload-pages-artifact@v5
         with:
           path: docs
+      # One-time cleanup: a publish got stuck during the repo rename (Nov 5) and blocks new ones.
+      - name: Clear stuck publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST repos/${{ github.repository }}/pages/deployments/c5bc2bd6c39c2b313046c15aa9f3aca0db998bc0/cancel || true
       - id: deploy
         uses: actions/deploy-pages@v5
