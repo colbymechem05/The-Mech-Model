@@ -1,0 +1,101 @@
+class,rank,player,college,ESPN,Rivals,247Sports,On3
+2023,1,Isaiah Collier,USC,1,1,2,2
+2023,2,Ron Holland,,2,5,1,3
+2023,3,Justin Edwards,Kentucky,3,3,3,4
+2023,4,Aaron Bradshaw,Kentucky,6,2,5,5
+2023,5,Cody Williams,Colorado,7,7,4,1
+2023,6,D.J. Wagner Jr.,Kentucky,4,6,6,6
+2023,7,Matas Buzelis,,77,,82,
+2023,8,Ja'Kobe Walter,Baylor,5,4,7,7
+2023,9,Stephon Castle,UConn,8,12,8,9
+2023,10,MacKenzie Mgbako,Indiana,12,9,9,8
+2023,11,Omaha Biliew,Iowa State,9,8,10,15
+2023,12,Jared McCain,Duke,11,10,12,10
+2023,13,Xavier Booker,Michigan State,10,11,13,13
+2023,14,"Kwame ""KJ"" Evans Jr.",Oregon,15,15,11,16
+2023,15,Sean Stewart,Duke,13,17,16,17
+2023,16,Robert Dillingham,Kentucky,18,16,20,12
+2023,17,Caleb Foster,Duke,14,14,19,25
+2023,17,Aden Holloway,Auburn,23,19,21,19
+2023,17,"LeBron ""Bronny"" James Jr.",USC,16,28,14,24
+2023,20,Elmarko Jackson,Kansas,19,26,26,11
+2023,21,T.J. Power,Duke,25,24,18,18
+2023,22,Trentyn Flowers,,31,21,15,23
+2023,23,Andrej Stojakovic,Stanford,17,25,29,28
+2023,24,Jackson Shelstad,Oregon,21,40,17,34
+2023,25,Dink Pate,,61,,100,
+2023,26,Mookie Cook,Oregon,35,20,24,36
+2023,26,Coen Carr,Michigan State,29,34,28,27
+2023,28,Baye Fall,Arkansas,20,32,35,33
+2023,29,Yves Missi,Baylor,24,33,41,22
+2023,30,DeShawn Harris-Smith,Maryland,28,35,27,31
+2023,31,Simeon Wilcher,St. John's,50,18,37,29
+2023,32,Dennis Evans,Louisville,40,36,25,35
+2023,33,Reed Sheppard,Kentucky,27,30,44,37
+2023,34,Garwey Dual,Providence,26,37,30,69
+2023,34,Jeremy Fears,Michigan State,59,13,23,46
+2023,34,Gavin Griffiths,Rutgers University,22,27,72,26
+2023,37,Milan Momcilovic,Iowa State,47,22,61,32
+2023,37,Taison Chatman,Ohio State,41,31,42,48
+2023,39,Brandon Garrison,Oklahoma State,48,41,32,42
+2023,40,Devin Royal,Ohio State,45,47,31,40
+2023,41,Layden Blocker,Arkansas,39,29,40,59
+2023,42,A.J. Johnson,,,,83,82
+2023,43,Wesley Yates III,Washington,49,46,46,30
+2023,43,Solomon Ball,UConn,30,23,52,74
+2023,45,Mikey Williams,Memphis,44,,22,14
+2023,46,Miro Little,Baylor,52,38,47,50
+2023,47,Dusty Stromer,Gonzaga,32,61,39,55
+2023,48,Kanaan Carlyle,Stanford,46,69,34,39
+2023,49,Scott Middleton,Ohio State,37,52,36,64
+2023,50,Eric Dailey Jr.,Oklahoma State,33,45,56,56
+2023,51,Chris Johnson,Texas,43,57,53,45
+2023,52,Arrinten Page,USC,34,53,54,68
+2023,53,Elijah Gertrude,Virginia,54,73,33,51
+2023,54,J.P. Estrella,Tennessee,42,39,71,65
+2023,55,Cameron Carr,Tennessee,38,48,51,89
+2023,56,Sebastian Mack,UCLA,97,60,43,38
+2023,57,Marcus Adams Jr.,BYU,67,55,69,58
+2023,58,Amani Hansberry,Illinois,,44,48,60
+2023,59,Carey Booth,Notre Dame,64,51,60,80
+2023,60,Kaden Cooper,Oklahoma,,59,45,52
+2023,61,Silas DeMary Jr.,Georgia,66,84,55,53
+2023,62,Blue Cain,Georgia,58,80,49,73
+2023,63,Trey Green,Xavier,68,58,59,77
+2023,64,Sam Walters,Alabama,,54,65,43
+2023,65,Jaylin Stewart,UConn,53,94,70,49
+2023,66,Darrin “Dai-Dai” Ames,Kansas State,56,68,66,79
+2023,66,Jaimie Kaiser,Maryland,51,49,79,91
+2023,68,Zayden High,UNC,92,67,50,63
+2023,68,"Edgerrin ""Jizzle"" James Jr.",Cincinnati,55,64,76,83
+2023,70,Joseph Tugler,Houston,70,62,68,78
+2023,71,Taylor Bol Bowen,Florida State,76,56,85,62
+2023,72,Devin Williams,UCLA,75,43,73,88
+2023,72,Jayden Ross,UConn,86,63,62,70
+2023,74,Myles Colvin,Purdue,79,42,,61
+2023,75,Blake Buchanan,Virginia,69,90,74,54
+2023,76,Ilane Fibleuil,UCLA,81,78,87,41
+2023,77,K.J. Lewis,Arizona,60,,75,67
+2023,77,Brandon Williams,UCLA,,50,57,85
+2023,79,Kaleb Glenn,Louisville,,,38,66
+2023,80,Rayvon Griffith,Cincinnati,72,,63,84
+2023,81,Aday Mara,UCLA,,66,78,75
+2023,82,Thierry Serge Darlan,,,,64,
+2023,83,Gehrig Normand,Michigan State,63,71,,86
+2023,84,Papa Amadou Kante,Pitt,80,83,58,
+2023,85,Freddie Dilione,Tennessee,,,,20
+2023,86,Ty-Laur Johnson,Louisville,,,,21
+2023,87,R.J. Jones Jr.,Kansas State,,82,,44
+2023,88,Curtis Williams,Louisville,,87,67,76
+2023,89,"Javonte ""JJ"" Taylor",Memphis,36,,,
+2023,90,Nolan Winter,Wisconsin,90,65,,87
+2023,91,Dylan James,Georgia,65,89,92,99
+2023,92,Trent Pierce,Missouri,73,72,,
+2023,93,Kris Parker,Alabama,62,85,,
+2023,94,Dailyn Swain,Xavier,,,,47
+2023,95,Brandon Gardner,USC,91,81,80,
+2023,96,Jordan Butler,Missouri,57,,95,
+2023,97,Jaland Lowe,Pitt,74,86,,95
+2023,98,Collin Murray-Boyles,South Carolina,93,97,96,72
+2023,99,Rashaud Marshall,Ole Miss,82,75,,
+2023,99,Nils Cooper,Pepperdine,,,,57

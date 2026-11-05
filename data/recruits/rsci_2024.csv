@@ -1,0 +1,101 @@
+class,rank,player,college,ESPN,Rivals,247Sports,On3
+2024,1,Cooper Flagg,Duke,1,1,1,1
+2024,2,"Arious ""Ace"" Bailey",Rutgers University,2,2,2,2
+2024,3,Dylan Harper,Rutgers University,4,3,3,3
+2024,4,V.J. Edgecombe,Baylor,3,4,5,4
+2024,5,Tre Johnson,Texas,5,5,6,7
+2024,6,Ian Jackson,UNC,7,6,8,10
+2024,7,Jalil Bethea,,10,7,7,8
+2024,8,Jayden Quaintance,Arizona State,16,8,9,5
+2024,8,Donnie Freeman,Syracuse,6,11,15,6
+2024,10,Liam McNeeley,,9,16,10,14
+2024,11,Drake Powell,UNC,13,14,11,15
+2024,11,Asa Newell,Georgia,12,12,18,11
+2024,13,Derrion Reid,Alabama,11,15,16,18
+2024,14,Derik Queen,Maryland,8,17,12,24
+2024,14,Kon Knueppel,Duke,18,9,17,17
+2024,16,Isaiah Evans,Duke,14,13,13,25
+2024,17,Boogie Fland,Arkansas,15,10,20,21
+2024,18,Flory Bidunga,Kansas,17,18,14,22
+2024,19,Bryson Tucker,Indiana,20,20,28,12
+2024,20,Carter Bryant,Arizona,19,29,26,13
+2024,21,Aiden Sherrell,Alabama,21,19,30,19
+2024,22,Karter Knox,Arkansas,26,21,23,20
+2024,23,Joson Sanon,Arizona,22,25,22,27
+2024,24,Pat Ngongba,Duke,25,28,19,35
+2024,25,Robert Wright III,Baylor,23,24,21,44
+2024,26,Morez Johnson,Illinois,28,26,29,33
+2024,27,Billy Richmond,Arkansas,38,22,25,32
+2024,28,Tahaad Pettiford,Auburn,33,23,27,39
+2024,29,Trent Perry,UCLA,27,33,33,31
+2024,30,Annor Boateng,Missouri,31,32,24,38
+2024,31,Jase Richardson,Michigan State,24,36,34,40
+2024,32,Labaron Philon,Alabama,30,37,32,36
+2024,33,Khani Rooths,Louisville,40,35,35,30
+2024,34,Jackson McAndrew,Creighton,36,43,36,26
+2024,35,Ahmad Nowell,,34,27,31,55
+2024,35,Darren Harris,Duke,29,38,37,43
+2024,37,Kanon Catchings,Purdue,35,30,38,46
+2024,38,Cam Scott,South Carolina,37,34,45,34
+2024,39,Rakease Passmore,Kansas,32,39,44,45
+2024,40,Thomas Sorber,Georgetown,53,56,40,29
+2024,41,Mercy Miller,Houston,68,44,49,23
+2024,42,Somto Cyril,Georgia,49,53,41,42
+2024,43,Zoom Diallo,Washington,43,41,47,57
+2024,44,Naasir Cunningham,Alabama,62,46,39,51
+2024,45,Tyler Betsey,,59,48,46,49
+2024,46,Isaiah Elohim,USC,55,40,58,53
+2024,47,Austin Swartz,,47,59,55,48
+2024,48,John Mobley,Ohio State,41,63,43,63
+2024,49,Jason Asemota,Baylor,48,31,62,71
+2024,50,Kur Teng,Michigan State,52,57,54,50
+2024,51,Khaman Maluach,Duke,,,4,9
+2024,51,Jamari Phillips,Arizona,44,45,52,74
+2024,53,Paul McNeil,NC State,45,49,67,56
+2024,54,David Castillo,Kansas State,46,65,48,62
+2024,55,Jaiden Glover,St. John's,72,42,68,41
+2024,56,Vyctorius Miller,LSU,42,51,74,61
+2024,57,Jaeden Mustaf,Georgia Tech,63,47,56,64
+2024,58,John Bol,,54,68,61,54
+2024,59,Nasir Mohammed,Notre Dame,57,58,42,
+2024,60,Curtis Givens,LSU,39,83,73,65
+2024,61,Jahki Howard,Auburn,60,50,53,
+2024,61,Jalen Shelley,USC,50,62,76,76
+2024,63,Isaiah Abraham,,58,74,80,59
+2024,64,Robert Miller,LSU,86,79,70,37
+2024,65,Damarius Owens,Marquette,81,52,65,75
+2024,66,Nic Codie,Texas,76,55,71,73
+2024,67,Matthew Hodge,Villanova,92,75,72,52
+2024,68,Justin Pippen,Michigan,73,73,60,91
+2024,69,Nojus Indrusaitis,Iowa State,67,82,85,66
+2024,70,Josiah Moseley,Villanova,69,,63,68
+2024,71,Marcus Allen,Missouri,71,84,69,78
+2024,72,Kayvaun Mulready,Georgetown,79,67,57,
+2024,73,Tyler McKinley,,82,61,78,87
+2024,73,Gicarri Harris,Purdue,88,71,64,85
+2024,75,Larry Johnson,Creighton,75,86,50,
+2024,76,Bishop Boswell,Tennessee,61,66,87,100
+2024,77,Elijah Moore,Syracuse,,64,51,
+2024,78,Amier Ali,Arizona State,51,100,89,79
+2024,78,Nolan Traore,,,,,16
+2024,80,Travis Perry,Kentucky,74,72,77,97
+2024,81,Chase McCarty,Houston,,54,88,81
+2024,82,Ryan Jones,Virginia Tech,70,77,79,
+2024,82,Dallas Thomas,Clemson,83,85,,58
+2024,84,Neoklis Avdalas,,,,,28
+2024,85,Peyton Marshall,Missouri,,,59,77
+2024,86,Micah Robinson,TCU,65,,99,88
+2024,87,Cooper Koch,Iowa,64,,75,
+2024,88,Juke Harris,Wake Forest,77,81,90,
+2024,89,Andrew Crawford,Colorado,85,,94,70
+2024,89,Chris Tadjo,Iowa,,,,47
+2024,91,Jacob Cofie,Virginia,56,,95,
+2024,92,Royce Parham,Marquette,,89,83,83
+2024,93,James Brown,UNC,66,96,,94
+2024,94,Eric Freeny,UCLA,97,,66,96
+2024,94,Darrion Sutton,Georgia Tech,,78,91,90
+2024,94,Daniel Jacobsen,Purdue,,,86,72
+2024,97,Trent Burns,Missouri,,70,,89
+2024,98,Miles Goodman,Penn State,,76,84,
+2024,99,Ty Davis,Creighton,,60,,
+2024,99,Sebastian Rancik,Colorado,,,,

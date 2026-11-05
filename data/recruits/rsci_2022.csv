@@ -1,0 +1,101 @@
+class,rank,player,college,ESPN,Rivals,247Sports,On3
+2022,1,Dariq Whitehead,Duke,2,1,3,5
+2022,2,Dereck Lively,Duke,1,3,2,8
+2022,3,Nick Smith,Arkansas,3,2,1,11
+2022,4,Kyle Filipowski,Duke,7,5,4,1
+2022,5,Dillon Mitchell,Texas,4,4,7,3
+2022,6,Kel'el Ware,Oregon,8,6,6,6
+2022,7,Keyonte George,Baylor,6,8,8,15
+2022,8,Jarace Walker,Houston,10,11,11,13
+2022,8,Cason Wallace,Kentucky,20,7,5,4
+2022,10,Amari Bailey,UCLA,5,12,9,28
+2022,11,Brandon Miller,Alabama,9,16,13,16
+2022,12,Cam Whitmore,Villanova,21,9,10,7
+2022,13,Chris Livingston,Kentucky,12,10,15,24
+2022,14,Anthony Black,Tennessee,15,19,14,9
+2022,14,Julian Phillips,Tennessee,13,13,18,14
+2022,16,Gradey Dick,Kansas,14,27,20,10
+2022,17,Jordan Walsh,Arkansas,11,24,19,23
+2022,18,Adem Bona,UCLA,16,22,16,21
+2022,19,Arterio Morris,Texas,17,14,17,25
+2022,20,Jalen Hood-Schifino,Indiana,24,17,23,17
+2022,21,JJ Starling,Notre Dame,18,21,21,19
+2022,22,Mark Mitchell,Duke,26,20,12,20
+2022,23,Yohan Traore,Auburn,27,18,22,12
+2022,24,Jaden Bradley,Alabama,19,30,24,29
+2022,25,Vincent Iwuchukwu,USC,32,15,25,33
+2022,26,Malik Reneau,Indiana,22,25,35,38
+2022,27,MJ Rice,Kansas,30,28,34,22
+2022,28,Ernest Udeh,Kansas,23,32,29,40
+2022,29,Tyrell Ward,LSU,34,23,37,18
+2022,30,Collin Chandler,BYU,29,39,30,32
+2022,31,Tarris Reed,Michigan,31,29,36,27
+2022,32,Skyy Clark,Illinois,25,36,31,45
+2022,33,Chance Westry,Auburn,36,33,40,34
+2022,34,Jett Howard,Michigan,41,42,41,36
+2022,35,Tre White,USC,28,82,32,30
+2022,36,Seth Trimble,UNC,46,34,27,63
+2022,37,Donovan Clingan,UConn,51,35,64,31
+2022,38,Terrance Arceneaux,Houston,66,26,48,48
+2022,39,Dior Johnson,Oregon,35,38,46,85
+2022,40,Rylan Griffen,Alabama,49,63,39,39
+2022,41,Kijani Wright,USC,38,55,69,69
+2022,42,Dylan Andrews,UCLA,44,48,74,74
+2022,43,Mark Armstrong,Villanova,61,41,43,43
+2022,44,Judah Mintz,Syracuse,33,57,77,77
+2022,45,Jaxon Kohler,Michigan State,40,78,55,55
+2022,46,Taylor Hendricks,Central Florida,54,60,75,41
+2022,47,Bruce Thornton,Ohio State,48,47,94,94
+2022,48,Isaac Traudt,Virginia,47,62,50,50
+2022,49,Jalen Washington,UNC,37,49,,
+2022,50,Zuby Ejiofor,Kansas,75,44,51,51
+2022,51,Kam Craft,Xavier,58,40,56,56
+2022,52,Brice Sensabaugh,Ohio State,42,64,54,54
+2022,53,Aidan Shaw,Missouri,65,53,60,60
+2022,54,Roddy Gayle,Ohio State,56,37,,
+2022,55,Elijah Fisher,Texas Tech,,31,26,26
+2022,56,Rodney Rice,Virginia,45,67,53,53
+2022,57,Ty Rodgers,Illinois,52,56,48,
+2022,58,Kamari Lands,Louisville,39,86,82,82
+2022,59,Jaden Schutt,Duke,50,93,59,59
+2022,60,Riley Kugel,Florida,62,,44,44
+2022,61,Leonard Miller,,,,2,2
+2022,62,Ven-Allen Lubin,Notre Dame,69,45,61,61
+2022,63,Isaac McKneely,Virginia,67,73,83,83
+2022,64,Leon Bond,Virginia,70,71,70,70
+2022,65,Felix Okpara,Ohio State,57,66,93,93
+2022,66,Jalen Reed,LSU,85,58,46,46
+2022,67,AJ Casey,Miami (FL),55,50,,
+2022,68,Adrame Diongue,Washington State,43,,57,57
+2022,69,Zion Cruz,DePaul,72,65,84,84
+2022,70,Milos Uzan,Oklahoma,53,,,
+2022,71,Noah Clowney,Alabama,63,68,88,88
+2022,72,Otega Oweh,Oklahoma,72,54,96,96
+2022,73,Dug McDaniel,Michigan,59,94,67,67
+2022,74,Brendan Hausen,Villanova,,43,37,37
+2022,74,Pop Isaacs,Texas Tech,76,,,
+2022,76,Derrian Ford,Arkansas,71,79,,
+2022,77,Jayden Epps,Illinois,83,87,,
+2022,78,Rowan Brumbaugh,Arizona,90,69,76,76
+2022,79,Austin Nunez,Arizona State,,52,,
+2022,80,Tre Holloman,Michigan State,79,77,,
+2022,81,Daniel Skillings,Cincinnati,,76,49,49
+2022,81,Cameron Corhen,Florida State,68,,71,71
+2022,83,Chandler Jackson,Syracuse,,91,58,58
+2022,83,Chris Bell,Syracuse,,85,75,75
+2022,85,DJ Jefferson,Tulsa,,,47,47
+2022,86,Sencire Harris,Illinois,,59,79,79
+2022,87,Devin Ree,Louisville,77,84,100,100
+2022,88,Joseph Hunter,,,80,66,
+2022,89,De'Ante Green,Florida State,60,,,
+2022,90,Michael Sharavjamts,Xavier,95,95,,42
+2022,90,Desmond Claude,Xavier,93,75,92,73
+2022,92,Amaree Abram,Ole Miss,98,92,57,87
+2022,93,Henri Veesaar,Arizona,,,,
+2022,93,Tyler Nickel,UNC,91,81,90,90
+2022,95,Malique Ewin,Ole Miss,81,97,72,72
+2022,95,Lee Dort,Vanderbilt,,46,,
+2022,97,Tyrese Proctor,Duke,,,,35
+2022,98,Kaleb Banks,Indiana,78,,,
+2022,99,Dylan Anderson,Arizona,,89,68,68
+2022,100,Dillon Hunter,Clemson,64,,,
