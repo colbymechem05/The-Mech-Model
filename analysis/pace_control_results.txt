@@ -1,0 +1,100 @@
+
+################ MBB ################
+Stability within a season (split-half reliability; 1 = rock solid, 0 = pure noise):
+ season  control  payoff
+   2022     0.61    0.20
+   2023     0.58    0.16
+   2024     0.57    0.10
+   2025     0.62    0.13
+   2026     0.57    0.04
+Score pushes pace around? slow side wins big -> own pace %: 54, slow side loses big -> own pace %: 53
+
+################ WBB ################
+Stability within a season (split-half reliability; 1 = rock solid, 0 = pure noise):
+ season  control  payoff
+   2022     0.62   -0.01
+   2023     0.64    0.07
+   2024     0.68    0.09
+   2025     0.64    0.09
+   2026     0.67   -0.03
+Score pushes pace around? slow side wins big -> own pace %: 52, slow side loses big -> own pace %: 50
+
+MBB year-to-year correlation: control 0.18, payoff 0.04   (teams: 1447)
+  payoff vs. preferred tempo (slow teams look better at own pace?): corr 0.01
+
+WBB year-to-year correlation: control 0.34, payoff 0.02   (teams: 1439)
+  payoff vs. preferred tempo (slow teams look better at own pace?): corr -0.00
+
+######## NCAA tournament, 2022-2026: points per game vs. expectation (pre-tourney ratings) ########
+
+MBB by quadrant
+           team-games  vs expected  ± (1 SE)
+quadrant                                    
+Chameleon         204        -1.16      0.80
+Enforcer          147        -0.81      1.02
+Pushover          209         1.37      0.90
+Stubborn          110         0.64      1.18
+
+MBB by conference type x quadrant
+                    team-games  vs expected  ± (1 SE)
+power    quadrant                                    
+non-P5/6 Chameleon          72        -3.05      1.41
+         Enforcer           43        -5.38      2.03
+         Pushover           72        -4.00      1.50
+         Stubborn           37        -1.22      1.94
+Power    Chameleon         132        -0.13      0.96
+         Enforcer          104         1.08      1.13
+         Pushover          137         4.19      1.06
+         Stubborn           73         1.59      1.48
+
+WBB by quadrant
+           team-games  vs expected  ± (1 SE)
+quadrant                                    
+Chameleon         199        -0.72      0.86
+Enforcer          177        -0.56      0.97
+Pushover          208         1.48      0.88
+Stubborn           86        -0.75      1.31
+
+WBB by conference type x quadrant
+                    team-games  vs expected  ± (1 SE)
+power    quadrant                                    
+non-P5/6 Chameleon          45        -5.73      1.81
+         Enforcer           52        -2.60      1.71
+         Pushover           44        -4.08      1.94
+         Stubborn           31        -5.71      2.19
+Power    Chameleon         154         0.75      0.94
+         Enforcer          125         0.29      1.17
+         Pushover          164         2.97      0.96
+         Stubborn           55         2.04      1.52
+
+MBB 2025-26, top-20% teams, most extreme profiles:
+  biggest dictators:
+                 team_name    conf  tempo  control  payoff quadrant
+             Iowa Hawkeyes Big Ten   64.3    104.5     2.0 Enforcer
+      Alabama Crimson Tide     SEC   73.6     95.8     2.3 Enforcer
+West Virginia Mountaineers  Big 12   63.8     89.5    -0.0 Stubborn
+    Northern Iowa Panthers     MVC   63.6     87.0    -0.4 Stubborn
+          Georgia Bulldogs     SEC   72.6     84.8     5.4 Enforcer
+  biggest chameleons:
+              team_name      conf  tempo  control  payoff quadrant
+        McNeese Cowboys Southland   67.2    -36.8    -0.6 Pushover
+           SMU Mustangs       ACC   69.6    -29.8    -5.0 Pushover
+California Golden Bears       ACC   68.8    -25.6    -0.3 Pushover
+     Washington Huskies   Big Ten   68.1    -25.2    -3.1 Pushover
+   Nebraska Cornhuskers   Big Ten   67.8    -23.1    -3.2 Pushover
+
+WBB 2025-26, top-20% teams, most extreme profiles:
+  biggest dictators:
+          team_name     conf  tempo  control  payoff quadrant
+ Vermont Catamounts Am. East   64.9    117.6     2.3 Enforcer
+   Oklahoma Sooners      SEC   79.0    107.6     3.3 Enforcer
+Michigan Wolverines  Big Ten   74.0    101.5     8.2 Enforcer
+         LSU Tigers      SEC   77.0     95.8     8.9 Enforcer
+  Rhode Island Rams     A-10   67.0     93.3    -1.5 Stubborn
+  biggest chameleons:
+                 team_name     conf  tempo  control  payoff  quadrant
+     George Mason Patriots     A-10   69.8    -67.7     0.9 Chameleon
+West Virginia Mountaineers   Big 12   71.8    -59.9    -0.4  Pushover
+   Oklahoma State Cowgirls   Big 12   71.4    -40.0    -8.9  Pushover
+  Arizona State Sun Devils   Big 12   70.5    -27.2    -0.4  Pushover
+        Seton Hall Pirates Big East   70.7    -26.0     4.8 Chameleon

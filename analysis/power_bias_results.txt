@@ -1,0 +1,16 @@
+
+MBB Power vs non-Power games, Power team's result minus the Mech line (current model, 2022-23..2025-26):
+               size  mean   sem
+when                           
+Jan-Mar other    68 -1.35  1.30
+NCAA tourney    130  3.21  1.09
+Nov-Dec        2376  3.01  0.26
+{2023: 2.5, 2024: 2.58, 2025: 3.42, 2026: 3.11} (Nov-Dec by season:) {2023: 2.68, 2024: 2.6, 2025: 3.45, 2026: 3.28}
+
+WBB Power vs non-Power games, Power team's result minus the Mech line (current model, 2022-23..2025-26):
+               size  mean   sem
+when                           
+Jan-Mar other    96 -2.08  1.24
+NCAA tourney    113  3.40  1.11
+Nov-Dec        2633  3.93  0.27
+{2023: 4.67, 2024: 3.01, 2025: 3.89, 2026: 3.33} (Nov-Dec by season:) {2023: 4.78, 2024: 3.41, 2025: 3.95, 2026: 3.66}
