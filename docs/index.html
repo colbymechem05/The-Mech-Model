@@ -62,6 +62,9 @@ tbody tr:hover td { background: rgba(255,255,255,.02); }
 .muted { color: var(--muted); }
 .faint { color: var(--faint); }
 .accent { color: var(--accent); font-weight: 600; }
+.fav { color: var(--accent); }
+.strong { color: var(--fg); font-weight: 600; }
+.legend { color: var(--accent); }
 .empty { color: var(--muted); padding: 14px 0; margin: 0; }
 .bars { display: grid; gap: 6px; }
 .bar-row { display: grid; grid-template-columns: 110px 1fr 46px; align-items: center; gap: 10px; font-size: 13px; }
@@ -135,7 +138,7 @@ footer a { color: var(--muted); }
     </div>
     <div class="card">
       <h2>Today's games</h2>
-      <p class="note">Lines are The Mech Model's, from the favorite's side. Vegas is shown from the Mech favorite's side (+ means Vegas has them as the underdog); Gap = Mech minus Vegas, so negative means the Mech model likes the favorite more. Torvik appears once connected. A game shows if either team is in a picked conference.</p>
+      <p class="note"><span class="legend">Blue team</span> = the Mech favorite. Mech line and Vegas are both from that team's side (a + Vegas number means Vegas has them as the underdog). Gap = Mech minus Vegas: negative means the Mech model likes the favorite more. Bold = toss-up (under 4) or a gap of 3+. A game shows if either team is in a picked conference.</p>
       <div class="scroll">
         <table id="lines">
           <thead><tr>
@@ -147,7 +150,6 @@ footer a { color: var(--muted); }
             <th data-col="home"><button>Home</button></th>
             <th data-col="home_conf"><button>Conf</button></th>
             <th data-col="site"><button>Site</button></th>
-            <th data-col="favorite"><button>Favorite</button></th>
             <th data-col="my_line" class="num"><button>Mech line</button></th>
             <th data-col="fav_win_pct" class="num"><button>Win %</button></th>
             <th data-col="proj_score" class="num"><button>Proj. (A-H)</button></th>
@@ -243,10 +245,10 @@ footer a { color: var(--muted); }
     </div>
     <div class="card">
       <h2>Game log</h2>
-      <p class="note">Every graded line, newest first.</p>
+      <p class="note">Every graded line, newest first. <span class="legend">Blue team</span> = the Mech favorite.</p>
       <div class="scroll">
         <table id="log">
-          <thead><tr><th>Date</th><th>Away</th><th>Home</th><th>Favorite</th><th class="num">Mech line</th><th class="num">Vegas</th><th class="num">Win %</th><th class="num">Final (A-H)</th><th class="num">Miss</th><th class="num">Vegas miss</th><th>Winner right?</th><th>Closer</th><th>Pick</th></tr></thead>
+          <thead><tr><th>Date</th><th>Away</th><th>Home</th><th class="num">Mech line</th><th class="num">Vegas</th><th class="num">Win %</th><th class="num">Final (A-H)</th><th class="num">Miss</th><th class="num">Vegas miss</th><th>Winner right?</th><th>Closer</th><th>Pick</th></tr></thead>
           <tbody></tbody>
         </table>
       </div>
@@ -354,19 +356,21 @@ footer a { color: var(--muted); }
     fill($('#lines tbody'), g.map((r) => {
       const tr = document.createElement('tr');
       const close = Math.abs(r.my_line) < TOSSUP, bigGap = r.gap !== null && Math.abs(r.gap) >= BIG_GAP;
-      tr.append(td(r.tip, 'muted'), td(String(r.away_rank), 'num faint'), td(r.away), td(r.away_conf, 'muted'),
-        td(String(r.home_rank), 'num faint'), td(r.home), td(r.home_conf, 'muted'), td(r.site, 'muted'),
-        td(r.favorite), td(f1(r.my_line), 'num' + (close ? ' accent' : '')), td(pct(r.fav_win_pct), 'num'),
+      const favHome = r.spread_home >= 0;
+      tr.append(td(r.tip, 'muted'), td(String(r.away_rank), 'num faint'), td(r.away, favHome ? '' : 'fav'), td(r.away_conf, 'muted'),
+        td(String(r.home_rank), 'num faint'), td(r.home, favHome ? 'fav' : ''), td(r.home_conf, 'muted'), td(r.site, 'muted'),
+        td(f1(r.my_line), 'num' + (close ? ' strong' : '')), td(pct(r.fav_win_pct), 'num'),
         td(r.proj_score, 'num'), td(f1(r.proj_tempo), 'num muted'), td(signed(r.vegas_line), 'num'),
-        td(f1(r.torvik_line), 'num'), td(signed(r.gap), 'num' + (bigGap ? ' accent' : '')));
+        td(f1(r.torvik_line), 'num'), td(signed(r.gap), 'num' + (bigGap ? ' strong' : '')));
       return tr;
     }));
     $('#lines-none').hidden = g.length > 0;
     // Vegas / Torvik / Gap stay hidden until those feeds deliver numbers
-    ['vegas_line', 'torvik_line', 'gap'].forEach((col, k) => {
+    const heads = $$('#lines thead th');
+    ['vegas_line', 'torvik_line', 'gap'].forEach((col) => {
       const show = all.some((r) => r[col] !== null && r[col] !== undefined);
-      const idx = 13 + k;
-      $$(`#lines tr > :nth-child(${idx + 1})`).forEach((c) => { c.hidden = !show; });
+      const n = heads.findIndex((th) => th.dataset.col === col) + 1;
+      $$(`#lines tr > :nth-child(${n})`).forEach((c) => { c.hidden = !show; });
     });
   }
 
@@ -465,7 +469,7 @@ footer a { color: var(--muted); }
     const games = rec.filter((r) => r.kind === 'game');
     fill($('#log tbody'), games.map((r) => {
       const tr = document.createElement('tr');
-      tr.append(td(r.date, 'muted'), td(r.away), td(r.home), td(r.favorite), td(f1(r.my_line), 'num'),
+      tr.append(td(r.date, 'muted'), td(r.away, r.favorite === r.away ? 'fav' : ''), td(r.home, r.favorite === r.home ? 'fav' : ''), td(f1(r.my_line), 'num'),
         td(signed(r.vegas_line), 'num muted'), td(pct(r.fav_win_pct), 'num'), td(r.final, 'num'), td(f1(r.miss), 'num'),
         td(f1(r.vegas_miss), 'num muted'), td(r.winner, r.winner === 'Yes' ? 'accent' : 'muted'),
         td(r.closer || '—', r.closer === 'Mech' ? 'accent' : 'muted'),
