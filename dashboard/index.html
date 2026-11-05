@@ -1,0 +1,528 @@
+<meta name="dash-one-writer">
+<style>
+#dash-root { --dash-gutter: var(--cds-pad-lg); }
+.mm { font-family: var(--font-anthropic-sans); color: var(--color-fg); }
+.mm-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--cds-gap-sm); margin-bottom: var(--cds-gap-md); }
+.mm-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; }
+.mm-sub { margin: 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.mm-bar { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); align-items: center; padding-bottom: var(--cds-gap-md); border-bottom: 1px solid var(--color-border-line); margin-bottom: var(--cds-gap-lg); }
+.mm-seg { display: inline-flex; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); overflow: hidden; }
+.mm-seg button, .mm-tabs button { font: inherit; font-size: var(--cds-font-size-body); background: transparent; color: var(--color-fg-muted); border: 0; padding: var(--cds-pad-xs) var(--cds-pad-md); cursor: pointer; }
+.mm-seg button[aria-pressed="true"] { background: var(--color-panel); color: var(--mm-accent); font-weight: var(--cds-font-weight-medium); }
+.mm-tabs { display: inline-flex; gap: var(--cds-gap-xs); }
+.mm-tabs button { border-bottom: 2px solid transparent; border-radius: 0; }
+.mm-tabs button[aria-selected="true"] { color: var(--color-fg); border-bottom-color: var(--mm-accent); }
+.mm-spacer { flex: 1; }
+.mm-conf { position: relative; }
+.mm-btn, .mm-select, .mm-input { font: inherit; font-size: var(--cds-font-size-body); color: var(--color-fg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-xs) var(--cds-pad-sm); cursor: pointer; }
+.mm-input { cursor: text; min-width: 12rem; }
+.mm-conf-panel { position: absolute; z-index: 5; top: calc(100% + 4px); right: 0; width: min(22rem, 90vw); max-height: 24rem; overflow: auto; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-sm); }
+.mm-conf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px var(--cds-gap-sm); }
+.mm-conf-panel label { display: flex; gap: var(--cds-gap-xs); align-items: center; font-size: var(--cds-font-size-caption); padding: 2px 0; cursor: pointer; }
+.mm-conf-quick { display: flex; gap: var(--cds-gap-xs); margin-bottom: var(--cds-gap-sm); }
+.mm-conf-quick button { font: inherit; font-size: var(--cds-font-size-caption); background: transparent; color: var(--mm-accent); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: 2px var(--cds-pad-sm); cursor: pointer; }
+.mm-tools { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); align-items: center; margin-bottom: var(--cds-gap-md); font-size: var(--cds-font-size-body); }
+.mm-tools label { display: inline-flex; gap: var(--cds-gap-xs); align-items: center; color: var(--color-fg-muted); }
+.mm-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: var(--cds-gap-md); margin-bottom: var(--cds-gap-lg); }
+.mm-tile, .mm-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); }
+.mm-tile-label { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin: 0 0 var(--cds-gap-xs); }
+.mm-big { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; margin: 0; min-height: 1.3em; }
+.mm-tile-note { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin: var(--cds-gap-xs) 0 0; }
+.mm-card { margin-bottom: var(--cds-gap-lg); }
+.mm-card h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+.mm-card-note { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin: var(--cds-gap-xs) 0 var(--cds-gap-md); }
+.mm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--cds-gap-md); }
+.mm-scroll { max-height: 38rem; overflow: auto; }
+.mm-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-body); font-variant-numeric: tabular-nums; }
+.mm-table th { position: sticky; top: 0; background: var(--color-panel); text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); border-bottom: 1px solid var(--color-border-line); padding: var(--cds-pad-xs) var(--cds-pad-sm); white-space: nowrap; }
+.mm-table th button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+.mm-table th[aria-sort="ascending"] button::after { content: " ↑"; }
+.mm-table th[aria-sort="descending"] button::after { content: " ↓"; }
+.mm-table td { padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+.mm-table .num { text-align: right; }
+.mm-table th.num { text-align: right; }
+.mm-muted { color: var(--color-fg-muted); }
+.mm-accent { color: var(--mm-accent); font-weight: var(--cds-font-weight-medium); }
+.mm-empty { color: var(--color-fg-muted); font-size: var(--cds-font-size-body); padding: var(--cds-pad-md) 0; margin: 0; }
+.mm-chart { position: relative; min-height: 18rem; }
+.mm-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; }
+.mm-tip-head { color: var(--cds-text-secondary); }
+.mm-more { margin-top: var(--cds-gap-md); }
+[data-dash-source-state=empty] { color: transparent; }
+[data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+</style>
+
+<div class="mm" id="mech">
+  <header class="mm-head">
+    <h1 class="mm-title" id="title">The Mech Model</h1>
+    <p class="mm-sub">Lines for <span data-draw="date-label" data-source="info" data-field="date_label" data-row="0">—</span> · updated <span data-draw="updated" data-source="info" data-field="updated" data-row="0">—</span></p>
+  </header>
+
+  <nav class="mm-bar" aria-label="Filters">
+    <div class="mm-seg" role="group" aria-label="League">
+      <button class="mm-league" data-league="mbb" aria-pressed="true">Men's</button>
+      <button class="mm-league" data-league="wbb" aria-pressed="false">Women's</button>
+    </div>
+    <div class="mm-tabs" role="tablist" aria-label="Pages">
+      <button class="mm-tab" role="tab" data-tab="today" aria-selected="true">Today</button>
+      <button class="mm-tab" role="tab" data-tab="rankings" aria-selected="false">Rankings</button>
+      <button class="mm-tab" role="tab" data-tab="record" aria-selected="false">Track record</button>
+    </div>
+    <span class="mm-spacer"></span>
+    <div class="mm-conf">
+      <button class="mm-btn mm-conf-btn" aria-expanded="false" aria-haspopup="true">Conference: <span data-draw="conf-label">—</span> ▾</button>
+      <div class="mm-conf-panel" hidden>
+        <div class="mm-conf-quick">
+          <button class="mm-conf-all">All</button>
+          <button class="mm-conf-power">Power 5</button>
+        </div>
+        <div class="mm-conf-grid" data-draw="conf-menu" data-source="conferences">—</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- TODAY -->
+  <section class="mm-page" id="today" data-page="today">
+    <div class="mm-tiles">
+      <div class="mm-tile"><p class="mm-tile-label">D1 games today</p><p class="mm-big" data-draw="t-games" data-source="today_summary" data-field="games">—</p><p class="mm-tile-note">All conferences</p></div>
+      <div class="mm-tile"><p class="mm-tile-label">Toss-ups</p><p class="mm-big" data-draw="t-tossups" data-source="today_summary" data-field="tossups">—</p><p class="mm-tile-note">Line under 4 points</p></div>
+      <div class="mm-tile"><p class="mm-tile-label">Closest line</p><p class="mm-big" data-draw="t-closest" data-source="today_summary" data-field="closest_line">—</p><p class="mm-tile-note" data-draw="t-closest-team" data-source="today_summary" data-field="closest_team">—</p></div>
+    </div>
+    <div class="mm-tools">
+      <label>Sort
+        <select class="mm-select mm-sort-today" aria-label="Sort games">
+          <option value="spread">Closest spread</option>
+          <option value="tip">Tip time</option>
+          <option value="gap">Biggest gap vs. Vegas</option>
+          <option value="matchup">Best matchup</option>
+          <option value="col" disabled>By column</option>
+        </select>
+      </label>
+      <label><input type="checkbox" class="mm-hide"> Hide blowouts (line 15+)</label>
+    </div>
+    <div class="mm-card" id="games">
+      <h2>Today's games</h2>
+      <p class="mm-card-note">Lines are The Mech Model's, from the favorite's side. Vegas and Torvik fill in once the daily run moves to GitHub. A game shows if either team is in a picked conference.</p>
+      <div class="mm-scroll">
+        <table class="mm-table mm-lines" data-source="lines" data-row-key="game_id">
+          <thead><tr>
+            <th data-field="tip"><button data-col="tip24">Tip (ET)</button></th>
+            <th data-field="away_rank" class="num"><button data-col="away_rank">#</button></th>
+            <th data-field="away"><button data-col="away">Away</button></th>
+            <th data-field="away_conf"><button data-col="away_conf">Conf</button></th>
+            <th data-field="home_rank" class="num"><button data-col="home_rank">#</button></th>
+            <th data-field="home"><button data-col="home">Home</button></th>
+            <th data-field="home_conf"><button data-col="home_conf">Conf</button></th>
+            <th data-field="site"><button data-col="site">Site</button></th>
+            <th data-field="favorite"><button data-col="favorite">Favorite</button></th>
+            <th data-field="my_line" class="num"><button data-col="my_line">Mech line</button></th>
+            <th data-field="fav_win_pct" class="num"><button data-col="fav_win_pct">Win %</button></th>
+            <th data-field="proj_score" class="num"><button data-col="proj_score">Proj. (A-H)</button></th>
+            <th data-field="proj_tempo" class="num"><button data-col="proj_tempo">Pace</button></th>
+            <th data-field="vegas_line" class="num"><button data-col="vegas_line">Vegas</button></th>
+            <th data-field="torvik_line" class="num"><button data-col="torvik_line">Torvik</button></th>
+            <th data-field="gap" class="num"><button data-col="gap">Gap</button></th>
+          </tr></thead>
+          <tbody data-draw="lines-body"></tbody>
+        </table>
+      </div>
+      <p class="mm-empty mm-lines-none" hidden>No games match these filters.</p>
+    </div>
+  </section>
+
+  <!-- RANKINGS -->
+  <section class="mm-page" id="rankings" data-page="rankings" hidden>
+    <div class="mm-card" id="conf-strength">
+      <h2>Conference strength</h2>
+      <p class="mm-card-note">Average team rating (points per 100 possessions better than an average D1 team). Picked conferences are highlighted.</p>
+      <div class="mm-chart" data-draw="conf-chart" data-source="conferences"></div>
+    </div>
+    <div class="mm-tools">
+      <input class="mm-input mm-search" type="search" placeholder="Search teams" aria-label="Search teams">
+      <label>Sort
+        <select class="mm-select mm-sort-rank" aria-label="Sort teams">
+          <option value="rank">Rank</option>
+          <option value="team">Name (A–Z)</option>
+          <option value="col" disabled>By column</option>
+        </select>
+      </label>
+    </div>
+    <div class="mm-card" id="power">
+      <h2>Power rankings</h2>
+      <p class="mm-card-note">Net = offense minus defense, per 100 possessions vs. an average D1 team on a neutral floor. Defense is points allowed above average, so lower is better.</p>
+      <div class="mm-scroll">
+        <table class="mm-table mm-ranks" data-source="rankings" data-row-key="league,team_id">
+          <thead><tr>
+            <th data-field="rank" class="num"><button data-col="rank">Rank</button></th>
+            <th data-field="team"><button data-col="team">Team</button></th>
+            <th data-field="conf"><button data-col="conf">Conf</button></th>
+            <th data-field="net" class="num"><button data-col="net">Net</button></th>
+            <th data-field="O" class="num"><button data-col="O">Offense</button></th>
+            <th data-field="D" class="num"><button data-col="D">Defense</button></th>
+            <th data-field="tempo" class="num"><button data-col="tempo">Tempo</button></th>
+            <th data-field="preseason" class="num"><button data-col="preseason">Preseason</button></th>
+            <th data-field="vs_preseason" class="num"><button data-col="vs_preseason">vs. preseason</button></th>
+            <th data-field="returning_pct" class="num"><button data-col="returning_pct">Returning %</button></th>
+            <th data-field="games" class="num"><button data-col="games">Games</button></th>
+          </tr></thead>
+          <tbody data-draw="ranks-body"></tbody>
+        </table>
+      </div>
+      <p class="mm-empty mm-ranks-none" hidden>No teams match.</p>
+      <div class="mm-more">
+        <button class="mm-btn mm-show-all">Show all teams</button>
+        <button class="mm-btn mm-show-top" hidden>Show top 100</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRACK RECORD -->
+  <section class="mm-page" id="record" data-page="record" hidden>
+    <div class="mm-tiles">
+      <div class="mm-tile"><p class="mm-tile-label">Games graded</p><p class="mm-big" data-draw="r-graded" data-source="record" data-field="graded">—</p><p class="mm-tile-note">Lines logged before tip-off</p></div>
+      <div class="mm-tile"><p class="mm-tile-label">Average miss</p><p class="mm-big" data-draw="r-miss" data-source="record" data-field="avg_miss">—</p><p class="mm-tile-note">2025-26 test: <span data-draw="r-bench-miss" data-source="record" data-field="bench_miss">—</span> points</p></div>
+      <div class="mm-tile"><p class="mm-tile-label">Winners picked</p><p class="mm-big" data-draw="r-win" data-source="record" data-field="winner_pct">—</p><p class="mm-tile-note">2025-26 test: <span data-draw="r-bench-win" data-source="record" data-field="bench_winner">—</span></p></div>
+    </div>
+    <p class="mm-empty mm-record-none" hidden>No graded games yet. Results post the morning after each game. November and December are the model's beta stretch, so expect bigger misses until conference play.</p>
+    <div class="mm-grid">
+      <div class="mm-card" id="by-month">
+        <h2>Average miss by month</h2>
+        <p class="mm-card-note">Points between the Mech line and the final margin. The dashed line is the 2025-26 test.</p>
+        <div class="mm-chart" data-draw="month-chart" data-source="record"></div>
+      </div>
+      <div class="mm-card" id="calibration">
+        <h2>Calibration</h2>
+        <p class="mm-card-note">When the model gave the favorite this chance, how often did they win?</p>
+        <table class="mm-table" data-source="record" data-row-key="kind,league,bucket">
+          <thead><tr>
+            <th data-field="bucket">Model said</th>
+            <th data-field="games" class="num">Games</th>
+            <th data-field="said" class="num">Avg. said</th>
+            <th data-field="won" class="num">Actually won</th>
+          </tr></thead>
+          <tbody data-draw="cal-body"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="mm-card" id="game-log">
+      <h2>Game log</h2>
+      <p class="mm-card-note">Every graded line, newest first.</p>
+      <div class="mm-scroll">
+        <table class="mm-table" data-source="record" data-row-key="game_id">
+          <thead><tr>
+            <th data-field="date">Date</th>
+            <th data-field="away">Away</th>
+            <th data-field="home">Home</th>
+            <th data-field="favorite">Favorite</th>
+            <th data-field="my_line" class="num">Mech line</th>
+            <th data-field="fav_win_pct" class="num">Win %</th>
+            <th data-field="final" class="num">Final (A-H)</th>
+            <th data-field="miss" class="num">Miss</th>
+            <th data-field="winner">Winner right?</th>
+          </tr></thead>
+          <tbody data-draw="log-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+// ---------- shared state + helpers ----------
+const DEFAULTS = {league: 'mbb', tab: 'today', confs: '', sort: 'spread', scol: '', sdir: 'asc',
+                  hide: false, rall: false, rsort: 'rank', rcol: '', rdir: 'asc', q: ''};
+const POWER = ['SEC', 'Big Ten', 'Big 12', 'ACC', 'Big East'];
+const TOP_N = 100;
+const TOSSUP = 4;
+const BLOWOUT = 15;
+const P = () => ({...DEFAULTS, ...dash.params()});
+const picked = () => (P().confs ? P().confs.split('|') : []);
+const rowsOf = (id) => { const d = dash.data(id); return d.status === 'ok' && Array.isArray(d.data) ? d.data : null; };
+const num = (x) => (x === null || x === undefined || x === '' ? null : Number(x));
+const f1 = (x) => (num(x) === null ? '—' : num(x).toFixed(1));
+const signed = (x) => (num(x) === null ? '—' : (num(x) > 0 ? '+' : '') + num(x).toFixed(1));
+const pct = (x) => (num(x) === null ? '—' : num(x).toFixed(1) + '%');
+const cell = (text, cls) => { const td = document.createElement('td'); td.textContent = text; if (cls) td.className = cls; return td; };
+const cmp = (a, b) => { const x = num(a), y = num(b);
+  if ((a === null || a === undefined) && (b === null || b === undefined)) return 0;
+  if (x !== null && y !== null && !Number.isNaN(x) && !Number.isNaN(y)) return x - y;
+  if (a === null || a === undefined) return 1; if (b === null || b === undefined) return -1;
+  return String(a).localeCompare(String(b)); };
+const set = (obj) => dash.setParams(obj);
+
+document.querySelectorAll('#mech').forEach((el) => el.style.setProperty('--mm-accent', dash.colors[0]));
+
+// today summary (unfiltered): per league games, toss-ups, closest line
+dash.calc('today_summary', {
+  inputs: ['lines'], title: 'Today at a glance',
+  description: 'Per league: D1 games today, how many have a line under 4, and the closest line.',
+  fn: (lines) => ['mbb', 'wbb'].map((league) => {
+    const g = lines.filter((r) => r.league === league);
+    const best = g.reduce((a, r) => (a === null || Math.abs(r.my_line) < Math.abs(a.my_line) ? r : a), null);
+    return {league, games: g.length, tossups: g.filter((r) => Math.abs(r.my_line) < 4).length,
+            closest_line: best ? best.my_line : null, closest_team: best ? best.favorite : null};
+  }),
+});
+
+// ---------- controls (fixed HTML; scripts only listen and set state) ----------
+document.querySelectorAll('.mm-league').forEach((b) => b.addEventListener('click', () => set({league: b.dataset.league})));
+document.querySelectorAll('.mm-tab').forEach((b) => b.addEventListener('click', () => { set({tab: b.dataset.tab}); dash.setLink(b.dataset.tab); }));
+document.querySelectorAll('.mm-conf-btn').forEach((b) => b.addEventListener('click', () => {
+  document.querySelectorAll('.mm-conf-panel').forEach((p) => { p.hidden = !p.hidden; b.setAttribute('aria-expanded', String(!p.hidden)); });
+}));
+document.addEventListener('click', (e) => {
+  const inside = e.composedPath().some((n) => n.classList && n.classList.contains('mm-conf'));
+  if (!inside) document.querySelectorAll('.mm-conf-panel').forEach((p) => { p.hidden = true; });
+});
+document.querySelectorAll('.mm-conf-all').forEach((b) => b.addEventListener('click', () => set({confs: ''})));
+document.querySelectorAll('.mm-conf-power').forEach((b) => b.addEventListener('click', () => set({confs: POWER.join('|')})));
+document.querySelectorAll('.mm-sort-today').forEach((s) => s.addEventListener('change', () => set({sort: s.value, scol: ''})));
+document.querySelectorAll('.mm-hide').forEach((c) => c.addEventListener('change', () => set({hide: c.checked})));
+document.querySelectorAll('.mm-sort-rank').forEach((s) => s.addEventListener('change', () => set({rsort: s.value, rcol: '', rdir: 'asc'})));
+document.querySelectorAll('.mm-search').forEach((i) => i.addEventListener('input', () => set({q: i.value})));
+document.querySelectorAll('.mm-show-all').forEach((b) => b.addEventListener('click', () => set({rall: true})));
+document.querySelectorAll('.mm-show-top').forEach((b) => b.addEventListener('click', () => set({rall: false})));
+const headerSort = (table, colKey, dirKey, modeKey) => table.addEventListener('click', (e) => {
+  const btn = e.target.closest('th button[data-col]'); if (!btn) return;
+  const p = P(), col = btn.dataset.col;
+  const dir = p[colKey] === col && p[dirKey] === 'asc' ? 'desc' : 'asc';
+  set({[colKey]: col, [dirKey]: dir, [modeKey]: 'col'});
+});
+document.querySelectorAll('.mm-lines').forEach((t) => headerSort(t, 'scol', 'sdir', 'sort'));
+document.querySelectorAll('.mm-ranks').forEach((t) => headerSort(t, 'rcol', 'rdir', 'rsort'));
+
+// ---------- page state: tabs, league, control values (no text written) ----------
+dash.onData(() => {
+  const p = P();
+  document.querySelectorAll('.mm-page').forEach((s) => { s.hidden = s.dataset.page !== p.tab; });
+  document.querySelectorAll('.mm-tab').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === p.tab)));
+  document.querySelectorAll('.mm-league').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.league === p.league)));
+  document.querySelectorAll('.mm-sort-today').forEach((s) => { s.value = p.sort === 'col' ? 'col' : p.sort; });
+  document.querySelectorAll('.mm-hide').forEach((c) => { c.checked = !!p.hide; });
+  document.querySelectorAll('.mm-sort-rank').forEach((s) => { s.value = p.rsort === 'col' ? 'col' : p.rsort; });
+  document.querySelectorAll('.mm-search').forEach((i) => { if (i !== document.activeElement) i.value = p.q || ''; });
+  document.querySelectorAll('.mm-show-all').forEach((b) => { b.hidden = !!p.rall; });
+  document.querySelectorAll('.mm-show-top').forEach((b) => { b.hidden = !p.rall; });
+  const sortHeads = (sel, mode, col, dir) => document.querySelectorAll(sel + ' th').forEach((th) => {
+    const b = th.querySelector('button[data-col]');
+    if (!b) return;
+    if (mode === 'col' && b.dataset.col === col) th.setAttribute('aria-sort', dir === 'asc' ? 'ascending' : 'descending');
+    else th.removeAttribute('aria-sort');
+  });
+  sortHeads('.mm-lines', p.sort, p.scol, p.sdir);
+  sortHeads('.mm-ranks', p.rsort, p.rcol, p.rdir);
+});
+const named = document.getElementById(location.hash.slice(1));
+if (named && named.classList.contains('mm-page')) set({tab: named.dataset.page});
+
+// ---------- drawings ----------
+const fromRow = (id, field) => (el) => { const r = rowsOf(id); el.textContent = r && r.length ? String(r[0][field]) : '—'; };
+dash.draw('date-label', fromRow('info', 'date_label'));
+dash.draw('updated', fromRow('info', 'updated'));
+
+dash.draw('conf-label', (el) => {
+  const c = picked();
+  el.textContent = !c.length ? 'All' : (c.length === POWER.length && POWER.every((x) => c.includes(x)) ? 'Power 5'
+    : (c.length <= 2 ? c.join(', ') : c.length + ' picked'));
+});
+
+dash.draw('conf-menu', (el) => {
+  const rows = rowsOf('conferences');
+  if (!rows) { el.textContent = '—'; return; }
+  const names = [...new Set(rows.map((r) => r.conf))].sort((a, b) => a.localeCompare(b));
+  const chosen = new Set(picked());
+  el.replaceChildren(...names.map((name) => {
+    const lab = document.createElement('label');
+    const box = document.createElement('input');
+    box.type = 'checkbox'; box.checked = chosen.has(name);
+    box.addEventListener('change', () => {
+      const now = new Set(picked());
+      if (box.checked) now.add(name); else now.delete(name);
+      set({confs: [...now].join('|')});
+    });
+    lab.append(box, document.createTextNode(name));
+    return lab;
+  }));
+});
+
+const summaryTile = (field, fmt) => (el) => {
+  const lg = P().league; el.dataset.where = 'league=' + lg;
+  const r = rowsOf('today_summary'); const row = r && r.find((x) => x.league === lg);
+  el.textContent = row && row[field] !== null && row[field] !== undefined ? fmt(row[field]) : '—';
+};
+dash.draw('t-games', summaryTile('games', String));
+dash.draw('t-tossups', summaryTile('tossups', String));
+dash.draw('t-closest', summaryTile('closest_line', f1));
+dash.draw('t-closest-team', summaryTile('closest_team', String));
+
+dash.draw('lines-body', (tb) => {
+  const rows = rowsOf('lines'); const p = P();
+  if (!rows) { tb.replaceChildren(); return; }
+  const c = picked();
+  let g = rows.filter((r) => r.league === p.league)
+    .filter((r) => !c.length || c.includes(r.home_conf) || c.includes(r.away_conf))
+    .filter((r) => !p.hide || Math.abs(r.my_line) < BLOWOUT);
+  const by = {
+    spread: (a, b) => Math.abs(a.my_line) - Math.abs(b.my_line),
+    tip: (a, b) => cmp(a.tip24, b.tip24),
+    gap: (a, b) => cmp(a.gap === null ? null : -Math.abs(a.gap), b.gap === null ? null : -Math.abs(b.gap)) || Math.abs(a.my_line) - Math.abs(b.my_line),
+    matchup: (a, b) => (a.away_rank + a.home_rank) - (b.away_rank + b.home_rank),
+    col: (a, b) => (p.sdir === 'asc' ? 1 : -1) * cmp(a[p.scol], b[p.scol]),
+  };
+  g = [...g].sort(by[p.sort] || by.spread);
+  tb.replaceChildren(...g.map((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = String(r.game_id);
+    const close = Math.abs(r.my_line) < TOSSUP;
+    const bigGap = r.gap !== null && Math.abs(r.gap) >= 3;
+    tr.append(cell(r.tip, 'mm-muted'), cell(String(r.away_rank), 'num mm-muted'), cell(r.away),
+      cell(r.away_conf, 'mm-muted'), cell(String(r.home_rank), 'num mm-muted'), cell(r.home),
+      cell(r.home_conf, 'mm-muted'), cell(r.site, 'mm-muted'), cell(r.favorite),
+      cell(f1(r.my_line), 'num' + (close ? ' mm-accent' : '')), cell(pct(r.fav_win_pct), 'num'),
+      cell(r.proj_score, 'num'), cell(f1(r.proj_tempo), 'num mm-muted'),
+      cell(f1(r.vegas_line), 'num'), cell(f1(r.torvik_line), 'num'),
+      cell(signed(r.gap), 'num' + (bigGap ? ' mm-accent' : '')));
+    return tr;
+  }));
+  document.querySelectorAll('.mm-lines-none').forEach((m) => { m.hidden = g.length > 0; });
+});
+
+dash.draw('ranks-body', (tb) => {
+  const rows = rowsOf('rankings'); const p = P();
+  if (!rows) { tb.replaceChildren(); return; }
+  const c = picked(); const q = (p.q || '').trim().toLowerCase();
+  let t = rows.filter((r) => r.league === p.league)
+    .filter((r) => !c.length || c.includes(r.conf))
+    .filter((r) => !q || String(r.team).toLowerCase().includes(q));
+  const by = {
+    rank: (a, b) => a.rank - b.rank,
+    team: (a, b) => String(a.team).localeCompare(String(b.team)),
+    col: (a, b) => (p.rdir === 'asc' ? 1 : -1) * cmp(a[p.rcol], b[p.rcol]),
+  };
+  t = [...t].sort(by[p.rsort] || by.rank);
+  const capped = !p.rall && !c.length && !q;
+  if (capped) t = t.filter((r) => r.rank <= TOP_N);
+  tb.replaceChildren(...t.map((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = r.league + ',' + r.team_id;
+    tr.append(cell(String(r.rank), 'num' + (r.rank <= 25 ? ' mm-accent' : ' mm-muted')), cell(r.team),
+      cell(r.conf, 'mm-muted'), cell(f1(r.net), 'num'), cell(f1(r.O), 'num'), cell(f1(r.D), 'num'),
+      cell(f1(r.tempo), 'num mm-muted'), cell(f1(r.preseason), 'num mm-muted'),
+      cell(signed(r.vs_preseason), 'num'), cell(pct(r.returning_pct), 'num mm-muted'),
+      cell(String(r.games), 'num mm-muted'));
+    return tr;
+  }));
+  document.querySelectorAll('.mm-ranks-none').forEach((m) => { m.hidden = t.length > 0; });
+});
+
+const tooltip = (box) => { let tip = box.querySelector('.mm-tip'); if (!tip) { tip = document.createElement('div'); tip.className = 'mm-tip'; tip.hidden = true; box.append(tip); } return tip; };
+const showTip = (box, tip, event, head, line) => {
+  tip.replaceChildren(Object.assign(document.createElement('div'), {className: 'mm-tip-head', textContent: head}),
+                      Object.assign(document.createElement('div'), {textContent: line}));
+  tip.hidden = false;
+  const b = box.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+  const x = Math.min(Math.max(event.clientX - b.left + 12, 0), b.width - w);
+  const y = Math.max(event.clientY - b.top - h - 8, 0);
+  tip.style.left = x + 'px'; tip.style.top = y + 'px';
+};
+
+dash.draw('conf-chart', (box) => {
+  const rows = rowsOf('conferences');
+  box.replaceChildren();
+  if (!rows) return;
+  const lg = P().league; const c = new Set(picked());
+  const data = rows.filter((r) => r.league === lg).sort((a, b) => b.avg - a.avg);
+  const W = Math.max(box.clientWidth, 280), bar = 16, gapY = 6;
+  const svg = d3.select(box).append('svg').attr('width', '100%');
+  const labels = svg.append('g').selectAll('text').data(data).join('text').text((d) => d.conf)
+    .attr('font-size', 'var(--cds-font-size-caption)').attr('fill', 'var(--color-fg-muted)');
+  const left = d3.max(labels.nodes(), (n) => n.getComputedTextLength()) + 10;
+  const right = 44;
+  const H = data.length * (bar + gapY) + 24;
+  svg.attr('viewBox', `0 0 ${W} ${H}`);
+  box.style.minHeight = H + 'px';
+  const x = d3.scaleLinear([Math.min(0, d3.min(data, (d) => d.avg)), d3.max(data, (d) => d.avg)], [left, W - right]);
+  const y = (i) => 8 + i * (bar + gapY);
+  labels.attr('x', left - 8).attr('y', (d, i) => y(i) + bar / 2).attr('dy', '0.35em').attr('text-anchor', 'end');
+  svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', 0).attr('y2', H - 16).attr('stroke', 'var(--cds-chart-axis)');
+  const tip = tooltip(box);
+  svg.append('g').selectAll('rect').data(data).join('rect')
+    .attr('x', (d) => Math.min(x(0), x(d.avg))).attr('y', (d, i) => y(i)).attr('height', bar)
+    .attr('width', (d) => Math.abs(x(d.avg) - x(0))).attr('rx', 3)
+    .attr('fill', (d) => (!c.size || c.has(d.conf) ? dash.colors[0] : 'var(--cds-chart-muted)'))
+    .on('mousemove', (e, d) => showTip(box, tip, e, d.conf, `Avg ${d.avg.toFixed(1)} · best ${d.best.toFixed(1)} · ${d.teams} teams`))
+    .on('mouseleave', () => { tip.hidden = true; });
+  svg.append('g').selectAll('text').data(data).join('text')
+    .attr('x', (d) => Math.max(x(0), x(d.avg)) + 6).attr('y', (d, i) => y(i) + bar / 2).attr('dy', '0.35em')
+    .attr('font-size', 'var(--cds-font-size-caption)').attr('fill', 'var(--color-fg)').text((d) => d.avg.toFixed(1));
+});
+
+const recordTile = (field, fmt) => (el) => {
+  const lg = P().league; el.dataset.where = 'kind=summary&league=' + lg;
+  const r = rowsOf('record'); const row = r && r.find((x) => x.kind === 'summary' && x.league === lg);
+  el.textContent = row && row[field] !== null && row[field] !== undefined ? fmt(row[field]) : '—';
+  document.querySelectorAll('.mm-record-none').forEach((m) => { m.hidden = !(row && row.graded === 0); });
+};
+dash.draw('r-graded', recordTile('graded', String));
+dash.draw('r-miss', recordTile('avg_miss', f1));
+dash.draw('r-win', recordTile('winner_pct', pct));
+dash.draw('r-bench-miss', recordTile('bench_miss', f1));
+dash.draw('r-bench-win', recordTile('bench_winner', pct));
+
+dash.draw('month-chart', (box) => {
+  const rec = rowsOf('record');
+  box.replaceChildren();
+  if (!rec) return;
+  const lg = P().league;
+  const data = rec.filter((r) => r.kind === 'month' && r.league === lg);
+  const bench = (rec.find((r) => r.kind === 'summary' && r.league === lg) || {}).bench_miss;
+  if (!data.length) {
+    box.style.minHeight = '';
+    box.append(Object.assign(document.createElement('p'), {className: 'mm-empty', textContent: 'Fills in as games are graded.'}));
+    return;
+  }
+  const W = Math.max(box.clientWidth, 280), H = 260, m = {t: 12, r: 12, b: 28, l: 36};
+  box.style.minHeight = H + 'px';
+  const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+  const parse = d3.utcParse('%Y-%m');
+  const x = d3.scaleBand(data.map((d) => d.month), [m.l, W - m.r]).padding(0.35);
+  const top = d3.max([...data.map((d) => d.avg_miss), bench || 0]) * 1.15;
+  const y = d3.scaleLinear([0, top], [H - m.b, m.t]);
+  svg.append('g').attr('transform', `translate(0,${H - m.b})`)
+    .call(d3.axisBottom(x).tickFormat((d) => d3.utcFormat('%b')(parse(d))).tickSizeOuter(0))
+    .attr('font-size', null).attr('font-family', null).call((g) => g.selectAll('text').attr('fill', 'var(--color-fg-muted)'))
+    .call((g) => g.selectAll('line,path').attr('stroke', 'var(--cds-chart-axis)'));
+  svg.append('g').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(4).tickSize(-(W - m.l - m.r)))
+    .attr('font-size', null).attr('font-family', null)
+    .call((g) => g.select('.domain').remove()).call((g) => g.selectAll('line').attr('stroke', 'var(--cds-chart-grid)'))
+    .call((g) => g.selectAll('text').attr('fill', 'var(--color-fg-muted)'));
+  const tip = tooltip(box);
+  svg.append('g').selectAll('rect').data(data).join('rect')
+    .attr('x', (d) => x(d.month) + Math.max(0, (x.bandwidth() - 32) / 2)).attr('width', Math.min(32, x.bandwidth()))
+    .attr('y', (d) => y(d.avg_miss)).attr('height', (d) => y(0) - y(d.avg_miss)).attr('rx', 3).attr('fill', dash.colors[0])
+    .on('mousemove', (e, d) => showTip(box, tip, e, d3.utcFormat('%B %Y')(parse(d.month)), `Avg miss ${d.avg_miss.toFixed(2)} · ${d.games} games · ${d.winner_pct.toFixed(1)}% winners`))
+    .on('mouseleave', () => { tip.hidden = true; });
+  if (bench) svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y(bench)).attr('y2', y(bench))
+    .attr('stroke', 'var(--cds-chart-reference)').attr('stroke-dasharray', '4 4');
+});
+
+dash.draw('cal-body', (tb) => {
+  const rows = rowsOf('record'); if (!rows) { tb.replaceChildren(); return; }
+  const lg = P().league;
+  tb.replaceChildren(...rows.filter((r) => r.kind === 'calibration' && r.league === lg).map((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = 'calibration,' + r.league + ',' + encodeURIComponent(r.bucket);
+    tr.append(cell(r.bucket), cell(String(r.games), 'num'), cell(pct(r.said), 'num'), cell(pct(r.won), 'num'));
+    return tr;
+  }));
+});
+
+dash.draw('log-body', (tb) => {
+  const rows = rowsOf('record'); if (!rows) { tb.replaceChildren(); return; }
+  const lg = P().league;
+  tb.replaceChildren(...rows.filter((r) => r.kind === 'game' && r.league === lg).map((r) => {
+    const tr = document.createElement('tr'); tr.dataset.key = String(r.game_id);
+    tr.append(cell(r.date, 'mm-muted'), cell(r.away), cell(r.home), cell(r.favorite), cell(f1(r.my_line), 'num'),
+      cell(pct(r.fav_win_pct), 'num'), cell(r.final, 'num'), cell(f1(r.miss), 'num'),
+      cell(r.winner, r.winner === 'Yes' ? 'mm-accent' : 'mm-muted'));
+    return tr;
+  }));
+});
+</script>

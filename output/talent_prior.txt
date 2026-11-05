@@ -1,0 +1,44 @@
+
+######## MBB | tuning seasons, avg miss Nov-Jan ########
+                             setting   avg
+  talent, newcomer -4, worth 8 games 9.092
+  talent, newcomer -6, worth 8 games 9.095
+  talent, newcomer -4, worth 5 games 9.098
+  talent, newcomer -6, worth 5 games 9.105
+  talent, newcomer -2, worth 8 games 9.110
+  talent, newcomer -2, worth 5 games 9.115
+  talent, newcomer -4, worth 3 games 9.157
+  talent, newcomer -6, worth 3 games 9.160
+  talent, newcomer -2, worth 3 games 9.165
+last season's ratings, worth 3 games 9.230
+
+HOLDOUT 2025-26
+                      Nov-Dec   Jan  Feb-Apr  Full
+last season              9.84  9.03     8.84  9.28
+talent (-4, 8 games)     9.70  8.93     8.82  9.19
+  preseason guess vs final 2025-26 rating, last season: avg miss 6.12 net pts
+  preseason guess vs final 2025-26 rating, talent: avg miss 5.18 net pts
+
+######## WBB | tuning seasons, avg miss Nov-Jan ########
+                             setting    avg
+  talent, newcomer -6, worth 3 games  9.888
+  talent, newcomer -4, worth 3 games  9.892
+  talent, newcomer -6, worth 5 games  9.895
+  talent, newcomer -4, worth 5 games  9.900
+  talent, newcomer -2, worth 3 games  9.912
+  talent, newcomer -2, worth 5 games  9.930
+  talent, newcomer -6, worth 8 games  9.972
+  talent, newcomer -4, worth 8 games  9.983
+last season's ratings, worth 3 games  9.990
+  talent, newcomer -2, worth 8 games 10.022
+
+HOLDOUT 2025-26
+                      Nov-Dec   Jan  Feb-Apr  Full
+last season             10.67  9.38     9.24  9.82
+talent (-6, 3 games)    10.41  9.32     9.24  9.70
+  preseason guess vs final 2025-26 rating, last season: avg miss 7.54 net pts
+  preseason guess vs final 2025-26 rating, talent: avg miss 6.24 net pts
+
+real	0m57.186s
+user	0m56.359s
+sys	0m0.277s

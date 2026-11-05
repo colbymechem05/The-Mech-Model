@@ -1,0 +1,12 @@
+# raw downloads are big and re-downloadable (cached in GitHub Actions)
+data/raw/*
+# ...except compact player-stat summaries for finished seasons (saves ~1 GB of downloads)
+!data/raw/*_pstats_2021.csv
+!data/raw/*_pstats_2022.csv
+!data/raw/*_pstats_2023.csv
+!data/raw/*_pstats_2024.csv
+!data/raw/*_pstats_2025.csv
+!data/raw/*_pstats_2026.csv
+data/games_*.csv
+__pycache__/
+.pytest_cache/
