@@ -45,29 +45,29 @@ body { background: var(--bg); color: var(--fg); font: 15px/1.45 var(--body); }
 button, select, input { font: inherit; color: inherit; }
 
 /* ---------- layout: sidebar + page ---------- */
-.app { display: grid; grid-template-columns: 236px minmax(0, 1fr); min-height: 100vh; }
+.app { display: grid; grid-template-columns: 196px minmax(0, 1fr); min-height: 100vh; }
 aside { background: var(--side); color: var(--side-fg); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; padding: 22px 0 18px; }
-.brand { display: flex; align-items: center; gap: 11px; padding: 0 20px 20px; border-bottom: 1px solid var(--side-line); }
-.brand img { width: 46px; height: 46px; }
-.brand b { font: 800 23px/0.95 var(--display); letter-spacing: .02em; text-transform: uppercase; color: #fff; }
+.brand { display: flex; align-items: center; gap: 9px; padding: 0 16px 18px; border-bottom: 1px solid var(--side-line); }
+.brand img { width: 38px; height: 38px; }
+.brand b { font: 800 20px/0.95 var(--display); letter-spacing: .02em; text-transform: uppercase; color: #fff; }
 .brand b span { color: #3cc8f8; }
-.league { display: flex; margin: 18px 20px 12px; border: 1px solid rgba(255,255,255,.14); border-radius: 6px; overflow: hidden; }
+.league { display: flex; margin: 16px 16px 10px; border: 1px solid rgba(255,255,255,.14); border-radius: 6px; overflow: hidden; }
 .league button { flex: 1; background: none; border: 0; padding: 7px 0; font: 600 12px var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--side-fg); cursor: pointer; }
 .league button[aria-pressed="true"] { background: #3cc8f8; color: #04121f; }
 .nav { display: flex; flex-direction: column; }
-.nav button { display: flex; align-items: center; gap: 12px; padding: 11px 20px 11px 17px; background: none; border: 0; border-left: 3px solid transparent; color: var(--side-fg); font: 500 15px var(--body); text-align: left; cursor: pointer; }
+.nav button { display: flex; align-items: center; gap: 12px; padding: 10px 16px 10px 13px; background: none; border: 0; border-left: 3px solid transparent; color: var(--side-fg); font: 500 14px var(--body); text-align: left; cursor: pointer; }
 .nav button svg { width: 18px; height: 18px; flex: none; opacity: .75; }
 .nav button:hover { color: #fff; }
 .nav button[aria-selected="true"] { background: rgba(255,255,255,.05); color: #fff; border-left-color: #ff8a1f; }
 .nav button[aria-selected="true"] svg { color: #ff8a1f; opacity: 1; }
-.side-foot { margin-top: auto; padding: 14px 20px 0; border-top: 1px solid var(--side-line); font-size: 12px; color: #7f8eaa; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.side-foot { margin-top: auto; padding: 14px 16px 0; border-top: 1px solid var(--side-line); font-size: 12px; color: #7f8eaa; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .theme { background: none; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; padding: 3px 11px; color: var(--side-fg); font-size: 12px; cursor: pointer; white-space: nowrap; }
 .theme:hover { border-color: #ff8a1f; color: #fff; }
 main { padding: 26px 38px 40px; min-width: 0; }
 
 /* ---------- masthead ---------- */
 .mast { display: flex; justify-content: space-between; align-items: flex-end; gap: 18px; flex-wrap: wrap; border-bottom: 3px solid var(--rule); padding-bottom: 10px; }
-.mast h1 { margin: 0; font: 800 46px/0.92 var(--display); letter-spacing: .02em; text-transform: uppercase; }
+.mast h1 { margin: 0; font: 800 36px/0.92 var(--display); letter-spacing: .02em; text-transform: uppercase; }
 .kicker { display: block; font: 800 15px var(--display); letter-spacing: .16em; color: var(--orange); margin-bottom: 7px; text-transform: uppercase; }
 .filters { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
 .chip { background: none; border: 1px solid var(--line); border-radius: 4px; padding: 4px 11px; font: 600 12px var(--body); letter-spacing: .03em; color: var(--muted); cursor: pointer; }
@@ -90,7 +90,7 @@ input[type=checkbox] { accent-color: var(--orange); }
 
 /* ---------- sections ---------- */
 .sec { display: flex; justify-content: space-between; align-items: flex-end; gap: 14px; flex-wrap: wrap; margin: 28px 0 9px; }
-.sec h2 { margin: 0; font: 800 25px/1 var(--display); letter-spacing: .03em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+.sec h2 { margin: 0; font: 800 23px/1 var(--display); letter-spacing: .03em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
 .q { position: relative; display: inline-grid; place-items: center; width: 18px; height: 18px; border: 1px solid var(--line); border-radius: 50%; font: 600 11px var(--body); color: var(--muted); cursor: help; letter-spacing: 0; text-transform: none; }
 .q:hover, .q:focus { color: var(--fg); border-color: var(--muted); outline: none; }
 .q .pop { position: absolute; left: 0; top: calc(100% + 8px); z-index: 30; width: 320px; padding: 11px 13px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); font: 400 13px/1.5 var(--body); color: var(--fg); text-align: left; display: none; }
@@ -222,12 +222,12 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
         <div class="stat"><div class="k">Games</div><div class="v" id="t-games">—</div><div class="s" id="t-scope">All conferences</div></div>
         <div class="stat"><div class="k">Toss-ups</div><div class="v" id="t-tossups">—</div><div class="s">Line under 4</div></div>
         <div class="stat"><div class="k">Closest line</div><div class="v" id="t-closest">—</div><div class="s" id="t-closest-team">—</div></div>
-        <div class="stat" id="t-gap-tile" hidden><div class="k">Biggest gap vs. Vegas</div><div class="v o" id="t-gap">—</div><div class="s" id="t-gap-note">—</div></div>
+        <div class="stat" id="t-gap-tile" hidden><div class="k">Biggest gap vs. Vegas</div><div class="v" id="t-gap">—</div><div class="s" id="t-gap-note">—</div></div>
       </div>
       <div class="sec">
         <h2>The Board <span class="q" tabindex="0">?<span class="pop">Every D1 game today with the Mech line, from the favorite's side. <b>Vegas</b> is also shown from that team's side (a + number means Vegas has them as the underdog). <b>Gap</b> = Mech minus Vegas: negative means the Mech model likes the favorite more. <b>N</b> = neutral site. Lines are locked before tip and never edited.</span></span></h2>
         <div class="tools">
-          <div class="legend"><span class="lb">Mech favorite</span><span class="lo">Toss-up / 3+ gap</span></div>
+          <div class="legend"><span class="lb">Mech favorite</span><span class="lo">Toss-up (line &lt;4) / 3+ off Vegas</span></div>
           <label>Sort <select id="sort-today">
             <option value="spread">Closest spread</option><option value="tip">Tip time</option>
             <option value="gap" id="opt-gap">Biggest gap vs. Vegas</option><option value="matchup">Best matchup</option>
@@ -490,6 +490,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (big) {
       $('#t-gap').textContent = Math.abs(big.gap).toFixed(1);
       $('#t-gap-note').textContent = `${big.favorite}: Mech ${f1(big.my_line)}, Vegas ${signed(big.vegas_line)}`;
+      $('#t-gap-tile').title = $('#t-gap-note').textContent;
     }
     let g = all.filter((r) => !S.hide || Math.abs(r.my_line) < BLOWOUT);
     const by = {
