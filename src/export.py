@@ -25,6 +25,7 @@ def conferences(league: str) -> pd.Series:
     """team_id -> conference short name (this season's alignment)."""
     rows = []
     for s in (D.CURRENT, D.CURRENT - 1):  # current season first, last season as fallback
+        D.download(league, s, refresh=False)  # no-op when already saved
         sc = pd.read_csv(D.RAW / f"{league}_schedule_{s}.csv", low_memory=False, usecols=[
             "home_id", "home_conference_id", "away_id", "away_conference_id",
             "groups_id", "groups_short_name", "conference_competition"])
