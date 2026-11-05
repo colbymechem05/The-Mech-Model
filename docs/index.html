@@ -259,7 +259,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <div class="sec">
         <h2>The Board <span class="q" tabindex="0">?<span class="pop">Every D1 game today with the Mech line, from the favorite's side. <b>Vegas</b> is also shown from that team's side (a + number means Vegas has them as the underdog). <b>Gap</b> = Mech minus Vegas: negative means the Mech model likes the favorite more. <b>N</b> = neutral site. Lines are locked before tip and never edited.</span></span></h2>
         <div class="tools">
-          <div class="legend"><span class="lb">Mech favorite</span><span class="lo">Toss-up (line &lt;4) / 3+ off Vegas</span></div>
+          <div class="legend"><span class="lb">Mech favorite</span><span class="lo">Toss-up (line &lt;4)</span></div>
           <label>Sort <select id="sort-today">
             <option value="spread">Closest spread</option><option value="tip">Tip time</option>
             <option value="gap" id="opt-gap">Biggest gap vs. Vegas</option><option value="matchup">Best matchup</option>
@@ -542,14 +542,14 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     g = [...g].sort(by[S.sort] || by.spread);
     fill($('#lines tbody'), g.map((r) => {
       const tr = el('tr');
-      const close = Math.abs(r.my_line) < TOSSUP, bigGap = r.gap !== null && Math.abs(r.gap) >= BIG_GAP;
+      const close = Math.abs(r.my_line) < TOSSUP;
       const favHome = r.spread_home >= 0;
       tr.append(td(r.tip, 'num muted'), td(String(r.away_rank), 'num rk'),
         teamCell(r.away, {fav: !favHome, conf: r.away_conf}), td(String(r.home_rank), 'num rk'),
         teamCell(r.home, {fav: favHome, conf: r.home_conf, neutral: !!r.site}),
         td(f1(r.my_line), 'num' + (close ? ' hot' : '')), td(pct(r.fav_win_pct), 'num'),
         td(r.proj_score, 'num'), td(f1(r.proj_tempo), 'num muted'), td(signed(r.vegas_line), 'num'),
-        td(signed(r.gap), 'num' + (bigGap ? ' hot' : '')));
+        td(signed(r.gap), 'num'));
       return tr;
     }));
     $('#lines-none').hidden = g.length > 0;
