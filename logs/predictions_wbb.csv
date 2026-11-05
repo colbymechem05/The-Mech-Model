@@ -1,18 +1,86 @@
-date,game_id,away,home,neutral,away_rank,home_rank,favorite,my_line,fav_win_pct,proj_score,proj_tempo,spread_home,p_home,vegas_line,torvik_line,made_at
-2026-11-04,401915978,Saint Mary's Gaels,Stanford Cardinal,False,174,63,Stanford Cardinal,-15.7,89.7,53-69,67.2,15.65,0.8966,,,2026-11-04T13:14-06:00
-2026-11-04,401921577,California Baptist Lancers,Oregon State Beavers,False,142,90,Oregon State Beavers,-9.2,77.1,62-72,71.2,9.22,0.7713,,,2026-11-04T13:14-06:00
-2026-11-04,401918840,Fairleigh Dickinson Knights,Texas Longhorns,False,131,3,Texas Longhorns,-42.2,100.0,45-87,68.3,42.24,0.9997,,,2026-11-04T13:14-06:00
-2026-11-04,401906075,Stetson Hatters,Louisville Cardinals,False,194,16,Louisville Cardinals,-35.3,99.8,56-92,72.5,35.34,0.9978,,,2026-11-04T13:14-06:00
-2026-11-04,401923473,Morgan State Lady Bears,Colorado Buffaloes,False,348,38,Colorado Buffaloes,-40.6,99.9,42-82,68.8,40.58,0.9995,,,2026-11-04T13:14-06:00
-2026-11-04,401923193,Lindenwood Lions,Denver Pioneers,False,116,305,Lindenwood Lions,-13.8,86.6,69-55,67.2,-13.76,0.1336,,,2026-11-04T13:14-06:00
-2026-11-04,401919931,Long Island University Sharks,Texas State Bobcats,False,316,246,Texas State Bobcats,-11.3,81.8,60-72,73.8,11.26,0.818,,,2026-11-04T13:14-06:00
-2026-11-04,401918553,Jackson State Lady Tigers,Grand Canyon Lopes,False,335,113,Grand Canyon Lopes,-24.9,97.8,50-75,70.2,24.93,0.9778,,,2026-11-04T13:14-06:00
-2026-11-04,401913884,Queens University Royals,Vanderbilt Commodores,False,314,8,Vanderbilt Commodores,-55.8,100.0,49-105,78.4,55.8,1.0,,,2026-11-04T13:14-06:00
-2026-11-04,401928191,Chattanooga Mocs,Western Kentucky Lady Toppers,False,206,267,Chattanooga Mocs,-2.5,58.0,60-58,64.5,-2.5,0.42,,,2026-11-04T13:14-06:00
-2026-11-04,401927060,Detroit Mercy Titans,Illinois Fighting Illini,False,304,27,Illinois Fighting Illini,-40.1,99.9,51-91,73.2,40.12,0.9994,,,2026-11-04T13:14-06:00
-2026-11-04,401913004,La Salle Explorers,Rutgers Scarlet Knights,False,173,121,Rutgers Scarlet Knights,-7.3,72.1,60-68,72.6,7.26,0.7208,,,2026-11-04T13:14-06:00
-2026-11-04,401912989,LSU New Orleans Privateers,Alabama Crimson Tide,False,356,32,Alabama Crimson Tide,-57.5,100.0,46-104,82.4,57.48,1.0,,,2026-11-04T13:14-06:00
-2026-11-04,401916184,East Texas A&M Lions,Cincinnati Bearcats,False,293,102,Cincinnati Bearcats,-21.4,95.8,59-80,72.2,21.39,0.9577,,,2026-11-04T13:14-06:00
-2026-11-04,401913736,Campbell Fighting Camels,NC State Wolfpack,False,254,26,NC State Wolfpack,-33.9,99.7,45-79,70.0,33.89,0.9969,,,2026-11-04T13:14-06:00
-2026-11-04,401916016,Delaware Blue Hens,Virginia Tech Hokies,False,227,37,Virginia Tech Hokies,-29.1,99.0,50-80,74.2,29.05,0.9904,,,2026-11-04T13:14-06:00
-2026-11-04,401918431,Arkansas-Pine Bluff Golden Lions,Tarleton State Texans,False,322,214,Tarleton State Texans,-13.9,86.9,56-70,69.4,13.9,0.8689,,,2026-11-04T13:14-06:00
+date,game_id,away,home,neutral,away_rank,home_rank,favorite,my_line,fav_win_pct,proj_score,proj_tempo,spread_home,p_home,vegas_line,torvik_line,made_at,tip
+2026-11-04,401915978,Saint Mary's Gaels,Stanford Cardinal,False,174,63,Stanford Cardinal,-15.7,89.7,53-69,67.2,15.65,0.8966,,,2026-11-04T13:14-06:00,
+2026-11-04,401921577,California Baptist Lancers,Oregon State Beavers,False,142,90,Oregon State Beavers,-9.2,77.1,62-72,71.2,9.22,0.7713,,,2026-11-04T13:14-06:00,
+2026-11-04,401918840,Fairleigh Dickinson Knights,Texas Longhorns,False,131,3,Texas Longhorns,-42.2,100.0,45-87,68.3,42.24,0.9997,,,2026-11-04T13:14-06:00,
+2026-11-04,401906075,Stetson Hatters,Louisville Cardinals,False,194,16,Louisville Cardinals,-35.3,99.8,56-92,72.5,35.34,0.9978,,,2026-11-04T13:14-06:00,
+2026-11-04,401923473,Morgan State Lady Bears,Colorado Buffaloes,False,348,38,Colorado Buffaloes,-40.6,99.9,42-82,68.8,40.58,0.9995,,,2026-11-04T13:14-06:00,
+2026-11-04,401923193,Lindenwood Lions,Denver Pioneers,False,116,305,Lindenwood Lions,-13.8,86.6,69-55,67.2,-13.76,0.1336,,,2026-11-04T13:14-06:00,
+2026-11-04,401919931,Long Island University Sharks,Texas State Bobcats,False,316,246,Texas State Bobcats,-11.3,81.8,60-72,73.8,11.26,0.818,,,2026-11-04T13:14-06:00,
+2026-11-04,401918553,Jackson State Lady Tigers,Grand Canyon Lopes,False,335,113,Grand Canyon Lopes,-24.9,97.8,50-75,70.2,24.93,0.9778,,,2026-11-04T13:14-06:00,
+2026-11-04,401913884,Queens University Royals,Vanderbilt Commodores,False,314,8,Vanderbilt Commodores,-55.8,100.0,49-105,78.4,55.8,1.0,,,2026-11-04T13:14-06:00,
+2026-11-04,401928191,Chattanooga Mocs,Western Kentucky Lady Toppers,False,206,267,Chattanooga Mocs,-2.5,58.0,60-58,64.5,-2.5,0.42,,,2026-11-04T13:14-06:00,
+2026-11-04,401927060,Detroit Mercy Titans,Illinois Fighting Illini,False,304,27,Illinois Fighting Illini,-40.1,99.9,51-91,73.2,40.12,0.9994,,,2026-11-04T13:14-06:00,
+2026-11-04,401913004,La Salle Explorers,Rutgers Scarlet Knights,False,173,121,Rutgers Scarlet Knights,-7.3,72.1,60-68,72.6,7.26,0.7208,,,2026-11-04T13:14-06:00,
+2026-11-04,401912989,LSU New Orleans Privateers,Alabama Crimson Tide,False,356,32,Alabama Crimson Tide,-57.5,100.0,46-104,82.4,57.48,1.0,,,2026-11-04T13:14-06:00,
+2026-11-04,401916184,East Texas A&M Lions,Cincinnati Bearcats,False,293,102,Cincinnati Bearcats,-21.4,95.8,59-80,72.2,21.39,0.9577,,,2026-11-04T13:14-06:00,
+2026-11-04,401913736,Campbell Fighting Camels,NC State Wolfpack,False,254,26,NC State Wolfpack,-33.9,99.7,45-79,70.0,33.89,0.9969,,,2026-11-04T13:14-06:00,
+2026-11-04,401916016,Delaware Blue Hens,Virginia Tech Hokies,False,227,37,Virginia Tech Hokies,-29.1,99.0,50-80,74.2,29.05,0.9904,,,2026-11-04T13:14-06:00,
+2026-11-04,401918431,Arkansas-Pine Bluff Golden Lions,Tarleton State Texans,False,322,214,Tarleton State Texans,-13.9,86.9,56-70,69.4,13.9,0.8689,,,2026-11-04T13:14-06:00,
+2026-11-05,401918897,UC Irvine Anteaters,UCLA Bruins,False,96,16,UCLA Bruins,-23.4,97.1,54-78,67.0,23.43,0.9706,,,2026-11-05T08:20-06:00,22:00
+2026-11-05,401917684,Pacific Tigers,Washington Huskies,False,221,20,Washington Huskies,-33.7,99.7,49-83,69.7,33.71,0.9967,,,2026-11-05T08:20-06:00,22:00
+2026-11-05,401918667,Louisiana Ragin' Cajuns,Texas A&M Aggies,False,270,77,Texas A&M Aggies,-24.0,97.4,52-76,72.6,24.0,0.9735,,,2026-11-05T08:20-06:00,21:00
+2026-11-05,401916150,Portland Pilots,BYU Cougars,False,103,63,BYU Cougars,-12.4,84.2,60-72,75.2,12.44,0.8421,,,2026-11-05T08:20-06:00,21:00
+2026-11-05,401906063,Long Beach State Beach,California Golden Bears,False,321,34,California Golden Bears,-38.3,99.9,45-84,70.4,38.34,0.999,,,2026-11-05T08:20-06:00,21:00
+2026-11-05,401919961,Wagner Seahawks,Lafayette Leopards,False,339,323,Lafayette Leopards,-4.7,64.7,56-60,69.6,4.69,0.6473,,,2026-11-05T08:20-06:00,20:30
+2026-11-05,401916081,Northern Arizona Lumberjacks,Arizona State Sun Devils,False,239,27,Arizona State Sun Devils,-35.9,99.8,49-85,73.8,35.88,0.9981,,,2026-11-05T08:20-06:00,20:30
+2026-11-05,401912965,Texas Southern Tigers,LSU Tigers,False,361,1,LSU Tigers,-83.9,100.0,38-122,82.8,83.88,1.0,,,2026-11-05T08:20-06:00,20:00
+2026-11-05,401921425,Eastern Illinois Panthers,Iowa Hawkeyes,False,332,8,Iowa Hawkeyes,-47.1,100.0,39-86,69.9,47.07,0.9999,,,2026-11-05T08:20-06:00,20:00
+2026-11-05,401923479,Sam Houston Bearkats,Houston Cougars,False,185,137,Houston Cougars,-9.6,78.1,60-70,76.7,9.62,0.7811,,,2026-11-05T08:20-06:00,20:00
+2026-11-05,401923188,UC Santa Barbara Gauchos,Pepperdine Waves,False,124,123,Pepperdine Waves,-3.4,60.9,60-64,68.4,3.45,0.6095,,,2026-11-05T08:20-06:00,20:00
+2026-11-05,401921233,Milwaukee Panthers,Saint Louis Billikens,False,289,135,Saint Louis Billikens,-14.6,88.1,59-74,72.3,14.64,0.8812,,,2026-11-05T08:20-06:00,20:00
+2026-11-05,401918463,Central Arkansas Sugar Bears,Baylor Bears,False,107,31,Baylor Bears,-22.8,96.7,53-75,72.0,22.77,0.9668,,,2026-11-05T08:20-06:00,20:00
+2026-11-05,401913016,Xavier Musketeers,Northwestern Wildcats,False,132,153,Northwestern Wildcats,-1.4,54.4,65-66,67.8,1.37,0.5441,,,2026-11-05T08:20-06:00,20:00
+2026-11-05,401918447,Eastern Kentucky Colonels,Morehead State Eagles,False,158,283,Eastern Kentucky Colonels,-6.1,68.8,71-65,75.5,-6.07,0.3124,,,2026-11-05T08:20-06:00,19:45
+2026-11-05,401917939,Le Moyne Dolphins,TCU Horned Frogs,False,355,17,TCU Horned Frogs,-48.8,100.0,36-85,65.7,48.78,1.0,,,2026-11-05T08:20-06:00,19:30
+2026-11-05,401920166,Grambling Lady Tigers,McNeese Cowgirls,False,310,197,McNeese Cowgirls,-10.7,80.6,54-64,73.5,10.71,0.8061,,,2026-11-05T08:20-06:00,19:30
+2026-11-05,401920085,Lamar Cardinals,UT Arlington Mavericks,False,192,240,UT Arlington Mavericks,-0.1,50.2,61-61,70.9,0.06,0.5019,,,2026-11-05T08:20-06:00,19:30
+2026-11-05,401918865,Oakland Golden Grizzlies,Wisconsin Badgers,False,191,71,Wisconsin Badgers,-18.2,92.9,60-79,69.7,18.24,0.9294,,,2026-11-05T08:20-06:00,19:30
+2026-11-05,401917927,Nicholls Colonels,Iowa State Cyclones,False,267,54,Iowa State Cyclones,-29.1,99.1,57-86,75.0,29.15,0.9906,,,2026-11-05T08:20-06:00,19:30
+2026-11-05,401906980,Southern Indiana Screaming Eagles,Kansas State Wildcats,False,156,82,Kansas State Wildcats,-15.1,88.8,56-71,71.8,15.09,0.8882,,,2026-11-05T08:20-06:00,19:30
+2026-11-05,401924631,North Alabama Lions,Ole Miss Rebels,False,259,15,Ole Miss Rebels,-40.4,99.9,42-82,70.8,40.44,0.9994,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401907164,George Washington Revolutionaries,West Virginia Mountaineers,False,98,22,West Virginia Mountaineers,-23.6,97.2,52-75,67.7,23.63,0.9717,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401929019,Cleveland State Vikings,Bowling Green Falcons,False,176,170,Bowling Green Falcons,-4.2,63.2,61-65,73.3,4.18,0.6319,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401927981,Tennessee State Lady Tigers,William & Mary Tribe,False,328,207,William & Mary Tribe,-13.0,85.4,57-70,74.2,13.04,0.8536,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401927515,Southern Miss Lady Eagles,Auburn Tigers,False,183,43,Auburn Tigers,-23.9,97.3,54-78,70.2,23.86,0.9728,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401927485,Alabama A&M Bulldogs,Alabama Crimson Tide,False,266,28,Alabama Crimson Tide,-37.4,99.9,43-81,70.9,37.36,0.9987,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401921452,Eastern Michigan Eagles,Purdue Boilermakers,False,202,74,Purdue Boilermakers,-19.9,94.6,61-81,73.0,19.89,0.9457,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401921078,Akron Zips,George Mason Patriots,False,223,81,George Mason Patriots,-17.9,92.6,63-81,74.9,17.93,0.9259,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401919874,Mississippi Valley State Devilettes,Chicago State Cougars,False,359,351,Chicago State Cougars,-6.2,69.1,71-77,83.7,6.17,0.6906,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401919690,Illinois State Redbirds,Dayton Flyers,False,120,143,Dayton Flyers,-0.5,51.8,72-72,71.8,0.55,0.5175,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401919067,American University Eagles,Georgetown Hoyas,False,317,70,Georgetown Hoyas,-27.1,98.5,49-76,69.0,27.06,0.9855,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401918683,Georgia Southern Eagles,Mercer Bears,False,179,279,Georgia Southern Eagles,-4.3,63.6,67-63,70.5,-4.33,0.3635,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401918582,Bethune-Cookman Wildcats,South Carolina State Lady Bulldogs,False,349,357,South Carolina State Lady Bulldogs,-1.5,54.7,58-59,71.5,1.45,0.5467,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401916211,Quinnipiac Bobcats,Vermont Catamounts,False,193,159,Vermont Catamounts,-5.2,66.3,53-58,60.9,5.22,0.663,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401916004,Virginia Cavaliers,Davidson Wildcats,False,45,94,Virginia Cavaliers,-5.7,67.8,68-62,67.9,-5.72,0.3223,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401915791,East Tennessee State Buccaneers,Clemson Tigers,False,172,37,Clemson Tigers,-21.5,95.9,44-66,61.8,21.55,0.9589,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401913811,Niagara Purple Eagles,UMass Lowell River Hawks,False,358,327,UMass Lowell River Hawks,-9.5,77.7,57-66,72.7,9.46,0.7772,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401913724,Jacksonville Dolphins,Miami Hurricanes,False,177,41,Miami Hurricanes,-26.1,98.2,56-82,76.7,26.09,0.9823,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401913715,Samford Bulldogs,Georgia Tech Yellow Jackets,False,250,72,Georgia Tech Yellow Jackets,-23.3,97.0,53-77,71.2,23.35,0.9702,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401912953,Tennessee Lady Volunteers,Coppin State Eagles,False,11,314,Tennessee Lady Volunteers,-40.4,99.9,91-50,79.3,-40.43,0.0006,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401909682,Army Black Knights,Brown Bears,False,102,214,Army Black Knights,-6.2,69.2,64-57,67.4,-6.24,0.3075,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401909670,Winthrop Eagles,Georgia Lady Bulldogs,False,300,29,Georgia Lady Bulldogs,-40.7,99.9,48-89,73.3,40.71,0.9995,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401906032,Boston College Eagles,Harvard Crimson,False,190,69,Harvard Crimson,-16.8,91.2,58-75,71.3,16.76,0.9117,,,2026-11-05T08:20-06:00,19:00
+2026-11-05,401911737,UConn Huskies,Michigan Wolverines,False,2,14,UConn Huskies,-9.6,78.2,77-67,78.4,-9.65,0.2183,,,2026-11-05T08:20-06:00,18:30
+2026-11-05,401929059,Northern Kentucky Norse,Kentucky Wildcats,False,233,12,Kentucky Wildcats,-38.4,99.9,49-88,71.3,38.37,0.999,,,2026-11-05T08:20-06:00,18:30
+2026-11-05,401927082,Central Michigan Chippewas,Ohio State Buckeyes,False,216,10,Ohio State Buckeyes,-41.3,100.0,49-90,76.9,41.27,0.9996,,,2026-11-05T08:20-06:00,18:30
+2026-11-05,401928012,SIU Edwardsville Cougars,IU Indianapolis Jaguars,False,243,180,IU Indianapolis Jaguars,-8.3,74.7,59-67,69.9,8.25,0.7471,,,2026-11-05T08:20-06:00,18:30
+2026-11-05,401916068,Lipscomb Bisons,Butler Bulldogs,False,299,53,Butler Bulldogs,-30.1,99.2,50-80,74.1,30.15,0.9925,,,2026-11-05T08:20-06:00,18:30
+2026-11-05,401913798,Manhattan Jaspers,UAlbany Great Danes,False,302,195,UAlbany Great Danes,-10.2,79.5,51-61,65.8,10.23,0.7953,,,2026-11-05T08:20-06:00,18:30
+2026-11-05,401920143,Dartmouth Big Green,Holy Cross Crusaders,False,284,152,Holy Cross Crusaders,-11.0,81.4,50-61,68.0,11.05,0.8135,,,2026-11-05T08:20-06:00,18:00
+2026-11-05,401918940,Charlotte 49ers,Texas Tech Lady Raiders,False,169,40,Texas Tech Lady Raiders,-23.0,96.8,53-76,70.0,22.99,0.9681,,,2026-11-05T08:20-06:00,18:00
+2026-11-05,401918676,Central Connecticut Blue Devils,James Madison Dukes,False,360,62,James Madison Dukes,-36.5,99.8,44-80,73.0,36.51,0.9984,,,2026-11-05T08:20-06:00,18:00
+2026-11-05,401916036,Mount St. Mary's Mountaineers,UMBC Retrievers,False,324,203,UMBC Retrievers,-13.0,85.3,53-66,72.3,13.02,0.8532,,,2026-11-05T08:20-06:00,18:00
+2026-11-05,401913899,West Florida Argonauts,Western Carolina Catamounts,False,220,330,West Florida Argonauts,-6.1,69.0,66-60,70.8,-6.15,0.31,,,2026-11-05T08:20-06:00,18:00
+2026-11-05,401913785,Merrimack Warriors,NJIT Highlanders,False,277,201,NJIT Highlanders,-9.6,78.1,60-70,73.1,9.62,0.7811,,,2026-11-05T08:20-06:00,18:00
+2026-11-05,401913773,Canisius Golden Griffins,New Hampshire Wildcats,False,337,280,New Hampshire Wildcats,-8.7,75.8,52-61,66.8,8.7,0.7585,,,2026-11-05T08:20-06:00,18:00
+2026-11-05,401913763,Siena Saints,Maine Black Bears,False,212,146,Maine Black Bears,-9.2,77.2,63-72,74.3,9.25,0.7721,,,2026-11-05T08:20-06:00,18:00
+2026-11-05,401913755,Marist Red Foxes,Bryant Bulldogs,False,308,139,Bryant Bulldogs,-14.3,87.6,50-64,66.8,14.31,0.8758,,,2026-11-05T08:20-06:00,18:00
+2026-11-05,401906103,Presbyterian Blue Hose,Wake Forest Demon Deacons,False,356,148,Wake Forest Demon Deacons,-24.9,97.8,49-74,71.2,24.86,0.9775,,,2026-11-05T08:20-06:00,18:00
+2026-11-05,401906891,UCF Knights,Florida Gators,False,110,46,Florida Gators,-14.1,87.2,63-77,73.5,14.11,0.8723,,,2026-11-05T08:20-06:00,16:30
+2026-11-05,401929107,UIC Flames,Robert Morris Colonials,False,200,188,Robert Morris Colonials,-3.3,60.6,57-60,65.3,3.33,0.6059,,,2026-11-05T08:20-06:00,16:00
+2026-11-05,401917685,Hawai'i Rainbow Wahine,San Francisco Dons,False,187,147,San Francisco Dons,-6.0,68.7,61-67,73.5,6.04,0.6869,,,2026-11-05T08:20-06:00,15:00
+2026-11-05,401926048,North Texas Mean Green,San Diego State Aztecs,False,133,56,San Diego State Aztecs,-15.7,89.8,56-72,70.3,15.72,0.8975,,,2026-11-05T08:20-06:00,14:00
+2026-11-05,401915665,Stony Brook Seawolves,Iona Gaels,False,256,297,Iona Gaels,-0.4,51.4,55-55,64.2,0.42,0.5136,,,2026-11-05T08:20-06:00,13:00
+2026-11-05,401929148,Miami (OH) RedHawks,Southeast Missouri State Redhawks,False,78,319,Miami (OH) RedHawks,-18.8,93.6,71-53,72.1,-18.83,0.0644,,,2026-11-05T08:20-06:00,12:00
+2026-11-05,401915961,Hampton Lady Pirates,SMU Mustangs,False,257,97,SMU Mustangs,-18.7,93.5,55-73,70.5,18.74,0.9347,,,2026-11-05T08:20-06:00,12:00
+2026-11-05,401913706,North Florida Ospreys,Florida State Seminoles,False,294,49,Florida State Seminoles,-32.3,99.5,54-87,77.6,32.27,0.9954,,,2026-11-05T08:20-06:00,11:00
