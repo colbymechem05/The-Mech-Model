@@ -132,8 +132,14 @@ def league_tables(league: str, day: pd.Timestamp) -> dict:
         lines["tip"] = pd.to_datetime(lines.tip, format="%H:%M").dt.strftime("%-I:%M %p")
         lines["site"] = np.where(lines.neutral, "Neutral", "")
         lines = lines.drop(columns=["date", "made_at", "neutral"])
+    sc = pd.read_csv(D.RAW / f"{league}_schedule_{D.CURRENT}.csv", low_memory=False,
+                     usecols=["home_display_name", "home_color", "away_display_name", "away_color"])
+    colors = pd.concat([sc[["home_display_name", "home_color"]].set_axis(["team", "color"], axis=1),
+                        sc[["away_display_name", "away_color"]].set_axis(["team", "color"], axis=1)])
+    colors = colors.dropna().drop_duplicates("team")
+    colors["color"] = "#" + colors.color.astype(str).str.lstrip("#")
     rec = record(league)  # one file: summary rows always exist, so it never comes up empty
-    out = {"lines": lines, "rankings": r, "conferences": strength,
+    out = {"lines": lines, "rankings": r, "conferences": strength, "colors": colors,
            "record": [rec["summary"]] + rec["months"] + rec["calibration"] + rec["games"]}
     return {k: (v if isinstance(v, list) else v.assign(league=league).replace({np.nan: None})
                 .to_dict("records")) for k, v in out.items()}
