@@ -21,19 +21,24 @@ COLUMNS = ["game_id", "season", "date", "home_id", "away_id", "home", "away",
            "home_pts", "away_pts", "margin", "poss", "minutes", "neutral"]
 
 
-def fetch(remote: str, path: Path, refresh: bool = False, tries: int = 3) -> Path:
-    """Download a sportsdataverse release file (cached unless refresh)."""
+def fetch(remote: str, path: Path, refresh: bool = False, tries: int = 5) -> Path:
+    """Download a sportsdataverse release file (cached unless refresh). Retries with
+    growing waits (GitHub sometimes answers 504), and writes to a temp file first so a
+    failed download never damages the cached copy."""
     if path.exists() and not refresh:
         return path
     path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".part")
     for attempt in range(tries):
         try:
-            urllib.request.urlretrieve(f"{BASE}/{remote}", path)
+            urllib.request.urlretrieve(f"{BASE}/{remote}", tmp)
+            tmp.replace(path)
             return path
         except OSError:
+            tmp.unlink(missing_ok=True)
             if attempt == tries - 1:
                 raise
-            time.sleep(2 ** attempt)
+            time.sleep([5, 15, 30, 60][min(attempt, 3)])
     return path
 
 

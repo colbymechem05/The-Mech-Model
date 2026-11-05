@@ -10,3 +10,4 @@ data/raw/*
 data/games_*.csv
 __pycache__/
 .pytest_cache/
+data/raw/*.part
