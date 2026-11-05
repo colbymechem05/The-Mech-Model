@@ -1,6 +1,6 @@
 name: Fetch recruiting rankings
 
-# One-off / once a year: download RSCI top-100 lists and save them to data/recruits.
+# Once a year (and by hand): men's RSCI top-100 lists + women's rankings -> data/recruits.
 on:
   schedule:
     - cron: "23 14 1 10 *"   # Oct 1 every year: pick up the new freshman class
@@ -26,6 +26,8 @@ jobs:
           python-version: "3.12"
       - run: pip install pandas lxml
       - run: python scripts/fetch_rsci.py ${{ inputs.first || '2020' }} ${{ inputs.last || '' }}$( [ -z "${{ inputs.last }}" ] && date +%Y )
+      - name: Women's (On3 page with ESPN / On3 / 247 ranks; classes 2025+)
+        run: python scripts/fetch_wbb_recruits.py 2025 $(date +%Y)
       - name: Save
         run: |
           git config user.name "mech-model-bot"

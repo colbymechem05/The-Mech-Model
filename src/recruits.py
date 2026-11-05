@@ -38,10 +38,28 @@ def school_ids(league: str = "mbb") -> dict:
     return out
 
 
-def load(league: str = "mbb") -> pd.DataFrame:
-    """All recruits: class, season (freshman year), rank, player, team_id (NaN if not in college)."""
-    if league != "mbb":
-        return pd.DataFrame(columns=["class", "season", "rank", "player", "college", "team_id", "key"])
+WBB_SOURCES = ["espn_rank", "on3_rank", "247_rank"]   # On3 = Rivals' parent; Rivals itself is blank
+
+
+def load(league: str = "mbb", source: str = "avg") -> pd.DataFrame:
+    """All recruits: class, season (freshman year), rank, player, team_id (NaN if unknown).
+    Men's: RSCI consensus top 100. Women's: On3's page with each service's rank (classes 2025+);
+    `source` picks ESPN, On3/Rivals, 247 or the average of whichever ranked the player."""
+    if league == "wbb":
+        files = sorted(FOLDER.glob("wbb_on3_*.csv"))
+        if not files:
+            return pd.DataFrame(columns=["class", "season", "rank", "tier", "player", "college", "team_id", "key"])
+        r = pd.concat([pd.read_csv(f) for f in files], ignore_index=True)
+        raw = r[WBB_SOURCES].mean(axis=1) if source == "avg" else r[source]
+        r = r[raw.notna()].copy()
+        r["rank"] = raw[raw.notna()].groupby(r["class"]).rank(method="first").astype(int)
+        r = r[r["rank"] <= 100]
+        ids = school_ids(league)
+        r["team_id"] = r.college.map(lambda c: ids.get(c) if isinstance(c, str) else None)
+        r["season"] = r["class"] + 1
+        r["key"] = r.player.map(norm_name)
+        r["tier"] = pd.cut(r["rank"], BINS, labels=LABELS)
+        return r[["class", "season", "rank", "tier", "player", "college", "team_id", "key"]]
     files = sorted(FOLDER.glob("rsci_*.csv"))
     if not files:
         return pd.DataFrame(columns=["class", "season", "rank", "player", "college", "team_id", "key"])
@@ -94,4 +112,5 @@ def match(rec: pd.DataFrame, stats: pd.DataFrame) -> pd.DataFrame:
                     hit = same.iloc[0]
         out.append({"athlete_id": None if hit is None else hit.athlete_id,
                     "played_team": None if hit is None else hit.team_id})
-    return pd.concat([rec.reset_index(drop=True), pd.DataFrame(out)], axis=1)
+    return pd.concat([rec.reset_index(drop=True),
+                      pd.DataFrame(out, columns=["athlete_id", "played_team"])], axis=1)

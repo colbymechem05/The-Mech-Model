@@ -1,0 +1,6 @@
+            version  Nov-Dec miss  full-season miss  preseason miss  recruit weight
+no recruits (today)        10.273             9.646           6.060             NaN
+               ESPN        10.258             9.640           5.995           0.973
+       On3 / Rivals        10.261             9.641           5.997           0.933
+                247        10.263             9.642           6.001           0.882
+     average of all        10.259             9.641           5.993           0.959

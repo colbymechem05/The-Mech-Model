@@ -61,7 +61,7 @@ class TalentPrior:
     def __init__(self, league: str, games: pd.DataFrame, seasons, train,
                  alpha: float = 1.0, new_value: float = -4.0,
                  new_by_program: bool = False, conf_feature: bool = False,
-                 recruit_mode: str | None = None):
+                 recruit_mode: str | None = None, recruit_source: str = "avg"):
         """new_by_program: newcomers' value depends on the program (learned from how past
         newcomers played vs. their team's previous-season rating) instead of one number.
         conf_feature: the team model also uses the conference's average last-season rating."""
@@ -72,7 +72,7 @@ class TalentPrior:
         # recruit_mode: None (off), "roster" (ranked freshmen's expected value added into the
         # roster value) or "feature" (a separate term in the team model, weight learned)
         self.recruit_mode = recruit_mode
-        self.recruits = RC.load(league) if recruit_mode else None
+        self.recruits = RC.load(league, recruit_source) if recruit_mode else None
         self.d1 = set(games[games.home_d1].home_id) | set(games[games.away_d1].away_id)
         self.truth = team_truth(games, seasons)
         p = player_table(league, seasons, self.truth)
@@ -110,7 +110,7 @@ class TalentPrior:
 
         # 4c. recruiting curves: what a freshman in each RSCI tier actually adds (minutes share
         # and share x value), relative to a typical unranked newcomer, from training seasons
-        if recruit_mode:
+        if recruit_mode and not self.recruits[self.recruits.season.isin(train)].empty:
             rows = []
             for s in train:
                 m = RC.match(self.recruits[self.recruits.season == s], P.season_stats(league, s))
@@ -128,8 +128,11 @@ class TalentPrior:
             n = pd.concat(new)
             self.v_typical = float(np.average(n.value, weights=n.minutes))
             t = x.groupby("tier", observed=False).agg(share=("min_share", "mean"), contrib=("contrib", "mean"))
-            self.tier_boost = (t.contrib - t.share * self.v_typical).rename("boost")
+            self.tier_boost = (t.contrib - t.share * self.v_typical).rename("boost").fillna(0.0)
             self.tier_table = t.assign(boost=self.tier_boost)
+        elif recruit_mode:   # no recruiting data in the training seasons: the term stays at 0
+            self.tier_boost = pd.Series(0.0, index=RC.LABELS)
+            self.tier_table, self.v_typical = None, float("nan")
 
         # 5. team model, fitted on training seasons that have a previous season
         fs = [self._features(s, P.season_stats(league, s)) for s in train if s - 1 in seasons]
