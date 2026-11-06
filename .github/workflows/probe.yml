@@ -1,0 +1,27 @@
+name: Probe odds (temporary)
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          python3 - <<'PY'
+          import json, urllib.request
+          def get(u):
+              try:
+                  with urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "the-meech-model"}), timeout=30) as r:
+                      return json.load(r)
+              except Exception as e:
+                  return {"ERROR": str(e)}
+          gid = "401913526"
+          sb = get("https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?dates=20261105&groups=50&limit=500")
+          for ev in sb.get("events", []):
+              if ev["id"] == gid:
+                  c = ev["competitions"][0]
+                  print("SCOREBOARD state", c["status"]["type"]["state"]); print(json.dumps(c.get("odds"), indent=1)[:3000])
+          core = get(f"https://sports.core.api.espn.com/v2/sports/basketball/leagues/mens-college-basketball/events/{gid}/competitions/{gid}/odds")
+          print("CORE", json.dumps(core, indent=1)[:6000])
+          sm = get(f"https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/summary?event={gid}")
+          print("SUMMARY keys", list(sm.keys()))
+          print("PICKCENTER", json.dumps(sm.get("pickcenter"), indent=1)[:4000])
+          PY
