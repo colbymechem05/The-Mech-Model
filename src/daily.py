@@ -112,7 +112,6 @@ def make_lines(league: str, day: pd.Timestamp, r: pd.DataFrame, lg_info: dict,
                       p.home_pts.round().astype(int).astype(str),
         "proj_tempo": p.tempo.round(1),
         "spread_home": p.spread_home.round(2), "p_home": p.p_home.round(4),
-        "vegas_line": None, "torvik_line": None,   # filled in once running on GitHub
         "made_at": pd.Timestamp.now(tz="America/Chicago").isoformat(timespec="minutes"),
     })
 

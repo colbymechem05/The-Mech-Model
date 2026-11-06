@@ -350,3 +350,32 @@ def test_daily_run_end_to_end(tmp_path, monkeypatch):
     (tmp_path / "logs" / "predictions_wbb.csv").unlink()
     daily.run(pd.Timestamp("2026-11-04"), refresh=False)
     assert not (tmp_path / "logs" / "predictions_wbb.csv").exists()
+
+
+@needs_data
+def test_team_pages_and_records_agree(tmp_path, monkeypatch):
+    """Website team pages: one per rated team; W-L matches the records table; upcoming games
+    carry a sane line and win chance; the end of the season projects from today's ratings."""
+    monkeypatch.setattr(daily, "OUT", tmp_path)
+    monkeypatch.setattr(daily, "LOGS", tmp_path)
+    monkeypatch.setattr(daily, "NOW", lambda: pd.Timestamp("2026-11-06 10:00", tz="UTC"))
+    day = pd.Timestamp("2026-11-06")
+    r, lg_info, dials, conf = daily.rate("mbb", day, refresh=False)
+    proj = daily.project_schedule("mbb", day, r, lg_info, dials, conf)
+    assert len(proj) > 1000 and proj.p_home.between(0, 1).all() and proj.game_id.is_unique
+    r[["rank", "team", "net", "O", "D", "tempo", "games", "preseason", "returning_pct", "home_court"]
+      ].round(1).to_csv(tmp_path / "ratings_mbb.csv", index_label="team_id")
+    proj.to_csv(tmp_path / "projections_mbb.csv", index=False)
+    monkeypatch.setattr(export, "OUT", tmp_path)
+    monkeypatch.setattr(export, "LOGS", tmp_path)
+    pages, rec = export.team_pages("mbb", day), export.records("mbb")
+    assert set(pages) == set(int(t) for t in r.index)
+    for tid in list(pages)[:60]:
+        g = pages[tid]["g"]
+        w = sum(x.get("r") == "W" for x in g)
+        l = sum(x.get("r") == "L" for x in g)
+        if tid in rec.index:
+            assert (w, l) == (rec.wins[tid], rec.losses[tid])
+        for x in g:
+            if "r" not in x and "p" in x:
+                assert 0 <= x["p"] <= 1 and (x["ln"] > 0) == (x["p"] > 0.5)

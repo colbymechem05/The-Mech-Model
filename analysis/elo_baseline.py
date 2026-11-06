@@ -10,7 +10,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))  # run as a script
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from data import d1_games, load_games, team_names  # noqa: E402
 
 K = 30                 # base learning rate

@@ -6,7 +6,7 @@ Run: python analysis/pace_history.py"""
 import sys
 from pathlib import Path
 sys.path[:0] = [str(Path(__file__).resolve().parents[1] / "src"), str(Path(__file__).resolve().parent)]
-import numpy as np, pandas as pd
+import pandas as pd
 import data as D, ratings as R, talent as T
 from pace_control import schedule, conf_names, team_games, profile, POWER
 

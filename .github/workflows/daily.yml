@@ -1,17 +1,17 @@
 name: Daily run
 
 on:
-  schedule:
-    - cron: "17 13 * * *"   # 7:17 AM Central (13:17 UTC; 8:17 AM during daylight time): full run
-    - cron: "47 14 * * *"   # 8:47 AM Central: backup in case GitHub skips/delays the 7:17 run (keeps lines if already made)
-    - cron: "47 15 * * *"   # 9:47 AM Central: second backup (e.g. a download outage)
+  schedule:   # season months only (Nov-Apr); times are UTC
+    - cron: "17 13 * 11,12,1,2,3,4 *"   # 7:17 AM Central (13:17 UTC; 8:17 AM during daylight time): full run
+    - cron: "47 14 * 11,12,1,2,3,4 *"   # 8:47 AM Central: backup in case GitHub skips/delays the 7:17 run (keeps lines if already made)
+    - cron: "47 15 * 11,12,1,2,3,4 *"   # 9:47 AM Central: second backup (e.g. a download outage)
     # Vegas-only refreshes (Meech lines stay as made). Each also saves closing lines for finished games.
-    - cron: "47 17 * * *"   # 11:47 AM Central
-    - cron: "47 19 * * *"   # 1:47 PM
-    - cron: "47 21 * * *"   # 3:47 PM
-    - cron: "47 23 * * *"   # 5:47 PM
-    - cron: "47 1 * * *"    # 7:47 PM (next day in UTC; still today in Central)
-    - cron: "47 4 * * *"    # 10:47 PM: closing lines for the night's early games
+    - cron: "47 17 * 11,12,1,2,3,4 *"   # 11:47 AM Central
+    - cron: "47 19 * 11,12,1,2,3,4 *"   # 1:47 PM
+    - cron: "47 21 * 11,12,1,2,3,4 *"   # 3:47 PM
+    - cron: "47 23 * 11,12,1,2,3,4 *"   # 5:47 PM
+    - cron: "47 1 * 11,12,1,2,3,4 *"    # 7:47 PM (next day in UTC; still today in Central)
+    - cron: "47 4 * 11,12,1,2,3,4 *"    # 10:47 PM: closing lines for the night's early games
   workflow_dispatch:         # "Run workflow" button for a manual run
     inputs:
       vegas_only:
@@ -44,9 +44,20 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      # raw files + built game tables: keep them between runs (the Vegas-only run reuses them)
+      # Full run (morning schedules, or a manual run without "Vegas only") vs. Vegas-only refresh
+      - name: Which kind of run
+        id: kind
+        run: |
+          case "${{ github.event.schedule }}" in
+            "17 13 * 11,12,1,2,3,4 *"|"47 14 * 11,12,1,2,3,4 *"|"47 15 * 11,12,1,2,3,4 *") full=true ;;
+            "") if [ "${{ inputs.vegas_only }}" = "true" ]; then full=false; else full=true; fi ;;
+            *) full=false ;;
+          esac
+          echo "full=$full" >> "$GITHUB_OUTPUT"
+
+      # raw files + built game tables are kept between runs; only full runs change them, so only they save
       - name: Restore raw data cache
-        uses: actions/cache@v6
+        uses: actions/cache/restore@v6
         with:
           path: |
             data/raw
@@ -55,8 +66,17 @@ jobs:
           restore-keys: raw-
 
       - name: Rate teams and make today's lines
-        if: (github.event_name == 'workflow_dispatch' && inputs.vegas_only != true) || contains(fromJSON('["17 13 * * *", "47 14 * * *", "47 15 * * *"]'), github.event.schedule)
+        if: steps.kind.outputs.full == 'true'
         run: python src/daily.py
+
+      - name: Save raw data cache
+        if: steps.kind.outputs.full == 'true'
+        uses: actions/cache/save@v6
+        with:
+          path: |
+            data/raw
+            data/games_*.csv
+          key: raw-${{ github.run_id }}
 
       - name: Vegas lines
         run: python src/odds.py ${{ inputs.date }}
@@ -65,6 +85,7 @@ jobs:
         run: python src/export.py
 
       - name: Run checks
+        if: steps.kind.outputs.full == 'true'   # code only changes on pushes; data checks once a morning is enough
         run: python -m pytest tests -q
 
       - name: Save results
@@ -75,11 +96,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes"
           else
-            case "${{ github.event.schedule }}" in
-              "17 13 * * *"|"47 14 * * *"|"47 15 * * *") what="Daily run" ;;
-              "") if [ "${{ inputs.vegas_only }}" = "true" ]; then what="Vegas refresh"; else what="Daily run"; fi ;;
-              *) what="Vegas refresh" ;;
-            esac
+            if [ "${{ steps.kind.outputs.full }}" = "true" ]; then what="Daily run"; else what="Vegas refresh"; fi
             git commit -m "$what $(TZ=America/Chicago date +%Y-%m-%d)"
             git pull --rebase -q
             git push

@@ -23,20 +23,9 @@ BENCHMARK = {"mbb": {"avg_miss": 9.14, "winner_pct": 72.1}, "wbb": {"avg_miss": 
 
 
 def conferences(league: str) -> pd.Series:
-    """team_id -> conference short name (this season's alignment)."""
-    rows = []
-    for s in (D.CURRENT, D.CURRENT - 1):  # current season first, last season as fallback
-        D.download(league, s, refresh=False)  # no-op when already saved
-        sc = pd.read_csv(D.RAW / f"{league}_schedule_{s}.csv", low_memory=False, usecols=[
-            "home_id", "home_conference_id", "away_id", "away_conference_id",
-            "groups_id", "groups_short_name", "conference_competition"])
-        names = (sc[sc.conference_competition == True]  # noqa: E712
-                 .drop_duplicates("groups_id").set_index("groups_id").groups_short_name)
-        for side in ("home", "away"):
-            t = sc[[f"{side}_id", f"{side}_conference_id"]].dropna().drop_duplicates(f"{side}_id")
-            rows.append(pd.Series(t[f"{side}_conference_id"].map(names).values, index=t[f"{side}_id"]))
-    conf = pd.concat(rows).dropna()
-    return conf[~conf.index.duplicated(keep="first")]
+    """team_id -> conference (this season's alignment; last season's for teams not seen yet)."""
+    cur, prev = D.conferences(league, D.CURRENT), D.conferences(league, D.CURRENT - 1)
+    return pd.concat([cur, prev[~prev.index.isin(cur.index)]])
 
 
 def tip_times(league: str) -> pd.Series:
@@ -119,10 +108,9 @@ def record(league: str) -> dict:
     has_v = x.vegas_home.notna()
     x["closer"] = np.where(~has_v, None, np.where(x.miss < x.vegas_miss, "Meech",
                            np.where(x.miss > x.vegas_miss, "Vegas", "Tie")))
-    x["pick_result"] = x.pick_result.where(has_v & x.pick)
     games = x.sort_values(["date", "miss"], ascending=[False, True])[[
         "game_id", "date", "away", "home", "favorite", "my_line", "vegas_line", "fav_win_pct", "final",
-        "miss", "vegas_miss", "winner", "closer", "pick_result"]]
+        "miss", "vegas_miss", "winner", "closer"]]
     tag = lambda df, kind: (df.assign(kind=kind, league=league).round(2)  # noqa: E731
                             .astype(object).where(lambda d: d.notna(), None).to_dict("records"))
     return {"summary": summary, "games": tag(games, "game"), "months": tag(months, "month"),

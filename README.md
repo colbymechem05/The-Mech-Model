@@ -11,6 +11,10 @@ results, grades yesterday's lines, rates every D1 team, makes today's lines, reb
 the checks, and commits `output/`, `logs/` and `docs/data/` back to the repo. Run it by hand from the **Actions** tab →
 **Daily run** → **Run workflow**.
 
+## Each new season (once a year, late October)
+1. Add the new season to `SEASONS` in `src/data.py` (e.g. 2028 = the 2027-28 season). Everything else follows.
+2. The recruiting fetch runs on its own every Oct 1. The daily schedule only runs November-April.
+
 ## Run it
 ```
 python src/daily.py                 # today: refresh data, rate every D1 team, make today's lines
@@ -28,12 +32,11 @@ Needs Python 3.11+ and `pip install -r requirements.txt`. Data downloads automat
 | `src/players.py` | Player season stats (also used as rosters) |
 | `src/talent.py` | Player ratings (Game Score, scaled to team strength) + roster-talent preseason prior |
 | `src/rosters.py` | Returning-minutes share (shown in the ratings output) |
-| `src/elo.py` | Elo baseline: the simple benchmark the engine must beat |
 | `src/daily.py` | Daily run: ratings, today's lines, append-only prediction log |
 | `src/odds.py` | Vegas lines from ESPN's scoreboard → `logs/vegas_{lg}.csv` (last pre-tip line per game) |
 | `src/export.py` | Website data: one JSON per dataset in `docs/data/` (lines, rankings, conferences, track record, info) |
 | `docs/index.html` | The Meech Model website (GitHub Pages serves the `docs/` folder) |
-| `analysis/` | Studies: home court & blowouts, talent prior test |
+| `analysis/` | One-off studies behind each model decision (home court, talent prior, recruits, buy games, pace, Elo baseline, audit checks); each saves its results next to it |
 | `tests/` | Automated checks (rating recovery on a fake league, no-peeking, prediction math, log, end-to-end) |
 
 Outputs: `output/ratings_{lg}.csv`, `output/lines_{lg}_{date}.csv`, `logs/predictions_{lg}.csv` (never overwritten).

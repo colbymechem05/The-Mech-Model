@@ -71,7 +71,6 @@ main { padding: 26px 38px 40px; min-width: 0; }
 .mast { display: flex; justify-content: space-between; align-items: flex-end; gap: 18px; flex-wrap: wrap; border-bottom: 3px solid var(--rule); padding-bottom: 10px; }
 .mast.noline { border-bottom-color: transparent; padding-bottom: 4px; }
 .mast h1 { margin: 0; font: 700 32px/1 var(--display); letter-spacing: .01em; text-transform: uppercase; }
-.kicker { display: block; font: 800 15px var(--display); letter-spacing: .16em; color: var(--orange); margin-bottom: 7px; text-transform: uppercase; }
 .filters { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
 .chip { background: none; border: 1px solid var(--line); border-radius: 4px; padding: 4px 11px; font: 600 12px var(--body); letter-spacing: .03em; color: var(--muted); cursor: pointer; }
 .chip:hover { color: var(--fg); }
@@ -231,10 +230,7 @@ th.num { text-align: right; }
 .bar-row .val { font-family: var(--num); font-size: 12.5px; text-align: right; }
 .cols { display: flex; align-items: flex-end; gap: 18px; height: 210px; position: relative; border-bottom: 2px solid var(--rule); padding-top: 10px; }
 .col { flex: 1; max-width: 110px; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
-.col .v { font: 12px var(--num); margin-bottom: 4px; }
 .col .fill { width: 100%; max-width: 30px; background: var(--blue); border-radius: 2px 2px 0 0; }
-.col .pair { display: flex; align-items: flex-end; gap: 3px; width: 100%; max-width: 44px; height: 100%; justify-content: center; }
-.col .pair .fill { max-width: 20px; flex: 1; }
 .col .fill.vegas { background: var(--faint); }
 .trio { display: flex; align-items: flex-end; justify-content: center; gap: 4px; height: 100%; width: 100%; }
 .bw { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; width: 22px; }
@@ -395,8 +391,8 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     <section data-page="record" hidden>
       <div class="stats">
         <div class="stat"><div class="k">Games graded</div><div class="v" id="r-graded">—</div></div>
-        <div class="stat"><div class="k">Average miss</div><div class="v" id="r-miss">—</div><span id="r-bench-miss" hidden></span></div>
-        <div class="stat"><div class="k">Winners picked</div><div class="v" id="r-win">—</div><span id="r-bench-win" hidden></span></div>
+        <div class="stat"><div class="k">Average miss</div><div class="v" id="r-miss">—</div></div>
+        <div class="stat"><div class="k">Winners picked</div><div class="v" id="r-win">—</div></div>
       </div>
       <p class="empty" id="record-none" hidden>No graded games yet. Results post the morning after each game.</p>
 
@@ -547,7 +543,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 <script>
 (() => {
   const POWER = ['SEC', 'Big Ten', 'Big 12', 'ACC', 'Big East'];
-  const TOP_N = 100, TOSSUP = 4, BLOWOUT = 15, BIG_GAP = 3;
+  const TOP_N = 100, TOSSUP = 4, BLOWOUT = 15;
   const PAGES = ['today', 'rankings', 'top25', 'record', 'how', 'team', 'conf'];
   const DETAIL = ['team', 'conf'];
   const S = {stack: [], base: 'today', cname: '', league: 'mbb', tab: 'today', confs: new Set(), sort: 'spread', scol: '', sdir: 'asc',
@@ -634,9 +630,9 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $$('section[data-page]').forEach((s) => { s.hidden = s.dataset.page !== S.tab; });
     document.querySelector('.mast').hidden = S.tab === 'team';
     $$('.nav button').forEach((b) => { if (DETAIL.includes(S.tab)) b.setAttribute('aria-selected', String(b.dataset.tab === (S.base || 'rankings'))); });
-    const heads = {today: ['', longDate()], rankings: ['', `${lg()} Power Ratings`], top25: ['', `${lg()} Rankings`],
-                   record: ['', `${lg()} Track Record`], how: ['', 'The Meech Model'], team: ['', ''], conf: ['', `${lg()} ${S.cname || ''}`]};
-    $('#title').textContent = heads[S.tab][1];
+    const titles = {today: longDate(), rankings: `${lg()} Power Ratings`, top25: `${lg()} Rankings`,
+                    record: `${lg()} Track Record`, how: 'The Meech Model', team: '', conf: `${lg()} ${S.cname || ''}`};
+    $('#title').textContent = titles[S.tab];
     document.querySelector('.mast').classList.toggle('noline', S.tab === 'rankings');
     $('#rank-tools').hidden = S.tab !== 'rankings' && S.tab !== 'top25';
     $('#pr-q').hidden = S.tab !== 'rankings';
@@ -646,7 +642,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     const custom = S.confs.size > 0 && !isPower();
     $('#conf-btn').setAttribute('aria-pressed', String(custom));
     $('#conf-label').textContent = custom ? confLabel() : 'Conferences';
-    const names = [...new Set((D.conferences || []).map((r) => r.conf))].sort((a, b) => a.localeCompare(b));
+    const names = ofLeague(D.conferences).map((r) => r.conf).sort((a, b) => a.localeCompare(b));
     $('#conf-grid').replaceChildren(...names.map((name) => {
       const lab = el('label'), box = el('input');
       box.type = 'checkbox'; box.checked = S.confs.has(name);
@@ -752,8 +748,6 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $('#r-graded').textContent = sum.graded === undefined ? '—' : String(sum.graded);
     $('#r-miss').textContent = num(sum.avg_miss) === null ? '—' : num(sum.avg_miss).toFixed(2);
     $('#r-win').textContent = pct(sum.winner_pct);
-    $('#r-bench-miss').textContent = num(sum.bench_miss) === null ? '—' : num(sum.bench_miss).toFixed(2);
-    $('#r-bench-win').textContent = pct(sum.bench_winner);
     $('#record-none').hidden = sum.graded !== 0;
     $('#vegas-card').hidden = !sum.vegas_graded;
     if (sum.vegas_graded) {
@@ -1042,7 +1036,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   // ---------- controls ----------
   $$('.league button').forEach((b) => b.addEventListener('click', () => { S.league = b.dataset.league; S.logn = 200; if (DETAIL.includes(S.tab)) { S.stack = []; S.tab = S.base || 'rankings'; } render(); }));
   $$('.nav button').forEach((b) => b.addEventListener('click', () => { S.stack = []; S.base = S.tab = b.dataset.tab; render(); window.scrollTo(0, 0); }));
-  $$('[data-go]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); S.tab = a.dataset.go; render(); }));
+  $$('[data-go]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); S.stack = []; S.base = S.tab = a.dataset.go; render(); }));
   $('#conf-btn').addEventListener('click', () => {
     const p = $('#conf-panel'); p.hidden = !p.hidden; $('#conf-btn').setAttribute('aria-expanded', String(!p.hidden));
   });
