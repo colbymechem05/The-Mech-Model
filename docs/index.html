@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="assets/logo-256.png">
 <meta property="og:image" content="assets/logo-256.png">
 <script>
-  try { if (localStorage.getItem('mech-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
+  try { if (localStorage.getItem('mech-theme') === 'dark') delete document.documentElement.dataset.theme; } catch (e) {}
 </script>
 <style>
 /* Fonts (SIL Open Font License, files in assets/fonts) */
@@ -24,7 +24,7 @@
   /* colors from the logo: navy + the light-blue streak; basketball orange as the accent */
   --bg: #070d1b; --panel: #0b1529; --row: #0a1427; --line: #1b2a48; --rule: #eef3fb;
   --fg: #eef3fb; --muted: #8597b5; --faint: #5d6f8f;
-  --blue: #3cc8f8; --orange: #ff8a1f; --on-orange: #1a0e02; --on-blue: #04121f; --win: #34c472; --loss: #f0524f;
+  --blue: #3cc8f8; --orange: #ff8a1f; --on-orange: #1a0e02; --on-blue: #04121f; --win: #34c472; --loss: #f0524f; --strip-bg: #f7f5ef; --strip-neutral: #d9d5ca;
   --side: #000; --side-fg: #c9d4e8; --side-line: rgba(255,255,255,.07);
   --display: "Zilla Slab", Georgia, serif; --body: "Barlow", system-ui, sans-serif;
   --num: "Barlow", system-ui, sans-serif;
@@ -34,7 +34,7 @@
 [data-theme="light"] {
   --bg: #f4f2ec; --panel: #fbfaf6; --row: #efede6; --line: #dcd8cd; --rule: #0a1430;
   --fg: #0c1730; --muted: #5a6880; --faint: #8b95a7;
-  --blue: #0b86c7; --orange: #e5660a; --on-orange: #fff; --on-blue: #fff; --win: #1d9150; --loss: #d23a37;
+  --blue: #0b86c7; --orange: #e5660a; --on-orange: #fff; --on-blue: #fff; --win: #1d9150; --loss: #d23a37; --strip-bg: #fff; --strip-neutral: #dedad0;
   --shadow: 0 14px 34px rgba(20,30,45,.16);
   color-scheme: light;
 }
@@ -86,6 +86,8 @@ input[type=checkbox] { accent-color: var(--orange); }
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); border-bottom: 1px solid var(--line); }
 .stat { padding: 10px 16px 9px 0; margin-right: 16px; border-right: 1px solid var(--line); min-width: 0; }
 .stat:last-child { border-right: 0; margin-right: 0; }
+.stat .k .q { margin-left: 4px; vertical-align: 1px; }
+.stat { overflow: visible; }
 .stat .k { font: 600 10.5px var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .stat .v { font: 600 21px/1.3 var(--num); font-variant-numeric: tabular-nums; }
 .stat .v.o { color: var(--orange); }
@@ -120,9 +122,9 @@ input[type=checkbox] { accent-color: var(--orange); }
 .tm-big { display: flex; gap: 34px; text-align: right; }
 .tm-big .q .pop { left: auto; right: 0; }
 .tm-big .big { font: 700 46px/1 var(--display); }
-.strip-wrap { margin: 22px 0 18px; }
-.strip { display: flex; align-items: stretch; gap: 3px; height: 34px; }
-.strip i { flex: 1; border-radius: 2px; background: var(--line); }
+.strip-wrap { margin: 40px 0 18px; }
+.strip { display: flex; align-items: stretch; gap: 3px; height: 46px; padding: 6px; background: var(--strip-bg); border: 1px solid var(--line); border-radius: 5px; }
+.strip i { flex: 1; border-radius: 2px; background: var(--strip-neutral); }
 .strip i.w { background: var(--win); }
 .strip i.l { background: var(--loss); }
 .strip i { cursor: default; transition: transform .08s; }
@@ -137,17 +139,23 @@ input[type=checkbox] { accent-color: var(--orange); }
 .legend .lc { color: var(--muted); }
 .legend .lc::before { display: none; }
 .sec-tight { margin-top: 0; }
+.cf-split { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 0 32px; }
+#cf-table th, #cf-players th { letter-spacing: .03em; padding-left: 6px; padding-right: 6px; }
+#cf-table td, #cf-players td { padding-left: 6px; padding-right: 6px; }
+@media (max-width: 900px) { .cf-split { grid-template-columns: minmax(0, 1fr); } }
+#cf-players td, #cf-players th { padding-top: 7px; padding-bottom: 7px; }
+#cf-players td:nth-child(2) { color: var(--muted); font-size: 12.5px; white-space: normal; }
 .sheet .q { margin-left: 6px; vertical-align: 1px; }
 .clink { cursor: pointer; }
 .clink:hover { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
 .bar-row { cursor: pointer; }
 .bar-row:hover .name { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
 .brand { cursor: pointer; }
-.strip .now { flex: none; width: 2px; margin: -7px 4px; background: var(--fg); position: relative; }
-.strip .now span { position: absolute; top: -17px; left: 50%; transform: translateX(-50%); font: 600 10px var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--fg); white-space: nowrap; }
+.strip .now { flex: none; width: 3px; margin: -13px 3px; background: var(--orange); border-radius: 2px; position: relative; }
+.strip .now span { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font: 600 10px var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--fg); white-space: nowrap; }
 .strip-key { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 9px; font-size: 12px; color: var(--muted); }
 .strip-key .sq { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
-.strip-key .grad { display: inline-block; width: 140px; height: 10px; border-radius: 2px; vertical-align: -1px; margin: 0 7px; background: linear-gradient(to right, var(--loss), var(--line), var(--win)); }
+.strip-key .grad { display: inline-block; width: 140px; height: 10px; border-radius: 2px; vertical-align: -1px; margin: 0 7px; background: linear-gradient(to right, var(--loss), var(--strip-neutral), var(--win)); }
 .split { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr); gap: 0 44px; }
 .sheet { width: 100%; border-collapse: collapse; }
 .sheet td { padding: 9px 0; border-bottom: 1px solid var(--line); background: none !important; }
@@ -323,7 +331,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <div class="sec">
         <h2>The Board <span class="q" tabindex="0">?<span class="pop">The table below shows every D1 game today with the Meech line. The Vegas line is also shown from that team's perspective (a &ldquo;+&rdquo; number means Vegas has them as the underdog). Lines are locked before tip and never edited.</span></span></h2>
         <div class="tools">
-          <div class="legend"><span class="lb">Meech favorite</span><span class="lo">Toss-up (line &lt;4)</span></div>
+          <div class="legend"><span class="lb">Meech favorite</span><span class="lo">Toss-up (line &lt;4)</span><span class="lc">N = neutral site</span></div>
           <label>Sort <select id="sort-today">
             <option value="spread">Closest spread</option><option value="tip">Tip time</option>
             <option value="gap" id="opt-gap">Biggest gap vs. Vegas</option><option value="matchup">Best matchup</option>
@@ -393,12 +401,12 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <p class="empty" id="record-none" hidden>No graded games yet. Results post the morning after each game.</p>
 
       <div id="vegas-card" hidden>
-        <div class="sec"><h2>Meech vs. Vegas <span class="q" tabindex="0">?<span class="pop">Only games where a Vegas line was saved before tip. A <b>pick</b> is any game where the Meech line differs from Vegas by 3+ points, graded against the Vegas spread. 52.4% is break-even at standard odds.</span></span></h2></div>
+        <div class="sec"><h2>Meech vs. Vegas <span class="q" tabindex="0">?<span class="pop">Only games that had a Vegas line. Vegas is graded on its <b>closing</b> line (the last line before tip, DraftKings via ESPN). If a closing line wasn&rsquo;t available, the last line we captured before tip is used. A <b>pick</b> is any game where the Meech line differs from Vegas by 3+ points, graded against the Vegas spread. 52.4% is break-even at standard odds.</span></span></h2></div>
         <div class="stats">
-          <div class="stat"><div class="k">Games with a line</div><div class="v" id="v-graded">—</div><div class="s">&nbsp;</div></div>
-          <div class="stat"><div class="k">Avg miss: Meech / Vegas</div><div class="v" id="v-miss">—</div><div class="s">&nbsp;</div></div>
-          <div class="stat"><div class="k">Meech closer</div><div class="v" id="v-closer">—</div><div class="s">Of games with both lines</div></div>
-          <div class="stat"><div class="k">Picks vs. the number</div><div class="v o" id="v-picks">—</div><div class="s" id="v-picks-note">—</div></div>
+          <div class="stat"><div class="k">Games with a Vegas line <span class="q" tabindex="0">?<span class="pop">Graded games that had a Vegas line. The note underneath says how many were graded against the closing line.</span></span></div><div class="v" id="v-graded">—</div><div class="s" id="v-close-note">&nbsp;</div></div>
+          <div class="stat"><div class="k">Avg miss: Meech / Vegas <span class="q" tabindex="0">?<span class="pop">On these same games: the average number of points each line missed the final margin by. Lower is better.</span></span></div><div class="v" id="v-miss">—</div><div class="s">&nbsp;</div></div>
+          <div class="stat"><div class="k">Meech closer <span class="q" tabindex="0">?<span class="pop">How often the Meech line landed closer to the final margin than the Vegas line did. Ties count as half.</span></span></div><div class="v" id="v-closer">—</div><div class="s">Of games with both lines</div></div>
+          <div class="stat"><div class="k">Picks vs. the number <span class="q r" tabindex="0">?<span class="pop">When the Meech line and Vegas differ by 3 or more points, that game counts as a pick on the side the Meech model likes. Example: Meech has Duke &minus;10, Vegas has Duke &minus;6, so the pick is Duke, and it wins only if Duke wins by more than 6. Shown as wins&ndash;losses (&ndash;pushes). At standard odds you need 52.4% to break even.</span></span></div><div class="v o" id="v-picks">—</div><div class="s" id="v-picks-note">—</div></div>
         </div>
       </div>
 
@@ -433,7 +441,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
         </div>
       </div>
       <div class="sec"><h2>Schedule <span class="q" tabindex="0">?<span class="pop">Every game this season. Played games show the line logged before tip. Upcoming games show what the Meech line would be if the game were played today. <b>C</b> = conference game. <b>N</b> = neutral site.</span></span></h2>
-        <div class="legend"><span class="lb">Meech favorite</span><span class="lc">C = conference game</span></div></div>
+        <div class="legend"><span class="lb">Meech favorite</span><span class="lc">C = conference game</span><span class="lc">N = neutral site</span></div></div>
       <div class="strip-wrap">
         <div class="strip" id="tm-strip"></div>
         <div class="strip-key">
@@ -461,13 +469,22 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     <section data-page="conf" hidden>
       <a class="back" id="cf-back" href="#">&larr; Back</a>
       <div class="ticker" id="cf-ticker"></div>
-      <div class="scroll" style="margin-top:14px"><table id="cf-table"><thead><tr>
-        <th class="num">#</th><th>Team</th><th class="num">Overall</th><th class="num">Conf</th>
-        <th class="num">Net <span class="q" tabindex="0">?<span class="pop">Points per 100 possessions better than an average D1 team on a neutral floor.</span></span></th>
-        <th class="num">Offense</th><th class="num">Defense</th><th class="num">Tempo</th>
-        <th class="num">D1 rank <span class="q r" tabindex="0">?<span class="pop">Where the team ranks among all D1 teams in the Meech power ratings.</span></span></th>
-        <th class="num">Preseason</th><th class="num">Change <span class="q r" tabindex="0">?<span class="pop">How far the Net rating has moved from its preseason number.</span></span></th>
-      </tr></thead><tbody></tbody></table></div>
+      <div class="split cf-split">
+        <div>
+          <div class="sec"><h2>Standings <span class="q" tabindex="0">?<span class="pop">Ordered by conference record once conference games start (games above .500, then wins). Until then, and to break ties, ordered by Net rating.</span></span></h2></div>
+          <div class="scroll" style="max-height:none"><table id="cf-table"><thead><tr>
+            <th class="num">#</th><th>Team</th><th class="num">Conf</th><th class="num">Overall</th>
+            <th class="num">Net <span class="q" tabindex="0">?<span class="pop">Points per 100 possessions better than an average D1 team on a neutral floor.</span></span></th>
+            <th class="num">Offense</th><th class="num">Defense</th>
+            <th class="num">D1 rank <span class="q r" tabindex="0">?<span class="pop">Where the team ranks among all D1 teams in the Meech power ratings.</span></span></th>
+          </tr></thead><tbody></tbody></table></div>
+        </div>
+        <div>
+          <div class="sec"><h2>Top Players <span class="q r" tabindex="0">?<span class="pop">The conference&rsquo;s top 10 scorers this season (per game), among players who&rsquo;ve played in at least half of their team&rsquo;s games.</span></span></h2></div>
+          <table id="cf-players"><thead><tr><th>Player</th><th>Team</th><th class="num">PTS</th><th class="num">REB</th><th class="num">AST</th></tr></thead><tbody></tbody></table>
+          <p class="empty" id="cf-players-none" hidden>No stats yet.</p>
+        </div>
+      </div>
     </section>
 
     <!-- ===== How it works ===== -->
@@ -741,6 +758,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $('#vegas-card').hidden = !sum.vegas_graded;
     if (sum.vegas_graded) {
       $('#v-graded').textContent = String(sum.vegas_graded);
+      $('#v-close-note').textContent = `${sum.vegas_closing ?? 0} graded vs. the closing line`;
       $('#v-miss').textContent = `${num(sum.my_miss_v).toFixed(2)} / ${num(sum.vegas_miss).toFixed(2)}`;
       $('#v-closer').textContent = pct(sum.closer_pct);
       $('#v-picks').textContent = `${sum.pick_w}-${sum.pick_l}` + (sum.pick_p ? `-${sum.pick_p}` : '');
@@ -846,7 +864,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   // win chance -> red (big underdog) ... neutral (toss-up) ... green (big favorite)
   const chanceColor = (p) => {
     const t = Math.min(1, Math.abs(p - 0.5) * 2);
-    return `color-mix(in srgb, var(${p >= 0.5 ? '--win' : '--loss'}) ${Math.round(25 + 75 * t)}%, var(--line))`;
+    return `color-mix(in srgb, var(${p >= 0.5 ? '--win' : '--loss'}) ${Math.round(12 + 88 * t)}%, var(--strip-neutral))`;
   };
 
   function renderTeam() {
@@ -963,14 +981,33 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $('#cf-ticker').replaceChildren(it('Teams', String(teams.length)),
       it('Average rating', avg.toFixed(1), st ? `${ordinal(strength.indexOf(st) + 1)} of ${strength.length} conferences` : ''),
       it('Best', f1(teams[0].net), teams[0].team));
-    fill($('#cf-table tbody'), teams.map((r, k) => {
+    const confPlayed = teams.some((r) => (r.conf_wins || 0) + (r.conf_losses || 0) > 0);
+    const order = confPlayed ? [...teams].sort((a, b) =>
+      ((b.conf_wins - b.conf_losses) - (a.conf_wins - a.conf_losses)) || (b.conf_wins - a.conf_wins) || (b.net - a.net)) : teams;
+    fill($('#cf-table tbody'), order.map((r, k) => {
       const tr = el('tr');
       tr.append(td(String(k + 1), 'num ' + (k < 3 ? 'top' : 'rk')), teamCell(r.team),
-        td(recTxt(r.wins ?? 0, r.losses ?? 0), 'num'), td(recTxt(r.conf_wins ?? 0, r.conf_losses ?? 0), 'num muted'),
-        td(f1(r.net), 'num'), td(f1(r.O), 'num'), td(f1(r.D), 'num'), td(f1(r.tempo), 'num muted'),
-        td(String(r.rank), 'num ' + (r.rank <= 25 ? 'top' : 'rk')), td(f1(r.preseason), 'num muted'), td(signed(r.vs_preseason), 'num'));
+        td(recTxt(r.conf_wins ?? 0, r.conf_losses ?? 0), 'num'), td(recTxt(r.wins ?? 0, r.losses ?? 0), 'num muted'),
+        td(f1(r.net), 'num'), td(f1(r.O), 'num'), td(f1(r.D), 'num'),
+        td(String(r.rank), 'num ' + (r.rank <= 25 ? 'top' : 'rk')));
       return tr;
     }));
+    // top players: needs the team-page file (loaded once per league)
+    const pack = TEAMS[S.league];
+    if (!pack) {
+      fetch(`data/teams_${S.league}.json`, {cache: 'no-cache'}).then((r) => r.json())
+        .then((j) => { TEAMS[S.league] = j; if (S.tab === 'conf') render(); })
+        .catch(() => { TEAMS[S.league] = {}; });
+    }
+    const players = pack ? teams.flatMap((t) => ((pack[t.team_id] || {}).l || []).map((p) => ({...p, team: t.team})))
+      .sort((a, b) => b.pts - a.pts).slice(0, 10) : [];
+    fill($('#cf-players tbody'), players.map((p) => {
+      const tr = el('tr'); const tc = el('td'); const nm = el('span', 'tlink', p.team);
+      nm.dataset.team = (NAME2ID[S.league] || {})[p.team]; tc.append(nm);
+      tr.append(td(p.name), tc, td(f1(p.pts), 'num'), td(f1(p.reb), 'num'), td(f1(p.ast), 'num'));
+      return tr;
+    }));
+    $('#cf-players-none').hidden = !pack || players.length > 0;
   }
 
   document.addEventListener('click', (e) => {

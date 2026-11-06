@@ -220,6 +220,33 @@ def test_force_cannot_change_a_logged_line(tmp_path, monkeypatch):
     assert out.loc[1, "my_line"] == -3.0 and out.loc[2, "my_line"] == -5.0
 
 
+def test_closing_line_parsing():
+    feed = {"items": [{"overUnder": 172.5, "homeTeamOdds": {"close": {"pointSpread": {"american": "-30.5"}}}}]}
+    assert odds.parse_close(feed) == (30.5, 172.5)                       # home favored by 30.5
+    feed["items"][0]["homeTeamOdds"]["close"]["pointSpread"]["american"] = "+4"
+    assert odds.parse_close(feed)[0] == -4.0
+    assert odds.parse_close({"items": []}) == (None, None)
+
+
+def test_grading_prefers_closing_line(tmp_path, monkeypatch):
+    monkeypatch.setattr(export, "LOGS", tmp_path)
+    monkeypatch.setattr(odds, "LOGS", tmp_path)
+    pd.DataFrame({"game_id": [1, 2], "date": ["2026-11-04"] * 2, "away": list("ab"), "home": list("xy"),
+                  "favorite": ["x", "y"], "my_line": [-10.0, -3.0], "fav_win_pct": [80.0, 60.0],
+                  "spread_home": [10.0, 3.0], "p_home": [0.8, 0.6]}).to_csv(tmp_path / "predictions_mbb.csv", index=False)
+    odds.save("mbb", pd.DataFrame({"game_id": [1, 2], "date": ["2026-11-04"] * 2, "vegas_home": [6.0, 1.0],
+                                   "vegas_total": [140.0] * 2, "provider": ["Book"] * 2, "fetched_at": ["x"] * 2}))
+    v = odds.load("mbb"); v.loc[v.game_id == 1, "close_home"] = 8.0
+    v.to_csv(tmp_path / "vegas_mbb.csv", index=False)
+    odds.save("mbb", pd.DataFrame({"game_id": [1], "date": ["2026-11-04"], "vegas_home": [7.0],   # later capture
+                                   "vegas_total": [140.0], "provider": ["Book"], "fetched_at": ["y"]}))
+    assert odds.load("mbb").set_index("game_id").close_home[1] == 8.0     # close survives an upsert
+    finals = pd.DataFrame({"game_id": [1, 2], "home_pts": [80, 70], "away_pts": [72, 69]})
+    monkeypatch.setattr(D, "load_games", lambda lg: finals.assign(margin=finals.home_pts - finals.away_pts))
+    x = export.grade("mbb").set_index("game_id")
+    assert x.vegas_home[1] == 8.0 and x.vegas_home[2] == 1.0             # close if we have it, else captured
+
+
 def test_vegas_line_parsing():
     assert odds.home_margin({"details": "DUKE -6.5"}, "DUKE", "UNC") == 6.5      # home favored
     assert odds.home_margin({"details": "DUKE -6.5"}, "UNC", "DUKE") == -6.5     # away favored

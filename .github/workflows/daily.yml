@@ -5,7 +5,13 @@ on:
     - cron: "17 13 * * *"   # 7:17 AM Central (13:17 UTC; 8:17 AM during daylight time): full run
     - cron: "47 14 * * *"   # 8:47 AM Central: backup in case GitHub skips/delays the 7:17 run (keeps lines if already made)
     - cron: "47 15 * * *"   # 9:47 AM Central: second backup (e.g. a download outage)
-    - cron: "47 21 * * *"   # 3:47 PM Central: refresh Vegas lines only (Meech lines stay as made)
+    # Vegas-only refreshes (Meech lines stay as made). Each also saves closing lines for finished games.
+    - cron: "47 17 * * *"   # 11:47 AM Central
+    - cron: "47 19 * * *"   # 1:47 PM
+    - cron: "47 21 * * *"   # 3:47 PM
+    - cron: "47 23 * * *"   # 5:47 PM
+    - cron: "47 1 * * *"    # 7:47 PM (next day in UTC; still today in Central)
+    - cron: "47 4 * * *"    # 10:47 PM: closing lines for the night's early games
   workflow_dispatch:         # "Run workflow" button for a manual run
     inputs:
       vegas_only:
@@ -49,7 +55,7 @@ jobs:
           restore-keys: raw-
 
       - name: Rate teams and make today's lines
-        if: github.event.schedule != '47 21 * * *' && inputs.vegas_only != true
+        if: (github.event_name == 'workflow_dispatch' && inputs.vegas_only != true) || contains(fromJSON('["17 13 * * *", "47 14 * * *", "47 15 * * *"]'), github.event.schedule)
         run: python src/daily.py
 
       - name: Vegas lines
@@ -69,7 +75,11 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes"
           else
-            if [ "${{ github.event.schedule }}" = "47 21 * * *" ] || [ "${{ inputs.vegas_only }}" = "true" ]; then what="Vegas refresh"; else what="Daily run"; fi
+            case "${{ github.event.schedule }}" in
+              "17 13 * * *"|"47 14 * * *"|"47 15 * * *") what="Daily run" ;;
+              "") if [ "${{ inputs.vegas_only }}" = "true" ]; then what="Vegas refresh"; else what="Daily run"; fi ;;
+              *) what="Vegas refresh" ;;
+            esac
             git commit -m "$what $(TZ=America/Chicago date +%Y-%m-%d)"
             git pull --rebase -q
             git push

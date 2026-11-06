@@ -63,7 +63,10 @@ def grade(league: str) -> pd.DataFrame:
     x["miss"] = (x.spread_home - x.margin).abs()
     x["correct"] = (x.spread_home >= 0) == (x.margin > 0)
     x["fav_p"] = np.where(x.spread_home >= 0, x.p_home, 1 - x.p_home)
-    x = x.merge(odds.load(league)[["game_id", "vegas_home"]], on="game_id", how="left")
+    v = odds.load(league)
+    v["is_close"] = v.close_home.notna()
+    v["vegas_home"] = v.close_home.fillna(v.vegas_home)   # grade vs. the CLOSING line when we have it
+    x = x.merge(v[["game_id", "vegas_home", "is_close"]], on="game_id", how="left")
     x["vegas_line"] = vegas_for_favorite(x.spread_home, x.vegas_home)
     x["vegas_miss"] = (x.vegas_home - x.margin).abs()
     # pick vs. the number: side the Meech line likes, graded against the Vegas spread
@@ -92,7 +95,8 @@ def record(league: str) -> dict:
     if len(v):
         picks = v[v.pick].pick_result.value_counts()
         w, l_, p = (int(picks.get(k, 0)) for k in "WLP")
-        summary.update(vegas_graded=len(v), my_miss_v=round(v.miss.mean(), 2),
+        summary.update(vegas_graded=len(v), vegas_closing=int(v.is_close.fillna(False).sum()),
+                       my_miss_v=round(v.miss.mean(), 2),
                        vegas_miss=round(v.vegas_miss.mean(), 2),
                        closer_pct=round(100 * ((v.miss < v.vegas_miss) + 0.5 * (v.miss == v.vegas_miss)).mean(), 1),
                        pick_w=w, pick_l=l_, pick_p=p, pick_pct=round(100 * w / (w + l_), 1) if w + l_ else None)
