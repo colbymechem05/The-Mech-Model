@@ -187,7 +187,7 @@ th.num { text-align: right; }
 .how h3 { font: 700 20px/1.15 var(--display); letter-spacing: .03em; text-transform: uppercase; margin: 30px 0 8px; }
 .how h3 span { color: var(--orange); margin-right: 8px; }
 .how p, .how li { font-size: 16px; line-height: 1.6; }
-.how ul { padding-left: 20px; }
+.how ul, .how ol { padding-left: 20px; }
 .how li { margin: 4px 0; }
 .how .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0; border-top: 1px solid var(--line); margin-top: 14px; }
 .how .steps div { padding: 14px 16px 14px 0; border-bottom: 1px solid var(--line); }
@@ -236,7 +236,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
   <main>
     <div class="mast">
-      <h1><span id="title">—</span> <span class="q mast-q" id="pr-q" tabindex="0" hidden>?<span class="pop"><b>Power ratings are not rankings.</b> They measure how strong each team is right now (points per 100 possessions vs. an average D1 team), so any two teams can be compared and turned into a line and a win chance. A team can be rated above a team with a better record. Rankings judge résumés (who you&rsquo;ve beaten) and come later in the season.</span></span></h1>
+      <h1><span id="title">—</span> <span class="q mast-q" id="pr-q" tabindex="0" hidden>?<span class="pop"><b>Power ratings are not rankings.</b> They measure how strong each team is right now relative to an average D1 team per 100 possessions, so any two teams can be compared, turned into a line, and converted to a win probability. A team can be rated above a team with a better record. Rankings judge résumés (who you&rsquo;ve beaten) and will come later in the season in the Rankings tab.</span></span></h1>
       <div class="filters" id="filters">
         <div class="tools" id="rank-tools" hidden>
           <input type="search" id="search" placeholder="Search teams" aria-label="Search teams">
@@ -260,7 +260,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
         <span class="it" id="t-gap-tile" hidden><span class="k">Biggest gap vs. Vegas</span><b id="t-gap">—</b><span class="t" id="t-gap-note">—</span></span>
       </div>
       <div class="sec">
-        <h2>The Board <span class="q" tabindex="0">?<span class="pop">Every D1 game today with the Meech line, from the favorite's side. <b>Vegas</b> is also shown from that team's side (a + number means Vegas has them as the underdog). <b>Gap</b> = Meech minus Vegas: negative means the Meech model likes the favorite more. <b>N</b> = neutral site. Lines are locked before tip and never edited.</span></span></h2>
+        <h2>The Board <span class="q" tabindex="0">?<span class="pop">The table below shows every D1 game today with the Meech line. The Vegas line is also shown from that team's perspective (a &ldquo;+&rdquo; number means Vegas has them as the underdog). Lines are locked before tip and never edited.</span></span></h2>
         <div class="tools">
           <div class="legend"><span class="lb">Meech favorite</span><span class="lo">Toss-up (line &lt;4)</span></div>
           <label>Sort <select id="sort-today">
@@ -295,14 +295,14 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           <th data-col="rank" class="num"><button>Rk</button></th>
           <th data-col="team"><button>Team</button></th>
           <th data-col="conf"><button>Conf</button></th>
-          <th data-col="net" class="num"><button>Net</button><span class="q hq" tabindex="0">?<span class="pop">Points per 100 possessions better than an average D1 team on a neutral floor. Offense minus defense. This is what the ranking sorts by.</span></span></th>
-          <th data-col="O" class="num"><button>Offense</button><span class="q hq" tabindex="0">?<span class="pop">Points scored per 100 possessions above an average D1 offense, adjusted for who they played.</span></span></th>
-          <th data-col="D" class="num"><button>Defense</button><span class="q hq" tabindex="0">?<span class="pop">Points allowed per 100 possessions compared to an average D1 defense, adjusted for who they played. Lower is better.</span></span></th>
-          <th data-col="tempo" class="num"><button>Tempo</button><span class="q hq" tabindex="0">?<span class="pop">Possessions per 40 minutes this team plays at against an average opponent.</span></span></th>
-          <th data-col="preseason" class="num"><button>Preseason</button><span class="q hq" tabindex="0">?<span class="pop">Net rating before any games: built from the roster, last season, the conference and recruiting rankings.</span></span></th>
-          <th data-col="vs_preseason" class="num"><button>Change</button><span class="q hq r" tabindex="0">?<span class="pop">How far the Net rating has moved from preseason based on this season's games. Plus = playing better than expected, minus = worse.</span></span></th>
-          <th data-col="returning_pct" class="num"><button>Returning</button><span class="q hq r" tabindex="0">?<span class="pop">Share of last season's minutes that are back on this roster.</span></span></th>
-          <th data-col="home_court" class="num"><button>Home</button><span class="q hq r" tabindex="0">?<span class="pop">Points this team gets at home: the league average plus its own home edge from the last four seasons.</span></span></th>
+          <th data-col="net" class="num"><button>Net</button><span class="q hq" tabindex="0">?<span class="pop">Points per 100 possessions better than an average D1 team on a neutral floor. Offense minus defense. This is what determines the overall ranking.</span></span></th>
+          <th data-col="O" class="num"><button>Offense</button><span class="q hq" tabindex="0">?<span class="pop">Points scored per 100 possessions above an average D1 offense, adjusted for who the team played.</span></span></th>
+          <th data-col="D" class="num"><button>Defense</button><span class="q hq" tabindex="0">?<span class="pop">Points allowed per 100 possessions compared to an average D1 defense, adjusted for who the team played. Lower is better.</span></span></th>
+          <th data-col="tempo" class="num"><button>Tempo</button><span class="q hq" tabindex="0">?<span class="pop">Possessions per 40 minutes the team plays at against an average opponent.</span></span></th>
+          <th data-col="preseason" class="num"><button>Preseason</button><span class="q hq" tabindex="0">?<span class="pop">Net rating before any games played. This was built from last season&rsquo;s results, the roster, the conference, and recruiting rankings.</span></span></th>
+          <th data-col="vs_preseason" class="num"><button>Change</button><span class="q hq r" tabindex="0">?<span class="pop">How far the Net rating has moved from its preseason number.</span></span></th>
+          <th data-col="returning_pct" class="num"><button>Returning</button><span class="q hq r" tabindex="0">?<span class="pop">Share of last season&rsquo;s minutes that are back on this year&rsquo;s roster.</span></span></th>
+          <th data-col="home_court" class="num"><button>Home</button><span class="q hq r" tabindex="0">?<span class="pop">Points advantage this team gets when playing at home: the league average plus its own home edge from the last four seasons.</span></span></th>
           <th data-col="games" class="num"><button>G</button></th>
         </tr></thead><tbody></tbody></table>
       </div>
@@ -310,7 +310,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <button class="btn" id="show-all">Show all teams</button>
       <button class="btn" id="show-top" hidden>Show top 100</button>
 
-      <div class="sec"><h2>Conference Strength <span class="q" tabindex="0">?<span class="pop">Average team rating in each conference (teams with 4+ members). Hover a bar for the best team and team count. Picked conferences are highlighted.</span></span></h2></div>
+      <div class="sec"><h2>Conference Strength <span class="q" tabindex="0">?<span class="pop">Average team rating in each conference. Hover a bar for the best team and team count.</span></span></h2></div>
       <div class="bars" id="conf-bars"></div>
     </section>
 
@@ -318,16 +318,16 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     <section data-page="top25" hidden>
       <div class="soon">
         <b>No rankings yet.</b>
-        <p>In my opinion, teams should not be ranked until after the Thanksgiving tournaments. Rankings judge résumés, and in early November nobody has a true one. The first Meech rankings will drop <b class="d">December 1</b>, once teams have played real opponents. Until then, the <a href="#tab=rankings" data-go="rankings">power ratings</a> show who&rsquo;s strongest.</p>
+        <p>In my opinion, teams should not be ranked until after the Thanksgiving tournaments. In contrast to power ratings, rankings judge résumés, and in early November nobody has a true one. The first Meech rankings will drop <b class="d">December 1</b>, once teams have played real opponents. Until then, the <a href="#tab=rankings" data-go="rankings">power ratings</a> show who is playing strongest.</p>
       </div>
     </section>
 
     <!-- ===== Track record ===== -->
     <section data-page="record" hidden>
       <div class="stats">
-        <div class="stat"><div class="k">Games graded</div><div class="v" id="r-graded">—</div><div class="s">Lines logged before tip</div></div>
-        <div class="stat"><div class="k">Average miss</div><div class="v" id="r-miss">—</div><div class="s">2025-26 test: <span id="r-bench-miss">—</span></div></div>
-        <div class="stat"><div class="k">Winners picked</div><div class="v" id="r-win">—</div><div class="s">2025-26 test: <span id="r-bench-win">—</span></div></div>
+        <div class="stat"><div class="k">Games graded</div><div class="v" id="r-graded">—</div></div>
+        <div class="stat"><div class="k">Average miss</div><div class="v" id="r-miss">—</div><span id="r-bench-miss" hidden></span></div>
+        <div class="stat"><div class="k">Winners picked</div><div class="v" id="r-win">—</div><span id="r-bench-win" hidden></span></div>
       </div>
       <p class="empty" id="record-none" hidden>No graded games yet. Results post the morning after each game.</p>
 
@@ -347,13 +347,13 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           <div id="months"></div>
         </div>
         <div>
-          <div class="sec"><h2>Calibration <span class="q" tabindex="0">?<span class="pop">When the model gave the favorite this chance to win, how often did they actually win? Good calibration means the two columns match.</span></span></h2></div>
+          <div class="sec"><h2>Calibration <span class="q" tabindex="0">?<span class="pop">When the model gave the favorite this chance to win, how often did they actually win?</span></span></h2></div>
           <table id="cal"><thead><tr><th>Model said</th><th class="num">Games</th><th class="num">Avg said</th><th class="num">Won</th></tr></thead><tbody></tbody></table>
           <p class="empty" id="cal-none" hidden>Fills in as games are graded.</p>
         </div>
       </div>
 
-      <div class="sec"><h2>Game Log <span class="q" tabindex="0">?<span class="pop">Every graded line, newest first. Blue team = the Meech favorite. <b>Closer</b> = whose line landed nearer the final. <b>Pick</b> = result against the Vegas spread when the lines differed by 3+.</span></span></h2></div>
+      <div class="sec"><h2>Game Log <span class="q" tabindex="0">?<span class="pop">Every graded line, newest first. Blue team = the Meech favorite. <b>Closer</b> = whose line landed nearer the final.</span></span></h2></div>
       <div class="scroll">
         <table id="log"><thead><tr><th>Date</th><th>Away</th><th>Home</th><th class="num">Meech</th><th class="num">Vegas</th><th class="num">Win %</th><th class="num">Final</th><th class="num">Miss</th><th class="num">Vegas miss</th><th>Winner</th><th>Closer</th><th>Pick</th></tr></thead><tbody></tbody></table>
       </div>
@@ -364,46 +364,50 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     <!-- ===== How it works ===== -->
     <section data-page="how" hidden>
       <div class="how">
-        <p>The Meech Model rates every Division I men's and women's basketball team and puts out a line for every game, every morning, before tip. Every line gets graded against the final score and against Vegas, and nothing gets edited after the fact. The point is simple: see if a model built from scratch can hang with the numbers everybody else uses.</p>
+        <p>The Meech Model rates every Division I men's and women's basketball team and puts out a line for every game before tip-off. Every line gets graded against the final score and against Vegas. The point is twofold:</p>
+        <ol>
+          <li>To see if a model built from scratch can hang with the numbers and ranking systems everybody else uses.</li>
+          <li>Create a model that uses the same engine to rate both NCAA and WNCAA teams in a similar manner in order to produce lines.</li>
+        </ol>
 
-        <h3><span>01</span>Rating every team</h3>
-        <p>Everything starts with possessions. A team that scores 85 in a track meet and a team that scores 65 in a grinder can be equally good, so every game gets converted to points per 100 possessions. Then each team gets three numbers, all adjusted for who they played:</p>
+        <h3>Rating every team</h3>
+        <p>Game data must be normalized per 100 possessions. A team that scores 85 in a fast-paced game and a team that scores 65 in a slow-paced grinder can be equally good. Each team gets three numbers, all adjusted for who they played:</p>
         <div class="steps">
           <div><b>Offense</b><p>Points scored per 100 possessions above an average D1 offense.</p></div>
-          <div><b>Defense</b><p>Points allowed per 100 above average. Lower is better.</p></div>
-          <div><b>Tempo</b><p>How many possessions they like to play.</p></div>
+          <div><b>Defense</b><p>Points allowed per 100 above an average D1 defense. Lower is better.</p></div>
+          <div><b>Tempo</b><p>Possessions per 40 minutes the team plays at against an average opponent.</p></div>
         </div>
-        <p><b>Net rating</b> = offense minus defense, and that's the ranking. Blowouts count in full: testing showed that teams who crush bad opponents really are better than expected.</p>
+        <p><b>Net rating</b> = offense &minus; defense. That's the ranking.</p>
 
-        <h3><span>02</span>Where a team starts</h3>
-        <p>Before anyone plays, each team gets a starting rating built from its roster: last season's production from every returning player and transfer, last year's team rating, how strong its conference is, and recruiting rankings for incoming freshmen. That starting point counts for about six games' worth of evidence (four for women's), then real results take over.</p>
+        <h3>Where a team starts</h3>
+        <p>Before anyone plays, each team gets a starting rating built from last year's team rating, its strength of conference, last season's production from returning players, and recruiting rankings for incoming freshmen. That starting point counts for about six games' worth of evidence for men's teams and four games' worth for women's, then this season's results take over.</p>
 
-        <h3><span>03</span>Conferences move together</h3>
-        <p>Early in the season most teams have played only a couple of real opponents. When a whole conference keeps beating expectations, or keeps getting blown out, every team in it moves a little, including teams that haven't played anybody good yet. Once conference play starts, that effect locks in place.</p>
+        <h3>Conferences move together</h3>
+        <p>Early in the season, most teams have played only a couple of tough opponents. When a whole conference keeps beating expectations, or keeps getting blown out, every team in it moves slightly. Once conference play starts, that effect will lock in place.</p>
 
-        <h3><span>04</span>Making the line</h3>
+        <h3>Making the line</h3>
         <ul>
           <li><b>Matchup:</b> each offense against the other defense, at the pace both teams play.</li>
-          <li><b>Home court:</b> every team gets its own home edge from four seasons of home-vs-road results. Most are 3 to 4 points; altitude teams like Utah, BYU and Colorado are over 5. Neutral sites get none.</li>
-          <li><b>Buy games:</b> in November and December, a Power-conference team hosting a smaller school gets a small boost, because history says those games get away from the visitor.</li>
-          <li><b>Win %:</b> how often a favorite of that size actually wins, based on how far real games land from the line.</li>
+          <li><b>Home court advantage:</b> every team gets its own specific home edge from four seasons of home-vs-road results. Most are 3 to 4 points, but some high altitude teams like Utah, BYU and Colorado are over 5. Neutral sites get none.</li>
+          <li><b>Buy games:</b> in November and December, a Power-conference team hosting a smaller school gets a small boost, because historic data says those game lines often underestimate the Power 5 team.</li>
+          <li><b>Win %:</b> how often a favorite of that size actually wins, based on how far real games land from the line. A game with a higher spread, meaning one team is a heavy favorite, will have a higher win % for the favorite.</li>
         </ul>
 
-        <h3><span>05</span>How every piece earned its spot</h3>
-        <p>Nothing goes in on a hunch. Every idea gets replayed over five past seasons, day by day, using only the games played before each date, then graded on a season the model never trained on. If it doesn't make the lines more accurate, it's out. Ideas that didn't make the cut, like capping blowouts, stayed out.</p>
-        <p>On the 2025-26 test season the model missed the final margin by about <b>9.1 points</b> per men's game and <b>9.7</b> per women's game, picking the winner 72% and 77% of the time.</p>
+        <h3>How every piece earned its spot</h3>
+        <p>There are many inputs that can be placed into models of this kind. In order for an idea to be incorporated into The Meech Model, it was tested using the 2021-22 through 2024-25 seasons as test data. Then, it was graded on the 2025-26 season to remove any training bias. If an idea didn't make the lines more accurate, the idea was not used as an input in the model.</p>
+        <p>On the 2025-26 grading season the model missed the final margin by about <b>9.1 points</b> per men's game and <b>9.7</b> per women's game, picking the winner 72% and 77% of the time.</p>
 
-        <h3><span>06</span>Power ratings vs. rankings</h3>
-        <p>Power ratings and rankings answer different questions. Power ratings ask <b>who's strongest right now</b>: they're what the lines come from, and a team can be rated above a team with a better record. Rankings ask <b>who's earned the most</b>, based on who you've played and beaten.</p>
-        <p>In my opinion, teams should not be ranked until after the Thanksgiving tournaments. In early November nobody has a true résumé, so the first Meech rankings will drop December 1. How they're built will be explained here when they launch.</p>
+        <h3>Power ratings vs. rankings</h3>
+        <p>Power ratings and rankings answer different questions. Power ratings ask who is strongest right now. These ratings are what the lines come from, and a team can be rated above a team with a better record. Rankings ask who's earned the most, based on who you've played and beaten this season.</p>
+        <p>In my opinion, teams should not be ranked until after the Thanksgiving tournaments. In early November, nobody has a true résumé, so the first Meech rankings will drop December 1. How they're built will be explained here when they launch.</p>
 
-        <h3><span>07</span>What's different here</h3>
+        <h3>What's different here than other rating models</h3>
         <ul>
-          <li>Team-specific home court instead of one number for everybody.</li>
+          <li>Transparent, team-specific home court instead of one number for everybody.</li>
           <li>Conference-aware ratings that adjust fast in November.</li>
-          <li>Women's basketball, rated and graded the same way as men's.</li>
+          <li>Women's basketball, rated and graded using the same engine as men's.</li>
           <li>A public, never-edited track record against Vegas.</li>
-          <li>Pace control: which teams make opponents play their speed and which ones adapt. Tracked every season, coming to the site later.</li>
+          <li>Pace control: which teams make opponents play their speed and which ones adapt. This project is in progress, and may be a future input into the Meech Model.</li>
         </ul>
 
         <p class="fine">For entertainment and informational purposes only. This is not betting advice. Lines are model estimates and carry real uncertainty, and past results don't guarantee future accuracy. Not affiliated with the NCAA, any conference, school, or sportsbook. Game data from ESPN via sportsdataverse; recruiting rankings from RSCI, ESPN, On3 and 247Sports; Vegas lines as shown on ESPN. If you or someone you know has a gambling problem, call 1-800-GAMBLER.</p>
