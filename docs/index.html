@@ -24,7 +24,7 @@
   /* colors from the logo: navy + the light-blue streak; basketball orange as the accent */
   --bg: #070d1b; --panel: #0b1529; --row: #0a1427; --line: #1b2a48; --rule: #eef3fb;
   --fg: #eef3fb; --muted: #8597b5; --faint: #5d6f8f;
-  --blue: #3cc8f8; --orange: #ff8a1f; --on-orange: #1a0e02; --on-blue: #04121f;
+  --blue: #3cc8f8; --orange: #ff8a1f; --on-orange: #1a0e02; --on-blue: #04121f; --win: #34c472; --loss: #f0524f;
   --side: #000; --side-fg: #c9d4e8; --side-line: rgba(255,255,255,.07);
   --display: "Zilla Slab", Georgia, serif; --body: "Barlow", system-ui, sans-serif;
   --num: "Barlow", system-ui, sans-serif;
@@ -34,7 +34,7 @@
 [data-theme="light"] {
   --bg: #f4f2ec; --panel: #fbfaf6; --row: #efede6; --line: #dcd8cd; --rule: #0a1430;
   --fg: #0c1730; --muted: #5a6880; --faint: #8b95a7;
-  --blue: #0b86c7; --orange: #e5660a; --on-orange: #fff; --on-blue: #fff;
+  --blue: #0b86c7; --orange: #e5660a; --on-orange: #fff; --on-blue: #fff; --win: #1d9150; --loss: #d23a37;
   --shadow: 0 14px 34px rgba(20,30,45,.16);
   color-scheme: light;
 }
@@ -108,6 +108,37 @@ input[type=checkbox] { accent-color: var(--orange); }
 .ticker .k { font: 600 10.5px var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .ticker b { font: 600 16px var(--num); font-variant-numeric: tabular-nums; color: var(--fg); }
 .ticker .t { font-size: 13.5px; color: var(--muted); }
+
+/* ---------- team page ---------- */
+.tlink { cursor: pointer; }
+.tlink:hover { text-decoration: underline; text-underline-offset: 3px; }
+.back { color: var(--muted); font-size: 13px; text-decoration: none; display: inline-block; margin-bottom: 10px; }
+.back:hover { color: var(--fg); }
+.team-h { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 3px solid var(--tc, var(--rule)); }
+.team-h h1 { margin: 0; font: 700 32px/1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+.team-h .sub { color: var(--muted); font-size: 14px; margin-top: 6px; }
+.tm-big { display: flex; gap: 34px; text-align: right; }
+.tm-big .big { font: 700 46px/1 var(--display); }
+.strip-wrap { margin: 30px 0 4px; }
+.strip { display: flex; align-items: stretch; gap: 3px; height: 34px; }
+.strip i { flex: 1; border-radius: 2px; background: var(--line); }
+.strip i.w { background: var(--win); }
+.strip i.l { background: var(--loss); }
+.strip .now { flex: none; width: 2px; margin: -7px 4px; background: var(--fg); position: relative; }
+.strip .now span { position: absolute; top: -17px; left: 50%; transform: translateX(-50%); font: 600 10px var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--fg); white-space: nowrap; }
+.strip-key { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 9px; font-size: 12px; color: var(--muted); }
+.strip-key .sq { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.strip-key .grad { display: inline-block; width: 120px; height: 10px; border-radius: 2px; vertical-align: -1px; margin: 0 7px; background: linear-gradient(to right, var(--line), var(--blue)); }
+.split { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr); gap: 0 44px; }
+.sheet { width: 100%; border-collapse: collapse; }
+.sheet td { padding: 9px 0; border-bottom: 1px solid var(--line); background: none !important; }
+.sheet td.v { text-align: right; font-weight: 600; font-size: 16px; }
+.sheet td.r { text-align: right; color: var(--muted); font-size: 13px; width: 64px; }
+tr.month td { padding-top: 16px; background: none !important; font: 600 11px var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--rule); }
+.win { color: var(--win); font-weight: 700; }
+.loss { color: var(--loss); font-weight: 700; }
+#tm-sched td, #tm-sched th, #tm-lead td, #tm-lead th { padding-top: 7px; padding-bottom: 7px; }
+@media (max-width: 900px) { .split { grid-template-columns: minmax(0, 1fr); } .tm-big { text-align: left; } .tm-big .big { font-size: 34px; } }
 
 /* ---------- sections ---------- */
 section[data-page="rankings"] > .scroll:first-child { margin-top: 14px; }
@@ -361,6 +392,39 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <button class="btn" id="log-more" hidden>Show more</button>
     </section>
 
+    <!-- ===== Team page ===== -->
+    <section data-page="team" hidden>
+      <a class="back" id="tm-back" href="#">&larr; Back</a>
+      <div class="team-h">
+        <div><h1 id="tm-name">—</h1><div class="sub" id="tm-sub"></div></div>
+        <div class="tm-big">
+          <div><div class="big" id="tm-rank">—</div><div class="sub">Power rating <span id="tm-net"></span></div></div>
+          <div><div class="big" id="tm-proj">—</div><div class="sub">Projected record</div></div>
+        </div>
+      </div>
+      <div class="strip-wrap">
+        <div class="strip" id="tm-strip"></div>
+        <div class="strip-key">
+          <span><span class="sq" style="background:var(--win)"></span>Won</span>
+          <span><span class="sq" style="background:var(--loss)"></span>Lost</span>
+          <span>Upcoming: chance to win as rated today &nbsp;0%<span class="grad"></span>100%</span>
+        </div>
+      </div>
+      <div class="split">
+        <div>
+          <div class="sec"><h2>Schedule</h2><div class="legend"><span class="lb">Meech favorite</span></div></div>
+          <div class="scroll" style="max-height:none"><table id="tm-sched"><thead><tr><th>Date</th><th></th><th class="num">#</th><th>Opponent</th><th class="num">Meech</th><th class="num">Win %</th><th>Result</th></tr></thead><tbody></tbody></table></div>
+        </div>
+        <div>
+          <div class="sec"><h2>Ratings</h2></div>
+          <table class="sheet" id="tm-sheet"></table>
+          <div class="sec"><h2>Leaders</h2></div>
+          <table id="tm-lead"><thead><tr><th>Player</th><th class="num">G</th><th class="num">PTS</th><th class="num">REB</th><th class="num">AST</th><th class="num">MIN</th></tr></thead><tbody></tbody></table>
+          <p class="empty" id="tm-lead-none" hidden>No stats yet.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== How it works ===== -->
     <section data-page="how" hidden>
       <div class="how">
@@ -422,11 +486,13 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 (() => {
   const POWER = ['SEC', 'Big Ten', 'Big 12', 'ACC', 'Big East'];
   const TOP_N = 100, TOSSUP = 4, BLOWOUT = 15, BIG_GAP = 3;
-  const PAGES = ['today', 'rankings', 'top25', 'record', 'how'];
+  const PAGES = ['today', 'rankings', 'top25', 'record', 'how', 'team'];
   const S = {league: 'mbb', tab: 'today', confs: new Set(), sort: 'spread', scol: '', sdir: 'asc',
              hide: false, rall: false, logn: 200, rsort: 'rank', rcol: '', rdir: 'asc', q: ''};
   const D = {};
   let COLOR = {};
+  const NAME2ID = {};
+  const TEAMS = {};
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => [...document.querySelectorAll(sel)];
 
@@ -449,7 +515,10 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     const c = el('td');
     const sw = el('span', 'sw'); if (COLOR[name]) sw.style.background = COLOR[name];
     if (stripe) c.append(sw);
-    c.append(el('span', fav ? 'fav' : '', name));
+    const nm = el('span', fav ? 'fav' : '', name);
+    const id = (NAME2ID[S.league] || {})[name];
+    if (id !== undefined) { nm.classList.add('tlink'); nm.dataset.team = id; }
+    c.append(nm);
     if (neutral) { const t = el('span', 'tag', 'N'); t.title = 'Neutral site'; c.append(t); }
     if (conf) c.append(el('span', 'cf', conf));
     return c;
@@ -461,12 +530,15 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (h.get('league') === 'wbb') S.league = 'wbb';
     if (PAGES.includes(h.get('tab'))) S.tab = h.get('tab');
     if (h.get('conf')) S.confs = new Set(h.get('conf').split('|'));
+    if (h.get('team')) S.team = Number(h.get('team'));
+    if (S.tab === 'team' && !h.get('team')) S.tab = 'rankings';
   };
   const writeHash = () => {
     const h = new URLSearchParams();
     if (S.league !== 'mbb') h.set('league', S.league);
     if (S.tab !== 'today') h.set('tab', S.tab);
     if (S.confs.size) h.set('conf', [...S.confs].join('|'));
+    if (S.tab === 'team') h.set('team', S.team);
     const s = h.toString();
     history.replaceState(null, '', s ? '#' + s : location.pathname);
   };
@@ -492,8 +564,10 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $$('.league button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.league === S.league)));
     $$('.nav button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === S.tab)));
     $$('section[data-page]').forEach((s) => { s.hidden = s.dataset.page !== S.tab; });
+    document.querySelector('.mast').hidden = S.tab === 'team';
+    $$('.nav button').forEach((b) => { if (S.tab === 'team') b.setAttribute('aria-selected', String(b.dataset.tab === (S.prev || 'rankings'))); });
     const heads = {today: ['', longDate()], rankings: ['', `${lg()} Power Ratings`], top25: ['', `${lg()} Rankings`],
-                   record: ['', `${lg()} Track Record`], how: ['', 'The Meech Model']};
+                   record: ['', `${lg()} Track Record`], how: ['', 'The Meech Model'], team: ['', '']};
     $('#title').textContent = heads[S.tab][1];
     document.querySelector('.mast').classList.toggle('noline', S.tab === 'rankings');
     $('#rank-tools').hidden = S.tab !== 'rankings' && S.tab !== 'top25';
@@ -677,11 +751,97 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $('#log-more').textContent = `Show ${Math.min(200, Math.max(more, 0))} more (${games.length} total)`;
   }
 
+  // ---------- team page ----------
+  const ordinal = (n) => n + ((n % 100 >= 11 && n % 100 <= 13) ? 'th' : ({1: 'st', 2: 'nd', 3: 'rd'}[n % 10] || 'th'));
+  const fmtDate = (d) => new Date(d + 'T12:00:00').toLocaleString('en-US', {month: 'short', day: 'numeric'});
+  const pctCap = (p) => Math.min(99, Math.max(1, Math.round(p * 100)));   // never claim a sure thing
+  const openTeam = (id) => {
+    if (S.tab !== 'team') S.prev = S.tab;
+    S.team = Number(id); S.tab = 'team'; render(); window.scrollTo(0, 0);
+  };
+  function renderTeam() {
+    const rows = ofLeague(D.rankings);
+    const me = rows.find((r) => r.team_id === S.team);
+    if (!me) { S.tab = 'rankings'; render(); return; }
+    const pack = TEAMS[S.league];
+    if (!pack) {
+      $('#tm-name').textContent = me.team;
+      fetch(`data/teams_${S.league}.json`, {cache: 'no-cache'}).then((r) => r.json())
+        .then((j) => { TEAMS[S.league] = j; if (S.tab === 'team') render(); })
+        .catch(() => { TEAMS[S.league] = {}; if (S.tab === 'team') render(); });
+      return;
+    }
+    const byId = Object.fromEntries(rows.map((r) => [r.team_id, r]));
+    const rankOf = (col, asc) => 1 + rows.filter((r) => (asc ? r[col] < me[col] : r[col] > me[col])).length;
+    const page = pack[S.team] || {g: [], l: []};
+    const games = page.g;
+    const w = games.filter((g) => g.r === 'W').length, l = games.filter((g) => g.r === 'L').length;
+    const left = games.filter((g) => !g.r);
+    const projW = Math.round(w + left.reduce((a, g) => a + (g.p ?? (g.on ? 0.95 : 0.5)), 0));
+    document.querySelector('section[data-page="team"]').style.setProperty('--tc', COLOR[me.team] || 'var(--rule)');
+    $('#tm-name').textContent = me.team;
+    $('#tm-sub').textContent = `${me.conf} · ${w}–${l}`;
+    $('#tm-rank').textContent = ordinal(me.rank);
+    $('#tm-net').textContent = f1(me.net);
+    $('#tm-proj').textContent = `${projW}–${games.length - projW}`;
+    $('#tm-back').textContent = '← ' + ({today: "Today's Lines", rankings: 'Power Ratings', top25: 'Rankings', record: 'Track Record', how: 'How It Works'}[S.prev || 'rankings']);
+
+    const oppName = (g) => (g.o !== undefined ? (byId[g.o] || {}).team || '—' : g.on);
+    const lineTxt = (g) => (g.ln === undefined ? '—' : (g.ln >= 0 ? (-g.ln).toFixed(1) : '+' + (-g.ln).toFixed(1)));
+    // strip: past = won/lost, upcoming = shaded by chance to win, a line at today
+    const strip = $('#tm-strip'); strip.replaceChildren();
+    let marked = false;
+    games.forEach((g) => {
+      if (!g.r && !marked) { const n = el('b', 'now'); n.append(el('span', '', 'Today')); strip.append(n); marked = true; }
+      const b = el('i', g.r ? (g.r === 'W' ? 'w' : 'l') : '');
+      if (!g.r && g.p !== undefined) b.style.background = `color-mix(in srgb, var(--blue) ${Math.round(g.p * 100)}%, var(--line))`;
+      b.title = `${fmtDate(g.d)} ${g.s} ${oppName(g)} · ` + (g.r ? `${g.r} ${g.sc.replace('-', '–')}` : (g.p !== undefined ? `Meech ${lineTxt(g)} · ${pctCap(g.p)}% to win` : 'no line'));
+      strip.append(b);
+    });
+    if (!marked && games.length) { const n = el('b', 'now'); n.append(el('span', '', 'Today')); strip.append(n); }
+
+    // schedule grouped by month
+    const out = []; let month = null;
+    games.forEach((g) => {
+      const m = new Date(g.d + 'T12:00:00').toLocaleString('en-US', {month: 'long'});
+      if (m !== month) { const tr = el('tr', 'month'); const c = el('td', '', m); c.colSpan = 7; tr.append(c); out.push(tr); month = m; }
+      const tr = el('tr');
+      const opp = oppName(g);
+      const o = g.o !== undefined ? byId[g.o] : null;
+      const oc = teamCell(opp);
+      if (g.c) oc.append(el('span', 'tag', 'C'));
+      const res = el('td');
+      if (g.r) { res.append(el('span', g.r === 'W' ? 'win' : 'loss', g.r), document.createTextNode(' ' + g.sc.replace('-', '–'))); }
+      else res.append(el('span', 'faint', '—'));
+      tr.append(td(fmtDate(g.d), 'muted'), td(g.s, 'muted'), td(o ? String(o.rank) : '', 'num rk'), oc,
+        td(lineTxt(g), 'num' + (g.ln > 0 ? ' fav' : '')), td(g.p === undefined ? '—' : pctCap(g.p) + '%', 'num'), res);
+      out.push(tr);
+    });
+    fill($('#tm-sched tbody'), out);
+
+    const sheet = [['Power rating', f1(me.net), ordinal(me.rank)], ['Offense', f1(me.O), ordinal(rankOf('O', false))],
+      ['Defense', f1(me.D), ordinal(rankOf('D', true))], ['Tempo', f1(me.tempo), ordinal(rankOf('tempo', false))],
+      ['Preseason', f1(me.preseason), signed(me.vs_preseason)], ['Home court', '+' + f1(me.home_court), ''],
+      ['Returning minutes', num(me.returning_pct) === null ? '—' : Math.round(me.returning_pct) + '%', '']];
+    fill($('#tm-sheet'), sheet.map(([k, v, r]) => { const tr = el('tr'); tr.append(td(k), td(v, 'v num'), td(r, 'r')); return tr; }));
+    fill($('#tm-lead tbody'), page.l.map((p) => {
+      const tr = el('tr');
+      tr.append(td(p.name), td(String(p.games), 'num muted'), td(f1(p.pts), 'num'), td(f1(p.reb), 'num'), td(f1(p.ast), 'num'), td(f1(p.min), 'num muted'));
+      return tr;
+    }));
+    $('#tm-lead-none').hidden = page.l.length > 0;
+  }
+  document.addEventListener('click', (e) => {
+    const t = e.target.closest('.tlink'); if (t) { e.preventDefault(); openTeam(t.dataset.team); }
+  });
+  $('#tm-back').addEventListener('click', (e) => { e.preventDefault(); S.tab = S.prev || 'rankings'; render(); });
+
   function render() {
     renderChrome();
     if (S.tab === 'today') renderToday();
     if (S.tab === 'rankings') renderRankings();
     if (S.tab === 'record') renderRecord();
+    if (S.tab === 'team') renderTeam();
     writeHash();
   }
 
@@ -697,7 +857,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   paintTheme();
 
   // ---------- controls ----------
-  $$('.league button').forEach((b) => b.addEventListener('click', () => { S.league = b.dataset.league; S.logn = 200; render(); }));
+  $$('.league button').forEach((b) => b.addEventListener('click', () => { S.league = b.dataset.league; S.logn = 200; if (S.tab === 'team') S.tab = S.prev || 'rankings'; render(); }));
   $$('.nav button').forEach((b) => b.addEventListener('click', () => { S.tab = b.dataset.tab; render(); window.scrollTo(0, 0); }));
   $$('[data-go]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); S.tab = a.dataset.go; render(); }));
   $('#conf-btn').addEventListener('click', () => {
@@ -736,6 +896,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   Promise.all([...files.map(get), get('colors').catch(() => [])]).then((results) => {
     files.forEach((f, i) => { D[f] = results[i]; });
     (results[files.length] || []).forEach((c) => { COLOR[c.team] = c.color; });
+    (D.rankings || []).forEach((r) => { (NAME2ID[r.league] = NAME2ID[r.league] || {})[r.team] = r.team_id; });
     const info = (D.info || [])[0] || {};
     $('#updated').textContent = info.updated ? 'Updated ' + info.updated : '—';
     render();

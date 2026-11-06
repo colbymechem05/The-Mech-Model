@@ -145,6 +145,60 @@ def league_tables(league: str, day: pd.Timestamp) -> dict:
                 .to_dict("records")) for k, v in out.items()}
 
 
+def team_pages(league: str, day: pd.Timestamp) -> dict:
+    """Per-team schedule (results, logged or projected Meech line, win chance) + stat leaders,
+    keyed by team_id. Loaded by the site only when a team page is opened."""
+    r = pd.read_csv(OUT / f"ratings_{league}.csv").set_index("team_id")
+    s = pd.read_csv(D.RAW / f"{league}_schedule_{D.CURRENT}.csv", low_memory=False,
+                    usecols=["game_id", "game_date", "home_id", "away_id", "home_display_name",
+                             "away_display_name", "home_score", "away_score", "neutral_site",
+                             "status_type_completed", "conference_competition"])
+    s["done"] = s.status_type_completed.fillna(False).astype(bool)
+    s["neutral"] = s.neutral_site.fillna(False).astype(bool)
+    spread, prob = pd.Series(dtype=float), pd.Series(dtype=float)
+    f = OUT / f"projections_{league}.csv"
+    if f.exists():
+        pj = pd.read_csv(f).set_index("game_id")
+        spread, prob = pj.spread_home, pj.p_home
+    log = LOGS / f"predictions_{league}.csv"
+    if log.exists():   # past games: the line we actually logged before tip
+        lg = pd.read_csv(log).drop_duplicates("game_id").set_index("game_id")
+        spread = pd.concat([lg.spread_home, spread[~spread.index.isin(lg.index)]])
+        prob = pd.concat([lg.p_home, prob[~prob.index.isin(lg.index)]])
+    s["sp"], s["ph"] = s.game_id.map(spread), s.game_id.map(prob)
+    pages = {int(t): {"g": [], "l": []} for t in r.index}
+    for x in s.sort_values("game_date").itertuples():
+        for home in (True, False):
+            me, opp = (x.home_id, x.away_id) if home else (x.away_id, x.home_id)
+            if me not in pages:
+                continue
+            row = {"d": str(x.game_date)[:10], "s": "N" if x.neutral else ("vs" if home else "at"),
+                   "c": bool(x.conference_competition) if pd.notna(x.conference_competition) else False}
+            if opp in r.index:
+                row["o"] = int(opp)
+            else:
+                row["on"] = x.away_display_name if home else x.home_display_name
+            if pd.notna(x.sp):
+                row["ln"] = round(float(x.sp if home else -x.sp), 1)
+                row["p"] = round(float(x.ph if home else 1 - x.ph), 3)
+            if x.done:
+                us, them = (x.home_score, x.away_score) if home else (x.away_score, x.home_score)
+                row["r"] = "W" if us > them else "L"
+                row["sc"] = f"{int(us)}-{int(them)}"
+            pages[int(me)]["g"].append(row)
+    ps_file = D.RAW / f"{league}_pstats_{D.CURRENT}.csv"
+    if ps_file.exists():
+        ps = pd.read_csv(ps_file)
+        ps = ps[ps.team_id.isin(r.index) & (ps.games > 0)]
+        ps = ps[ps.games >= ps.groupby("team_id").games.transform("max") / 2]   # regulars only
+        for c, cols in {"pts": ["points"], "reb": ["offensive_rebounds", "defensive_rebounds"],
+                        "ast": ["assists"], "min": ["minutes"]}.items():
+            ps[c] = (ps[cols].sum(axis=1) / ps.games).round(1)
+        for t, grp in ps.sort_values("pts", ascending=False).groupby("team_id"):
+            pages[int(t)]["l"] = grp.head(8)[["name", "games", "pts", "reb", "ast", "min"]].to_dict("records")
+    return pages
+
+
 def export(day: pd.Timestamp) -> Path:
     """One JSON file per dashboard dataset (both leagues, with a league column)."""
     folder = D.ROOT / "docs" / "data"
@@ -158,6 +212,9 @@ def export(day: pd.Timestamp) -> Path:
                        "updated": pd.Timestamp.now(tz="America/Chicago").strftime("%b %-d, %-I:%M %p CT")}]
     for name, rows in tables.items():
         (folder / f"{name}.json").write_text(json.dumps(rows, default=str))
+    for lg in D.LEAGUES:
+        (folder / f"teams_{lg}.json").write_text(json.dumps(team_pages(lg, day), default=str,
+                                                            separators=(",", ":")))
     return folder
 
 

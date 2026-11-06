@@ -5,7 +5,9 @@ Usage:  python src/daily.py [YYYY-MM-DD] [--no-refresh]     (default: today)
 Outputs per league (mbb, wbb):
   output/ratings_{lg}.csv          power ratings, all D1
   output/lines_{lg}_{date}.csv     that day's lines
+  output/projections_{lg}.csv      every remaining game projected from today's ratings (team pages)
   logs/predictions_{lg}.csv        every line ever made (append-only)
+  logs/ratings_history_{lg}.csv    one ratings snapshot per day
 """
 import sys
 from pathlib import Path
@@ -107,6 +109,30 @@ def make_lines(league: str, day: pd.Timestamp, r: pd.DataFrame, lg_info: dict,
     })
 
 
+def project_schedule(league: str, day: pd.Timestamp, r: pd.DataFrame, lg_info: dict,
+                     dials: R.Dials, conf: pd.Series | None = None) -> pd.DataFrame:
+    """Every remaining D1-vs-D1 game this season (today on), rated as the teams stand today.
+    Same math as the daily lines, including each date's buy-game boost."""
+    s = pd.read_csv(D.RAW / f"{league}_schedule_{D.CURRENT}.csv", low_memory=False,
+                    usecols=["game_id", "game_date", "home_id", "away_id", "neutral_site",
+                             "status_type_completed"])
+    s["date"] = pd.to_datetime(s.game_date)
+    g = s[(s.date >= day) & ~s.status_type_completed.fillna(False).astype(bool)
+          & s.home_id.isin(r.index) & s.away_id.isin(r.index)].reset_index(drop=True)
+    if g.empty:
+        return pd.DataFrame(columns=["game_id", "spread_home", "p_home"])
+    g["neutral"] = g.neutral_site.fillna(False).astype(bool)
+    p = R.predict(r, lg_info, g.home_id, g.away_id, g.neutral, dials.sigma[league])
+    spread = p.spread_home.values.copy()
+    if conf is not None:
+        for d, idx in g.groupby("date").groups.items():
+            idx = list(idx)
+            spread[idx] += buy_boost(league, d, g.home_id[idx], g.away_id[idx], g.neutral[idx],
+                                     spread[idx], conf)
+    return pd.DataFrame({"game_id": g.game_id, "spread_home": spread.round(2),
+                         "p_home": norm.cdf(spread / dials.sigma[league]).round(4)})
+
+
 def append_log(league: str, lines: pd.DataFrame) -> int:
     """Add lines for games not already logged. Returns how many were added."""
     log = LOGS / f"predictions_{league}.csv"
@@ -151,6 +177,7 @@ def run(day: pd.Timestamp, refresh: bool = True, force: bool = False) -> None:
         r[["rank", "team", "net", "O", "D", "tempo", "games", "preseason", "returning_pct", "home_court"]
           ].round(1).to_csv(OUT / f"ratings_{league}.csv", index_label="team_id")
         snapshot(league, day, r)
+        project_schedule(league, day, r, lg_info, dials, conf).to_csv(OUT / f"projections_{league}.csv", index=False)
         f = OUT / f"lines_{league}_{day.date()}.csv"
         if f.exists() and f.stat().st_size > 1 and not force:
             lines = pd.read_csv(f)
