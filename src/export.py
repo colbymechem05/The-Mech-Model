@@ -17,7 +17,8 @@ import odds  # noqa: E402
 OUT = D.ROOT / "output"
 LOGS = D.ROOT / "logs"
 PICK_EDGE = 3.0  # a "pick" vs. the Vegas number = Meech line differs by 3+ points
-# 2025-26 holdout (never used for tuning): the benchmark the live record is compared to
+# 2025-26 walk-forward check (settings chosen on 2021-22..2024-25; buy-game boost not included,
+# and it was later refit with 2025-26 in it). The live 2026-27 record is the real test.
 BENCHMARK = {"mbb": {"avg_miss": 9.14, "winner_pct": 72.1}, "wbb": {"avg_miss": 9.65, "winner_pct": 76.6}}
 
 
@@ -38,6 +39,15 @@ def conferences(league: str) -> pd.Series:
     return conf[~conf.index.duplicated(keep="first")]
 
 
+def tip_times(league: str) -> pd.Series:
+    """game_id -> scheduled tip (ISO string with offset)."""
+    f = D.RAW / f"{league}_schedule_{D.CURRENT}.csv"
+    if not f.exists():
+        return pd.Series(dtype=object)
+    s = pd.read_csv(f, low_memory=False, usecols=["game_id", "game_date_time"])
+    return s.drop_duplicates("game_id").set_index("game_id").game_date_time
+
+
 def grade(league: str) -> pd.DataFrame:
     """Logged lines joined to final results."""
     log = LOGS / f"predictions_{league}.csv"
@@ -45,6 +55,11 @@ def grade(league: str) -> pd.DataFrame:
         return pd.DataFrame()
     g = D.load_games(league)[["game_id", "home_pts", "away_pts", "margin"]]
     x = pd.read_csv(log).merge(g, on="game_id")
+    # only lines made before tip count (one Nov 4 women's line was logged after tip: audit Nov 6)
+    if "made_at" in x:
+        tip = pd.to_datetime(x.game_id.map(tip_times(league)), utc=True, errors="coerce")
+        made = pd.to_datetime(x.made_at, utc=True, errors="coerce")
+        x = x[~(made >= tip)]
     x["miss"] = (x.spread_home - x.margin).abs()
     x["correct"] = (x.spread_home >= 0) == (x.margin > 0)
     x["fav_p"] = np.where(x.spread_home >= 0, x.p_home, 1 - x.p_home)
@@ -84,8 +99,10 @@ def record(league: str) -> dict:
     if x.empty:
         return {"summary": summary, "games": [], "months": [], "calibration": []}
     x["month"] = pd.to_datetime(x.date).dt.strftime("%Y-%m")
+    x["miss_v"] = x.miss.where(x.vegas_home.notna())   # Meech miss on games that had a Vegas line
     months = x.groupby("month").agg(games=("miss", "size"), avg_miss=("miss", "mean"),
-                                    winner_pct=("correct", "mean"), vegas_miss=("vegas_miss", "mean")).reset_index()
+                                    winner_pct=("correct", "mean"), vegas_games=("vegas_miss", "count"),
+                                    my_miss_v=("miss_v", "mean"), vegas_miss=("vegas_miss", "mean")).reset_index()
     months["winner_pct"] *= 100
     labels = ["50-60%", "60-70%", "70-80%", "80-90%", "90-100%"]
     buckets = pd.cut(x.fav_p, [0.5, 0.6, 0.7, 0.8, 0.9, 1.0], labels=labels, include_lowest=True)
@@ -108,11 +125,32 @@ def record(league: str) -> dict:
             "calibration": tag(cal.reset_index(drop=True), "calibration")}
 
 
+def records(league: str) -> pd.DataFrame:
+    """Overall and conference W-L per team (all completed games, any opponent)."""
+    s = pd.read_csv(D.RAW / f"{league}_schedule_{D.CURRENT}.csv", low_memory=False,
+                    usecols=["home_id", "away_id", "home_score", "away_score", "status_type_completed",
+                             "conference_competition"])
+    s = s[s.status_type_completed.fillna(False).astype(bool)]
+    conf = s.conference_competition.fillna(False).astype(bool)
+    home_won = s.home_score > s.away_score
+    rows = pd.concat([pd.DataFrame({"team_id": s.home_id, "w": home_won, "c": conf}),
+                      pd.DataFrame({"team_id": s.away_id, "w": ~home_won, "c": conf})])
+    out = rows.groupby("team_id").agg(wins=("w", "sum"), games_played=("w", "size"))
+    cr = rows[rows.c].groupby("team_id").agg(conf_wins=("w", "sum"), conf_games=("w", "size"))
+    out = out.join(cr).fillna(0).astype(int)
+    out["losses"] = out.games_played - out.wins
+    out["conf_losses"] = out.conf_games - out.conf_wins
+    return out[["wins", "losses", "conf_wins", "conf_losses"]]
+
+
 def league_tables(league: str, day: pd.Timestamp) -> dict:
     conf = conferences(league)
     r = pd.read_csv(OUT / f"ratings_{league}.csv")
     r["conf"] = r.team_id.map(conf).fillna("Ind.")
     r["vs_preseason"] = (r.net - r.preseason).round(1)
+    r = r.join(records(league), on="team_id")
+    rc = ["wins", "losses", "conf_wins", "conf_losses"]
+    r[rc] = r[rc].fillna(0).astype(int)
     strength = (r.groupby("conf").agg(teams=("net", "size"), avg=("net", "mean"), best=("net", "max"))
                   .query("teams >= 4").sort_values("avg", ascending=False).round(1).reset_index())
     strength.insert(0, "rank", range(1, len(strength) + 1))

@@ -43,18 +43,34 @@ Outputs: `output/ratings_{lg}.csv`, `output/lines_{lg}_{date}.csv`, `logs/predic
 `O` = offense above average; `D` = points allowed above average (negative is good); `tempo` = possessions per 40 min.
 Spread = efficiency gap x expected tempo / 100, +/- home court. Win % = normal curve with SD ~11.7 (men) / 12.4 (women).
 
-## Settings (tuned on 2021-22 to 2024-25, tested on 2025-26)
-| Setting | Value |
-|---|---|
-| Preseason prior | roster talent (returning players + transfers rated from old box scores + newcomers at -4) blended with last season's team rating; worth 8 games (men), 3 (women) |
-| Recency weighting | off (no gain) |
-| Blowout cap | off (capping hurt, especially for women's) |
-| Home court | measured each full season (~3.3 men, ~3.2 women), carried into the next season firmly |
+## Settings (live model, Nov 6, 2026)
+| Setting | Value | Chosen on |
+|---|---|---|
+| Preseason prior | roster talent (returning players + transfers from old box scores, newcomers at -4, ranked freshmen by recruiting tier) + last season's rating + conference; worth 6 games (men), 4 (women) | 2021-22 to 2024-25 |
+| Conference pooling | shared conference offense/defense term, strength 30 | 2022-23 to 2024-25 |
+| Home court | each team's own edge from the last 4 seasons, shrunk toward the league value (k = 200) | 2021-22 to 2024-25 |
+| Buy-game boost (Nov-Dec, Power home vs. non-Power visitor) | men's +2.33; women's +0.61 + 0.08 x spread | **all five seasons incl. 2025-26** (refit after the 2025-26 check) |
+| Recency weighting / blowout cap | off (no gain / hurt) | 2021-22 to 2024-25 |
 
-## Accuracy, 2025-26 (never used for tuning)
+## Accuracy
+**2025-26 walk-forward check** (each day uses only earlier games; settings chosen on earlier seasons; buy-game
+boost not included). This is the benchmark the site shows next to the live record:
+
 | | Men's | Women's |
 |---|---|---|
-| Avg miss, Nov-Dec | 9.70 pts | 10.41 pts |
-| Avg miss, Feb-Apr | 8.82 pts | 9.24 pts |
-| Avg miss, full season | 9.19 pts | 9.70 pts |
-| Elo baseline, Feb-Apr | 8.93 pts | 9.85 pts |
+| Avg miss, full season | 9.14 pts | 9.65 pts |
+| Winner picked | 72.1% | 76.6% |
+
+Caveats (audit, Nov 6, 2026):
+- The buy-game boost the live model uses was refit with 2025-26 included, so the live model is not exactly the one
+  that was checked. Adding the boost fitted on 2021-22..2024-25 only improved the 2025-26 check by about
+  0.005 pts (men's) / 0.006 (women's), so the gap is tiny, but it is not an untouched holdout anymore.
+- Backtest rosters come from every player listed in that season's box scores; the live model only knows players
+  listed so far. Rebuilding 2025-26 with rosters known after 3 or 14 days changed the full-season miss by at most
+  0.006 pts (`analysis/roster_asof_test.py`).
+- **The 2026-27 live track record is the only fully untouched test.** Lines are logged before tip (games that
+  already tipped never get a line, and any logged after tip are excluded from grading) and are never edited.
+- "Vegas" = the last pre-tip line captured from ESPN by the daily runs (7:17 AM and 3:47 PM Central), not
+  necessarily the sportsbook's final closing number.
+- Schedule times are fixed in UTC: 7:17 AM Central in standard time (Nov-early Mar), 8:17 AM after daylight
+  time starts. GitHub can also start scheduled runs late; the 8:47 and 9:47 backups cover that.

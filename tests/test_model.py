@@ -211,6 +211,15 @@ def test_ratings_snapshot_one_block_per_day(tmp_path, monkeypatch):
     assert h[(h.date == "2026-11-05") & (h.team_id == 11)].net.item() == 21.0
 
 
+def test_force_cannot_change_a_logged_line(tmp_path, monkeypatch):
+    monkeypatch.setattr(daily, "LOGS", tmp_path)
+    logged = pd.DataFrame({"game_id": [1], "tip": ["19:00"], "my_line": [-3.0]})
+    daily.append_log("mbb", logged)
+    remade = pd.DataFrame({"game_id": [1, 2], "tip": ["19:00", "20:00"], "my_line": [-8.0, -5.0]})
+    out = daily.canonical("mbb", remade).set_index("game_id")
+    assert out.loc[1, "my_line"] == -3.0 and out.loc[2, "my_line"] == -5.0
+
+
 def test_vegas_line_parsing():
     assert odds.home_margin({"details": "DUKE -6.5"}, "DUKE", "UNC") == 6.5      # home favored
     assert odds.home_margin({"details": "DUKE -6.5"}, "UNC", "DUKE") == -6.5     # away favored
@@ -253,6 +262,12 @@ def test_vegas_grading(tmp_path, monkeypatch):
     s = export.record("mbb")["summary"]
     assert s["vegas_graded"] == 3 and s["pick_w"] == 2 and s["pick_l"] == 0
     assert s["closer_pct"] == pytest.approx(100 * (0.5 + 1 + 1) / 3, abs=0.1)   # tie, Meech, Meech
+    # a line logged after tip is not graded (audit Nov 6)
+    log = pd.read_csv(tmp_path / "predictions_mbb.csv")
+    log["made_at"] = ["2026-11-04T08:00-06:00", "2026-11-04T08:00-06:00", "2026-11-04T20:00-06:00"]
+    log.to_csv(tmp_path / "predictions_mbb.csv", index=False)
+    monkeypatch.setattr(export, "tip_times", lambda lg: pd.Series(["2026-11-04T19:00-05:00"] * 3, index=[1, 2, 3]))
+    assert list(export.grade("mbb").game_id) == [1, 2]
 
 
 @needs_data
@@ -280,6 +295,7 @@ def test_d1_filter():
 def test_daily_run_end_to_end(tmp_path, monkeypatch):
     monkeypatch.setattr(daily, "OUT", tmp_path / "out")
     monkeypatch.setattr(daily, "LOGS", tmp_path / "logs")
+    monkeypatch.setattr(daily, "NOW", lambda: pd.Timestamp("2026-11-04 10:00", tz="UTC"))  # before tips
     daily.run(pd.Timestamp("2026-11-04"), refresh=False)
     for lg in D.LEAGUES:
         r = pd.read_csv(tmp_path / "out" / f"ratings_{lg}.csv")
@@ -295,3 +311,15 @@ def test_daily_run_end_to_end(tmp_path, monkeypatch):
     first.to_csv(f, index=False)
     daily.run(pd.Timestamp("2026-11-04"), refresh=False)
     assert pd.read_csv(f).loc[0, "my_line"] == -99.0
+    # --force remakes the file, but logged games are published exactly as logged (audit Nov 6)
+    daily.run(pd.Timestamp("2026-11-04"), refresh=False, force=True)
+    log = pd.read_csv(tmp_path / "logs" / "predictions_mbb.csv").set_index("game_id")
+    pub = pd.read_csv(f).set_index("game_id")
+    assert (pub.my_line == log.my_line.reindex(pub.index)).all()
+    # once games have tipped, a late run makes no new lines for them
+    monkeypatch.setattr(daily, "NOW", lambda: pd.Timestamp("2026-11-06", tz="UTC"))
+    for g in (tmp_path / "out").glob("lines_*"):
+        g.unlink()
+    (tmp_path / "logs" / "predictions_wbb.csv").unlink()
+    daily.run(pd.Timestamp("2026-11-04"), refresh=False)
+    assert not (tmp_path / "logs" / "predictions_wbb.csv").exists()

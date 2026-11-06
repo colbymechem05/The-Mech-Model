@@ -1,0 +1,18 @@
+mbb 3 done
+mbb 14 done
+
+mbb 2025-26 holdout
+                        roster  games  Nov-Dec miss  full-season miss  winners  preseason miss  players on rosters
+full season (backtests so far)   5751         9.584             9.139   72.074           5.065               12502
+             first 3 days only   5751         9.590             9.141   72.092           5.078                7121
+            first 14 days only   5751         9.582             9.139   72.057           5.061                9091
+
+wbb 3 done
+wbb 14 done
+
+wbb 2025-26 holdout
+                        roster  games  Nov-Dec miss  full-season miss  winners  preseason miss  players on rosters
+full season (backtests so far)   5623        10.279             9.648   76.596           6.146                9880
+             first 3 days only   5623        10.293             9.654   76.525           6.190                5789
+            first 14 days only   5623        10.280             9.649   76.614           6.152                7595
+

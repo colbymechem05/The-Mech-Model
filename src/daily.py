@@ -33,7 +33,11 @@ CONF_GAMES = 30   # in-season conference pooling (analysis/buy_game_fix.py)
 # Buy games: Power team at home vs. a non-Power visitor in Nov-Dec. Extra points for the home
 # team = a + b x our spread (analysis/buy_game_term.py, fitted on 2021-22..2025-26).
 POWER = {"SEC", "Big Ten", "Big 12", "ACC", "Big East", "Pac-12"}
-BUY_BOOST = {"mbb": (2.33, 0.0), "wbb": (0.61, 0.08)}
+BUY_BOOST = {"mbb": (2.33, 0.0), "wbb": (0.61, 0.08)}   # note: refit incl. 2025-26 (after the holdout check)
+
+
+def NOW() -> pd.Timestamp:   # patched in tests
+    return pd.Timestamp.now(tz="UTC")
 
 
 def buy_boost(league: str, day: pd.Timestamp, home_ids, away_ids, neutral, spread, conf) -> np.ndarray:
@@ -82,6 +86,10 @@ def make_lines(league: str, day: pd.Timestamp, r: pd.DataFrame, lg_info: dict,
                dials: R.Dials, conf: pd.Series | None = None) -> pd.DataFrame:
     g = todays_games(league, day)
     g = g[g.home_id.isin(r.index) & g.away_id.isin(r.index)]   # D1 vs D1 only
+    # never make a line for a game that has already tipped (a late run would otherwise log
+    # lines for games in progress; audit Nov 6)
+    tip = pd.to_datetime(g.game_date_time, utc=True, errors="coerce")
+    g = g[tip.isna() | (tip > NOW())]
     if g.empty:
         return pd.DataFrame()
     p = R.predict(r, lg_info, g.home_id, g.away_id, g.neutral, dials.sigma[league])
@@ -167,9 +175,24 @@ def snapshot(league: str, day: pd.Timestamp, r: pd.DataFrame) -> None:
     snap.sort_values(["date", "rank"]).to_csv(f, index=False)
 
 
+def canonical(league: str, lines: pd.DataFrame) -> pd.DataFrame:
+    """The permanent log wins: any game already logged is published exactly as logged."""
+    log = LOGS / f"predictions_{league}.csv"
+    if not len(lines) or not log.exists():
+        return lines
+    old = pd.read_csv(log)
+    old = old[old.game_id.isin(lines.game_id)]
+    if old.empty:
+        return lines
+    keep = lines[~lines.game_id.isin(old.game_id)]
+    return pd.concat([old[[c for c in lines.columns if c in old.columns]], keep],
+                     ignore_index=True).sort_values("tip", kind="stable").reset_index(drop=True)
+
+
 def run(day: pd.Timestamp, refresh: bool = True, force: bool = False) -> None:
     """A second run on the same day (backup schedule, manual click) keeps the day's lines
-    as first made, so the site always matches the log. --force remakes them."""
+    as first made, so the site always matches the log. --force remakes the file, but only
+    games not yet logged can change: logged games are always published as logged."""
     OUT.mkdir(exist_ok=True)
     LOGS.mkdir(exist_ok=True)
     for league in D.LEAGUES:
@@ -183,7 +206,7 @@ def run(day: pd.Timestamp, refresh: bool = True, force: bool = False) -> None:
             lines = pd.read_csv(f)
             print(f"{league}: keeping today's lines as first made ({len(lines)} games)")
         else:
-            lines = make_lines(league, day, r, lg_info, dials, conf)
+            lines = canonical(league, make_lines(league, day, r, lg_info, dials, conf))
             lines.to_csv(f, index=False)
         added = append_log(league, lines) if len(lines) else 0
         print(f"{league}: {len(r)} teams | {len(lines)} lines for {day.date()} "

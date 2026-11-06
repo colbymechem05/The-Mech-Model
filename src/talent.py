@@ -155,7 +155,7 @@ class TalentPrior:
         if r.empty:
             return pd.Series(dtype=float)
         m = RC.match(r, roster_now)
-        team = m.played_team.fillna(m.team_id)
+        team = m.played_team.astype(float).where(m.played_team.notna(), m.team_id.astype(float))
         b = m.tier.map(self.tier_boost).astype(float)
         return b.groupby(team).sum()
 

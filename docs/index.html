@@ -118,17 +118,36 @@ input[type=checkbox] { accent-color: var(--orange); }
 .team-h h1 { margin: 0; font: 700 32px/1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
 .team-h .sub { color: var(--muted); font-size: 14px; margin-top: 6px; }
 .tm-big { display: flex; gap: 34px; text-align: right; }
+.tm-big .q .pop { left: auto; right: 0; }
 .tm-big .big { font: 700 46px/1 var(--display); }
-.strip-wrap { margin: 30px 0 4px; }
+.strip-wrap { margin: 22px 0 18px; }
 .strip { display: flex; align-items: stretch; gap: 3px; height: 34px; }
 .strip i { flex: 1; border-radius: 2px; background: var(--line); }
 .strip i.w { background: var(--win); }
 .strip i.l { background: var(--loss); }
+.strip i { cursor: default; transition: transform .08s; }
+.strip i:hover { transform: scaleY(1.18); }
+.strip-wrap { position: relative; }
+.gtip { position: absolute; z-index: 40; min-width: 210px; padding: 10px 13px; background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--tc, var(--blue)); border-radius: 6px; box-shadow: var(--shadow); pointer-events: none; font-size: 13px; }
+.gtip .d { font: 600 10.5px var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.gtip .m { font-weight: 600; font-size: 14px; margin: 3px 0 7px; }
+.gtip .row { display: flex; justify-content: space-between; gap: 16px; padding: 2px 0; }
+.gtip .row span:first-child { color: var(--muted); }
+.gtip .row b { font-weight: 600; }
+.legend .lc { color: var(--muted); }
+.legend .lc::before { display: none; }
+.sec-tight { margin-top: 0; }
+.sheet .q { margin-left: 6px; vertical-align: 1px; }
+.clink { cursor: pointer; }
+.clink:hover { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
+.bar-row { cursor: pointer; }
+.bar-row:hover .name { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
+.brand { cursor: pointer; }
 .strip .now { flex: none; width: 2px; margin: -7px 4px; background: var(--fg); position: relative; }
 .strip .now span { position: absolute; top: -17px; left: 50%; transform: translateX(-50%); font: 600 10px var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--fg); white-space: nowrap; }
 .strip-key { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 9px; font-size: 12px; color: var(--muted); }
 .strip-key .sq { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
-.strip-key .grad { display: inline-block; width: 120px; height: 10px; border-radius: 2px; vertical-align: -1px; margin: 0 7px; background: linear-gradient(to right, var(--line), var(--blue)); }
+.strip-key .grad { display: inline-block; width: 140px; height: 10px; border-radius: 2px; vertical-align: -1px; margin: 0 7px; background: linear-gradient(to right, var(--loss), var(--line), var(--win)); }
 .split { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr); gap: 0 44px; }
 .sheet { width: 100%; border-collapse: collapse; }
 .sheet td { padding: 9px 0; border-bottom: 1px solid var(--line); background: none !important; }
@@ -149,6 +168,7 @@ section[data-page="rankings"] > .scroll:first-child { margin-top: 14px; }
 .q { position: relative; display: inline-grid; place-items: center; width: 18px; height: 18px; border: 1px solid var(--line); border-radius: 50%; font: 600 11px var(--body); color: var(--muted); cursor: help; letter-spacing: 0; text-transform: none; }
 .q:hover, .q:focus { color: var(--fg); border-color: var(--muted); outline: none; }
 .hq { width: 13px; height: 13px; font-size: 9px; margin-left: 5px; vertical-align: 1px; }
+.q.r .pop { left: auto; right: 0; }
 .q .pop { position: absolute; left: 0; top: calc(100% + 8px); z-index: 30; width: 320px; padding: 11px 13px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); font: 400 13px/1.5 var(--body); color: var(--fg); text-align: left; display: none; }
 .q:hover .pop, .q:focus .pop { display: block; }
 .hq .pop { white-space: normal; top: calc(100% + 6px); width: 250px; letter-spacing: 0; text-transform: none; font-weight: 400; }
@@ -202,14 +222,24 @@ th.num { text-align: right; }
 .bar-fill.on { background: var(--blue); opacity: 1; }
 .bar-row .val { font-family: var(--num); font-size: 12.5px; text-align: right; }
 .cols { display: flex; align-items: flex-end; gap: 18px; height: 210px; position: relative; border-bottom: 2px solid var(--rule); padding-top: 10px; }
-.col { flex: 1; max-width: 72px; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
+.col { flex: 1; max-width: 110px; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
 .col .v { font: 12px var(--num); margin-bottom: 4px; }
 .col .fill { width: 100%; max-width: 30px; background: var(--blue); border-radius: 2px 2px 0 0; }
 .col .pair { display: flex; align-items: flex-end; gap: 3px; width: 100%; max-width: 44px; height: 100%; justify-content: center; }
 .col .pair .fill { max-width: 20px; flex: 1; }
 .col .fill.vegas { background: var(--faint); }
+.trio { display: flex; align-items: flex-end; justify-content: center; gap: 4px; height: 100%; width: 100%; }
+.bw { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; width: 22px; }
+.bw .v { font: 11px var(--num); margin-bottom: 3px; }
+.bw .fill { width: 100%; max-width: 22px; }
+.col .fill.mv { background: color-mix(in srgb, var(--blue) 45%, var(--line)); }
+.col { max-width: 110px; }
+.col-labels span { max-width: 110px; }
+.chart-key { margin-top: 12px; flex-wrap: wrap; }
+.legend .lm::before { background: color-mix(in srgb, var(--blue) 45%, var(--line)); }
+.legend .lg::before { background: var(--faint); }
 .col-labels { display: flex; gap: 18px; }
-.col-labels span { flex: 1; max-width: 72px; text-align: center; font: 600 11px var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-top: 6px; }
+.col-labels span { flex: 1; max-width: 110px; text-align: center; font: 600 11px var(--body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-top: 6px; }
 .bench { position: absolute; left: 0; right: 0; border-top: 1px dashed var(--orange); }
 .bench span { position: absolute; right: 0; top: -17px; font: 11px var(--num); color: var(--orange); }
 
@@ -374,7 +404,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
       <div class="grid2">
         <div>
-          <div class="sec"><h2>Miss by Month <span class="q" tabindex="0">?<span class="pop">Average points between the line and the final margin. Blue = Meech, gray = Vegas (when saved). Dashed orange = the 2025-26 test result.</span></span></h2></div>
+          <div class="sec"><h2>Miss by Month <span class="q" tabindex="0">?<span class="pop">Average points between the line and the final margin. Blue = Meech on every graded game. Light blue = Meech on only the games that had a Vegas line, and gray = Vegas on those same games, so those two are a fair head-to-head. Dashed orange = the 2025-26 test result.</span></span></h2></div>
           <div id="months"></div>
         </div>
         <div>
@@ -398,31 +428,46 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <div class="team-h">
         <div><h1 id="tm-name">—</h1><div class="sub" id="tm-sub"></div></div>
         <div class="tm-big">
-          <div><div class="big" id="tm-rank">—</div><div class="sub">Power rating <span id="tm-net"></span></div></div>
-          <div><div class="big" id="tm-proj">—</div><div class="sub">Projected record</div></div>
+          <div><div class="big" id="tm-rank">—</div><div class="sub">Power rating <span id="tm-net"></span> <span class="q r" tabindex="0">?<span class="pop">Where this team ranks among every D1 team in the Meech power ratings, and its rating: points per 100 possessions better than an average D1 team.</span></span></div></div>
+          <div><div class="big" id="tm-proj">—</div><div class="sub">Projected record <span class="q r" tabindex="0">?<span class="pop">The record so far plus the expected wins from every game left, using each game&rsquo;s chance to win as the teams are rated today. It moves every day as ratings change.</span></span></div></div>
         </div>
       </div>
+      <div class="sec"><h2>Schedule <span class="q" tabindex="0">?<span class="pop">Every game this season. Played games show the line logged before tip. Upcoming games show what the Meech line would be if the game were played today. <b>C</b> = conference game. <b>N</b> = neutral site.</span></span></h2>
+        <div class="legend"><span class="lb">Meech favorite</span><span class="lc">C = conference game</span></div></div>
       <div class="strip-wrap">
         <div class="strip" id="tm-strip"></div>
         <div class="strip-key">
           <span><span class="sq" style="background:var(--win)"></span>Won</span>
           <span><span class="sq" style="background:var(--loss)"></span>Lost</span>
-          <span>Upcoming: chance to win as rated today &nbsp;0%<span class="grad"></span>100%</span>
+          <span>Upcoming, as rated today: &nbsp;big underdog<span class="grad"></span>big favorite</span>
         </div>
+        <div class="gtip" id="tm-tip" hidden></div>
       </div>
       <div class="split">
         <div>
-          <div class="sec"><h2>Schedule</h2><div class="legend"><span class="lb">Meech favorite</span></div></div>
-          <div class="scroll" style="max-height:none"><table id="tm-sched"><thead><tr><th>Date</th><th></th><th class="num">#</th><th>Opponent</th><th class="num">Meech</th><th class="num">Win %</th><th>Result</th></tr></thead><tbody></tbody></table></div>
+          <div class="scroll" style="max-height:none"><table id="tm-sched"><thead><tr><th>Date</th><th></th><th class="num">#</th><th>Opponent</th><th class="num">Meech <span class="q" tabindex="0">?<span class="pop">The Meech line from this team&rsquo;s side: minus = favored, plus = underdog. Blue = this team is the Meech favorite.</span></span></th><th class="num">Win % <span class="q r" tabindex="0">?<span class="pop">This team&rsquo;s chance to win. Played games: as logged before tip. Upcoming games: as rated today. Never shown as 0% or 100%.</span></span></th><th>Result</th></tr></thead><tbody></tbody></table></div>
         </div>
         <div>
-          <div class="sec"><h2>Ratings</h2></div>
+          <div class="sec sec-tight"><h2>Ratings</h2></div>
           <table class="sheet" id="tm-sheet"></table>
-          <div class="sec"><h2>Leaders</h2></div>
+          <div class="sec"><h2>Leaders <span class="q r" tabindex="0">?<span class="pop">Per-game averages this season for players who&rsquo;ve played in at least half of the team&rsquo;s games, sorted by points.</span></span></h2></div>
           <table id="tm-lead"><thead><tr><th>Player</th><th class="num">G</th><th class="num">PTS</th><th class="num">REB</th><th class="num">AST</th><th class="num">MIN</th></tr></thead><tbody></tbody></table>
           <p class="empty" id="tm-lead-none" hidden>No stats yet.</p>
         </div>
       </div>
+    </section>
+
+    <!-- ===== Conference page ===== -->
+    <section data-page="conf" hidden>
+      <a class="back" id="cf-back" href="#">&larr; Back</a>
+      <div class="ticker" id="cf-ticker"></div>
+      <div class="scroll" style="margin-top:14px"><table id="cf-table"><thead><tr>
+        <th class="num">#</th><th>Team</th><th class="num">Overall</th><th class="num">Conf</th>
+        <th class="num">Net <span class="q" tabindex="0">?<span class="pop">Points per 100 possessions better than an average D1 team on a neutral floor.</span></span></th>
+        <th class="num">Offense</th><th class="num">Defense</th><th class="num">Tempo</th>
+        <th class="num">D1 rank <span class="q r" tabindex="0">?<span class="pop">Where the team ranks among all D1 teams in the Meech power ratings.</span></span></th>
+        <th class="num">Preseason</th><th class="num">Change <span class="q r" tabindex="0">?<span class="pop">How far the Net rating has moved from its preseason number.</span></span></th>
+      </tr></thead><tbody></tbody></table></div>
     </section>
 
     <!-- ===== How it works ===== -->
@@ -458,7 +503,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
         </ul>
 
         <h3>How every piece earned its spot</h3>
-        <p>There are many inputs that can be placed into models of this kind. In order for an idea to be incorporated into The Meech Model, it was tested using the 2021-22 through 2024-25 seasons as test data. Then, it was graded on the 2025-26 season to remove any training bias. If an idea didn't make the lines more accurate, the idea was not used as an input in the model.</p>
+        <p>There are many inputs that can be placed into models of this kind. In order for an idea to be incorporated into The Meech Model, it was tested using the 2021-22 through 2024-25 seasons as test data. Then, it was graded on the 2025-26 season to remove any training bias. If an idea didn't make the lines more accurate, the idea was not used as an input in the model. One exception: after that check, the buy-game boost was refit using all five seasons, including 2025-26, so this season&rsquo;s live track record is the true test.</p>
         <p>On the 2025-26 grading season the model missed the final margin by about <b>9.1 points</b> per men's game and <b>9.7</b> per women's game, picking the winner 72% and 77% of the time.</p>
 
         <h3>Power ratings vs. rankings</h3>
@@ -486,8 +531,9 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 (() => {
   const POWER = ['SEC', 'Big Ten', 'Big 12', 'ACC', 'Big East'];
   const TOP_N = 100, TOSSUP = 4, BLOWOUT = 15, BIG_GAP = 3;
-  const PAGES = ['today', 'rankings', 'top25', 'record', 'how', 'team'];
-  const S = {league: 'mbb', tab: 'today', confs: new Set(), sort: 'spread', scol: '', sdir: 'asc',
+  const PAGES = ['today', 'rankings', 'top25', 'record', 'how', 'team', 'conf'];
+  const DETAIL = ['team', 'conf'];
+  const S = {stack: [], base: 'today', cname: '', league: 'mbb', tab: 'today', confs: new Set(), sort: 'spread', scol: '', sdir: 'asc',
              hide: false, rall: false, logn: 200, rsort: 'rank', rcol: '', rdir: 'asc', q: ''};
   const D = {};
   let COLOR = {};
@@ -520,9 +566,11 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (id !== undefined) { nm.classList.add('tlink'); nm.dataset.team = id; }
     c.append(nm);
     if (neutral) { const t = el('span', 'tag', 'N'); t.title = 'Neutral site'; c.append(t); }
-    if (conf) c.append(el('span', 'cf', conf));
+    if (conf) { const cf = el('span', 'cf clink', conf); cf.dataset.conf = conf; c.append(cf); }
     return c;
   };
+
+  const confCell = (name) => { const c = el('td', 'muted'); const sp = el('span', 'clink', name); sp.dataset.conf = name; c.append(sp); return c; };
 
   // ---------- state <-> URL (so a link opens the same view) ----------
   const readHash = () => {
@@ -531,7 +579,9 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (PAGES.includes(h.get('tab'))) S.tab = h.get('tab');
     if (h.get('conf')) S.confs = new Set(h.get('conf').split('|'));
     if (h.get('team')) S.team = Number(h.get('team'));
-    if (S.tab === 'team' && !h.get('team')) S.tab = 'rankings';
+    if (h.get('cname')) S.cname = h.get('cname');
+    if ((S.tab === 'team' && !h.get('team')) || (S.tab === 'conf' && !h.get('cname'))) S.tab = 'rankings';
+    if (!DETAIL.includes(S.tab)) S.base = S.tab; else S.base = 'rankings';
   };
   const writeHash = () => {
     const h = new URLSearchParams();
@@ -539,6 +589,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (S.tab !== 'today') h.set('tab', S.tab);
     if (S.confs.size) h.set('conf', [...S.confs].join('|'));
     if (S.tab === 'team') h.set('team', S.team);
+    if (S.tab === 'conf') h.set('cname', S.cname);
     const s = h.toString();
     history.replaceState(null, '', s ? '#' + s : location.pathname);
   };
@@ -565,14 +616,14 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $$('.nav button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === S.tab)));
     $$('section[data-page]').forEach((s) => { s.hidden = s.dataset.page !== S.tab; });
     document.querySelector('.mast').hidden = S.tab === 'team';
-    $$('.nav button').forEach((b) => { if (S.tab === 'team') b.setAttribute('aria-selected', String(b.dataset.tab === (S.prev || 'rankings'))); });
+    $$('.nav button').forEach((b) => { if (DETAIL.includes(S.tab)) b.setAttribute('aria-selected', String(b.dataset.tab === (S.base || 'rankings'))); });
     const heads = {today: ['', longDate()], rankings: ['', `${lg()} Power Ratings`], top25: ['', `${lg()} Rankings`],
-                   record: ['', `${lg()} Track Record`], how: ['', 'The Meech Model'], team: ['', '']};
+                   record: ['', `${lg()} Track Record`], how: ['', 'The Meech Model'], team: ['', ''], conf: ['', `${lg()} ${S.cname || ''}`]};
     $('#title').textContent = heads[S.tab][1];
     document.querySelector('.mast').classList.toggle('noline', S.tab === 'rankings');
     $('#rank-tools').hidden = S.tab !== 'rankings' && S.tab !== 'top25';
     $('#pr-q').hidden = S.tab !== 'rankings';
-    $('#filters').hidden = S.tab === 'how' || S.tab === 'record';
+    $('#filters').hidden = ['how', 'record', 'conf'].includes(S.tab);
     $('#conf-all').setAttribute('aria-pressed', String(!S.confs.size));
     $('#conf-power').setAttribute('aria-pressed', String(isPower()));
     const custom = S.confs.size > 0 && !isPower();
@@ -653,7 +704,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     fill($('#ranks tbody'), t.map((r) => {
       const tr = el('tr');
       const mv = num(r.vs_preseason);
-      tr.append(td(String(r.rank), 'num ' + (r.rank <= 25 ? 'top' : 'rk')), teamCell(r.team), td(r.conf, 'muted'),
+      tr.append(td(String(r.rank), 'num ' + (r.rank <= 25 ? 'top' : 'rk')), teamCell(r.team), confCell(r.conf),
         td(f1(r.net), 'num'), td(f1(r.O), 'num'), td(f1(r.D), 'num'), td(f1(r.tempo), 'num muted'),
         td(f1(r.preseason), 'num muted'), td(signed(r.vs_preseason), 'num' + (mv !== null && Math.abs(mv) >= 5 ? ' hot' : '')),
         td(num(r.returning_pct) === null ? '—' : Math.round(r.returning_pct) + '%', 'num muted'),
@@ -673,6 +724,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       bar.style.left = Math.min(x(0), x(d.avg)) + '%'; bar.style.width = Math.abs(x(d.avg) - x(0)) + '%';
       track.append(bar);
       row.append(el('span', 'name', d.conf), track, el('span', 'val', d.avg.toFixed(1)));
+      row.classList.add('clink'); row.dataset.conf = d.conf;
       return row;
     }));
   }
@@ -700,21 +752,22 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (!months.length) {
       box.replaceChildren(el('p', 'empty', 'Fills in as games are graded.'));
     } else {
-      const top = Math.max(...months.map((m) => Math.max(m.avg_miss, m.vegas_miss || 0)), sum.bench_miss || 0) * 1.15;
+      const top = Math.max(...months.map((m) => Math.max(m.avg_miss, m.vegas_miss || 0, m.my_miss_v || 0)), sum.bench_miss || 0) * 1.18;
       const cols = el('div', 'cols');
+      const bar = (v, cls, tip) => {
+        const b = el('div', 'bw'); b.title = tip;
+        const f = el('div', 'fill ' + cls); f.style.height = (v / top * 100) + '%';
+        b.append(el('span', 'v', v.toFixed(1)), f); return b;
+      };
       months.forEach((m) => {
         const col = el('div', 'col');
-        col.title = `${m.games} games · ${m.winner_pct.toFixed(1)}% winners`;
-        const v = el('span', 'v', m.avg_miss.toFixed(1));
-        const f = el('div', 'fill'); f.style.height = (m.avg_miss / top * 100) + '%';
-        if (m.vegas_miss !== null && m.vegas_miss !== undefined) {
-          col.title += ` · Vegas missed by ${m.vegas_miss.toFixed(1)}`;
-          const pair = el('div', 'pair');
-          const vf = el('div', 'fill vegas'); vf.style.height = (m.vegas_miss / top * 100) + '%';
-          pair.append(f, vf); col.append(v, pair);
-        } else {
-          col.append(v, f);
+        const trio = el('div', 'trio');
+        trio.append(bar(m.avg_miss, '', `Meech, all ${m.games} games: ${m.avg_miss.toFixed(2)}`));
+        if (m.vegas_games) {
+          trio.append(bar(m.my_miss_v, 'mv', `Meech, the ${m.vegas_games} games with a Vegas line: ${m.my_miss_v.toFixed(2)}`),
+                      bar(m.vegas_miss, 'vegas', `Vegas, the same ${m.vegas_games} games: ${m.vegas_miss.toFixed(2)}`));
         }
+        col.append(trio);
         cols.append(col);
       });
       if (sum.bench_miss) {
@@ -725,7 +778,9 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       const labels = el('div', 'col-labels');
       months.forEach((m) => labels.append(el('span', '',
         new Date(m.month + '-15T12:00:00Z').toLocaleString('en-US', {month: 'short', timeZone: 'UTC'}))));
-      box.replaceChildren(cols, labels);
+      const key = el('div', 'legend chart-key');
+      key.innerHTML = '<span class="lb">Meech, all games</span><span class="lm">Meech, games with a Vegas line</span><span class="lg">Vegas, same games</span>';
+      box.replaceChildren(cols, labels, key);
     }
 
     const cal = rec.filter((r) => r.kind === 'calibration');
@@ -755,10 +810,45 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   const ordinal = (n) => n + ((n % 100 >= 11 && n % 100 <= 13) ? 'th' : ({1: 'st', 2: 'nd', 3: 'rd'}[n % 10] || 'th'));
   const fmtDate = (d) => new Date(d + 'T12:00:00').toLocaleString('en-US', {month: 'short', day: 'numeric'});
   const pctCap = (p) => Math.min(99, Math.max(1, Math.round(p * 100)));   // never claim a sure thing
-  const openTeam = (id) => {
-    if (S.tab !== 'team') S.prev = S.tab;
-    S.team = Number(id); S.tab = 'team'; render(); window.scrollTo(0, 0);
+  // ---------- detail pages (team, conference): a small back stack ----------
+  const TABNAME = {today: "Today's Lines", rankings: 'Power Ratings', top25: 'Rankings', record: 'Track Record', how: 'How It Works'};
+  const go = (tab, extra) => {
+    S.stack.push({tab: S.tab, team: S.team, cname: S.cname});
+    Object.assign(S, extra, {tab}); render(); window.scrollTo(0, 0);
   };
+  const openTeam = (id) => go('team', {team: Number(id)});
+  const openConf = (name) => go('conf', {cname: name});
+  const goBack = () => {
+    const p = S.stack.pop() || {tab: S.base || 'rankings'};
+    Object.assign(S, p); render(); window.scrollTo(0, 0);
+  };
+  const backLabel = () => {
+    const p = S.stack[S.stack.length - 1];
+    if (!p) return '← ' + TABNAME[S.base || 'rankings'];
+    if (p.tab === 'team') return '← ' + ((ofLeague(D.rankings).find((r) => r.team_id === p.team) || {}).team || 'Back');
+    if (p.tab === 'conf') return '← ' + p.cname;
+    return '← ' + TABNAME[p.tab];
+  };
+  const recTxt = (w, l) => `${w}–${l}`;
+  const sheetHelp = {
+    'Power rating': 'Points per 100 possessions better than an average D1 team on a neutral floor. Offense minus defense.',
+    Offense: 'Points scored per 100 possessions above an average D1 offense, adjusted for who the team played.',
+    Defense: 'Points allowed per 100 possessions compared to an average D1 defense, adjusted for who the team played. Lower is better.',
+    Tempo: 'Possessions per 40 minutes the team plays at against an average opponent.',
+    Preseason: 'Net rating before any games played, and how far it has moved since.',
+    'Home court': 'Points advantage this team gets when playing at home: the league average plus its own home edge from the last four seasons.',
+    'Returning minutes': 'Share of last season&rsquo;s minutes that are back on this year&rsquo;s roster.',
+  };
+  const helpIcon = (text, right) => {
+    const q = el('span', 'q' + (right ? ' r' : '')); q.tabIndex = 0; q.textContent = '?';
+    const pop = el('span', 'pop'); pop.innerHTML = text; q.append(pop); return q;
+  };
+  // win chance -> red (big underdog) ... neutral (toss-up) ... green (big favorite)
+  const chanceColor = (p) => {
+    const t = Math.min(1, Math.abs(p - 0.5) * 2);
+    return `color-mix(in srgb, var(${p >= 0.5 ? '--win' : '--loss'}) ${Math.round(25 + 75 * t)}%, var(--line))`;
+  };
+
   function renderTeam() {
     const rows = ofLeague(D.rankings);
     const me = rows.find((r) => r.team_id === S.team);
@@ -776,29 +866,55 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     const page = pack[S.team] || {g: [], l: []};
     const games = page.g;
     const w = games.filter((g) => g.r === 'W').length, l = games.filter((g) => g.r === 'L').length;
+    const cw = games.filter((g) => g.c && g.r === 'W').length, cl = games.filter((g) => g.c && g.r === 'L').length;
     const left = games.filter((g) => !g.r);
     const projW = Math.round(w + left.reduce((a, g) => a + (g.p ?? (g.on ? 0.95 : 0.5)), 0));
-    document.querySelector('section[data-page="team"]').style.setProperty('--tc', COLOR[me.team] || 'var(--rule)');
+    const sec = document.querySelector('section[data-page="team"]');
+    sec.style.setProperty('--tc', COLOR[me.team] || 'var(--rule)');
     $('#tm-name').textContent = me.team;
-    $('#tm-sub').textContent = `${me.conf} · ${w}–${l}`;
+    const sub = $('#tm-sub'); sub.replaceChildren();
+    const cl_ = el('span', 'clink', me.conf); cl_.dataset.conf = me.conf;
+    sub.append(cl_, document.createTextNode(` · ${recTxt(w, l)} overall · ${recTxt(cw, cl)} conference`));
     $('#tm-rank').textContent = ordinal(me.rank);
     $('#tm-net').textContent = f1(me.net);
     $('#tm-proj').textContent = `${projW}–${games.length - projW}`;
-    $('#tm-back').textContent = '← ' + ({today: "Today's Lines", rankings: 'Power Ratings', top25: 'Rankings', record: 'Track Record', how: 'How It Works'}[S.prev || 'rankings']);
+    $('#tm-back').textContent = backLabel();
 
     const oppName = (g) => (g.o !== undefined ? (byId[g.o] || {}).team || '—' : g.on);
     const lineTxt = (g) => (g.ln === undefined ? '—' : (g.ln >= 0 ? (-g.ln).toFixed(1) : '+' + (-g.ln).toFixed(1)));
-    // strip: past = won/lost, upcoming = shaded by chance to win, a line at today
+    // strip: played = won/lost, upcoming = red..green by chance to win, a line at today
     const strip = $('#tm-strip'); strip.replaceChildren();
     let marked = false;
-    games.forEach((g) => {
+    games.forEach((g, k) => {
       if (!g.r && !marked) { const n = el('b', 'now'); n.append(el('span', '', 'Today')); strip.append(n); marked = true; }
       const b = el('i', g.r ? (g.r === 'W' ? 'w' : 'l') : '');
-      if (!g.r && g.p !== undefined) b.style.background = `color-mix(in srgb, var(--blue) ${Math.round(g.p * 100)}%, var(--line))`;
-      b.title = `${fmtDate(g.d)} ${g.s} ${oppName(g)} · ` + (g.r ? `${g.r} ${g.sc.replace('-', '–')}` : (g.p !== undefined ? `Meech ${lineTxt(g)} · ${pctCap(g.p)}% to win` : 'no line'));
+      if (!g.r && g.p !== undefined) b.style.background = chanceColor(g.p);
+      b.dataset.k = k;
       strip.append(b);
     });
     if (!marked && games.length) { const n = el('b', 'now'); n.append(el('span', '', 'Today')); strip.append(n); }
+
+    // hover card for strip blocks
+    const tip = $('#tm-tip');
+    strip.onmouseover = (e) => {
+      const b = e.target.closest('i'); if (!b) return;
+      const g = games[Number(b.dataset.k)], o = g.o !== undefined ? byId[g.o] : null;
+      const dt = new Date(g.d + 'T12:00:00').toLocaleString('en-US', {weekday: 'short', month: 'short', day: 'numeric'});
+      const site = g.s === 'N' ? 'vs' : g.s;
+      const rows_ = [];
+      if (g.r) rows_.push(['Result', `<b class="${g.r === 'W' ? 'win' : 'loss'}">${g.r}</b> ${g.sc.replace('-', '–')}`]);
+      if (g.ln !== undefined) rows_.push([g.r ? 'Meech line (pre-tip)' : 'Meech line', `${lineTxt(g)} ${g.ln >= 0 ? '(favored)' : '(underdog)'}`]);
+      if (g.p !== undefined) rows_.push([g.r ? 'Chance to win (pre-tip)' : 'Chance to win', `${pctCap(g.p)}%`]);
+      if (!rows_.length) rows_.push(['Meech line', 'none (non-D1 opponent)']);
+      tip.innerHTML = `<div class="d">${dt}${g.s === 'N' ? ' · Neutral site' : ''}${g.c ? ' · Conference' : ''}</div>`
+        + `<div class="m">${site} ${o ? `<span class="rk">${o.rank}</span> ` : ''}${oppName(g)}</div>`
+        + rows_.map(([k, v]) => `<div class="row"><span>${k}</span><b>${v}</b></div>`).join('');
+      tip.hidden = false;
+      const wrap = strip.parentElement.getBoundingClientRect(), r = b.getBoundingClientRect();
+      const x = Math.min(Math.max(0, r.left - wrap.left + r.width / 2 - 110), wrap.width - 240);
+      tip.style.left = x + 'px'; tip.style.top = (r.bottom - wrap.top + 10) + 'px';
+    };
+    strip.onmouseleave = () => { tip.hidden = true; };
 
     // schedule grouped by month
     const out = []; let month = null;
@@ -809,7 +925,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       const opp = oppName(g);
       const o = g.o !== undefined ? byId[g.o] : null;
       const oc = teamCell(opp);
-      if (g.c) oc.append(el('span', 'tag', 'C'));
+      if (g.c) { const t = el('span', 'tag', 'C'); t.title = 'Conference game'; oc.append(t); }
       const res = el('td');
       if (g.r) { res.append(el('span', g.r === 'W' ? 'win' : 'loss', g.r), document.createTextNode(' ' + g.sc.replace('-', '–'))); }
       else res.append(el('span', 'faint', '—'));
@@ -823,7 +939,10 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       ['Defense', f1(me.D), ordinal(rankOf('D', true))], ['Tempo', f1(me.tempo), ordinal(rankOf('tempo', false))],
       ['Preseason', f1(me.preseason), signed(me.vs_preseason)], ['Home court', '+' + f1(me.home_court), ''],
       ['Returning minutes', num(me.returning_pct) === null ? '—' : Math.round(me.returning_pct) + '%', '']];
-    fill($('#tm-sheet'), sheet.map(([k, v, r]) => { const tr = el('tr'); tr.append(td(k), td(v, 'v num'), td(r, 'r')); return tr; }));
+    fill($('#tm-sheet'), sheet.map(([k, v, r]) => {
+      const tr = el('tr'); const kc = td(k); kc.append(helpIcon(sheetHelp[k]));
+      tr.append(kc, td(v, 'v num'), td(r, 'r')); return tr;
+    }));
     fill($('#tm-lead tbody'), page.l.map((p) => {
       const tr = el('tr');
       tr.append(td(p.name), td(String(p.games), 'num muted'), td(f1(p.pts), 'num'), td(f1(p.reb), 'num'), td(f1(p.ast), 'num'), td(f1(p.min), 'num muted'));
@@ -831,10 +950,36 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     }));
     $('#tm-lead-none').hidden = page.l.length > 0;
   }
+
+  function renderConf() {
+    const rows = ofLeague(D.rankings);
+    const teams = rows.filter((r) => r.conf === S.cname).sort((a, b) => b.net - a.net);
+    if (!teams.length) { S.tab = 'rankings'; render(); return; }
+    $('#cf-back').textContent = backLabel();
+    const strength = ofLeague(D.conferences).sort((a, b) => b.avg - a.avg);
+    const st = strength.find((c) => c.conf === S.cname);
+    const avg = teams.reduce((a, r) => a + r.net, 0) / teams.length;
+    const it = (k, v, t) => { const s_ = el('span', 'it'); s_.append(el('span', 'k', k), el('b', '', v)); if (t) s_.append(el('span', 't', t)); return s_; };
+    $('#cf-ticker').replaceChildren(it('Teams', String(teams.length)),
+      it('Average rating', avg.toFixed(1), st ? `${ordinal(strength.indexOf(st) + 1)} of ${strength.length} conferences` : ''),
+      it('Best', f1(teams[0].net), teams[0].team));
+    fill($('#cf-table tbody'), teams.map((r, k) => {
+      const tr = el('tr');
+      tr.append(td(String(k + 1), 'num ' + (k < 3 ? 'top' : 'rk')), teamCell(r.team),
+        td(recTxt(r.wins ?? 0, r.losses ?? 0), 'num'), td(recTxt(r.conf_wins ?? 0, r.conf_losses ?? 0), 'num muted'),
+        td(f1(r.net), 'num'), td(f1(r.O), 'num'), td(f1(r.D), 'num'), td(f1(r.tempo), 'num muted'),
+        td(String(r.rank), 'num ' + (r.rank <= 25 ? 'top' : 'rk')), td(f1(r.preseason), 'num muted'), td(signed(r.vs_preseason), 'num'));
+      return tr;
+    }));
+  }
+
   document.addEventListener('click', (e) => {
-    const t = e.target.closest('.tlink'); if (t) { e.preventDefault(); openTeam(t.dataset.team); }
+    const t = e.target.closest('.tlink'); if (t) { e.preventDefault(); openTeam(t.dataset.team); return; }
+    const c = e.target.closest('.clink'); if (c && c.dataset.conf) { e.preventDefault(); openConf(c.dataset.conf); }
   });
-  $('#tm-back').addEventListener('click', (e) => { e.preventDefault(); S.tab = S.prev || 'rankings'; render(); });
+  $('#tm-back').addEventListener('click', (e) => { e.preventDefault(); goBack(); });
+  $('#cf-back').addEventListener('click', (e) => { e.preventDefault(); goBack(); });
+  document.querySelector('.brand').addEventListener('click', () => { S.stack = []; S.base = 'today'; S.tab = 'today'; render(); window.scrollTo(0, 0); });
 
   function render() {
     renderChrome();
@@ -842,6 +987,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (S.tab === 'rankings') renderRankings();
     if (S.tab === 'record') renderRecord();
     if (S.tab === 'team') renderTeam();
+    if (S.tab === 'conf') renderConf();
     writeHash();
   }
 
@@ -857,8 +1003,8 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   paintTheme();
 
   // ---------- controls ----------
-  $$('.league button').forEach((b) => b.addEventListener('click', () => { S.league = b.dataset.league; S.logn = 200; if (S.tab === 'team') S.tab = S.prev || 'rankings'; render(); }));
-  $$('.nav button').forEach((b) => b.addEventListener('click', () => { S.tab = b.dataset.tab; render(); window.scrollTo(0, 0); }));
+  $$('.league button').forEach((b) => b.addEventListener('click', () => { S.league = b.dataset.league; S.logn = 200; if (DETAIL.includes(S.tab)) { S.stack = []; S.tab = S.base || 'rankings'; } render(); }));
+  $$('.nav button').forEach((b) => b.addEventListener('click', () => { S.stack = []; S.base = S.tab = b.dataset.tab; render(); window.scrollTo(0, 0); }));
   $$('[data-go]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); S.tab = a.dataset.go; render(); }));
   $('#conf-btn').addEventListener('click', () => {
     const p = $('#conf-panel'); p.hidden = !p.hidden; $('#conf-btn').setAttribute('aria-expanded', String(!p.hidden));
