@@ -199,6 +199,18 @@ def test_log_is_append_only(tmp_path, monkeypatch):
     assert log.loc[log.game_id == 2, "my_line"].item() == -7.0
 
 
+def test_ratings_snapshot_one_block_per_day(tmp_path, monkeypatch):
+    monkeypatch.setattr(daily, "LOGS", tmp_path)
+    r = pd.DataFrame({"rank": [1, 2], "net": [20.0, 10.0], "O": [10, 5], "D": [-10, -5],
+                      "tempo": [68, 70], "games": [1, 1]}, index=[11, 22])
+    daily.snapshot("mbb", pd.Timestamp("2026-11-05"), r)
+    daily.snapshot("mbb", pd.Timestamp("2026-11-05"), r.assign(net=[21.0, 9.0]))   # rerun same day
+    daily.snapshot("mbb", pd.Timestamp("2026-11-06"), r)
+    h = pd.read_csv(tmp_path / "ratings_history_mbb.csv")
+    assert len(h) == 4 and list(h.date.unique()) == ["2026-11-05", "2026-11-06"]
+    assert h[(h.date == "2026-11-05") & (h.team_id == 11)].net.item() == 21.0
+
+
 def test_vegas_line_parsing():
     assert odds.home_margin({"details": "DUKE -6.5"}, "DUKE", "UNC") == 6.5      # home favored
     assert odds.home_margin({"details": "DUKE -6.5"}, "UNC", "DUKE") == -6.5     # away favored

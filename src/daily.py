@@ -125,6 +125,22 @@ def append_log(league: str, lines: pd.DataFrame) -> int:
     return len(lines)
 
 
+SNAP_COLS = ["rank", "net", "O", "D", "tempo", "games"]
+
+
+def snapshot(league: str, day: pd.Timestamp, r: pd.DataFrame) -> None:
+    """Daily ratings history (logs/ratings_history_{lg}.csv) for team pages and trend charts.
+    One block of rows per date; a rerun on the same day replaces that day's block."""
+    f = LOGS / f"ratings_history_{league}.csv"
+    snap = r[SNAP_COLS].round(1).copy()
+    snap.insert(0, "team_id", r.index)
+    snap.insert(0, "date", str(day.date()))
+    if f.exists():
+        old = pd.read_csv(f)
+        snap = pd.concat([old[old.date != str(day.date())], snap], ignore_index=True)
+    snap.sort_values(["date", "rank"]).to_csv(f, index=False)
+
+
 def run(day: pd.Timestamp, refresh: bool = True, force: bool = False) -> None:
     """A second run on the same day (backup schedule, manual click) keeps the day's lines
     as first made, so the site always matches the log. --force remakes them."""
@@ -134,6 +150,7 @@ def run(day: pd.Timestamp, refresh: bool = True, force: bool = False) -> None:
         r, lg_info, dials, conf = rate(league, day, refresh)
         r[["rank", "team", "net", "O", "D", "tempo", "games", "preseason", "returning_pct", "home_court"]
           ].round(1).to_csv(OUT / f"ratings_{league}.csv", index_label="team_id")
+        snapshot(league, day, r)
         f = OUT / f"lines_{league}_{day.date()}.csv"
         if f.exists() and f.stat().st_size > 1 and not force:
             lines = pd.read_csv(f)
