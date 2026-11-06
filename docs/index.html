@@ -282,7 +282,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           <th data-col="proj_score" class="num"><button>Proj.</button></th>
           <th data-col="proj_tempo" class="num"><button>Pace</button></th>
           <th data-col="vegas_line" class="num"><button>Vegas</button></th>
-          <th data-col="gap" class="num"><button>Gap</button></th>
+          <th data-col="gap" class="num"><button>Gap</button><span class="q hq r" tabindex="0">?<span class="pop">Meech line minus the Vegas line. A negative number means the Meech model likes the favorite more than Vegas does; a positive number means it likes them less.</span></span></th>
         </tr></thead><tbody></tbody></table>
       </div>
       <p class="empty" id="lines-none" hidden>No games match this filter.</p>
@@ -355,7 +355,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
       <div class="sec"><h2>Game Log <span class="q" tabindex="0">?<span class="pop">Every graded line, newest first. Blue team = the Meech favorite. <b>Closer</b> = whose line landed nearer the final.</span></span></h2></div>
       <div class="scroll">
-        <table id="log"><thead><tr><th>Date</th><th>Away</th><th>Home</th><th class="num">Meech</th><th class="num">Vegas</th><th class="num">Win %</th><th class="num">Final</th><th class="num">Miss</th><th class="num">Vegas miss</th><th>Winner</th><th>Closer</th><th>Pick</th></tr></thead><tbody></tbody></table>
+        <table id="log"><thead><tr><th>Date</th><th>Away</th><th>Home</th><th class="num">Meech</th><th class="num">Vegas</th><th class="num">Win %</th><th class="num">Final</th><th class="num">Miss</th><th class="num">Vegas miss</th><th>Winner</th><th>Closer</th></tr></thead><tbody></tbody></table>
       </div>
       <p class="empty" id="log-none" hidden>Fills in as games are graded.</p>
       <button class="btn" id="log-more" hidden>Show more</button>
@@ -367,7 +367,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
         <p>The Meech Model rates every Division I men's and women's basketball team and puts out a line for every game before tip-off. Every line gets graded against the final score and against Vegas. The point is twofold:</p>
         <ol>
           <li>To see if a model built from scratch can hang with the numbers and ranking systems everybody else uses.</li>
-          <li>Create a model that uses the same engine to rate both NCAA and WNCAA teams in a similar manner in order to produce lines.</li>
+          <li>Create a model that uses the same engine to rate both NCAA men's and women's teams in a similar manner in order to produce lines.</li>
         </ol>
 
         <h3>Rating every team</h3>
@@ -380,7 +380,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
         <p><b>Net rating</b> = offense &minus; defense. That's the ranking.</p>
 
         <h3>Where a team starts</h3>
-        <p>Before anyone plays, each team gets a starting rating built from last year's team rating, its strength of conference, last season's production from returning players, and recruiting rankings for incoming freshmen. That starting point counts for about six games' worth of evidence for men's teams and four games' worth for women's, then this season's results take over.</p>
+        <p>Before anyone plays, each team gets a starting rating built from last year's team rating, its strength of conference, last season's production from returning players and transfers, and recruiting rankings for incoming freshmen. That starting point counts for about six games' worth of evidence for men's teams and four games' worth for women's, then this season's results take over.</p>
 
         <h3>Conferences move together</h3>
         <p>Early in the season, most teams have played only a couple of tough opponents. When a whole conference keeps beating expectations, or keeps getting blown out, every team in it moves slightly. Once conference play starts, that effect will lock in place.</p>
@@ -668,8 +668,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       tr.append(td(r.date, 'num muted'), teamCell(r.away, {fav: r.favorite === r.away}), teamCell(r.home, {fav: r.favorite === r.home}),
         td(f1(r.my_line), 'num'), td(signed(r.vegas_line), 'num muted'), td(pct(r.fav_win_pct), 'num'), td(r.final, 'num'),
         td(f1(r.miss), 'num'), td(f1(r.vegas_miss), 'num muted'), td(r.winner, r.winner === 'Yes' ? 'good' : 'muted'),
-        td(r.closer || '—', r.closer === 'Meech' ? 'good' : 'muted'),
-        td(r.pick_result || '—', r.pick_result === 'W' ? 'hot' : 'muted'));
+        td(r.closer || '—', r.closer === 'Meech' ? 'good' : 'muted'));
       return tr;
     }));
     $('#log-none').hidden = games.length > 0;
