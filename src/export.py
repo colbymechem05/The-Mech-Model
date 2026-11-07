@@ -82,6 +82,26 @@ def clean_score(proj_score: str, spread_home: float) -> str:
     return f"{lo}-{hi}" if spread_home >= 0 else f"{hi}-{lo}"
 
 
+def conf_vs(league: str) -> pd.DataFrame:
+    """This season's record of each conference against each other conference (completed D1 vs.
+    D1 games between teams in different conferences; neutral, home and road all count)."""
+    f = D.RAW / f"{league}_schedule_{D.CURRENT}.csv"
+    if not f.exists():
+        return pd.DataFrame()
+    s = pd.read_csv(f, low_memory=False, usecols=["game_id", "home_id", "away_id", "home_score", "away_score",
+                                                  "status_type_completed"]).drop_duplicates("game_id")
+    s = s[s.status_type_completed.fillna(False).astype(bool) & (s.home_score != s.away_score)]
+    conf = conferences(league)
+    s = s.assign(hc=s.home_id.map(conf), ac=s.away_id.map(conf)).dropna(subset=["hc", "ac"])
+    s = s[s.hc != s.ac]
+    hw = s.home_score > s.away_score
+    rows = pd.concat([pd.DataFrame({"conf": s.hc, "opp": s.ac, "w": hw}),
+                      pd.DataFrame({"conf": s.ac, "opp": s.hc, "w": ~hw})])
+    out = rows.groupby(["conf", "opp"]).w.agg(w="sum", g="size").reset_index()
+    out["l"] = out.g - out.w
+    return out[["conf", "opp", "w", "l"]].astype({"w": int, "l": int})
+
+
 def upsets(league: str) -> pd.DataFrame:
     """Logged games where a Meech underdog of UPSET_DOG+ points won outright (from the winner's side)."""
     x = grade(league)
@@ -211,7 +231,7 @@ def league_tables(league: str, day: pd.Timestamp) -> dict:
     colors["color"] = "#" + colors.color.astype(str).str.lstrip("#")
     rec = record(league)  # one file: summary rows always exist, so it never comes up empty
     out = {"lines": lines, "rankings": r, "conferences": strength, "colors": colors,
-           "upsets": upsets(league), "pace": pace_table(league), "pace_history": pace_history(league), "homecourt": homecourt(league),
+           "upsets": upsets(league), "conf_vs": conf_vs(league), "pace": pace_table(league), "pace_history": pace_history(league), "homecourt": homecourt(league),
            "record": [rec["summary"]] + rec["months"] + rec["calibration"] + rec["games"]}
     return {k: (v if isinstance(v, list) else v.assign(league=league).replace({np.nan: None})
                 .to_dict("records")) for k, v in out.items()}

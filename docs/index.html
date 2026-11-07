@@ -312,6 +312,19 @@ th.num { text-align: right; }
 .bar-track { height: 13px; position: relative; border-left: 1px solid var(--line); }
 .bar-fill { position: absolute; top: 0; bottom: 0; border-radius: 2px; background: var(--faint); opacity: .55; }
 .bar-fill.on { background: var(--blue); opacity: 1; }
+.bar-row.me { background: color-mix(in srgb, var(--blue) 13%, transparent); outline: 1px solid color-mix(in srgb, var(--blue) 50%, transparent); border-radius: 4px; padding: 3px 6px; margin: 0 -6px; }
+.bar-row.me .name { color: var(--fg); font-weight: 700; }
+.cvs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 28px; max-width: 980px; }
+.cvs .tot { grid-column: 1 / -1; display: flex; gap: 10px; align-items: baseline; padding: 0 0 10px; margin-bottom: 4px; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+.cvs .tot b { font: 600 18px var(--num); color: var(--fg); }
+.cvs .r { display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.cvs .r .rec { font-family: var(--num); font-variant-numeric: tabular-nums; }
+.cvs .r .pc { color: var(--muted); font-size: 12.5px; margin-left: 8px; display: inline-block; min-width: 38px; text-align: right; }
+.cvs .r.none { color: var(--faint); }
+.cvs .r.none .clink { color: var(--faint); }
+@media (max-width: 900px) { .cvs { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .cvs { grid-template-columns: 1fr; } }
+.cf-name { font: 700 15px var(--body); color: var(--fg); margin-right: 6px; }
 .bar-row .val { font-family: var(--num); font-size: 12.5px; text-align: right; }
 .cols { display: flex; align-items: flex-end; gap: 18px; height: 210px; position: relative; border-bottom: 2px solid var(--rule); padding-top: 10px; }
 .col { flex: 1; max-width: 110px; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
@@ -458,7 +471,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           <th data-col="vs_preseason" class="num"><button>Change</button><span class="q hq r" tabindex="0">?<span class="pop">How far the Net rating has moved from its preseason number.</span></span></th>
           <th data-col="returning_pct" class="num"><button>Returning</button><span class="q hq r" tabindex="0">?<span class="pop">Share of last season&rsquo;s minutes that are back on this year&rsquo;s roster.</span></span></th>
           <th data-col="home_court" class="num"><button>Home</button><span class="q hq r" tabindex="0">?<span class="pop">Points advantage this team gets when playing at home: the league average plus its own home edge from the last four seasons.</span></span></th>
-          <th data-col="games" class="num"><button>G</button></th>
+          <th data-col="games" class="num"><button>GP</button></th>
         </tr></thead><tbody></tbody></table>
       </div>
       <p class="empty" id="ranks-none" hidden>No teams match.</p>
@@ -509,9 +522,9 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <div class="map-wrap"><svg id="pace-map" role="img" aria-label="Pace style map"></svg><div class="gtip" id="pm-tip" hidden></div></div>
       <div class="pboard">
         <div><div class="sec"><h2>Fastest Teams</h2></div>
-          <div class="scroll" style="max-height:none"><table id="pf-table"><thead><tr><th class="num">Rk <span class="q" tabindex="0">?<span class="pop">Tempo rank: 1 = fastest team in D1.</span></span></th><th>Team</th><th>Conf</th><th class="num">Tempo <span class="q" tabindex="0">?<span class="pop">Possessions per 40 minutes against an average opponent. This is what the Meech lines use.</span></span></th><th class="num">Actual <span class="q" tabindex="0">?<span class="pop">Average possessions per 40 minutes in their games so far, against the opponents they actually played.</span></span></th><th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">How much their pace moves from game to game (standard deviation, in possessions). Lower = more consistent.</span></span></th><th class="num">Control <span class="q r" tabindex="0">?<span class="pop">When the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed. 50% = meets in the middle; higher = drags games to its own speed. Faded until a team has 5+ battles.</span></span></th><th class="num">Battles <span class="q r" tabindex="0">?<span class="pop">Games against a team whose preferred speed was at least 2.5 possessions different. Control is only measured from these.</span></span></th><th class="num">G <span class="q r" tabindex="0">?<span class="pop">Games played vs. D1 teams.</span></span></th></tr></thead><tbody></tbody></table></div><p class="empty" id="pf-none" hidden>No matches.</p><button class="more" id="pf-more"></button></div>
+          <div class="scroll" style="max-height:none"><table id="pf-table"><thead><tr><th class="num">Rk <span class="q" tabindex="0">?<span class="pop">Tempo rank: 1 = fastest team in D1.</span></span></th><th>Team</th><th>Conf</th><th class="num">Tempo <span class="q" tabindex="0">?<span class="pop">Possessions per 40 minutes against an average opponent. This is what the Meech lines use.</span></span></th><th class="num">Actual <span class="q" tabindex="0">?<span class="pop">Average possessions per 40 minutes in their games so far, against the opponents they actually played.</span></span></th><th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">How much their pace moves from game to game (standard deviation, in possessions). Lower = more consistent.</span></span></th><th class="num">Control <span class="q r" tabindex="0">?<span class="pop">When the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed. 50% = meets in the middle; higher = drags games to its own speed. Faded until a team has 5+ battles.</span></span></th><th class="num">Battles <span class="q r" tabindex="0">?<span class="pop">Games against a team whose preferred speed was at least 2.5 possessions different. Control is only measured from these.</span></span></th><th class="num">GP <span class="q r" tabindex="0">?<span class="pop">Games played vs. D1 teams.</span></span></th></tr></thead><tbody></tbody></table></div><p class="empty" id="pf-none" hidden>No matches.</p><button class="more" id="pf-more"></button></div>
         <div><div class="sec"><h2>Slowest Teams</h2></div>
-          <div class="scroll" style="max-height:none"><table id="ps-table"><thead><tr><th class="num">Rk <span class="q" tabindex="0">?<span class="pop">Tempo rank: 1 = fastest team in D1.</span></span></th><th>Team</th><th>Conf</th><th class="num">Tempo <span class="q" tabindex="0">?<span class="pop">Possessions per 40 minutes against an average opponent. This is what the Meech lines use.</span></span></th><th class="num">Actual <span class="q" tabindex="0">?<span class="pop">Average possessions per 40 minutes in their games so far, against the opponents they actually played.</span></span></th><th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">How much their pace moves from game to game (standard deviation, in possessions). Lower = more consistent.</span></span></th><th class="num">Control <span class="q r" tabindex="0">?<span class="pop">When the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed. 50% = meets in the middle; higher = drags games to its own speed. Faded until a team has 5+ battles.</span></span></th><th class="num">Battles <span class="q r" tabindex="0">?<span class="pop">Games against a team whose preferred speed was at least 2.5 possessions different. Control is only measured from these.</span></span></th><th class="num">G <span class="q r" tabindex="0">?<span class="pop">Games played vs. D1 teams.</span></span></th></tr></thead><tbody></tbody></table></div><p class="empty" id="ps-none" hidden>No matches.</p><button class="more" id="ps-more"></button></div>
+          <div class="scroll" style="max-height:none"><table id="ps-table"><thead><tr><th class="num">Rk <span class="q" tabindex="0">?<span class="pop">Tempo rank: 1 = fastest team in D1.</span></span></th><th>Team</th><th>Conf</th><th class="num">Tempo <span class="q" tabindex="0">?<span class="pop">Possessions per 40 minutes against an average opponent. This is what the Meech lines use.</span></span></th><th class="num">Actual <span class="q" tabindex="0">?<span class="pop">Average possessions per 40 minutes in their games so far, against the opponents they actually played.</span></span></th><th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">How much their pace moves from game to game (standard deviation, in possessions). Lower = more consistent.</span></span></th><th class="num">Control <span class="q r" tabindex="0">?<span class="pop">When the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed. 50% = meets in the middle; higher = drags games to its own speed. Faded until a team has 5+ battles.</span></span></th><th class="num">Battles <span class="q r" tabindex="0">?<span class="pop">Games against a team whose preferred speed was at least 2.5 possessions different. Control is only measured from these.</span></span></th><th class="num">GP <span class="q r" tabindex="0">?<span class="pop">Games played vs. D1 teams.</span></span></th></tr></thead><tbody></tbody></table></div><p class="empty" id="ps-none" hidden>No matches.</p><button class="more" id="ps-more"></button></div>
       </div>
       <div class="grid2">
         <div><div class="sec"><h2>Five-Year Dictators <span class="q" tabindex="0">?<span class="pop">Teams that dragged games toward their own speed in at least 4 of the last 5 seasons (2021-22 to 2025-26).</span></span></h2></div>
@@ -565,7 +578,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           <div class="stat"><div class="k">Games with a Vegas line <span class="q" tabindex="0">?<span class="pop">Graded games that had a Vegas line. The note underneath says how many were graded against the closing line.</span></span></div><div class="v" id="v-graded">—</div><div class="s" id="v-close-note">&nbsp;</div></div>
           <div class="stat"><div class="k">Avg miss: Meech / Vegas <span class="q" tabindex="0">?<span class="pop">On these same games: the average number of points each line missed the final margin by. Lower is better.</span></span></div><div class="v" id="v-miss">—</div><div class="s">&nbsp;</div></div>
           <div class="stat"><div class="k">Meech closer <span class="q" tabindex="0">?<span class="pop">How often the Meech line landed closer to the final margin than the Vegas line did. Ties count as half.</span></span></div><div class="v" id="v-closer">—</div><div class="s">Of games with both lines</div></div>
-          <div class="stat"><div class="k">Picks vs. the number <span class="q r" tabindex="0">?<span class="pop">When the Meech line and Vegas differ by 3 or more points, that game counts as a pick on the side the Meech model likes. Example: Meech has Duke &minus;10, Vegas has Duke &minus;6, so the pick is Duke, and it wins only if Duke wins by more than 6. Shown as wins&ndash;losses (&ndash;pushes). At standard odds you need 52.4% to break even.</span></span></div><div class="v o" id="v-picks">—</div><div class="s" id="v-picks-note">—</div></div>
+          <div class="stat"><div class="k">Meech picks vs. Vegas <span class="q r" tabindex="0">?<span class="pop">This grades the Meech model, not Vegas. Whenever the Meech line and the Vegas line disagree by 3+ points, the Meech model &ldquo;picks&rdquo; the side it likes better than Vegas does, and that pick is graded against the Vegas spread. Example: Meech has Duke &minus;10, Vegas has Duke &minus;6. Meech likes Duke more, so the pick is Duke &minus;6: it wins if Duke wins by 7+, loses if Duke wins by 5 or less or loses, and pushes at exactly 6. The other way: Meech Duke &minus;3, Vegas Duke &minus;8, so the pick is the underdog +8. Shown as wins&ndash;losses (&ndash;pushes). Betting at standard odds needs 52.4% to break even, so anything well above that over a big sample means the model is finding real edges.</span></span></div><div class="v o" id="v-picks">—</div><div class="s" id="v-picks-note">—</div></div>
         </div>
       </div>
 
@@ -620,7 +633,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           <div class="sec"><h2>Ratings</h2></div>
           <table class="sheet" id="tm-sheet"></table>
           <div class="sec"><h2>Leaders <span class="q r" tabindex="0">?<span class="pop">Per-game averages this season for players who&rsquo;ve played in at least half of the team&rsquo;s games, sorted by points.</span></span></h2></div>
-          <table id="tm-lead"><thead><tr><th>Player</th><th class="num">G</th><th class="num">PTS</th><th class="num">REB</th><th class="num">AST</th><th class="num">MIN</th></tr></thead><tbody></tbody></table>
+          <table id="tm-lead"><thead><tr><th>Player</th><th class="num">GP</th><th class="num">PTS</th><th class="num">REB</th><th class="num">AST</th><th class="num">MIN</th></tr></thead><tbody></tbody></table>
           <p class="empty" id="tm-lead-none" hidden>No stats yet.</p>
         </div>
       </div>
@@ -646,6 +659,10 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           <p class="empty" id="cf-players-none" hidden>No stats yet.</p>
         </div>
       </div>
+      <div class="sec"><h2>Vs. Other Conferences <span class="q" tabindex="0">?<span class="pop">This season&rsquo;s record against every other D1 conference, counting home, road and neutral-site games. Most of these games happen in November and December.</span></span></h2></div>
+      <div class="cvs" id="cf-vs"></div>
+      <div class="sec"><h2>Conference Strength <span class="q" tabindex="0">?<span class="pop">Average team rating in each conference. This conference is highlighted. Click any bar to open that conference.</span></span></h2></div>
+      <div class="bars" id="cf-bars"></div>
     </section>
 
     <!-- ===== How it works ===== -->
@@ -853,7 +870,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     box.hidden = !g; if (!g) return;
     const nm = (team, rank) => { const w = el('span'); w.append(el('span', 'rk', '#' + rank)); const t = el('span', 'tlink', team); t.dataset.team = (NAME2ID[S.league] || {})[team]; w.append(t); return w; };
     const teams = el('div', 'teams');
-    teams.append(nm(g.away, g.away_rank), el('span', 'at', g.site ? 'vs' : 'at'), nm(g.home, g.home_rank));
+    teams.append(nm(g.away, g.away_rank), el('span', 'at', g.site ? 'vs' : '@'), nm(g.home, g.home_rank));
     const nums = el('div', 'nums');
     const n = (k, v) => { const sp = el('span'); sp.append(el('i', '', k), el('b', '', v)); nums.append(sp); };
     n('Tip ET', g.tip); n('Meech', `${g.favorite} ${f1(g.my_line)}`);
@@ -928,14 +945,18 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     }));
     $('#ranks-none').hidden = t.length > 0;
 
+    drawConfBars($('#conf-bars'), null);
+  }
+
+  function drawConfBars(box, me) {
     const conf = ofLeague(D.conferences).sort((a, b) => b.avg - a.avg);
     const lo = Math.min(0, ...conf.map((d) => d.avg)), hi = Math.max(...conf.map((d) => d.avg), 1);
     const x = (v) => ((v - lo) / (hi - lo)) * 100;
-    $('#conf-bars').replaceChildren(...conf.map((d) => {
-      const row = el('div', 'bar-row');
+    box.replaceChildren(...conf.map((d) => {
+      const row = el('div', 'bar-row' + (d.conf === me ? ' me' : ''));
       row.title = `${d.conf}: avg ${d.avg.toFixed(1)}, best ${d.best.toFixed(1)}, ${d.teams} teams`;
       const track = el('div', 'bar-track');
-      const bar = el('div', 'bar-fill' + (!S.confs.size || S.confs.has(d.conf) ? ' on' : ''));
+      const bar = el('div', 'bar-fill' + (me || !S.confs.size || S.confs.has(d.conf) ? ' on' : ''));
       bar.style.left = Math.min(x(0), x(d.avg)) + '%'; bar.style.width = Math.abs(x(d.avg) - x(0)) + '%';
       track.append(bar);
       row.append(el('span', 'name', d.conf), track, el('span', 'val', d.avg.toFixed(1)));
@@ -958,7 +979,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       $('#v-miss').textContent = `${num(sum.my_miss_v).toFixed(2)} / ${num(sum.vegas_miss).toFixed(2)}`;
       $('#v-closer').textContent = pct(sum.closer_pct);
       $('#v-picks').textContent = `${sum.pick_w}-${sum.pick_l}` + (sum.pick_p ? `-${sum.pick_p}` : '');
-      $('#v-picks-note').textContent = sum.pick_pct === null ? 'No picks yet' : `${pct(sum.pick_pct)} against the spread`;
+      $('#v-picks-note').textContent = sum.pick_pct === null ? 'No picks yet' : `${pct(sum.pick_pct)} of picks won (52.4% breaks even)`;
     }
 
     const months = rec.filter((r) => r.kind === 'month');
@@ -1167,6 +1188,16 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     drawTrend(me, page.h || []);
   }
 
+  const CONF_NAME = {'A-10': 'Atlantic 10 Conference', ACC: 'Atlantic Coast Conference', 'Am. East': 'America East Conference',
+    American: 'American Athletic Conference', 'Atlantic Sun': 'ASUN Conference', 'Big 12': 'Big 12 Conference',
+    'Big East': 'Big East Conference', 'Big Sky': 'Big Sky Conference', 'Big South': 'Big South Conference',
+    'Big Ten': 'Big Ten Conference', 'Big West': 'Big West Conference', CAA: 'Coastal Athletic Association',
+    CUSA: 'Conference USA', Horizon: 'Horizon League', Ivy: 'Ivy League', MAC: 'Mid-American Conference',
+    MEAC: 'Mid-Eastern Athletic Conference', MVC: 'Missouri Valley Conference', Metro: 'Metro Atlantic Athletic Conference',
+    'Mountain West': 'Mountain West Conference', NEC: 'Northeast Conference', OVC: 'Ohio Valley Conference',
+    'Pac-12': 'Pac-12 Conference', Patriot: 'Patriot League', SEC: 'Southeastern Conference',
+    SWAC: 'Southwestern Athletic Conference', SoCon: 'Southern Conference', Southland: 'Southland Conference',
+    Summit: 'Summit League', 'Sun Belt': 'Sun Belt Conference', UAC: 'United Athletic Conference', WCC: 'West Coast Conference'};
   function renderConf() {
     const rows = ofLeague(D.rankings);
     const teams = rows.filter((r) => r.conf === S.cname).sort((a, b) => b.net - a.net);
@@ -1176,7 +1207,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     const st = strength.find((c) => c.conf === S.cname);
     const avg = teams.reduce((a, r) => a + r.net, 0) / teams.length;
     const it = (k, v, t) => { const s_ = el('span', 'it'); s_.append(el('span', 'k', k), el('b', '', v)); if (t) s_.append(el('span', 't', t)); return s_; };
-    $('#cf-ticker').replaceChildren(it('Teams', String(teams.length)),
+    $('#cf-ticker').replaceChildren(el('span', 'cf-name', CONF_NAME[S.cname] || S.cname), it('Teams', String(teams.length)),
       it('Average rating', avg.toFixed(1), st ? `${ordinal(strength.indexOf(st) + 1)} of ${strength.length} conferences` : ''),
       it('Best', f1(teams[0].net), teams[0].team));
     const confPlayed = teams.some((r) => (r.conf_wins || 0) + (r.conf_losses || 0) > 0);
@@ -1206,6 +1237,22 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       return tr;
     }));
     $('#cf-players-none').hidden = !pack || players.length > 0;
+    // record vs. every other conference
+    const vs = Object.fromEntries(ofLeague(D.conf_vs).filter((r) => r.conf === S.cname).map((r) => [r.opp, r]));
+    const others = strength.map((c) => c.conf).filter((c) => c !== S.cname)
+      .map((c) => ({conf: c, w: (vs[c] || {}).w || 0, l: (vs[c] || {}).l || 0}))
+      .sort((a, b) => ((b.w + b.l) - (a.w + a.l)) || ((b.w / (b.w + b.l || 1)) - (a.w / (a.w + a.l || 1))) || a.conf.localeCompare(b.conf));
+    const W = others.reduce((a, o) => a + o.w, 0), L = others.reduce((a, o) => a + o.l, 0);
+    const tot = el('div', 'tot'); tot.append(document.createTextNode('All other conferences'), el('b', '', recTxt(W, L)),
+      document.createTextNode(W + L ? `${Math.round(100 * W / (W + L))}%` : ''));
+    $('#cf-vs').replaceChildren(tot, ...others.map((o) => {
+      const r = el('div', 'r' + (o.w + o.l ? '' : ' none'));
+      const nm = el('span', 'clink', o.conf); nm.dataset.conf = o.conf;
+      const rec = el('span', 'rec', o.w + o.l ? recTxt(o.w, o.l) : '—');
+      rec.append(el('span', 'pc', o.w + o.l ? `${Math.round(100 * o.w / (o.w + o.l))}%` : ''));
+      r.append(nm, rec); return r;
+    }));
+    drawConfBars($('#cf-bars'), S.cname);
   }
 
   document.addEventListener('click', (e) => {
@@ -1512,7 +1559,8 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     const hi = all.filter((h) => h.elevation_ft >= 4000), lo = all.filter((h) => num(h.elevation_ft) !== null && h.elevation_ft < 4000);
     const mean = (xs) => xs.reduce((a, h) => a + h.home_court, 0) / xs.length;
     const items = [it('League average', '+' + avg.toFixed(1), 'points')];
-    if (best) items.push(it('Biggest', '+' + f1(best.home_court), best.team), it('Smallest', '+' + f1(worst.home_court), worst.team));
+    const tied = (ref) => all.filter((h) => f1(h.home_court) === f1(ref.home_court)).map((h) => h.team).join(', ');   // ties at the shown decimal
+    if (best) items.push(it('Biggest', '+' + f1(best.home_court), tied(best)), it('Smallest', '+' + f1(worst.home_court), tied(worst)));
     if (hi.length >= 3 && lo.length) items.push(it('Altitude', `+${mean(hi).toFixed(1)} vs +${mean(lo).toFixed(1)}`, `${hi.length} teams above 4,000 ft vs. the rest`));
     $('#hc-ticker').replaceChildren(...items);
     const rows = sortRows(all.filter((h) => inConf(h.conf) && qMatch(h.team)), S.hsort);
@@ -1633,7 +1681,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (!r.ok) throw new Error(`${f}.json: HTTP ${r.status}`);
     return r.json();
   });
-  const optional = ['colors', 'model', 'pace', 'pace_history', 'homecourt', 'upsets'];   // site still works without these
+  const optional = ['colors', 'model', 'pace', 'pace_history', 'homecourt', 'upsets', 'conf_vs'];   // site still works without these
   Promise.all([...files.map(get), ...optional.map((f) => get(f).catch(() => (f === 'model' ? {} : [])))]).then((results) => {
     files.forEach((f, i) => { D[f] = results[i]; });
     optional.forEach((f, i) => { D[f] = results[files.length + i]; });
