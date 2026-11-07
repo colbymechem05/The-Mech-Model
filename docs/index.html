@@ -217,7 +217,8 @@ tr.month td { padding-top: 16px; background: none !important; font: 600 11px var
 .pm-q { fill: var(--muted); font: 600 10.5px var(--body); letter-spacing: .12em; text-transform: uppercase; }
 .pm-mid { stroke: var(--line); stroke-dasharray: 3 4; }
 .legend .lf::before { background: var(--faint); opacity: .5; }
-#hc-table td.arena { line-height: 1.25; padding-top: 6px; padding-bottom: 6px; }
+#hc-table td.arena { line-height: 1.25; padding-top: 6px; padding-bottom: 6px; white-space: normal; min-width: 160px; max-width: 185px; }
+#hc-table th { letter-spacing: .06em; }
 #hc-table td.arena .sub { font-size: 11.5px; color: var(--muted); }
 .tr-now { font: 600 12px 'Barlow', sans-serif; fill: var(--ink); font-variant-numeric: tabular-nums; }
 .fine-src { font-size: 12px; color: var(--muted); margin-top: 14px; }
@@ -498,11 +499,10 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <div class="ticker" id="hc-ticker"></div>
       <div class="scroll" style="margin-top:14px"><table id="hc-table"><thead><tr>
         <th data-col="hc_rank" class="num"><button>Rk</button></th><th data-col="team"><button>Team</button></th><th data-col="conf"><button>Conf</button></th>
-        <th data-col="home_court" class="num"><button>Home court</button> <span class="q" tabindex="0">?<span class="pop">Points this team gets at home in a Meech line.</span></span></th>
-        <th data-col="vs_avg" class="num"><button>vs. avg</button> <span class="q" tabindex="0">?<span class="pop">Above or below the league-average home edge.</span></span></th>
+        <th data-col="home_court" class="num"><button>Home court</button> <span class="q" tabindex="0">?<span class="pop">Points this team gets at home in a Meech line. Blue = at least a point above the league average.</span></span></th>
         <th data-col="home_games" class="num"><button>Sample</button> <span class="q" tabindex="0">?<span class="pop">Home games its edge was measured on (last 4 full seasons). More games = more trust in its own number; fewer = pulled closer to the league average.</span></span></th>
         <th data-col="venue"><button>Arena</button></th>
-        <th data-col="capacity" class="num"><button>Capacity</button></th><th data-col="elevation_ft" class="num"><button>Elevation</button> <span class="q r" tabindex="0">?<span class="pop">Elevation of the arena&rsquo;s city, in feet.</span></span></th>
+        <th data-col="capacity" class="num"><button>Capacity</button></th><th data-col="elevation_ft" class="num"><button>Elev.</button> <span class="q r" tabindex="0">?<span class="pop">Elevation of the arena&rsquo;s city, in feet.</span></span></th>
         <th data-col="home_rec" class="num"><button>Home</button> <span class="q r" tabindex="0">?<span class="pop">This season&rsquo;s record in true home games vs. D1 teams.</span></span></th>
         <th data-col="road_rec" class="num"><button>Road</button> <span class="q r" tabindex="0">?<span class="pop">This season&rsquo;s record in true road games vs. D1 teams.</span></span></th>
       </tr></thead><tbody></tbody></table></div>
@@ -1403,7 +1403,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     fill($('#hc-table tbody'), rows.map((h) => {
       const tr = el('tr');
       tr.append(td(String(h.hc_rank), 'num ' + (h.hc_rank <= 25 ? 'top' : 'rk')), teamCell(h.team), confCell(h.conf),
-        td('+' + f1(h.home_court), 'num'), td(signed(h.vs_avg), 'num' + (h.vs_avg >= 1 ? ' fav' : '')), td(fmtInt(h.home_games), 'num muted'),
+        td('+' + f1(h.home_court), 'num' + (h.vs_avg >= 1 ? ' fav' : '')), td(fmtInt(h.home_games), 'num muted'),
         arenaCell(h), td(fmtInt(h.capacity), 'num muted'),
         td(num(h.elevation_ft) === null ? '—' : fmtInt(h.elevation_ft) + ' ft', 'num muted'),
         td(`${h.home_w || 0}–${h.home_l || 0}`, 'num'), td(`${h.road_w || 0}–${h.road_l || 0}`, 'num muted'));
