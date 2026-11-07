@@ -118,6 +118,8 @@ input[type=checkbox] { accent-color: var(--orange); }
 .ticker .it { display: inline-flex; align-items: baseline; gap: 8px; }
 .ticker .it[hidden] { display: none; }
 .ticker .filters { margin-left: auto; align-self: center; }
+.ticker.has-filters { gap: 6px 22px; }
+#pm-tools .filters { justify-content: flex-end; }
 #gotd:not([hidden]) + .ticker, .ticker.has-filters { border-bottom: 0; }
 .ticker .k { font: 600 10.5px var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .ticker b { font: 600 16px var(--num); font-variant-numeric: tabular-nums; color: var(--fg); }
@@ -188,6 +190,7 @@ tr.month td { padding-top: 16px; background: none !important; font: 600 11px var
 .gotd .teams { font: 700 20px/1.2 var(--display); text-transform: uppercase; letter-spacing: .01em; }
 .gotd .teams .rk { font: 600 13px var(--body); margin-right: 4px; }
 .gotd .teams .at { font: 500 14px var(--body); color: var(--muted); text-transform: none; margin: 0 8px; }
+.gotd .teams { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 0; }
 .gotd .teams > span { white-space: nowrap; }
 .gotd .nums { display: flex; gap: 22px; flex-wrap: nowrap; justify-content: flex-end; }
 .gotd .nums b { white-space: nowrap; }
@@ -200,6 +203,11 @@ tr.month td { padding-top: 16px; background: none !important; font: 600 11px var
 .mu-pick { display: grid; grid-template-columns: 1fr auto 1fr auto; gap: 12px; align-items: end; margin: 18px 0 8px; }
 .mu-pick label { display: block; font: 600 10.5px var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
 .mu-pick input, .mu-pick select { width: 100%; padding: 9px 11px; font-size: 15px; background: var(--panel); border: 1px solid var(--line); border-radius: 5px; color: var(--fg); }
+.seg { display: flex; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; background: var(--panel); }
+.seg button { flex: 1; padding: 9px 14px; border: 0; background: none; color: var(--muted); font: 600 14px var(--body); cursor: pointer; white-space: nowrap; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--blue); color: #fff; }
+.seg button:not([aria-pressed="true"]):hover { color: var(--fg); }
 .mu-go { padding: 10px 22px; border: 0; border-radius: 5px; background: var(--orange); color: var(--on-orange); font: 700 14px var(--body); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
 .mu-go:hover { filter: brightness(1.08); }
 .mu-score { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px; padding: 18px 0; border-bottom: 3px solid var(--rule); margin-top: 10px; }
@@ -437,7 +445,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
         <span class="it"><span class="k">Games</span><b id="t-games">—</b><span class="t" id="t-scope">All conferences</span></span>
         <span class="it" title="Games where the Meech line is under 4 points"><span class="k">Toss-ups</span><b id="t-tossups">—</b></span>
         <span class="it"><span class="k">Closest</span><b id="t-closest">—</b><span class="t" id="t-closest-team">—</span></span>
-        <span class="it" id="t-gap-tile" hidden><span class="k">Biggest gap vs. Vegas</span><b id="t-gap">—</b><span class="t" id="t-gap-note">—</span></span>
+        <span class="it" id="t-gap-tile" hidden><span class="k">Gap vs. Vegas</span><b id="t-gap">—</b><span class="t" id="t-gap-note">—</span></span>
       </div>
       <div class="sec">
         <h2>The Board <span class="q" tabindex="0">?<span class="pop">The table below shows every D1 game today with the Meech line. The Vegas line is also shown from that team's perspective (a &ldquo;+&rdquo; number means Vegas has them as the underdog). Lines are locked before tip and never edited.</span></span></h2>
@@ -478,7 +486,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           <th data-col="net" class="num"><button>Net</button><span class="q hq" tabindex="0">?<span class="pop">Points per 100 possessions better than an average D1 team on a neutral floor. Offense minus defense. This is what determines the overall ranking.</span></span></th>
           <th data-col="O" class="num"><button>Offense</button><span class="q hq" tabindex="0">?<span class="pop">Points scored per 100 possessions above an average D1 offense, adjusted for who the team played.</span></span></th>
           <th data-col="D" class="num"><button>Defense</button><span class="q hq" tabindex="0">?<span class="pop">Points allowed per 100 possessions compared to an average D1 defense, adjusted for who the team played. Lower is better.</span></span></th>
-          <th data-col="tempo" class="num"><button>Tempo</button><span class="q hq" tabindex="0">?<span class="pop">Possessions per 40 minutes the team plays at against an average opponent.</span></span></th>
+          <th data-col="tempo" class="num"><button>Pace</button><span class="q hq" tabindex="0">?<span class="pop">Possessions per 40 minutes the team plays at against an average opponent.</span></span></th>
           <th data-col="preseason" class="num"><button>Preseason</button><span class="q hq" tabindex="0">?<span class="pop">Net rating before any games played. This was built from last season&rsquo;s results, the roster, the conference, and recruiting rankings.</span></span></th>
           <th data-col="vs_preseason" class="num"><button>Change</button><span class="q hq r" tabindex="0">?<span class="pop">How far the Net rating has moved from its preseason number.</span></span></th>
           <th data-col="returning_pct" class="num"><button>Returning</button><span class="q hq r" tabindex="0">?<span class="pop">Share of last season&rsquo;s minutes that are back on this year&rsquo;s roster.</span></span></th>
@@ -506,8 +514,8 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     <section data-page="matchup" hidden>
       <div class="mu-pick">
         <div class="mu-team sg"><label for="mu-a">Team</label><input id="mu-a" placeholder="Type a team" autocomplete="off" spellcheck="false"></div>
-        <div class="mu-site"><label for="mu-site">Site</label>
-          <select id="mu-site"><option value="b">Second team&rsquo;s home</option><option value="n">Neutral site</option><option value="a">First team&rsquo;s home</option></select></div>
+        <div class="mu-site"><label>Site</label>
+          <div class="seg" id="mu-site" role="group" aria-label="Site"><button data-v="b">@</button><button data-v="n">Neutral</button><button data-v="a">Hosts</button></div></div>
         <div class="mu-team sg"><label for="mu-b">Team</label><input id="mu-b" placeholder="Type a team" autocomplete="off" spellcheck="false"></div>
         <button class="mu-go" id="mu-go">Predict</button>
       </div>
@@ -527,13 +535,13 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
     <!-- ===== Pace ===== -->
     <section data-page="pace" hidden>
-      <div class="sec"><h2>Style Map <span class="q" tabindex="0">?<span class="pop">Every team by speed (left = slow, right = fast) and pace control (up = drags games to its own speed, down = adapts to the opponent). Control is this season only, measured from games against teams that want a different speed, so it&rsquo;s jumpy early in the season. Click a dot for the team page.</span></span></h2><div class="legend pm-legend"><span>Dots in team colors</span></div></div>
+      <div class="sec"><h2>Style Map <span class="q" tabindex="0">?<span class="pop">Every team by speed (left = slow, right = fast) and pace control (up = drags games to its own speed, down = adapts to the opponent). Control is this season only, measured from games against teams that want a different speed, so it&rsquo;s jumpy early in the season. Click a dot for the team page.</span></span></h2><div id="pm-tools"></div></div>
       <div class="map-wrap"><svg id="pace-map" role="img" aria-label="Pace style map"></svg><div class="gtip" id="pm-tip" hidden></div></div>
       <div class="pboard">
         <div><div class="sec"><h2>Fastest Teams</h2></div>
-          <div class="scroll" style="max-height:none"><table id="pf-table"><thead><tr><th class="num">Rk <span class="q" tabindex="0">?<span class="pop">Tempo rank: 1 = fastest team in D1.</span></span></th><th>Team</th><th>Conf</th><th class="num">Tempo <span class="q" tabindex="0">?<span class="pop">Possessions per 40 minutes against an average opponent. This is what the Meech lines use.</span></span></th><th class="num">Actual <span class="q" tabindex="0">?<span class="pop">Average possessions per 40 minutes in their games so far, against the opponents they actually played.</span></span></th><th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">How much their pace moves from game to game (standard deviation, in possessions). Lower = more consistent.</span></span></th><th class="num">Control <span class="q r" tabindex="0">?<span class="pop">When the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed. 50% = meets in the middle; higher = drags games to its own speed. This season only; faded until a team has 5+ games against a team wanting a different speed.</span></span></th><th class="num">GP <span class="q r" tabindex="0">?<span class="pop">Games played vs. D1 teams.</span></span></th></tr></thead><tbody></tbody></table></div><p class="empty" id="pf-none" hidden>No matches.</p><button class="more" id="pf-more"></button></div>
+          <div class="scroll" style="max-height:none"><table id="pf-table"><thead><tr><th class="num">Rk <span class="q" tabindex="0">?<span class="pop">Pace rank: 1 = fastest team in D1.</span></span></th><th>Team</th><th>Conf</th><th class="num">Pace <span class="q" tabindex="0">?<span class="pop">Possessions per 40 minutes against an average opponent. This is what the Meech lines use.</span></span></th><th class="num">Actual <span class="q" tabindex="0">?<span class="pop">Average possessions per 40 minutes in their games so far, against the opponents they actually played.</span></span></th><th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">How much their pace moves from game to game (standard deviation, in possessions). Lower = more consistent.</span></span></th><th class="num">Control <span class="q r" tabindex="0">?<span class="pop">When the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed. 50% = meets in the middle; higher = drags games to its own speed. This season only; faded until a team has 5+ games against a team wanting a different speed.</span></span></th><th class="num">GP <span class="q r" tabindex="0">?<span class="pop">Games played vs. D1 teams.</span></span></th></tr></thead><tbody></tbody></table></div><p class="empty" id="pf-none" hidden>No matches.</p><button class="more" id="pf-more"></button></div>
         <div><div class="sec"><h2>Slowest Teams</h2></div>
-          <div class="scroll" style="max-height:none"><table id="ps-table"><thead><tr><th class="num">Rk <span class="q" tabindex="0">?<span class="pop">Tempo rank: 1 = fastest team in D1.</span></span></th><th>Team</th><th>Conf</th><th class="num">Tempo <span class="q" tabindex="0">?<span class="pop">Possessions per 40 minutes against an average opponent. This is what the Meech lines use.</span></span></th><th class="num">Actual <span class="q" tabindex="0">?<span class="pop">Average possessions per 40 minutes in their games so far, against the opponents they actually played.</span></span></th><th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">How much their pace moves from game to game (standard deviation, in possessions). Lower = more consistent.</span></span></th><th class="num">Control <span class="q r" tabindex="0">?<span class="pop">When the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed. 50% = meets in the middle; higher = drags games to its own speed. This season only; faded until a team has 5+ games against a team wanting a different speed.</span></span></th><th class="num">GP <span class="q r" tabindex="0">?<span class="pop">Games played vs. D1 teams.</span></span></th></tr></thead><tbody></tbody></table></div><p class="empty" id="ps-none" hidden>No matches.</p><button class="more" id="ps-more"></button></div>
+          <div class="scroll" style="max-height:none"><table id="ps-table"><thead><tr><th class="num">Rk <span class="q" tabindex="0">?<span class="pop">Pace rank: 1 = fastest team in D1.</span></span></th><th>Team</th><th>Conf</th><th class="num">Pace <span class="q" tabindex="0">?<span class="pop">Possessions per 40 minutes against an average opponent. This is what the Meech lines use.</span></span></th><th class="num">Actual <span class="q" tabindex="0">?<span class="pop">Average possessions per 40 minutes in their games so far, against the opponents they actually played.</span></span></th><th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">How much their pace moves from game to game (standard deviation, in possessions). Lower = more consistent.</span></span></th><th class="num">Control <span class="q r" tabindex="0">?<span class="pop">When the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed. 50% = meets in the middle; higher = drags games to its own speed. This season only; faded until a team has 5+ games against a team wanting a different speed.</span></span></th><th class="num">GP <span class="q r" tabindex="0">?<span class="pop">Games played vs. D1 teams.</span></span></th></tr></thead><tbody></tbody></table></div><p class="empty" id="ps-none" hidden>No matches.</p><button class="more" id="ps-more"></button></div>
       </div>
       <div class="grid2">
         <div><div class="sec"><h2>Five-Year Dictators <span class="q" tabindex="0">?<span class="pop">Teams that dragged games toward their own speed in at least 4 of the last 5 seasons (2021-22 to 2025-26).</span></span></h2></div>
@@ -688,7 +696,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
         <div class="steps">
           <div><b>Offense</b><p>Points scored per 100 possessions above an average D1 offense.</p></div>
           <div><b>Defense</b><p>Points allowed per 100 above an average D1 defense. Lower is better.</p></div>
-          <div><b>Tempo</b><p>Possessions per 40 minutes the team plays at against an average opponent.</p></div>
+          <div><b>Pace</b><p>Possessions per 40 minutes the team plays at against an average opponent.</p></div>
         </div>
         <p><b>Net rating</b> = offense &minus; defense. That's the ranking.</p>
 
@@ -844,8 +852,8 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $('#filters').hidden = ['how', 'record', 'conf', 'matchup'].includes(S.tab);
     // Today's Lines: the conference filters sit in the stat strip; everywhere else in the masthead
     const strip = $('section[data-page="today"] .ticker'), f = $('#filters');
-    if (S.tab === 'today' && f.parentElement !== strip) strip.append(f);
-    if (S.tab !== 'today' && f.parentElement === strip) $('.mast').append(f);
+    const home = S.tab === 'today' ? strip : S.tab === 'pace' ? $('#pm-tools') : $('.mast');   // filters sit next to what they filter
+    if (f.parentElement !== home) home.append(f);
     strip.classList.toggle('has-filters', S.tab === 'today');
     $('#conf-all').setAttribute('aria-pressed', String(!S.confs.size));
     $('#conf-power').setAttribute('aria-pressed', String(isPower()));
@@ -882,18 +890,19 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   function renderGOTD(everything) {
     const g = gameOfDay(everything), box = $('#gotd');
     box.hidden = !g; if (!g) return;
-    const nm = (team, rank) => { const w = el('span'); w.append(el('span', 'rk', '#' + rank)); const t = el('span', 'tlink', team); t.dataset.team = (NAME2ID[S.league] || {})[team]; w.append(t); return w; };
+    const nm = (team, rank) => { const w = el('span'); w.append(el('span', 'rk', '#' + rank)); const t = el('span', 'tlink' + (team === g.favorite ? ' fav' : ''), team); t.dataset.team = (NAME2ID[S.league] || {})[team]; w.append(t); return w; };
     const teams = el('div', 'teams');
     teams.append(nm(g.away, g.away_rank), el('span', 'at', g.site ? 'vs' : '@'), nm(g.home, g.home_rank));
     const nums = el('div', 'nums');
     const n = (k, v) => { const sp = el('span'); sp.append(el('i', '', k), el('b', '', v)); nums.append(sp); };
-    n('Tip ET', g.tip); n('Meech', `${g.favorite} ${f1(g.my_line)}`);
+    n('Tip ET', g.tip); n('Meech', f1(g.my_line));
     if (g.vegas_line !== null && g.vegas_line !== undefined) n('Vegas', signed(g.vegas_line));
     n('Win %', pct(g.fav_win_pct)); n('Proj.', g.proj_score);
     const left = el('div'); left.append(el('div', 'lbl', 'Meech Game of the Day'), teams);
     box.replaceChildren(left, nums);
   }
 
+  const short = (team) => (ofLeague(D.rankings).find((r) => r.team === team) || {}).school || team;
   function renderToday() {
     const everything = ofLeague(D.lines);
     renderGOTD(everything);
@@ -903,13 +912,14 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $('#t-games').textContent = String(all.length);
     $('#t-tossups').textContent = String(all.filter((r) => Math.abs(r.my_line) < TOSSUP).length);
     $('#t-closest').textContent = best ? f1(best.my_line) : '—';
-    $('#t-closest-team').textContent = best ? best.favorite : (everything.length ? 'No games in this filter' : 'No games today');
+    $('#t-closest-team').textContent = best ? short(best.favorite) : (everything.length ? 'No games in this filter' : 'No games today');
     const withGap = all.filter((r) => r.gap !== null && r.gap !== undefined);
     const big = withGap.reduce((a, r) => (a === null || Math.abs(r.gap) > Math.abs(a.gap) ? r : a), null);
     $('#t-gap-tile').hidden = !big;
     if (big) {
       $('#t-gap').textContent = Math.abs(big.gap).toFixed(1);
-      $('#t-gap-note').textContent = `${big.favorite} · Meech ${f1(big.my_line)}, Vegas ${signed(big.vegas_line)}`;
+      $('#t-gap-note').textContent = short(big.favorite);
+      $('#t-gap-tile').title = `${big.favorite}: Meech ${f1(big.my_line)}, Vegas ${signed(big.vegas_line)}`;
     }
     let g = all.filter((r) => !S.hide || Math.abs(r.my_line) < BLOWOUT);
     const by = {
@@ -1085,7 +1095,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     'Power rating': 'Points per 100 possessions better than an average D1 team on a neutral floor. Offense minus defense.',
     Offense: 'Points scored per 100 possessions above an average D1 offense, adjusted for who the team played.',
     Defense: 'Points allowed per 100 possessions compared to an average D1 defense, adjusted for who the team played. Lower is better.',
-    Tempo: 'Possessions per 40 minutes the team plays at against an average opponent.',
+    Pace: 'Possessions per 40 minutes the team plays at against an average opponent.',
     Preseason: 'Net rating before any games played, and how far it has moved since.',
     'Home court': 'Points advantage this team gets when playing at home: the league average plus its own home edge from the last four seasons.',
     'Returning minutes': 'Share of last season&rsquo;s minutes that are back on this year&rsquo;s roster.',
@@ -1187,7 +1197,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     fill($('#tm-sched tbody'), out);
 
     const sheet = [['Power rating', f1(me.net), ordinal(me.rank)], ['Offense', f1(me.O), ordinal(rankOf('O', false))],
-      ['Defense', f1(me.D), ordinal(rankOf('D', true))], ['Tempo', f1(me.tempo), ordinal(rankOf('tempo', false))],
+      ['Defense', f1(me.D), ordinal(rankOf('D', true))], ['Pace', f1(me.tempo), ordinal(rankOf('tempo', false))],
       ['Preseason', f1(me.preseason), signed(me.vs_preseason)], ['Home court', '+' + f1(me.home_court), ''],
       ['Returning minutes', num(me.returning_pct) === null ? '—' : Math.round(me.returning_pct) + '%', '']];
     fill($('#tm-sheet'), sheet.map(([k, v, r]) => {
@@ -1406,7 +1416,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (!byId[S.ma]) S.ma = null; if (!byId[S.mb]) S.mb = null;
     if (document.activeElement !== $('#mu-a')) $('#mu-a').value = S.ma ? byId[S.ma].team : '';
     if (document.activeElement !== $('#mu-b')) $('#mu-b').value = S.mb ? byId[S.mb].team : '';
-    siteLabels(); $('#mu-site').value = S.ms;
+    siteLabels();
     const out = $('#mu-out'), msg = $('#mu-msg');
     if (!S.ma || !S.mb || S.ma === S.mb) { out.hidden = true; msg.hidden = false; msg.textContent = S.ma && S.ma === S.mb ? 'Pick two different teams.' : 'Pick two teams and hit Predict.'; return; }
     const A = byId[S.ma], B = byId[S.mb];
@@ -1430,7 +1440,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       + (res.boost ? ` · includes ${res.boost.toFixed(1)}-pt November–December buy-game boost` : '');
     const ok = loadTeams(() => { if (S.tab === 'matchup') render(); });
     const pack = TEAMS[S.league] || {};
-    const metrics = [['Power rating', 'net', false], ['Offense', 'O', false], ['Defense', 'D', true], ['Tempo', 'tempo', null],
+    const metrics = [['Power rating', 'net', false], ['Offense', 'O', false], ['Defense', 'D', true], ['Pace', 'tempo', null],
                      ['Home court', 'home_court', false], ['Preseason', 'preseason', false]];
     const rankOf = (t, col, asc) => 1 + rows.filter((r) => (asc ? r[col] < t[col] : r[col] > t[col])).length;
     [[A, B, '#mu-colA'], [B, A, '#mu-colB']].forEach(([t, o, sel]) => {
@@ -1460,14 +1470,19 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   const siteLabels = () => {
     const nameOf = (sel, id) => ((ofLeague(D.rankings).find((r) => r.team_id === (pickTeam($(sel)) ?? id)) || {}).team);
     const a = nameOf('#mu-a', S.ma), b = nameOf('#mu-b', S.mb);
-    const o = $('#mu-site').options;
-    o[0].textContent = b ? `At ${b}` : 'Second team’s home';
-    o[1].textContent = 'Neutral site';
-    o[2].textContent = a ? `At ${a}` : 'First team’s home';
+    const [at, neu, hosts] = $$('#mu-site button');
+    at.title = `${a || 'First team'} plays at ${b || 'second team'}`; neu.title = 'Neutral site';
+    hosts.title = `${a || 'First team'} hosts ${b || 'second team'}`;
+    $$('#mu-site button').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.v === S.ms)));
   };
   typeAhead($('#mu-a'), siteLabels); typeAhead($('#mu-b'), siteLabels);
-  $('#mu-go').addEventListener('click', () => { S.ma = pickTeam($('#mu-a')); S.mb = pickTeam($('#mu-b')); S.ms = $('#mu-site').value; render(); });
+  $('#mu-go').addEventListener('click', () => { S.ma = pickTeam($('#mu-a')); S.mb = pickTeam($('#mu-b')); render(); });
+  $$('#mu-site button').forEach((x) => x.addEventListener('click', () => { S.ms = x.dataset.v; siteLabels(); if (S.ma && S.mb) render(); }));
   ['#mu-a', '#mu-b'].forEach((sel) => $(sel).addEventListener('keydown', (e) => { if (e.key === 'Enter') $('#mu-go').click(); }));
+
+  // pace control can land outside 0-100 (a game even faster than the fast team wanted, or slower
+  // than the slow team wanted); shown capped
+  const pctCtl = (c) => Math.round(Math.max(0, Math.min(100, c))) + '%';
 
   // ---------- pace ----------
   function renderPace() {
@@ -1492,18 +1507,19 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       [['Slow · dictates', L + 6, T + 14, 'start'], ['Fast · dictates', W - Rt - 6, T + 14, 'end'],
        ['Slow · adapts', L + 6, H - B - 8, 'start'], ['Fast · adapts', W - Rt - 6, H - B - 8, 'end']].forEach(([t, x, y, a]) =>
         svg.append(svgEl('text', {x, y, 'text-anchor': a, class: 'pm-q'}, t)));
-      svg.append(svgEl('text', {x: (L + W) / 2, y: H - 6, 'text-anchor': 'middle', class: 'ax-t'}, '← slower      tempo (possessions per 40 min)      faster →'));
+      svg.append(svgEl('text', {x: (L + W) / 2, y: H - 6, 'text-anchor': 'middle', class: 'ax-t'}, '← slower      pace (possessions per 40 min)      faster →'));
       svg.append(svgEl('text', {x: 12, y: (T + H - B) / 2, 'text-anchor': 'middle', class: 'ax-t', transform: `rotate(-90 12 ${(T + H - B) / 2})`}, 'pace control'));
       [x0, (x0 + x1) / 2, x1].forEach((v, i) => svg.append(svgEl('text', {x: X(v), y: H - B + 14, 'text-anchor': ['start', 'middle', 'end'][i], class: 'ax-t'}, v.toFixed(0))));
       const searching = S.q.trim() !== '';
       const hit = (p) => searching && qMatch(p.team);
       pts.sort((a, b) => (hit(a) - hit(b)) || (a.battles - b.battles)).forEach((p) => {
         const on = hit(p);
+        if ((searching && !on) || !inConf(p.conf)) return;   // only the teams you asked for
         const c = svgEl('circle', {cx: X(p.tempo), cy: Y(Math.max(5, Math.min(95, p.control))), r: on ? 8 : 5.5,
           class: 'pm-dot' + (on ? ' pm-hit' : '') + ((searching && !on) || !inConf(p.conf) ? ' dim' : '')});
         c.style.fill = COLOR[p.team] || '';
         c.addEventListener('mouseenter', () => showTip(tip, wrap, X(p.tempo) * wrap.getBoundingClientRect().width / W, Y(Math.max(5, Math.min(95, p.control))) * wrap.getBoundingClientRect().height / H,
-          `<div class="d">${p.conf}</div><div class="m">${p.team}</div><div class="row"><span>Tempo</span><b>${f1(p.tempo)} (${ordinal(p.tempo_rank)})</b></div><div class="row"><span>Pace control</span><b>${Math.round(p.control)}%</b></div><div class="row"><span>Net rating</span><b>${signed(rank[p.team_id].net)} (${ordinal(rank[p.team_id].rank)})</b></div>`));
+          `<div class="d">${p.conf}</div><div class="m">${p.team}</div><div class="row"><span>Pace</span><b>${f1(p.tempo)} (${ordinal(p.tempo_rank)})</b></div><div class="row"><span>Pace control</span><b>${pctCtl(p.control)}</b></div><div class="row"><span>Net rating</span><b>${signed(rank[p.team_id].net)} (${ordinal(rank[p.team_id].rank)})</b></div>`));
         c.addEventListener('mouseleave', () => { tip.hidden = true; });
         c.addEventListener('click', () => openTeam(p.team_id));
         svg.append(c);
@@ -1520,7 +1536,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       const tr = el('tr');
       tr.append(td(String(p.tempo_rank), 'num rk'), teamCell(p.team), confCell(p.conf), td(f1(p.tempo), 'num'),
         td(f1(p.pace_avg), 'num muted'), td(f1(p.pace_sd), 'num muted'),
-        td(num(p.control) === null || !p.games ? '—' : Math.round(p.control) + '%', 'num' + (p.battles < READY ? ' faint' : '')),
+        td(num(p.control) === null || !p.games ? '—' : pctCtl(p.control), 'num' + (p.battles < READY ? ' faint' : '')),
         td(String(p.games), 'num rk'));
       return tr;
     };

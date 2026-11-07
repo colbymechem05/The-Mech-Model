@@ -201,6 +201,9 @@ def league_tables(league: str, day: pd.Timestamp) -> dict:
     r["conf"] = r.team_id.map(conf).fillna("Ind.")
     r["vs_preseason"] = (r.net - r.preseason).round(1)
     r = r.join(records(league), on="team_id")
+    sc = pd.read_csv(D.RAW / f"{league}_schedule_{D.CURRENT}.csv", low_memory=False,
+                     usecols=["home_id", "home_location"]).drop_duplicates("home_id").set_index("home_id")
+    r["school"] = r.team_id.map(sc.home_location).fillna(r.team)   # short name ("Michigan") for tight spots
     rc = ["wins", "losses", "conf_wins", "conf_losses"]
     r[rc] = r[rc].fillna(0).astype(int)
     strength = (r.groupby("conf").agg(teams=("net", "size"), avg=("net", "mean"), best=("net", "max"))
