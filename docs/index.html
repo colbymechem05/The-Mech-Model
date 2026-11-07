@@ -77,8 +77,12 @@ main { padding: 26px 38px 40px; min-width: 0; }
 .chip[aria-pressed="true"] { background: var(--orange); border-color: var(--orange); color: var(--on-orange); }
 .conf { position: relative; }
 .conf-panel { position: absolute; z-index: 20; right: 0; top: calc(100% + 6px); width: min(500px, 92vw); max-height: 80vh; overflow: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); padding: 12px 14px; }
-.conf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 14px; }
-@media (max-width: 600px) { .conf-grid { grid-template-columns: 1fr 1fr; } }
+.conf-grid { columns: 3; column-gap: 14px; }
+.conf-grid label { break-inside: avoid; }
+@media (max-width: 600px) {
+  .conf-grid { columns: 2; }
+  .conf-panel { position: fixed; left: 10px; right: 10px; top: auto; bottom: 10px; width: auto; max-height: 75vh; z-index: 60; }
+}
 .conf-grid label { display: flex; gap: 8px; align-items: center; font-size: 13px; padding: 3px 0; cursor: pointer; }
 input[type=checkbox] { accent-color: var(--orange); }
 
@@ -107,6 +111,8 @@ input[type=checkbox] { accent-color: var(--orange); }
 .ticker { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 28px; padding: 11px 0; border-bottom: 1px solid var(--line); }
 .ticker .it { display: inline-flex; align-items: baseline; gap: 8px; }
 .ticker .it[hidden] { display: none; }
+.ticker .filters { margin-left: auto; align-self: center; }
+#gotd:not([hidden]) + .ticker, .ticker.has-filters { border-bottom: 0; }
 .ticker .k { font: 600 10.5px var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .ticker b { font: 600 16px var(--num); font-variant-numeric: tabular-nums; color: var(--fg); }
 .ticker .t { font-size: 13.5px; color: var(--muted); }
@@ -212,7 +218,7 @@ tr.month td { padding-top: 16px; background: none !important; font: 600 11px var
 .tr-pre { stroke: var(--orange); stroke-dasharray: 5 4; stroke-width: 1.5; }
 .tr-dot { fill: var(--blue); stroke: var(--bg); stroke-width: 2; cursor: default; }
 .pm-dot { fill: var(--blue); stroke: var(--fg); stroke-opacity: .45; stroke-width: 1; cursor: pointer; }
-.pm-dot.faint { opacity: .5; }
+.pm-dot.faint { opacity: .75; }
 .pm-dot.dim { opacity: .1; }
 .pm-dot.pm-hit { stroke-opacity: 1; opacity: 1; }
 .up-rk { margin-right: 6px; font-size: 12px; }
@@ -369,10 +375,10 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <button role="tab" data-tab="today" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Today's Lines</button>
       <button role="tab" data-tab="rankings" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Power Ratings</button>
       <button role="tab" data-tab="top25" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>Rankings</button>
-      <button role="tab" data-tab="matchup" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M17 4v16M3 8h8M13 16h8"/></svg>Matchup Predictor</button>
-      <button role="tab" data-tab="pace" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 13l4-4M12 3v2"/></svg>Pace</button>
-      <button role="tab" data-tab="home" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>Home Court Advantage</button>
       <button role="tab" data-tab="upsets" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Biggest Upsets</button>
+      <button role="tab" data-tab="matchup" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M17 4v16M3 8h8M13 16h8"/></svg>Matchup Predictor</button>
+      <button role="tab" data-tab="pace" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 13l4-4M12 3v2"/></svg>Pace Analysis</button>
+      <button role="tab" data-tab="home" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>Home Court Advantage</button>
       <button role="tab" data-tab="record" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>Track Record</button>
       <button role="tab" data-tab="how" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>How It Works</button>
     </nav>
@@ -793,7 +799,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     const nav = $('.nav'), on = $('.nav button[aria-selected="true"]');   // phones: keep the active tab in view
     if (on && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = on.offsetLeft - (nav.clientWidth - on.offsetWidth) / 2;
     const titles = {today: longDate(), rankings: `${lg()} Power Ratings`, top25: `${lg()} Rankings`,
-                    record: `${lg()} Track Record`, how: 'The Meech Model', matchup: `${lg()} Matchup Predictor`, pace: `${lg()} Pace`, home: `${lg()} Home Court Advantage`, upsets: `${lg()} Biggest Upsets`, team: '', conf: `${lg()} ${S.cname || ''}`};
+                    record: `${lg()} Track Record`, how: 'The Meech Model', matchup: `${lg()} Matchup Predictor`, pace: `${lg()} Pace Analysis`, home: `${lg()} Home Court Advantage`, upsets: `${lg()} Biggest Upsets`, team: '', conf: `${lg()} ${S.cname || ''}`};
     $('#title').textContent = titles[S.tab];
     document.querySelector('.mast').classList.toggle('noline', S.tab === 'rankings');
     $('#rank-tools').hidden = !['rankings', 'top25', 'pace', 'home', 'upsets'].includes(S.tab);
@@ -802,6 +808,11 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $('#pr-q').hidden = S.tab !== 'rankings';
     $('#hc-q').hidden = S.tab !== 'home';
     $('#filters').hidden = ['how', 'record', 'conf', 'matchup'].includes(S.tab);
+    // Today's Lines: the conference filters sit in the stat strip; everywhere else in the masthead
+    const strip = $('section[data-page="today"] .ticker'), f = $('#filters');
+    if (S.tab === 'today' && f.parentElement !== strip) strip.append(f);
+    if (S.tab !== 'today' && f.parentElement === strip) $('.mast').append(f);
+    strip.classList.toggle('has-filters', S.tab === 'today');
     $('#conf-all').setAttribute('aria-pressed', String(!S.confs.size));
     $('#conf-power').setAttribute('aria-pressed', String(isPower()));
     const custom = S.confs.size > 0 && !isPower();
@@ -1012,7 +1023,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   const pctCap = (p) => Math.min(99, Math.max(1, Math.round(p * 100)));   // never claim a sure thing
   // ---------- detail pages (team, conference): a small back stack ----------
   const TABNAME = {today: "Today's Lines", rankings: 'Power Ratings', top25: 'Rankings', record: 'Track Record', how: 'How It Works',
-                   matchup: 'Matchup Predictor', pace: 'Pace', home: 'Home Court Advantage', upsets: 'Biggest Upsets'};
+                   matchup: 'Matchup Predictor', pace: 'Pace Analysis', home: 'Home Court Advantage', upsets: 'Biggest Upsets'};
   const go = (tab, extra) => {
     S.stack.push({tab: S.tab, team: S.team, cname: S.cname});
     Object.assign(S, extra, {tab}); render(); window.scrollTo(0, 0);
