@@ -103,4 +103,4 @@ if __name__ == "__main__":
     m["elevation_ft"] = [elev.get((c, s)) for c, s in zip(v.city, v.state)]
     m.to_csv(FOLDER / "arenas.csv", index=False)
     print(f"{len(m)} teams | capacity matched {m.capacity.notna().sum()} | elevation {m.elevation_ft.notna().sum()}")
-    print("no capacity:", ", ".join(v.loc[m.capacity.isna().values, "team"].astype(str).head(40)))
+    print("no capacity:", ", ".join([str(t) for t in v.loc[m.capacity.isna().values, "team"].fillna("?").head(40)]))
