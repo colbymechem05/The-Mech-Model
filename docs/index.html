@@ -166,6 +166,62 @@ tr.month td { padding-top: 16px; background: none !important; font: 600 11px var
 #tm-sched td, #tm-sched th, #tm-lead td, #tm-lead th { padding-top: 7px; padding-bottom: 7px; }
 @media (max-width: 900px) { .split { grid-template-columns: minmax(0, 1fr); } .tm-big { text-align: left; } .tm-big .big { font-size: 34px; } }
 
+/* ---------- game of the day ---------- */
+.gotd { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px 26px; padding: 14px 18px; margin: 16px 0 4px; border: 1px solid var(--line); border-left: 4px solid var(--orange); border-radius: 6px; background: var(--panel); }
+.gotd .lbl { font: 700 13px var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--orange); white-space: nowrap; }
+.gotd .teams { font: 700 21px/1.15 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+.gotd .teams .rk { font: 600 13px var(--body); margin-right: 4px; }
+.gotd .teams .at { font: 500 14px var(--body); color: var(--muted); text-transform: none; margin: 0 8px; }
+.gotd .nums { display: flex; gap: 22px; flex-wrap: wrap; justify-content: flex-end; }
+.gotd .nums span { display: flex; flex-direction: column; align-items: flex-end; }
+.gotd .nums i { font: 600 10.5px var(--body); font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.gotd .nums b { font: 600 17px var(--num); }
+@media (max-width: 900px) { .gotd { grid-template-columns: 1fr; } .gotd .nums { justify-content: flex-start; } .gotd .nums span { align-items: flex-start; } }
+
+/* ---------- matchup ---------- */
+.mu-pick { display: grid; grid-template-columns: 1fr auto 1fr auto; gap: 12px; align-items: end; margin: 18px 0 8px; }
+.mu-pick label { display: block; font: 600 10.5px var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+.mu-pick input, .mu-pick select { width: 100%; padding: 9px 11px; font-size: 15px; background: var(--panel); border: 1px solid var(--line); border-radius: 5px; color: var(--fg); }
+.mu-go { padding: 10px 22px; border: 0; border-radius: 5px; background: var(--orange); color: var(--on-orange); font: 700 14px var(--body); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+.mu-go:hover { filter: brightness(1.08); }
+.mu-score { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px; padding: 18px 0; border-bottom: 3px solid var(--rule); margin-top: 10px; }
+.mu-side { display: flex; align-items: center; gap: 16px; }
+.mu-side.r { justify-content: flex-end; text-align: right; }
+.mu-side b { font: 700 52px/1 var(--display); }
+.mu-nm { font: 700 20px/1.1 var(--display); text-transform: uppercase; }
+.mu-mid { text-align: center; }
+.mu-line { font: 700 22px var(--display); text-transform: uppercase; color: var(--blue); }
+.mu-sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.mu-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+.mu-col { padding-top: 6px; }
+.mu-col .mu-head { border-top: 4px solid var(--tc, var(--rule)); padding-top: 10px; margin-top: 14px; }
+.mu-col .mu-head .sub { color: var(--muted); font-size: 13.5px; margin-top: 3px; }
+.mu-col .mu-head b { font: 700 19px var(--display); text-transform: uppercase; }
+.mu-col .better { color: var(--blue); font-weight: 700; }
+@media (max-width: 900px) { .mu-pick { grid-template-columns: 1fr; } .mu-cols { grid-template-columns: 1fr; } .mu-side b { font-size: 36px; }
+  .mu-score { grid-template-columns: 1fr 1fr; gap: 10px 12px; } .mu-mid { grid-column: 1 / -1; grid-row: 2; } .mu-nm { font-size: 16px; } .mu-line { font-size: 19px; } }
+
+/* ---------- charts: rating trend + pace map ---------- */
+.trend-wrap, .map-wrap { position: relative; }
+#tm-trend { width: 100%; height: 190px; display: block; }
+#pace-map { width: 100%; height: 440px; display: block; }
+.ax { stroke: var(--line); stroke-width: 1; }
+.ax-t { fill: var(--muted); font: 11px var(--body); }
+.tr-line { fill: none; stroke: var(--blue); stroke-width: 2.5; }
+.tr-pre { stroke: var(--orange); stroke-dasharray: 5 4; stroke-width: 1.5; }
+.tr-dot { fill: var(--blue); stroke: var(--bg); stroke-width: 2; cursor: default; }
+.pm-dot { fill: var(--blue); stroke: var(--bg); stroke-width: 1; cursor: pointer; }
+.pm-dot.faint { fill: var(--faint); opacity: .45; }
+.pm-dot.dim { opacity: .12; }
+.pm-dot:hover { stroke: var(--fg); stroke-width: 2; }
+.pm-q { fill: var(--muted); font: 600 10.5px var(--body); letter-spacing: .12em; text-transform: uppercase; }
+.pm-mid { stroke: var(--line); stroke-dasharray: 3 4; }
+.legend .lf::before { background: var(--faint); opacity: .5; }
+#hc-table td.arena { line-height: 1.25; padding-top: 6px; padding-bottom: 6px; }
+#hc-table td.arena .sub { font-size: 11.5px; color: var(--muted); }
+.tr-now { font: 600 12px 'Barlow', sans-serif; fill: var(--ink); font-variant-numeric: tabular-nums; }
+.fine-src { font-size: 12px; color: var(--muted); margin-top: 14px; }
+
 /* ---------- sections ---------- */
 section[data-page="rankings"] > .scroll:first-child { margin-top: 14px; }
 #rank-tools { margin-right: 8px; gap: 8px; }
@@ -293,6 +349,9 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <button role="tab" data-tab="today" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Today's Lines</button>
       <button role="tab" data-tab="rankings" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Power Ratings</button>
       <button role="tab" data-tab="top25" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>Rankings</button>
+      <button role="tab" data-tab="matchup" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M17 4v16M3 8h8M13 16h8"/></svg>Matchup</button>
+      <button role="tab" data-tab="pace" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 13l4-4M12 3v2"/></svg>Pace</button>
+      <button role="tab" data-tab="home" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>Home Court</button>
       <button role="tab" data-tab="record" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>Track Record</button>
       <button role="tab" data-tab="how" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>How It Works</button>
     </nav>
@@ -301,7 +360,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
   <main>
     <div class="mast">
-      <h1><span id="title">—</span> <span class="q mast-q" id="pr-q" tabindex="0" hidden>?<span class="pop"><b>Power ratings are not rankings.</b> They measure how strong each team is right now relative to an average D1 team per 100 possessions, so any two teams can be compared, turned into a line, and converted to a win probability. A team can be rated above a team with a better record. Rankings judge résumés (who you&rsquo;ve beaten) and will come later in the season in the Rankings tab.</span></span></h1>
+      <h1><span id="title">—</span> <span class="q mast-q" id="pr-q" tabindex="0" hidden>?<span class="pop"><b>Power ratings are not rankings.</b> They measure how strong each team is right now relative to an average D1 team per 100 possessions, so any two teams can be compared, turned into a line, and converted to a win probability. A team can be rated above a team with a better record. Rankings judge résumés (who you&rsquo;ve beaten) and will come later in the season in the Rankings tab.</span></span> <span class="q mast-q" id="hc-q" tabindex="0" hidden>?<span class="pop"><b>How home court is measured.</b> For each of the last four full seasons (the COVID year is skipped), every team gets a full-season rating. Then we check how each team did in its home games compared with what its rating said, and the same for its road games. A team&rsquo;s raw home edge is its home result minus its road result. That raw number is noisy, so it&rsquo;s pulled toward the league average: a team&rsquo;s own history counts as n&nbsp;/&nbsp;(n&nbsp;+&nbsp;200) of its edge, where n is the home games measured. A team with 60 home games keeps about 23% of its own edge; the rest comes from the league average. Altitude teams rise to the top on their own: the model is never told anything about altitude.</span></span></h1>
       <div class="filters" id="filters">
         <div class="tools" id="rank-tools" hidden>
           <input type="search" id="search" placeholder="Search teams" aria-label="Search teams">
@@ -318,6 +377,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
     <!-- ===== Today ===== -->
     <section data-page="today">
+      <div class="gotd" id="gotd" hidden></div>
       <div class="ticker">
         <span class="it"><span class="k">Games</span><b id="t-games">—</b><span class="t" id="t-scope">All conferences</span></span>
         <span class="it" title="Games where the Meech line is under 4 points"><span class="k">Toss-ups</span><b id="t-tossups">—</b></span>
@@ -387,6 +447,68 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       </div>
     </section>
 
+    <!-- ===== Matchup machine ===== -->
+    <section data-page="matchup" hidden>
+      <div class="mu-pick">
+        <div class="mu-team"><label for="mu-a">Team</label><input id="mu-a" list="mu-list" placeholder="Pick a team" autocomplete="off"></div>
+        <div class="mu-site"><label for="mu-site">Site</label>
+          <select id="mu-site"><option value="b">at (right team home)</option><option value="n">vs (neutral)</option><option value="a">hosts (left team home)</option></select></div>
+        <div class="mu-team"><label for="mu-b">Team</label><input id="mu-b" list="mu-list" placeholder="Pick a team" autocomplete="off"></div>
+        <button class="mu-go" id="mu-go">Predict</button>
+        <datalist id="mu-list"></datalist>
+      </div>
+      <p class="empty" id="mu-msg">Pick two teams and hit Predict.</p>
+      <div id="mu-out" hidden>
+        <div class="mu-score">
+          <div class="mu-side l"><span class="mu-nm" id="mu-an"></span><b id="mu-ap"></b></div>
+          <div class="mu-mid"><div class="mu-line" id="mu-line"></div><div class="mu-sub" id="mu-sub"></div></div>
+          <div class="mu-side r"><b id="mu-bp"></b><span class="mu-nm" id="mu-bn"></span></div>
+        </div>
+        <div class="mu-cols">
+          <div class="mu-col" id="mu-colA"></div>
+          <div class="mu-col" id="mu-colB"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Pace ===== -->
+    <section data-page="pace" hidden>
+      <div class="sec"><h2>Today&rsquo;s Pace Battles <span class="q" tabindex="0">?<span class="pop">Today&rsquo;s games where the two teams want the most different speeds. <b>Wants</b> = each team&rsquo;s rated tempo (possessions per 40 minutes vs. an average opponent). <b>Meech pace</b> = the pace the Meech line expects. <b>Edge</b> = the team that has done a better job of dragging games to its own speed this season (pace control), once both have enough games to tell.</span></span></h2></div>
+      <div class="scroll" style="max-height:none"><table id="pb-table"><thead><tr><th>Fast team</th><th class="num">Wants</th><th>Slow team</th><th class="num">Wants</th><th class="num">Gap</th><th class="num">Meech pace</th><th>Edge</th></tr></thead><tbody></tbody></table></div>
+      <p class="empty" id="pb-none" hidden>No games today.</p>
+      <div class="sec"><h2>Style Map <span class="q" tabindex="0">?<span class="pop">Every team by speed (left = slow, right = fast) and pace control (up = drags games to its own speed, down = adapts to the opponent). Control needs games against teams that want a different speed, so faded dots don&rsquo;t have enough of those yet. Click a dot for the team page.</span></span></h2><div class="legend"><span class="lb">Enough games</span><span class="lf">Not enough yet</span></div></div>
+      <div class="map-wrap"><svg id="pace-map" role="img" aria-label="Pace style map"></svg><div class="gtip" id="pm-tip" hidden></div></div>
+      <div class="sec"><h2>Pace Board <span class="q r" tabindex="0">?<span class="pop"><b>Tempo</b> = possessions per 40 minutes against an average opponent (what the lines use). <b>Actual</b> = average possessions in their games so far. <b>Swing</b> = how much their pace moves game to game (lower = more consistent). <b>Control</b> = when the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed: 50% = meets in the middle, higher = dictates. <b>Battles</b> = games with a real speed gap (2.5+ possessions).</span></span></h2></div>
+      <div class="scroll"><table id="pace-table"><thead><tr>
+        <th data-col="tempo_rank" class="num"><button>Rk</button></th><th data-col="team"><button>Team</button></th><th data-col="conf"><button>Conf</button></th>
+        <th data-col="tempo" class="num"><button>Tempo</button></th><th data-col="pace_avg" class="num"><button>Actual</button></th>
+        <th data-col="pace_sd" class="num"><button>Swing</button></th><th data-col="control" class="num"><button>Control</button></th>
+        <th data-col="battles" class="num"><button>Battles</button></th><th data-col="games" class="num"><button>G</button></th>
+      </tr></thead><tbody></tbody></table></div>
+      <div class="grid2">
+        <div><div class="sec"><h2>Five-Year Dictators <span class="q" tabindex="0">?<span class="pop">Teams that dragged games toward their own speed in at least 4 of the last 5 seasons (2021-22 to 2025-26).</span></span></h2></div>
+          <table id="ph-dict"><thead><tr><th>Team</th><th class="num">Seasons</th><th class="num">Avg control</th></tr></thead><tbody></tbody></table></div>
+        <div><div class="sec"><h2>Five-Year Chameleons <span class="q r" tabindex="0">?<span class="pop">Teams that adapted to the opponent&rsquo;s speed in at least 4 of the last 5 seasons.</span></span></h2></div>
+          <table id="ph-cham"><thead><tr><th>Team</th><th class="num">Seasons</th><th class="num">Avg control</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </section>
+
+    <!-- ===== Home court ===== -->
+    <section data-page="home" hidden>
+      <div class="ticker" id="hc-ticker"></div>
+      <div class="scroll" style="margin-top:14px"><table id="hc-table"><thead><tr>
+        <th data-col="hc_rank" class="num"><button>Rk</button></th><th data-col="team"><button>Team</button></th><th data-col="conf"><button>Conf</button></th>
+        <th data-col="home_court" class="num"><button>Home court</button> <span class="q" tabindex="0">?<span class="pop">Points this team gets at home in a Meech line.</span></span></th>
+        <th data-col="vs_avg" class="num"><button>vs. avg</button> <span class="q" tabindex="0">?<span class="pop">Above or below the league-average home edge.</span></span></th>
+        <th data-col="home_games" class="num"><button>Sample</button> <span class="q" tabindex="0">?<span class="pop">Home games its edge was measured on (last 4 full seasons). More games = more trust in its own number; fewer = pulled closer to the league average.</span></span></th>
+        <th data-col="venue"><button>Arena</button></th>
+        <th data-col="capacity" class="num"><button>Capacity</button></th><th data-col="elevation_ft" class="num"><button>Elevation</button> <span class="q r" tabindex="0">?<span class="pop">Elevation of the arena&rsquo;s city, in feet.</span></span></th>
+        <th data-col="home_rec" class="num"><button>Home</button> <span class="q r" tabindex="0">?<span class="pop">This season&rsquo;s record in true home games vs. D1 teams.</span></span></th>
+        <th data-col="road_rec" class="num"><button>Road</button> <span class="q r" tabindex="0">?<span class="pop">This season&rsquo;s record in true road games vs. D1 teams.</span></span></th>
+      </tr></thead><tbody></tbody></table></div>
+      <p class="fine-src" id="hc-src">Arena capacities: Wikipedia, &ldquo;List of NCAA Division I basketball arenas&rdquo; (CC BY-SA 4.0). Elevations: Open-Meteo geocoding.</p>
+    </section>
+
     <!-- ===== Track record ===== -->
     <section data-page="record" hidden>
       <div class="stats">
@@ -452,7 +574,9 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           <div class="scroll" style="max-height:none"><table id="tm-sched"><thead><tr><th>Date</th><th></th><th class="num">#</th><th>Opponent</th><th class="num">Meech <span class="q" tabindex="0">?<span class="pop">The Meech line from this team&rsquo;s side: minus = favored, plus = underdog. Blue = this team is the Meech favorite.</span></span></th><th class="num">Win % <span class="q r" tabindex="0">?<span class="pop">This team&rsquo;s chance to win. Played games: as logged before tip. Upcoming games: as rated today. Never shown as 0% or 100%.</span></span></th><th>Result</th></tr></thead><tbody></tbody></table></div>
         </div>
         <div>
-          <div class="sec sec-tight"><h2>Ratings</h2></div>
+          <div class="sec sec-tight"><h2>Rating Trend <span class="q r" tabindex="0">?<span class="pop">This team&rsquo;s power rating at the end of each day this season. Dashed line = where it started (preseason). Hover a point for the date, rating and rank.</span></span></h2></div>
+          <div class="trend-wrap"><svg id="tm-trend" role="img" aria-label="Rating trend"></svg><div class="gtip" id="tm-ttip" hidden></div></div>
+          <div class="sec"><h2>Ratings</h2></div>
           <table class="sheet" id="tm-sheet"></table>
           <div class="sec"><h2>Leaders <span class="q r" tabindex="0">?<span class="pop">Per-game averages this season for players who&rsquo;ve played in at least half of the team&rsquo;s games, sorted by points.</span></span></h2></div>
           <table id="tm-lead"><thead><tr><th>Player</th><th class="num">G</th><th class="num">PTS</th><th class="num">REB</th><th class="num">AST</th><th class="num">MIN</th></tr></thead><tbody></tbody></table>
@@ -544,9 +668,9 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 (() => {
   const POWER = ['SEC', 'Big Ten', 'Big 12', 'ACC', 'Big East'];
   const TOP_N = 100, TOSSUP = 4, BLOWOUT = 15;
-  const PAGES = ['today', 'rankings', 'top25', 'record', 'how', 'team', 'conf'];
+  const PAGES = ['today', 'rankings', 'top25', 'matchup', 'pace', 'home', 'record', 'how', 'team', 'conf'];
   const DETAIL = ['team', 'conf'];
-  const S = {stack: [], base: 'today', cname: '', league: 'mbb', tab: 'today', confs: new Set(), sort: 'spread', scol: '', sdir: 'asc',
+  const S = {stack: [], base: 'today', cname: '', ma: null, mb: null, ms: 'b', psort: {col: 'tempo_rank', dir: 'asc'}, hsort: {col: 'hc_rank', dir: 'asc'}, league: 'mbb', tab: 'today', confs: new Set(), sort: 'spread', scol: '', sdir: 'asc',
              hide: false, rall: false, logn: 200, rsort: 'rank', rcol: '', rdir: 'asc', q: ''};
   const D = {};
   let COLOR = {};
@@ -593,6 +717,9 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (h.get('conf')) S.confs = new Set(h.get('conf').split('|'));
     if (h.get('team')) S.team = Number(h.get('team'));
     if (h.get('cname')) S.cname = h.get('cname');
+    if (h.get('ma')) S.ma = Number(h.get('ma'));
+    if (h.get('mb')) S.mb = Number(h.get('mb'));
+    if (['a', 'b', 'n'].includes(h.get('ms'))) S.ms = h.get('ms');
     if ((S.tab === 'team' && !h.get('team')) || (S.tab === 'conf' && !h.get('cname'))) S.tab = 'rankings';
     if (!DETAIL.includes(S.tab)) S.base = S.tab; else S.base = 'rankings';
   };
@@ -603,6 +730,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (S.confs.size) h.set('conf', [...S.confs].join('|'));
     if (S.tab === 'team') h.set('team', S.team);
     if (S.tab === 'conf') h.set('cname', S.cname);
+    if (S.tab === 'matchup' && S.ma && S.mb) { h.set('ma', S.ma); h.set('mb', S.mb); h.set('ms', S.ms); }
     const s = h.toString();
     history.replaceState(null, '', s ? '#' + s : location.pathname);
   };
@@ -631,12 +759,13 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     document.querySelector('.mast').hidden = S.tab === 'team';
     $$('.nav button').forEach((b) => { if (DETAIL.includes(S.tab)) b.setAttribute('aria-selected', String(b.dataset.tab === (S.base || 'rankings'))); });
     const titles = {today: longDate(), rankings: `${lg()} Power Ratings`, top25: `${lg()} Rankings`,
-                    record: `${lg()} Track Record`, how: 'The Meech Model', team: '', conf: `${lg()} ${S.cname || ''}`};
+                    record: `${lg()} Track Record`, how: 'The Meech Model', matchup: `${lg()} Matchup`, pace: `${lg()} Pace`, home: `${lg()} Home Court`, team: '', conf: `${lg()} ${S.cname || ''}`};
     $('#title').textContent = titles[S.tab];
     document.querySelector('.mast').classList.toggle('noline', S.tab === 'rankings');
     $('#rank-tools').hidden = S.tab !== 'rankings' && S.tab !== 'top25';
     $('#pr-q').hidden = S.tab !== 'rankings';
-    $('#filters').hidden = ['how', 'record', 'conf'].includes(S.tab);
+    $('#hc-q').hidden = S.tab !== 'home';
+    $('#filters').hidden = ['how', 'record', 'conf', 'matchup'].includes(S.tab);
     $('#conf-all').setAttribute('aria-pressed', String(!S.confs.size));
     $('#conf-power').setAttribute('aria-pressed', String(isPower()));
     const custom = S.confs.size > 0 && !isPower();
@@ -661,8 +790,31 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     heads2('#lines', S.sort, S.scol, S.sdir); heads2('#ranks', S.rsort, S.rcol, S.rdir);
   }
 
+  // Game of the Day: among games between good teams (both top 50, else top 100, else any),
+  // the one where the average of the Meech and Vegas lines is closest to a pick'em
+  const gameOfDay = (games) => {
+    let pool = [];
+    for (const cut of [50, 100, Infinity]) { pool = games.filter((r) => r.home_rank <= cut && r.away_rank <= cut); if (pool.length) break; }
+    const even = (r) => Math.abs(r.vegas_line === null || r.vegas_line === undefined ? r.my_line : (r.my_line + r.vegas_line) / 2);
+    return pool.sort((a, b) => even(a) - even(b) || (a.home_rank + a.away_rank) - (b.home_rank + b.away_rank))[0] || null;
+  };
+  function renderGOTD(everything) {
+    const g = gameOfDay(everything), box = $('#gotd');
+    box.hidden = !g; if (!g) return;
+    const nm = (team, rank) => { const w = el('span'); w.append(el('span', 'rk', '#' + rank)); const t = el('span', 'tlink', team); t.dataset.team = (NAME2ID[S.league] || {})[team]; w.append(t); return w; };
+    const teams = el('div', 'teams');
+    teams.append(nm(g.away, g.away_rank), el('span', 'at', g.site ? 'vs' : 'at'), nm(g.home, g.home_rank));
+    const nums = el('div', 'nums');
+    const n = (k, v) => { const sp = el('span'); sp.append(el('i', '', k), el('b', '', v)); nums.append(sp); };
+    n('Tip ET', g.tip); n('Meech', `${g.favorite} ${f1(g.my_line)}`);
+    if (g.vegas_line !== null && g.vegas_line !== undefined) n('Vegas', signed(g.vegas_line));
+    n('Win %', pct(g.fav_win_pct)); n('Proj.', g.proj_score);
+    box.replaceChildren(el('div', 'lbl', 'Game of the Day'), teams, nums);
+  }
+
   function renderToday() {
     const everything = ofLeague(D.lines);
+    renderGOTD(everything);
     const all = everything.filter((r) => inConf(r.home_conf, r.away_conf));
     $('#t-scope').textContent = confLabel();
     const best = all.reduce((a, r) => (a === null || Math.abs(r.my_line) < Math.abs(a.my_line) ? r : a), null);
@@ -961,6 +1113,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       return tr;
     }));
     $('#tm-lead-none').hidden = page.l.length > 0;
+    drawTrend(me, page.h || []);
   }
 
   function renderConf() {
@@ -1012,6 +1165,256 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   $('#cf-back').addEventListener('click', (e) => { e.preventDefault(); goBack(); });
   document.querySelector('.brand').addEventListener('click', () => { S.stack = []; S.base = 'today'; S.tab = 'today'; render(); window.scrollTo(0, 0); });
 
+  // ---------- shared: sortable tables + normal curve ----------
+  const normCdf = (x) => {   // Abramowitz-Stegun erf approximation (error < 1.5e-7)
+    const t = 1 / (1 + 0.3275911 * Math.abs(x) / Math.SQRT2);
+    const y = 1 - ((((1.061405429 * t - 1.453152027) * t + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x / 2);
+    return x >= 0 ? (1 + y) / 2 : (1 - y) / 2;
+  };
+  const sortRows = (rows, st) => [...rows].sort((a, b) => (st.dir === 'asc' ? 1 : -1) * cmp(a[st.col], b[st.col]));
+  const markSort = (sel, st) => $$(sel + ' th[data-col]').forEach((th) => {
+    if (th.dataset.col === st.col) th.setAttribute('aria-sort', st.dir === 'asc' ? 'ascending' : 'descending'); else th.removeAttribute('aria-sort');
+  });
+  const sortable = (sel, key) => $(sel + ' thead').addEventListener('click', (e) => {
+    if (e.target.closest('.q')) return;
+    const th = e.target.closest('th[data-col]'); if (!th) return;
+    const st = S[key];
+    st.dir = st.col === th.dataset.col && st.dir === 'asc' ? 'desc' : 'asc'; st.col = th.dataset.col; render();
+  });
+  const fmtInt = (x) => (num(x) === null ? '—' : Math.round(x).toLocaleString('en-US'));
+  const loadTeams = (then) => {
+    if (TEAMS[S.league]) return true;
+    fetch(`data/teams_${S.league}.json`, {cache: 'no-cache'}).then((r) => r.json())
+      .then((j) => { TEAMS[S.league] = j; then(); }).catch(() => { TEAMS[S.league] = {}; });
+    return false;
+  };
+  const svgEl = (tag, attrs, text) => {
+    const e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    Object.entries(attrs || {}).forEach(([k, v]) => e.setAttribute(k, v));
+    if (text !== undefined) e.textContent = text;
+    return e;
+  };
+  const showTip = (tip, wrap, x, y, html) => {
+    tip.innerHTML = html; tip.hidden = false;
+    const w = wrap.getBoundingClientRect().width;
+    tip.style.left = Math.min(Math.max(0, x - 110), w - 240) + 'px'; tip.style.top = (y + 14) + 'px';
+  };
+
+  // ---------- rating trend (team page) ----------
+  function drawTrend(me, hist) {
+    const svg = $('#tm-trend'), tip = $('#tm-ttip'), wrap = svg.parentElement;
+    svg.replaceChildren(); tip.hidden = true;
+    const W = Math.max(280, wrap.getBoundingClientRect().width || 420), H = 190, L = 36, Rt = 10, T = 12, B = 26;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    if (!hist.length) { svg.append(svgEl('text', {x: L, y: H / 2, class: 'ax-t'}, 'Fills in as the season goes.')); return; }
+    const vals = hist.map((h) => h[1]).concat([me.preseason]);
+    let lo = Math.min(...vals), hi = Math.max(...vals);
+    const pad = Math.max(1.5, (hi - lo) * 0.15); lo -= pad; hi += pad;
+    const x = (i) => (hist.length === 1 ? (L + W - Rt) / 2 : L + (i / (hist.length - 1)) * (W - L - Rt));
+    const y = (v) => T + (1 - (v - lo) / (hi - lo)) * (H - T - B);
+    const step = (hi - lo) > 12 ? 5 : (hi - lo) > 5 ? 2 : 1;
+    for (let v = Math.ceil(lo / step) * step; v <= hi; v += step) {
+      svg.append(svgEl('line', {x1: L, x2: W - Rt, y1: y(v), y2: y(v), class: 'ax'}));
+      svg.append(svgEl('text', {x: L - 6, y: y(v) + 4, 'text-anchor': 'end', class: 'ax-t'}, String(v)));
+    }
+    svg.append(svgEl('line', {x1: L, x2: W - Rt, y1: y(me.preseason), y2: y(me.preseason), class: 'tr-pre'}));
+    svg.append(svgEl('text', {x: W - Rt, y: y(me.preseason) - 5, 'text-anchor': 'end', class: 'ax-t'}, `preseason ${f1(me.preseason)}`));
+    const md = (d) => new Date(d + 'T12:00:00').toLocaleString('en-US', {month: 'short', day: 'numeric'});
+    svg.append(svgEl('text', {x: x(0), y: H - 6, 'text-anchor': hist.length === 1 ? 'middle' : 'start', class: 'ax-t'}, md(hist[0][0])));
+    if (hist.length > 1) svg.append(svgEl('text', {x: x(hist.length - 1), y: H - 6, 'text-anchor': 'end', class: 'ax-t'}, md(hist[hist.length - 1][0])));
+    if (hist.length > 1) svg.append(svgEl('polyline', {points: hist.map((h, i) => `${x(i)},${y(h[1])}`).join(' '), class: 'tr-line'}));
+    const last = hist[hist.length - 1];
+    svg.append(svgEl('text', {x: x(hist.length - 1) - 8, y: y(last[1]) + (y(last[1]) < T + 14 ? 16 : -9), 'text-anchor': hist.length === 1 ? 'middle' : 'end', class: 'tr-now'}, `${f1(last[1])} · ${ordinal(last[2])}`));
+    hist.forEach((h, i) => {
+      const c = svgEl('circle', {cx: x(i), cy: y(h[1]), r: 4.5, class: 'tr-dot'});
+      c.addEventListener('mouseenter', () => showTip(tip, wrap, x(i) * wrap.getBoundingClientRect().width / W, y(h[1]),
+        `<div class="d">${md(h[0])}</div><div class="row"><span>Power rating</span><b>${f1(h[1])}</b></div><div class="row"><span>Rank</span><b>${ordinal(h[2])}</b></div>`));
+      c.addEventListener('mouseleave', () => { tip.hidden = true; });
+      svg.append(c);
+    });
+  }
+
+  // ---------- matchup machine ----------
+  function predictGame(home, away, neutral) {
+    const m = (D.model || {})[S.league]; if (!m || !m.teams) return null;
+    const th = m.teams[home], ta = m.teams[away]; if (!th || !ta) return null;
+    const tempo = m.avg_tempo + th[2] + ta[2];
+    const hc = neutral ? 0 : th[3] / 2;
+    let ph = (m.avg_eff + th[0] + ta[1] + hc) * tempo / 100, pa = (m.avg_eff + ta[0] + th[1] - hc) * tempo / 100;
+    let spread = ph - pa, boost = 0;
+    const byId = Object.fromEntries(ofLeague(D.rankings).map((r) => [r.team_id, r]));
+    const month = new Date(((D.info || [])[0] || {}).date + 'T12:00:00').getMonth() + 1;
+    if (!neutral && (month === 11 || month === 12) && m.power.includes((byId[home] || {}).conf) && !m.power.includes((byId[away] || {}).conf)) {
+      boost = Math.max(m.buy[0] + m.buy[1] * spread, 0); spread += boost; ph += boost / 2; pa -= boost / 2;
+    }
+    return {ph, pa, spread, tempo, boost, p: normCdf(spread / m.sigma)};
+  }
+  function renderMatchup() {
+    const rows = ofLeague(D.rankings);
+    const byId = Object.fromEntries(rows.map((r) => [r.team_id, r]));
+    const list = $('#mu-list');
+    if (list.dataset.league !== S.league) {
+      list.replaceChildren(...[...rows].sort((a, b) => a.team.localeCompare(b.team)).map((r) => { const o = el('option'); o.value = r.team; return o; }));
+      list.dataset.league = S.league;
+    }
+    if (!byId[S.ma]) S.ma = null; if (!byId[S.mb]) S.mb = null;
+    if (document.activeElement !== $('#mu-a')) $('#mu-a').value = S.ma ? byId[S.ma].team : '';
+    if (document.activeElement !== $('#mu-b')) $('#mu-b').value = S.mb ? byId[S.mb].team : '';
+    $('#mu-site').value = S.ms;
+    const out = $('#mu-out'), msg = $('#mu-msg');
+    if (!S.ma || !S.mb || S.ma === S.mb) { out.hidden = true; msg.hidden = false; msg.textContent = S.ma && S.ma === S.mb ? 'Pick two different teams.' : 'Pick two teams and hit Predict.'; return; }
+    const A = byId[S.ma], B = byId[S.mb];
+    const homeIsA = S.ms === 'a', neutral = S.ms === 'n';
+    const res = predictGame(homeIsA ? A.team_id : B.team_id, homeIsA ? B.team_id : A.team_id, neutral);
+    if (!res) { out.hidden = true; msg.hidden = false; msg.textContent = 'Matchup numbers load with the next daily update.'; return; }
+    msg.hidden = true; out.hidden = false;
+    const ptsA = homeIsA ? res.ph : res.pa, ptsB = homeIsA ? res.pa : res.ph;
+    const pB = homeIsA ? 1 - res.p : res.p, spreadB = homeIsA ? -res.spread : res.spread;
+    const nameLink = (t) => { const sp = el('span', 'tlink', t.team); sp.dataset.team = t.team_id; return sp; };
+    $('#mu-an').replaceChildren(nameLink(A)); $('#mu-bn').replaceChildren(nameLink(B));
+    $('#mu-ap').textContent = Math.round(ptsA); $('#mu-bp').textContent = Math.round(ptsB);
+    const fav = spreadB >= 0 ? B : A;
+    $('#mu-line').textContent = Math.abs(spreadB) < 0.05 ? "Pick'em" : `${fav.team} ${(-Math.abs(spreadB)).toFixed(1)}`;
+    const where = neutral ? 'Neutral site' : `at ${(homeIsA ? A : B).team}`;
+    $('#mu-sub').textContent = `${where} · Win chance ${pctCap(1 - pB)}% / ${pctCap(pB)}% · Pace ${res.tempo.toFixed(1)} · Total ${Math.round(res.ph + res.pa)}`
+      + (res.boost ? ` · includes ${res.boost.toFixed(1)}-pt November–December buy-game boost` : '');
+    const ok = loadTeams(() => { if (S.tab === 'matchup') render(); });
+    const pack = TEAMS[S.league] || {};
+    const metrics = [['Power rating', 'net', false], ['Offense', 'O', false], ['Defense', 'D', true], ['Tempo', 'tempo', null],
+                     ['Home court', 'home_court', false], ['Preseason', 'preseason', false]];
+    const rankOf = (t, col, asc) => 1 + rows.filter((r) => (asc ? r[col] < t[col] : r[col] > t[col])).length;
+    [[A, B, '#mu-colA'], [B, A, '#mu-colB']].forEach(([t, o, sel]) => {
+      const col = $(sel); col.style.setProperty('--tc', COLOR[t.team] || 'var(--rule)');
+      const head = el('div', 'mu-head'); const b = el('b'); b.append(nameLink(t));
+      const sub = el('div', 'sub'); const cl = el('span', 'clink', t.conf); cl.dataset.conf = t.conf;
+      sub.append(cl, document.createTextNode(` · ${t.wins ?? 0}–${t.losses ?? 0} · ${ordinal(t.rank)} in power rating`));
+      head.append(b, sub);
+      const sheet = el('table', 'sheet');
+      metrics.forEach(([label, key, lowerBetter]) => {
+        const tr = el('tr'); const better = lowerBetter === null ? false : (lowerBetter ? t[key] < o[key] : t[key] > o[key]);
+        const rk = key === 'home_court' || key === 'preseason' ? '' : ordinal(rankOf(t, key, !!lowerBetter));
+        tr.append(td(label), td(key === 'home_court' ? '+' + f1(t[key]) : f1(t[key]), 'v num' + (better ? ' better' : '')), td(rk, 'r'));
+        sheet.append(tr);
+      });
+      const lead = el('table'); const th = el('thead'); const hr = el('tr');
+      ['Player', 'PTS', 'REB', 'AST', 'MIN'].forEach((h, i) => hr.append(el('th', i ? 'num' : '', h))); th.append(hr); lead.append(th);
+      const tb = el('tbody');
+      ((pack[t.team_id] || {}).l || []).slice(0, 8).forEach((p) => { const tr = el('tr'); tr.append(td(p.name), td(f1(p.pts), 'num'), td(f1(p.reb), 'num'), td(f1(p.ast), 'num'), td(f1(p.min), 'num muted')); tb.append(tr); });
+      lead.append(tb);
+      const s1 = el('div', 'sec'); s1.append(el('h2', '', 'Ratings'));
+      const s2 = el('div', 'sec'); s2.append(el('h2', '', 'Leaders'));
+      col.replaceChildren(head, s1, sheet, s2, ok && !tb.children.length ? el('p', 'empty', 'No stats yet.') : lead);
+    });
+  }
+  const pickTeam = (input) => (NAME2ID[S.league] || {})[input.value.trim()] ?? null;
+  $('#mu-go').addEventListener('click', () => { S.ma = pickTeam($('#mu-a')); S.mb = pickTeam($('#mu-b')); S.ms = $('#mu-site').value; render(); });
+  ['#mu-a', '#mu-b'].forEach((sel) => $(sel).addEventListener('keydown', (e) => { if (e.key === 'Enter') $('#mu-go').click(); }));
+
+  // ---------- pace ----------
+  function renderPace() {
+    const rank = Object.fromEntries(ofLeague(D.rankings).map((r) => [r.team_id, r]));
+    const all = ofLeague(D.pace).filter((p) => rank[p.team_id]).map((p) => ({...p, team: rank[p.team_id].team, conf: rank[p.team_id].conf}));
+    [...all].sort((a, b) => b.tempo - a.tempo).forEach((p, i) => { p.tempo_rank = i + 1; });
+    const byId = Object.fromEntries(all.map((p) => [p.team_id, p]));
+    const READY = 5;   // battles needed before control means much
+    // today's pace battles
+    const battles = ofLeague(D.lines).map((g) => {
+      const h = byId[(NAME2ID[S.league] || {})[g.home]], a = byId[(NAME2ID[S.league] || {})[g.away]];
+      if (!h || !a) return null;
+      const [fast, slow] = h.tempo >= a.tempo ? [h, a] : [a, h];
+      let edge = 'Too early';
+      if (fast.battles >= READY && slow.battles >= READY) edge = Math.abs(fast.control - slow.control) < 5 ? 'Even' : (fast.control > slow.control ? fast.team : slow.team);
+      return {fast, slow, gap: fast.tempo - slow.tempo, pace: g.proj_tempo, edge};
+    }).filter(Boolean).filter((b) => inConf(b.fast.conf, b.slow.conf)).sort((x, y) => y.gap - x.gap).slice(0, 12);
+    fill($('#pb-table tbody'), battles.map((b) => {
+      const tr = el('tr');
+      tr.append(teamCell(b.fast.team), td(f1(b.fast.tempo), 'num'), teamCell(b.slow.team), td(f1(b.slow.tempo), 'num'),
+        td(f1(b.gap), 'num'), td(f1(b.pace), 'num'), td(b.edge, b.edge === 'Too early' || b.edge === 'Even' ? 'muted' : 'fav'));
+      return tr;
+    }));
+    $('#pb-none').hidden = battles.length > 0;
+    // style map
+    const svg = $('#pace-map'), tip = $('#pm-tip'), wrap = svg.parentElement;
+    svg.replaceChildren(); tip.hidden = true;
+    const W = Math.max(320, wrap.getBoundingClientRect().width || 900), H = 440, L = 44, Rt = 14, T = 14, B = 34;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    const pts = all.filter((p) => p.games > 0 && num(p.control) !== null);
+    if (pts.length) {
+      const tx = pts.map((p) => p.tempo), cy = pts.map((p) => Math.max(5, Math.min(95, p.control)));
+      const x0 = Math.min(...tx) - 0.5, x1 = Math.max(...tx) + 0.5, y0 = Math.min(25, ...cy) - 3, y1 = Math.max(75, ...cy) + 3;
+      const X = (v) => L + (v - x0) / (x1 - x0) * (W - L - Rt), Y = (v) => T + (1 - (v - y0) / (y1 - y0)) * (H - T - B);
+      const avgT = ((D.model || {})[S.league] || {}).avg_tempo || tx.reduce((a, b) => a + b, 0) / tx.length;
+      svg.append(svgEl('line', {x1: X(avgT), x2: X(avgT), y1: T, y2: H - B, class: 'pm-mid'}));
+      svg.append(svgEl('line', {x1: L, x2: W - Rt, y1: Y(50), y2: Y(50), class: 'pm-mid'}));
+      [['Slow · dictates', L + 6, T + 14, 'start'], ['Fast · dictates', W - Rt - 6, T + 14, 'end'],
+       ['Slow · adapts', L + 6, H - B - 8, 'start'], ['Fast · adapts', W - Rt - 6, H - B - 8, 'end']].forEach(([t, x, y, a]) =>
+        svg.append(svgEl('text', {x, y, 'text-anchor': a, class: 'pm-q'}, t)));
+      svg.append(svgEl('text', {x: (L + W) / 2, y: H - 6, 'text-anchor': 'middle', class: 'ax-t'}, '← slower      tempo (possessions per 40)      faster →'));
+      svg.append(svgEl('text', {x: 12, y: (T + H - B) / 2, 'text-anchor': 'middle', class: 'ax-t', transform: `rotate(-90 12 ${(T + H - B) / 2})`}, 'pace control'));
+      [x0, (x0 + x1) / 2, x1].forEach((v, i) => svg.append(svgEl('text', {x: X(v), y: H - B + 14, 'text-anchor': ['start', 'middle', 'end'][i], class: 'ax-t'}, v.toFixed(0))));
+      pts.sort((a, b) => a.battles - b.battles).forEach((p) => {
+        const c = svgEl('circle', {cx: X(p.tempo), cy: Y(Math.max(5, Math.min(95, p.control))), r: 5,
+          class: 'pm-dot' + (p.battles < READY ? ' faint' : '') + (inConf(p.conf) ? '' : ' dim')});
+        c.addEventListener('mouseenter', () => showTip(tip, wrap, X(p.tempo) * wrap.getBoundingClientRect().width / W, Y(Math.max(5, Math.min(95, p.control))) * wrap.getBoundingClientRect().height / H,
+          `<div class="d">${p.conf}</div><div class="m">${p.team}</div><div class="row"><span>Tempo</span><b>${f1(p.tempo)} (${ordinal(p.tempo_rank)})</b></div><div class="row"><span>Pace control</span><b>${Math.round(p.control)}%</b></div><div class="row"><span>Battles</span><b>${p.battles}</b></div>`));
+        c.addEventListener('mouseleave', () => { tip.hidden = true; });
+        c.addEventListener('click', () => openTeam(p.team_id));
+        svg.append(c);
+      });
+    }
+    // board
+    const board = sortRows(all.filter((p) => inConf(p.conf)), S.psort);
+    fill($('#pace-table tbody'), board.map((p) => {
+      const tr = el('tr');
+      tr.append(td(String(p.tempo_rank), 'num rk'), teamCell(p.team), confCell(p.conf), td(f1(p.tempo), 'num'),
+        td(f1(p.pace_avg), 'num muted'), td(f1(p.pace_sd), 'num muted'),
+        td(num(p.control) === null || !p.games ? '—' : Math.round(p.control) + '%', 'num' + (p.battles < READY ? ' faint' : '')),
+        td(String(p.battles), 'num muted'), td(String(p.games), 'num rk'));
+      return tr;
+    }));
+    markSort('#pace-table', S.psort);
+    // history
+    const hist = ofLeague(D.pace_history).filter((h) => rank[h.team_id]);
+    ['dictator', 'chameleon'].forEach((kind) => fill($(kind === 'dictator' ? '#ph-dict tbody' : '#ph-cham tbody'),
+      hist.filter((h) => h.kind === kind).map((h) => {
+        const tr = el('tr'); const n = kind === 'dictator' ? h.above : h.seasons - h.above;
+        tr.append(teamCell(rank[h.team_id].team), td(`${n} of ${h.seasons}`, 'num'), td(Math.round(Math.max(0, Math.min(100, h.avg))) + '%', 'num muted'));
+        return tr;
+      })));
+  }
+
+  // ---------- home court ----------
+  const arenaCell = (h) => { const c = el('td', 'arena'); c.append(el('div', '', h.venue || '—')); if (h.city) c.append(el('div', 'sub', `${h.city}, ${h.state}`)); return c; };
+  function renderHome() {
+    const rank = Object.fromEntries(ofLeague(D.rankings).map((r) => [r.team_id, r]));
+    const all = ofLeague(D.homecourt).filter((h) => rank[h.team_id]).map((h) => ({...h, team: rank[h.team_id].team, conf: rank[h.team_id].conf, home_court: rank[h.team_id].home_court}));
+    const avg = all.reduce((a, h) => a + h.home_court, 0) / (all.length || 1);
+    [...all].sort((a, b) => b.home_court - a.home_court).forEach((h, i) => { h.hc_rank = i + 1; h.vs_avg = h.home_court - avg;
+      h.home_rec = (h.home_w || 0) - (h.home_l || 0); h.road_rec = (h.road_w || 0) - (h.road_l || 0); });
+    const it = (k, v, t) => { const s_ = el('span', 'it'); s_.append(el('span', 'k', k), el('b', '', v)); if (t) s_.append(el('span', 't', t)); return s_; };
+    const best = all.reduce((a, h) => (!a || h.home_court > a.home_court ? h : a), null), worst = all.reduce((a, h) => (!a || h.home_court < a.home_court ? h : a), null);
+    const hi = all.filter((h) => h.elevation_ft >= 4000), lo = all.filter((h) => num(h.elevation_ft) !== null && h.elevation_ft < 4000);
+    const mean = (xs) => xs.reduce((a, h) => a + h.home_court, 0) / xs.length;
+    const items = [it('League average', '+' + avg.toFixed(1), 'points')];
+    if (best) items.push(it('Biggest', '+' + f1(best.home_court), best.team), it('Smallest', '+' + f1(worst.home_court), worst.team));
+    if (hi.length >= 3 && lo.length) items.push(it('Altitude', `+${mean(hi).toFixed(1)} vs +${mean(lo).toFixed(1)}`, `${hi.length} teams above 4,000 ft vs. the rest`));
+    $('#hc-ticker').replaceChildren(...items);
+    const rows = sortRows(all.filter((h) => inConf(h.conf)), S.hsort);
+    fill($('#hc-table tbody'), rows.map((h) => {
+      const tr = el('tr');
+      tr.append(td(String(h.hc_rank), 'num ' + (h.hc_rank <= 25 ? 'top' : 'rk')), teamCell(h.team), confCell(h.conf),
+        td('+' + f1(h.home_court), 'num'), td(signed(h.vs_avg), 'num' + (h.vs_avg >= 1 ? ' fav' : '')), td(fmtInt(h.home_games), 'num muted'),
+        arenaCell(h), td(fmtInt(h.capacity), 'num muted'),
+        td(num(h.elevation_ft) === null ? '—' : fmtInt(h.elevation_ft) + ' ft', 'num muted'),
+        td(`${h.home_w || 0}–${h.home_l || 0}`, 'num'), td(`${h.road_w || 0}–${h.road_l || 0}`, 'num muted'));
+      return tr;
+    }));
+    markSort('#hc-table', S.hsort);
+    $('#hc-src').hidden = !all.some((h) => num(h.capacity) !== null);
+  }
+  sortable('#pace-table', 'psort');
+  sortable('#hc-table', 'hsort');
+
   function render() {
     renderChrome();
     if (S.tab === 'today') renderToday();
@@ -1019,6 +1422,9 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (S.tab === 'record') renderRecord();
     if (S.tab === 'team') renderTeam();
     if (S.tab === 'conf') renderConf();
+    if (S.tab === 'matchup') renderMatchup();
+    if (S.tab === 'pace') renderPace();
+    if (S.tab === 'home') renderHome();
     writeHash();
   }
 
@@ -1070,9 +1476,11 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (!r.ok) throw new Error(`${f}.json: HTTP ${r.status}`);
     return r.json();
   });
-  Promise.all([...files.map(get), get('colors').catch(() => [])]).then((results) => {
+  const optional = ['colors', 'model', 'pace', 'pace_history', 'homecourt'];   // site still works without these
+  Promise.all([...files.map(get), ...optional.map((f) => get(f).catch(() => (f === 'model' ? {} : [])))]).then((results) => {
     files.forEach((f, i) => { D[f] = results[i]; });
-    (results[files.length] || []).forEach((c) => { COLOR[c.team] = c.color; });
+    optional.forEach((f, i) => { D[f] = results[files.length + i]; });
+    (D.colors || []).forEach((c) => { COLOR[c.team] = c.color; });
     (D.rankings || []).forEach((r) => { (NAME2ID[r.league] = NAME2ID[r.league] || {})[r.team] = r.team_id; });
     const info = (D.info || [])[0] || {};
     $('#updated').textContent = info.updated ? 'Updated ' + info.updated : '—';
