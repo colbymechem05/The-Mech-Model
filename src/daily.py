@@ -242,5 +242,5 @@ def run(day: pd.Timestamp, refresh: bool = True, force: bool = False) -> None:
 
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    run(pd.Timestamp(args[0]) if args else pd.Timestamp.now(tz="America/Chicago").normalize().tz_localize(None),
+    run(pd.Timestamp(args[0]) if args else D.default_day(),
         refresh="--no-refresh" not in sys.argv, force="--force" in sys.argv)

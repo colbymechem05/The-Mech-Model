@@ -141,3 +141,12 @@ if __name__ == "__main__":
         d1 = d1_games(g)
         print(f"{lg}: {len(g)} games ({len(d1)} D1 vs D1) | {g.date.min().date()} to "
               f"{g.date.max().date()} | avg poss {d1.poss.mean():.1f}")
+
+
+def default_day(now: pd.Timestamp | None = None) -> pd.Timestamp:
+    """The slate a run without a date works on. Before 6 AM Central it's still last night's slate:
+    the new day's lines wait for the morning run, after last night's results are in the data
+    (a manual run at 12:06 AM on Nov 7, 2026 logged that day's lines without Nov 6's games)."""
+    now = pd.Timestamp.now(tz="America/Chicago") if now is None else now
+    day = now.normalize().tz_localize(None)
+    return day - pd.Timedelta(days=1) if now.hour < 6 else day

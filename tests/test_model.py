@@ -379,3 +379,14 @@ def test_team_pages_and_records_agree(tmp_path, monkeypatch):
         for x in g:
             if "r" not in x and "p" in x:
                 assert 0 <= x["p"] <= 1 and (abs(x["ln"]) < 0.05 or (x["ln"] > 0) == (x["p"] > 0.5))  # a 0.0 line can round either way
+
+
+def test_late_night_run_stays_on_last_nights_slate():
+    """A run after midnight (manual click) must not make the new day's lines before last
+    night's results are in."""
+    import data as D
+    tz = "America/Chicago"
+    assert D.default_day(pd.Timestamp("2026-11-07 00:20", tz=tz)) == pd.Timestamp("2026-11-06")
+    assert D.default_day(pd.Timestamp("2026-11-07 05:59", tz=tz)) == pd.Timestamp("2026-11-06")
+    assert D.default_day(pd.Timestamp("2026-11-07 06:00", tz=tz)) == pd.Timestamp("2026-11-07")
+    assert D.default_day(pd.Timestamp("2026-11-07 15:47", tz=tz)) == pd.Timestamp("2026-11-07")

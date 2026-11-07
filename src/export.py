@@ -409,6 +409,6 @@ if __name__ == "__main__":
     if "--venues" in sys.argv:
         write_venues()
         sys.exit()
-    folder = export(pd.Timestamp(args[0]) if args else pd.Timestamp.now(tz="America/Chicago").normalize().tz_localize(None))
+    folder = export(pd.Timestamp(args[0]) if args else D.default_day())
     for f in sorted(folder.glob("*.json")):
         print(f"{f.name:20s} {f.stat().st_size / 1024:6.1f} KB")

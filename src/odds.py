@@ -191,4 +191,4 @@ def update(day: pd.Timestamp) -> None:
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     update(pd.Timestamp(args[0]) if args else
-           pd.Timestamp.now(tz="America/Chicago").normalize().tz_localize(None))
+           D.default_day())
