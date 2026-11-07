@@ -84,6 +84,19 @@ def rate(league: str, day: pd.Timestamp, refresh: bool):
     return r, lg_info, dials, prior.attrs["conf"]
 
 
+def score_text(home_pts, away_pts) -> list:
+    """"away-home" in whole points whose difference equals the rounded spread (so a 12.0 line
+    never shows an 11-point score)."""
+    out = []
+    for h, a in zip(home_pts, away_pts):
+        d, tot = round(abs(h - a)), round(h + a)
+        if (tot + d) % 2:
+            tot += 1 if h + a > tot else -1
+        hi, lo = (tot + d) // 2, (tot - d) // 2
+        out.append(f"{lo}-{hi}" if h >= a else f"{hi}-{lo}")
+    return out
+
+
 def make_lines(league: str, day: pd.Timestamp, r: pd.DataFrame, lg_info: dict,
                dials: R.Dials, conf: pd.Series | None = None) -> pd.DataFrame:
     g = todays_games(league, day)
@@ -110,8 +123,7 @@ def make_lines(league: str, day: pd.Timestamp, r: pd.DataFrame, lg_info: dict,
         "favorite": g.home_display_name.where(fav_home, g.away_display_name),
         "my_line": -p.spread_home.abs().round(1),
         "fav_win_pct": (100 * p.p_home.where(fav_home, 1 - p.p_home)).round(1),
-        "proj_score": p.away_pts.round().astype(int).astype(str) + "-" +
-                      p.home_pts.round().astype(int).astype(str),
+        "proj_score": score_text(p.home_pts.values, p.away_pts.values),
         "proj_tempo": p.tempo.round(1),
         "spread_home": p.spread_home.round(2), "p_home": p.p_home.round(4),
         "made_at": pd.Timestamp.now(tz="America/Chicago").isoformat(timespec="minutes"),

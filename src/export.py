@@ -16,6 +16,7 @@ import odds  # noqa: E402
 
 OUT = D.ROOT / "output"
 LOGS = D.ROOT / "logs"
+UPSET_DOG = 15.0   # biggest-upsets tab: winners that were Meech underdogs by this many points or more
 PICK_EDGE = 3.0  # a "pick" vs. the Vegas number = Meech line differs by 3+ points
 # 2025-26 walk-forward check (settings chosen on 2021-22..2024-25; buy-game boost not included,
 # and it was later refit with 2025-26 in it). The live 2026-27 record is the real test.
@@ -64,6 +65,30 @@ def grade(league: str) -> pd.DataFrame:
     cover = np.sign(x.margin - x.vegas_home) * np.sign(edge)  # +1 win, -1 loss, 0 push
     x["pick_result"] = np.select([cover > 0, cover < 0], ["W", "L"], "P")
     return x
+
+
+def upsets(league: str) -> pd.DataFrame:
+    """Logged games where a Meech underdog of UPSET_DOG+ points won outright (from the winner's side)."""
+    x = grade(league)
+    if x.empty:
+        return pd.DataFrame()
+    hd = x.spread_home < 0                                   # home team was the Meech underdog
+    won = np.where(hd, x.margin > 0, x.margin < 0)
+    x, hd = x[(x.spread_home.abs() >= UPSET_DOG) & won], hd[(x.spread_home.abs() >= UPSET_DOG) & won]
+    if x.empty:
+        return pd.DataFrame()
+    neutral = x.neutral.astype(str).str.lower() == "true"
+    return pd.DataFrame({
+        "game_id": x.game_id, "date": x.date,
+        "winner": np.where(hd, x.home, x.away), "loser": np.where(hd, x.away, x.home),
+        "winner_rank": np.where(hd, x.home_rank, x.away_rank), "loser_rank": np.where(hd, x.away_rank, x.home_rank),
+        "site": np.where(neutral, "N", np.where(hd, "vs", "at")),     # from the winner's side
+        "meech": x.spread_home.abs(), "win_pct": 100 * np.where(hd, x.p_home, 1 - x.p_home),
+        "vegas": np.where(hd, -x.vegas_home, x.vegas_home),           # + = Vegas had the winner as an underdog
+        "winner_pts": np.where(hd, x.home_pts, x.away_pts).astype(int),
+        "loser_pts": np.where(hd, x.away_pts, x.home_pts).astype(int),
+        "swing": x.spread_home.abs() + x.margin.abs(),                # points better than the Meech line said
+    }).sort_values("date", ascending=False).round(1)
 
 
 def vegas_for_favorite(spread_home, vegas_home):
@@ -170,7 +195,7 @@ def league_tables(league: str, day: pd.Timestamp) -> dict:
     colors["color"] = "#" + colors.color.astype(str).str.lstrip("#")
     rec = record(league)  # one file: summary rows always exist, so it never comes up empty
     out = {"lines": lines, "rankings": r, "conferences": strength, "colors": colors,
-           "pace": pace_table(league), "pace_history": pace_history(league), "homecourt": homecourt(league),
+           "upsets": upsets(league), "pace": pace_table(league), "pace_history": pace_history(league), "homecourt": homecourt(league),
            "record": [rec["summary"]] + rec["months"] + rec["calibration"] + rec["games"]}
     return {k: (v if isinstance(v, list) else v.assign(league=league).replace({np.nan: None})
                 .to_dict("records")) for k, v in out.items()}

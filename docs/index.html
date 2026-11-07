@@ -76,8 +76,9 @@ main { padding: 26px 38px 40px; min-width: 0; }
 .chip:hover { color: var(--fg); }
 .chip[aria-pressed="true"] { background: var(--orange); border-color: var(--orange); color: var(--on-orange); }
 .conf { position: relative; }
-.conf-panel { position: absolute; z-index: 20; right: 0; top: calc(100% + 6px); width: min(400px, 90vw); max-height: 430px; overflow: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); padding: 12px 14px; }
-.conf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 14px; }
+.conf-panel { position: absolute; z-index: 20; right: 0; top: calc(100% + 6px); width: min(500px, 92vw); max-height: 80vh; overflow: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); padding: 12px 14px; }
+.conf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 14px; }
+@media (max-width: 600px) { .conf-grid { grid-template-columns: 1fr 1fr; } }
 .conf-grid label { display: flex; gap: 8px; align-items: center; font-size: 13px; padding: 3px 0; cursor: pointer; }
 input[type=checkbox] { accent-color: var(--orange); }
 
@@ -167,7 +168,7 @@ tr.month td { padding-top: 16px; background: none !important; font: 600 11px var
 @media (max-width: 900px) { .split { grid-template-columns: minmax(0, 1fr); } .tm-big { text-align: left; } .tm-big .big { font-size: 34px; } }
 
 /* ---------- game of the day ---------- */
-.gotd { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px 26px; padding: 14px 18px; margin: 16px 0 4px; border: 1px solid var(--line); border-left: 4px solid var(--orange); border-radius: 6px; background: var(--panel); }
+.gotd { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px 26px; padding: 14px 18px; margin: 26px 0 0; border: 1px solid var(--line); border-left: 4px solid var(--orange); border-radius: 6px; background: var(--panel); }
 .gotd .lbl { font: 700 13px var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--orange); white-space: nowrap; }
 .gotd .teams { font: 700 21px/1.15 var(--display); text-transform: uppercase; letter-spacing: .01em; }
 .gotd .teams .rk { font: 600 13px var(--body); margin-right: 4px; }
@@ -210,9 +211,11 @@ tr.month td { padding-top: 16px; background: none !important; font: 600 11px var
 .tr-line { fill: none; stroke: var(--blue); stroke-width: 2.5; }
 .tr-pre { stroke: var(--orange); stroke-dasharray: 5 4; stroke-width: 1.5; }
 .tr-dot { fill: var(--blue); stroke: var(--bg); stroke-width: 2; cursor: default; }
-.pm-dot { fill: var(--blue); stroke: var(--bg); stroke-width: 1; cursor: pointer; }
-.pm-dot.faint { fill: var(--faint); opacity: .45; }
-.pm-dot.dim { opacity: .12; }
+.pm-dot { fill: var(--blue); stroke: var(--fg); stroke-opacity: .45; stroke-width: 1; cursor: pointer; }
+.pm-dot.faint { opacity: .5; }
+.pm-dot.dim { opacity: .1; }
+.pm-dot.pm-hit { stroke-opacity: 1; opacity: 1; }
+.up-rk { margin-right: 6px; font-size: 12px; }
 .pm-dot:hover { stroke: var(--fg); stroke-width: 2; }
 .pm-q { fill: var(--muted); font: 600 10.5px var(--body); letter-spacing: .12em; text-transform: uppercase; }
 .pm-mid { stroke: var(--line); stroke-dasharray: 3 4; }
@@ -221,6 +224,22 @@ tr.month td { padding-top: 16px; background: none !important; font: 600 11px var
 #hc-table th { letter-spacing: .06em; }
 #hc-table td.arena .sub { font-size: 11.5px; color: var(--muted); }
 .tr-now { font: 600 12px 'Barlow', sans-serif; fill: var(--ink); font-variant-numeric: tabular-nums; }
+#gotd:not([hidden]) + .ticker { margin-top: 20px; border-top: 1px solid var(--line); }
+#gotd:not([hidden]) + .ticker + .sec { margin-top: 20px; }
+/* themed type-ahead */
+.sg { position: relative; }
+.sg-list { position: absolute; z-index: 40; left: 0; right: 0; top: calc(100% + 4px); background: var(--panel); border: 1px solid var(--line); border-radius: 6px; box-shadow: var(--shadow); padding: 4px 0; max-height: 300px; overflow: auto; }
+.sg-list button { display: flex; align-items: center; gap: 9px; width: 100%; padding: 7px 12px; border: 0; background: none; color: var(--fg); font: 500 14px var(--body); text-align: left; cursor: pointer; }
+.sg-list button .bar { width: 3px; height: 15px; background: var(--tc, var(--line)); flex: none; }
+.sg-list button .c { margin-left: auto; color: var(--muted); font-size: 12px; }
+.sg-list button.on, .sg-list button:hover { background: var(--row); }
+.sg-list button b { font-weight: 700; color: var(--blue); }
+/* upsets */
+#up-table td.swg { font-weight: 700; }
+.pm-hit { stroke: var(--fg); stroke-width: 2.5; }
+.pm-lab { font: 700 12px var(--body); fill: var(--fg); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; }
+.more { margin-top: 8px; background: none; border: 1px solid var(--line); border-radius: 5px; padding: 6px 12px; color: var(--muted); font: 600 12px var(--body); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+.more:hover { color: var(--fg); }
 .fine-src { font-size: 12px; color: var(--muted); margin-top: 14px; }
 
 /* ---------- sections ---------- */
@@ -233,7 +252,7 @@ section[data-page="rankings"] > .scroll:first-child { margin-top: 14px; }
 .q:hover, .q:focus { color: var(--fg); border-color: var(--muted); outline: none; }
 .hq { width: 13px; height: 13px; font-size: 9px; margin-left: 5px; vertical-align: 1px; }
 .q.r .pop { left: auto; right: 0; }
-.q .pop { position: absolute; left: 0; top: calc(100% + 8px); z-index: 30; width: 320px; padding: 11px 13px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); font: 400 13px/1.5 var(--body); color: var(--fg); text-align: left; display: none; }
+.q .pop { position: absolute; left: 0; top: calc(100% + 8px); z-index: 30; width: 320px; max-width: 80vw; white-space: normal; letter-spacing: 0; text-transform: none; font-weight: 400; padding: 11px 13px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); font: 400 13px/1.5 var(--body); color: var(--fg); text-align: left; display: none; }
 .q:hover .pop, .q:focus .pop { display: block; }
 .hq .pop { white-space: normal; top: calc(100% + 6px); width: 250px; letter-spacing: 0; text-transform: none; font-weight: 400; }
 .hq.r .pop { left: auto; right: 0; }
@@ -321,7 +340,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
 /* ---------- small screens: sidebar becomes a top bar ---------- */
 @media (max-width: 900px) {
-  .app { grid-template-columns: minmax(0, 1fr); }
+  .app { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; }
   .stat { padding-right: 10px; margin-right: 10px; }
   .stat .v { font-size: 19px; }
   aside { position: static; height: auto; padding: 12px 0 0; }
@@ -350,9 +369,10 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <button role="tab" data-tab="today" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Today's Lines</button>
       <button role="tab" data-tab="rankings" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Power Ratings</button>
       <button role="tab" data-tab="top25" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>Rankings</button>
-      <button role="tab" data-tab="matchup" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M17 4v16M3 8h8M13 16h8"/></svg>Matchup</button>
+      <button role="tab" data-tab="matchup" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M17 4v16M3 8h8M13 16h8"/></svg>Matchup Predictor</button>
       <button role="tab" data-tab="pace" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 13l4-4M12 3v2"/></svg>Pace</button>
-      <button role="tab" data-tab="home" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>Home Court</button>
+      <button role="tab" data-tab="home" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>Home Court Advantage</button>
+      <button role="tab" data-tab="upsets" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>Biggest Upsets</button>
       <button role="tab" data-tab="record" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>Track Record</button>
       <button role="tab" data-tab="how" aria-selected="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>How It Works</button>
     </nav>
@@ -361,7 +381,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
   <main>
     <div class="mast">
-      <h1><span id="title">—</span> <span class="q mast-q" id="pr-q" tabindex="0" hidden>?<span class="pop"><b>Power ratings are not rankings.</b> They measure how strong each team is right now relative to an average D1 team per 100 possessions, so any two teams can be compared, turned into a line, and converted to a win probability. A team can be rated above a team with a better record. Rankings judge résumés (who you&rsquo;ve beaten) and will come later in the season in the Rankings tab.</span></span> <span class="q mast-q" id="hc-q" tabindex="0" hidden>?<span class="pop"><b>How home court is measured.</b> For each of the last four full seasons (the COVID year is skipped), every team gets a full-season rating. Then we check how each team did in its home games compared with what its rating said, and the same for its road games. A team&rsquo;s raw home edge is its home result minus its road result. That raw number is noisy, so it&rsquo;s pulled toward the league average: a team&rsquo;s own history counts as n&nbsp;/&nbsp;(n&nbsp;+&nbsp;200) of its edge, where n is the home games measured. A team with 60 home games keeps about 23% of its own edge; the rest comes from the league average. Altitude teams rise to the top on their own: the model is never told anything about altitude.</span></span></h1>
+      <h1><span id="title">—</span> <span class="q mast-q" id="pr-q" tabindex="0" hidden>?<span class="pop"><b>Power ratings are not rankings.</b> They measure how strong each team is right now relative to an average D1 team per 100 possessions, so any two teams can be compared, turned into a line, and converted to a win probability. A team can be rated above a team with a better record. Rankings judge résumés (who you&rsquo;ve beaten) and will come later in the season in the Rankings tab.</span></span> <span class="q mast-q" id="up-q" tabindex="0" hidden>?<span class="pop"><b>What counts as an upset.</b> A team the Meech line had losing by 15 or more points, before tip, that won the game outright. At 15 points the Meech line gives the underdog about a 10% chance (11% in women&rsquo;s), so these are genuine shocks without the list going empty for weeks. <b>Swing</b> = how many points better than the line the winner played. Only games with a logged Meech line count, so the list starts Nov 4, 2026.</span></span><span class="q mast-q" id="hc-q" tabindex="0" hidden>?<span class="pop"><b>How home court is measured.</b> For each of the last four full seasons (the COVID year is skipped), every team gets a full-season rating. Then we check how each team did in its home games compared with what its rating said, and the same for its road games. A team&rsquo;s raw home edge is its home result minus its road result. That raw number is noisy, so it&rsquo;s pulled toward the league average: a team&rsquo;s own history counts as n&nbsp;/&nbsp;(n&nbsp;+&nbsp;200) of its edge, where n is the home games measured. A team with 60 home games keeps about 23% of its own edge; the rest comes from the league average. Altitude teams rise to the top on their own: the model is never told anything about altitude.</span></span></h1>
       <div class="filters" id="filters">
         <div class="tools" id="rank-tools" hidden>
           <input type="search" id="search" placeholder="Search teams" aria-label="Search teams">
@@ -451,12 +471,11 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     <!-- ===== Matchup machine ===== -->
     <section data-page="matchup" hidden>
       <div class="mu-pick">
-        <div class="mu-team"><label for="mu-a">Team</label><input id="mu-a" list="mu-list" placeholder="Pick a team" autocomplete="off"></div>
+        <div class="mu-team sg"><label for="mu-a">Team</label><input id="mu-a" placeholder="Type a team" autocomplete="off" spellcheck="false"></div>
         <div class="mu-site"><label for="mu-site">Site</label>
-          <select id="mu-site"><option value="b">at (right team home)</option><option value="n">vs (neutral)</option><option value="a">hosts (left team home)</option></select></div>
-        <div class="mu-team"><label for="mu-b">Team</label><input id="mu-b" list="mu-list" placeholder="Pick a team" autocomplete="off"></div>
+          <select id="mu-site"><option value="b">Second team&rsquo;s home</option><option value="n">Neutral site</option><option value="a">First team&rsquo;s home</option></select></div>
+        <div class="mu-team sg"><label for="mu-b">Team</label><input id="mu-b" placeholder="Type a team" autocomplete="off" spellcheck="false"></div>
         <button class="mu-go" id="mu-go">Predict</button>
-        <datalist id="mu-list"></datalist>
       </div>
       <p class="empty" id="mu-msg">Pick two teams and hit Predict.</p>
       <div id="mu-out" hidden>
@@ -475,22 +494,21 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     <!-- ===== Pace ===== -->
     <section data-page="pace" hidden>
       <div class="sec"><h2>Today&rsquo;s Pace Battles <span class="q" tabindex="0">?<span class="pop">Today&rsquo;s games where the two teams want the most different speeds. <b>Wants</b> = each team&rsquo;s rated tempo (possessions per 40 minutes vs. an average opponent). <b>Meech pace</b> = the pace the Meech line expects. <b>Edge</b> = the team that has done a better job of dragging games to its own speed this season (pace control), once both have enough games to tell.</span></span></h2></div>
-      <div class="scroll" style="max-height:none"><table id="pb-table"><thead><tr><th>Fast team</th><th class="num">Wants</th><th>Slow team</th><th class="num">Wants</th><th class="num">Gap</th><th class="num">Meech pace</th><th>Edge</th></tr></thead><tbody></tbody></table></div>
+      <div class="scroll" style="max-height:none"><table id="pb-table"><thead><tr><th>Fast team</th><th class="num">Wants <span class="q" tabindex="0">?<span class="pop">The fast team&rsquo;s rated tempo: possessions per 40 minutes vs. an average opponent.</span></span></th><th>Slow team</th><th class="num">Wants <span class="q" tabindex="0">?<span class="pop">The slow team&rsquo;s rated tempo.</span></span></th><th class="num">Gap <span class="q r" tabindex="0">?<span class="pop">Difference between what the two teams want, in possessions.</span></span></th><th class="num">Meech pace <span class="q r" tabindex="0">?<span class="pop">The pace the Meech line expects for this game.</span></span></th><th>Edge <span class="q r" tabindex="0">?<span class="pop">The team that has done a better job of dragging games to its own speed this season. Shows once both teams have 5+ battles.</span></span></th></tr></thead><tbody></tbody></table></div>
       <p class="empty" id="pb-none" hidden>No games today.</p>
-      <div class="sec"><h2>Style Map <span class="q" tabindex="0">?<span class="pop">Every team by speed (left = slow, right = fast) and pace control (up = drags games to its own speed, down = adapts to the opponent). Control needs games against teams that want a different speed, so faded dots don&rsquo;t have enough of those yet. Click a dot for the team page.</span></span></h2><div class="legend"><span class="lb">Enough games</span><span class="lf">Not enough yet</span></div></div>
+      <div class="sec"><h2>Style Map <span class="q" tabindex="0">?<span class="pop">Every team by speed (left = slow, right = fast) and pace control (up = drags games to its own speed, down = adapts to the opponent). Control needs games against teams that want a different speed, so faded dots don&rsquo;t have enough of those yet. Click a dot for the team page.</span></span></h2><div class="legend"><span>Dots in team colors · solid = enough games · faded = not enough yet</span></div></div>
       <div class="map-wrap"><svg id="pace-map" role="img" aria-label="Pace style map"></svg><div class="gtip" id="pm-tip" hidden></div></div>
-      <div class="sec"><h2>Pace Board <span class="q r" tabindex="0">?<span class="pop"><b>Tempo</b> = possessions per 40 minutes against an average opponent (what the lines use). <b>Actual</b> = average possessions in their games so far. <b>Swing</b> = how much their pace moves game to game (lower = more consistent). <b>Control</b> = when the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed: 50% = meets in the middle, higher = dictates. <b>Battles</b> = games with a real speed gap (2.5+ possessions).</span></span></h2></div>
-      <div class="scroll"><table id="pace-table"><thead><tr>
-        <th data-col="tempo_rank" class="num"><button>Rk</button></th><th data-col="team"><button>Team</button></th><th data-col="conf"><button>Conf</button></th>
-        <th data-col="tempo" class="num"><button>Tempo</button></th><th data-col="pace_avg" class="num"><button>Actual</button></th>
-        <th data-col="pace_sd" class="num"><button>Swing</button></th><th data-col="control" class="num"><button>Control</button></th>
-        <th data-col="battles" class="num"><button>Battles</button></th><th data-col="games" class="num"><button>G</button></th>
-      </tr></thead><tbody></tbody></table></div>
+      <div class="pboard">
+        <div><div class="sec"><h2>Fastest Teams</h2></div>
+          <div class="scroll" style="max-height:none"><table id="pf-table"><thead><tr><th class="num">Rk <span class="q" tabindex="0">?<span class="pop">Tempo rank: 1 = fastest team in D1.</span></span></th><th>Team</th><th>Conf</th><th class="num">Tempo <span class="q" tabindex="0">?<span class="pop">Possessions per 40 minutes against an average opponent. This is what the Meech lines use.</span></span></th><th class="num">Actual <span class="q" tabindex="0">?<span class="pop">Average possessions per 40 minutes in their games so far, against the opponents they actually played.</span></span></th><th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">How much their pace moves from game to game (standard deviation, in possessions). Lower = more consistent.</span></span></th><th class="num">Control <span class="q r" tabindex="0">?<span class="pop">When the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed. 50% = meets in the middle; higher = drags games to its own speed. Faded until a team has 5+ battles.</span></span></th><th class="num">Battles <span class="q r" tabindex="0">?<span class="pop">Games against a team whose preferred speed was at least 2.5 possessions different. Control is only measured from these.</span></span></th><th class="num">G <span class="q r" tabindex="0">?<span class="pop">Games played vs. D1 teams.</span></span></th></tr></thead><tbody></tbody></table></div><p class="empty" id="pf-none" hidden>No matches.</p><button class="more" id="pf-more"></button></div>
+        <div><div class="sec"><h2>Slowest Teams</h2></div>
+          <div class="scroll" style="max-height:none"><table id="ps-table"><thead><tr><th class="num">Rk <span class="q" tabindex="0">?<span class="pop">Tempo rank: 1 = fastest team in D1.</span></span></th><th>Team</th><th>Conf</th><th class="num">Tempo <span class="q" tabindex="0">?<span class="pop">Possessions per 40 minutes against an average opponent. This is what the Meech lines use.</span></span></th><th class="num">Actual <span class="q" tabindex="0">?<span class="pop">Average possessions per 40 minutes in their games so far, against the opponents they actually played.</span></span></th><th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">How much their pace moves from game to game (standard deviation, in possessions). Lower = more consistent.</span></span></th><th class="num">Control <span class="q r" tabindex="0">?<span class="pop">When the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed. 50% = meets in the middle; higher = drags games to its own speed. Faded until a team has 5+ battles.</span></span></th><th class="num">Battles <span class="q r" tabindex="0">?<span class="pop">Games against a team whose preferred speed was at least 2.5 possessions different. Control is only measured from these.</span></span></th><th class="num">G <span class="q r" tabindex="0">?<span class="pop">Games played vs. D1 teams.</span></span></th></tr></thead><tbody></tbody></table></div><p class="empty" id="ps-none" hidden>No matches.</p><button class="more" id="ps-more"></button></div>
+      </div>
       <div class="grid2">
         <div><div class="sec"><h2>Five-Year Dictators <span class="q" tabindex="0">?<span class="pop">Teams that dragged games toward their own speed in at least 4 of the last 5 seasons (2021-22 to 2025-26).</span></span></h2></div>
-          <table id="ph-dict"><thead><tr><th>Team</th><th class="num">Seasons</th><th class="num">Avg control</th></tr></thead><tbody></tbody></table></div>
+          <table id="ph-dict"><thead><tr><th>Team</th><th class="num">Seasons <span class="q" tabindex="0">?<span class="pop">Seasons above 50% control, out of the seasons the team played.</span></span></th><th class="num">Avg control <span class="q r" tabindex="0">?<span class="pop">Average pace control across those seasons.</span></span></th></tr></thead><tbody></tbody></table></div>
         <div><div class="sec"><h2>Five-Year Chameleons <span class="q r" tabindex="0">?<span class="pop">Teams that adapted to the opponent&rsquo;s speed in at least 4 of the last 5 seasons.</span></span></h2></div>
-          <table id="ph-cham"><thead><tr><th>Team</th><th class="num">Seasons</th><th class="num">Avg control</th></tr></thead><tbody></tbody></table></div>
+          <table id="ph-cham"><thead><tr><th>Team</th><th class="num">Seasons <span class="q" tabindex="0">?<span class="pop">Seasons below 50% control, out of the seasons the team played.</span></span></th><th class="num">Avg control <span class="q r" tabindex="0">?<span class="pop">Average pace control across those seasons.</span></span></th></tr></thead><tbody></tbody></table></div>
       </div>
     </section>
 
@@ -502,11 +520,25 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
         <th data-col="home_court" class="num"><button>Home court</button> <span class="q" tabindex="0">?<span class="pop">Points this team gets at home in a Meech line. Blue = at least a point above the league average.</span></span></th>
         <th data-col="home_games" class="num"><button>Sample</button> <span class="q" tabindex="0">?<span class="pop">Home games its edge was measured on (last 4 full seasons). More games = more trust in its own number; fewer = pulled closer to the league average.</span></span></th>
         <th data-col="venue"><button>Arena</button></th>
-        <th data-col="capacity" class="num"><button>Capacity</button></th><th data-col="elevation_ft" class="num"><button>Elev.</button> <span class="q r" tabindex="0">?<span class="pop">Elevation of the arena&rsquo;s city, in feet.</span></span></th>
+        <th data-col="capacity" class="num"><button>Capacity</button> <span class="q r" tabindex="0">?<span class="pop">Approximate seating, matched from Wikipedia&rsquo;s list of D1 arenas. An estimate: listed capacities aren&rsquo;t always current, and a few schools match a different arena they also use.</span></span></th><th data-col="elevation_ft" class="num"><button>Elev.</button> <span class="q r" tabindex="0">?<span class="pop">Elevation of the arena&rsquo;s city, in feet.</span></span></th>
         <th data-col="home_rec" class="num"><button>Home</button> <span class="q r" tabindex="0">?<span class="pop">This season&rsquo;s record in true home games vs. D1 teams.</span></span></th>
         <th data-col="road_rec" class="num"><button>Road</button> <span class="q r" tabindex="0">?<span class="pop">This season&rsquo;s record in true road games vs. D1 teams.</span></span></th>
       </tr></thead><tbody></tbody></table></div>
       <p class="fine-src" id="hc-src">Arena capacities: Wikipedia, &ldquo;List of NCAA Division I basketball arenas&rdquo; (CC BY-SA 4.0). Elevations: Open-Meteo geocoding.</p>
+    </section>
+
+    <!-- ===== Biggest upsets ===== -->
+    <section data-page="upsets" hidden>
+      <div class="sec sec-tight"><div class="tools"><label>Sort <select id="up-sort"><option value="date">Most recent</option><option value="swing">Biggest swing</option></select></label></div></div>
+      <div class="scroll" style="max-height:none"><table id="up-table"><thead><tr>
+        <th>Date</th><th>Winner</th><th></th><th>Loser</th>
+        <th class="num">Meech <span class="q" tabindex="0">?<span class="pop">How many points the Meech line had the winner losing by, before tip.</span></span></th>
+        <th class="num">Win % <span class="q" tabindex="0">?<span class="pop">The winner&rsquo;s chance to win, per the Meech line.</span></span></th>
+        <th class="num">Vegas <span class="q r" tabindex="0">?<span class="pop">The Vegas spread for the winner (closing line when we have it). + = Vegas also had them as the underdog.</span></span></th>
+        <th class="num">Final</th>
+        <th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">Points better than the Meech line said: the underdog spread plus the winning margin. A 20-point underdog that wins by 5 = 25.</span></span></th>
+      </tr></thead><tbody></tbody></table></div>
+      <p class="empty" id="up-none" hidden></p>
     </section>
 
     <!-- ===== Track record ===== -->
@@ -668,9 +700,9 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 (() => {
   const POWER = ['SEC', 'Big Ten', 'Big 12', 'ACC', 'Big East'];
   const TOP_N = 100, TOSSUP = 4, BLOWOUT = 15;
-  const PAGES = ['today', 'rankings', 'top25', 'matchup', 'pace', 'home', 'record', 'how', 'team', 'conf'];
+  const PAGES = ['today', 'rankings', 'top25', 'matchup', 'pace', 'home', 'upsets', 'record', 'how', 'team', 'conf'];
   const DETAIL = ['team', 'conf'];
-  const S = {stack: [], base: 'today', cname: '', ma: null, mb: null, ms: 'b', psort: {col: 'tempo_rank', dir: 'asc'}, hsort: {col: 'hc_rank', dir: 'asc'}, league: 'mbb', tab: 'today', confs: new Set(), sort: 'spread', scol: '', sdir: 'asc',
+  const S = {stack: [], base: 'today', cname: '', ma: null, mb: null, ms: 'b', pfall: false, psall: false, usort: 'date', psort: {col: 'tempo_rank', dir: 'asc'}, hsort: {col: 'hc_rank', dir: 'asc'}, league: 'mbb', tab: 'today', confs: new Set(), sort: 'spread', scol: '', sdir: 'asc',
              hide: false, rall: false, logn: 200, rsort: 'rank', rcol: '', rdir: 'asc', q: ''};
   const D = {};
   let COLOR = {};
@@ -758,11 +790,15 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $$('section[data-page]').forEach((s) => { s.hidden = s.dataset.page !== S.tab; });
     document.querySelector('.mast').hidden = S.tab === 'team';
     $$('.nav button').forEach((b) => { if (DETAIL.includes(S.tab)) b.setAttribute('aria-selected', String(b.dataset.tab === (S.base || 'rankings'))); });
+    const nav = $('.nav'), on = $('.nav button[aria-selected="true"]');   // phones: keep the active tab in view
+    if (on && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = on.offsetLeft - (nav.clientWidth - on.offsetWidth) / 2;
     const titles = {today: longDate(), rankings: `${lg()} Power Ratings`, top25: `${lg()} Rankings`,
-                    record: `${lg()} Track Record`, how: 'The Meech Model', matchup: `${lg()} Matchup`, pace: `${lg()} Pace`, home: `${lg()} Home Court`, team: '', conf: `${lg()} ${S.cname || ''}`};
+                    record: `${lg()} Track Record`, how: 'The Meech Model', matchup: `${lg()} Matchup Predictor`, pace: `${lg()} Pace`, home: `${lg()} Home Court Advantage`, upsets: `${lg()} Biggest Upsets`, team: '', conf: `${lg()} ${S.cname || ''}`};
     $('#title').textContent = titles[S.tab];
     document.querySelector('.mast').classList.toggle('noline', S.tab === 'rankings');
-    $('#rank-tools').hidden = S.tab !== 'rankings' && S.tab !== 'top25';
+    $('#rank-tools').hidden = !['rankings', 'top25', 'pace', 'home', 'upsets'].includes(S.tab);
+    $('#sort-rank').hidden = !['rankings', 'top25'].includes(S.tab);
+    $('#up-q').hidden = S.tab !== 'upsets';
     $('#pr-q').hidden = S.tab !== 'rankings';
     $('#hc-q').hidden = S.tab !== 'home';
     $('#filters').hidden = ['how', 'record', 'conf', 'matchup'].includes(S.tab);
@@ -809,7 +845,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     n('Tip ET', g.tip); n('Meech', `${g.favorite} ${f1(g.my_line)}`);
     if (g.vegas_line !== null && g.vegas_line !== undefined) n('Vegas', signed(g.vegas_line));
     n('Win %', pct(g.fav_win_pct)); n('Proj.', g.proj_score);
-    box.replaceChildren(el('div', 'lbl', 'Game of the Day'), teams, nums);
+    box.replaceChildren(el('div', 'lbl', 'Meech Game of the Day'), teams, nums);
   }
 
   function renderToday() {
@@ -975,7 +1011,8 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   const fmtDate = (d) => new Date(d + 'T12:00:00').toLocaleString('en-US', {month: 'short', day: 'numeric'});
   const pctCap = (p) => Math.min(99, Math.max(1, Math.round(p * 100)));   // never claim a sure thing
   // ---------- detail pages (team, conference): a small back stack ----------
-  const TABNAME = {today: "Today's Lines", rankings: 'Power Ratings', top25: 'Rankings', record: 'Track Record', how: 'How It Works'};
+  const TABNAME = {today: "Today's Lines", rankings: 'Power Ratings', top25: 'Rankings', record: 'Track Record', how: 'How It Works',
+                   matchup: 'Matchup Predictor', pace: 'Pace', home: 'Home Court Advantage', upsets: 'Biggest Upsets'};
   const go = (tab, extra) => {
     S.stack.push({tab: S.tab, team: S.team, cname: S.cname});
     Object.assign(S, extra, {tab}); render(); window.scrollTo(0, 0);
@@ -1234,6 +1271,44 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     });
   }
 
+  const qMatch = (name) => { const q = S.q.trim().toLowerCase(); return !q || String(name).toLowerCase().includes(q); };
+
+  // ---------- themed type-ahead (replaces the browser's plain datalist) ----------
+  function typeAhead(input, onPick) {
+    const box = el('div', 'sg-list'); box.hidden = true; input.parentElement.append(box);
+    let items = [], at = -1;
+    const close = () => { box.hidden = true; at = -1; };
+    const paint = () => [...box.children].forEach((b, i) => b.classList.toggle('on', i === at));
+    const pick = (r) => { input.value = r.team; close(); onPick(r); };
+    const open = () => {
+      const q = input.value.trim().toLowerCase();
+      if (!q) { close(); return; }
+      const rows = ofLeague(D.rankings);
+      const starts = rows.filter((r) => r.team.toLowerCase().startsWith(q));
+      const has = rows.filter((r) => !r.team.toLowerCase().startsWith(q) && r.team.toLowerCase().includes(q));
+      items = [...starts.sort((a, b) => a.team.localeCompare(b.team)), ...has.sort((a, b) => a.team.localeCompare(b.team))].slice(0, 8);
+      box.replaceChildren(...items.map((r) => {
+        const b = el('button'); b.type = 'button'; b.style.setProperty('--tc', COLOR[r.team] || 'var(--line)');
+        const i = r.team.toLowerCase().indexOf(q), nm = el('span');
+        nm.append(document.createTextNode(r.team.slice(0, i)), el('b', '', r.team.slice(i, i + q.length)), document.createTextNode(r.team.slice(i + q.length)));
+        b.append(el('span', 'bar'), nm, el('span', 'c', r.conf));
+        b.addEventListener('mousedown', (e) => { e.preventDefault(); pick(r); });
+        return b;
+      }));
+      at = items.length ? 0 : -1; paint(); box.hidden = !items.length;
+    };
+    input.addEventListener('input', open);
+    input.addEventListener('focus', () => { if (input.value) open(); });
+    input.addEventListener('blur', close);
+    input.addEventListener('keydown', (e) => {
+      if (box.hidden) return;
+      if (e.key === 'ArrowDown') { at = Math.min(items.length - 1, at + 1); paint(); e.preventDefault(); }
+      else if (e.key === 'ArrowUp') { at = Math.max(0, at - 1); paint(); e.preventDefault(); }
+      else if (e.key === 'Enter' && at >= 0) { pick(items[at]); e.preventDefault(); e.stopImmediatePropagation(); }
+      else if (e.key === 'Escape') close();
+    });
+  }
+
   // ---------- matchup machine ----------
   function predictGame(home, away, neutral) {
     const m = (D.model || {})[S.league]; if (!m || !m.teams) return null;
@@ -1252,15 +1327,10 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   function renderMatchup() {
     const rows = ofLeague(D.rankings);
     const byId = Object.fromEntries(rows.map((r) => [r.team_id, r]));
-    const list = $('#mu-list');
-    if (list.dataset.league !== S.league) {
-      list.replaceChildren(...[...rows].sort((a, b) => a.team.localeCompare(b.team)).map((r) => { const o = el('option'); o.value = r.team; return o; }));
-      list.dataset.league = S.league;
-    }
     if (!byId[S.ma]) S.ma = null; if (!byId[S.mb]) S.mb = null;
     if (document.activeElement !== $('#mu-a')) $('#mu-a').value = S.ma ? byId[S.ma].team : '';
     if (document.activeElement !== $('#mu-b')) $('#mu-b').value = S.mb ? byId[S.mb].team : '';
-    $('#mu-site').value = S.ms;
+    siteLabels(); $('#mu-site').value = S.ms;
     const out = $('#mu-out'), msg = $('#mu-msg');
     if (!S.ma || !S.mb || S.ma === S.mb) { out.hidden = true; msg.hidden = false; msg.textContent = S.ma && S.ma === S.mb ? 'Pick two different teams.' : 'Pick two teams and hit Predict.'; return; }
     const A = byId[S.ma], B = byId[S.mb];
@@ -1268,15 +1338,19 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     const res = predictGame(homeIsA ? A.team_id : B.team_id, homeIsA ? B.team_id : A.team_id, neutral);
     if (!res) { out.hidden = true; msg.hidden = false; msg.textContent = 'Matchup numbers load with the next daily update.'; return; }
     msg.hidden = true; out.hidden = false;
-    const ptsA = homeIsA ? res.ph : res.pa, ptsB = homeIsA ? res.pa : res.ph;
     const pB = homeIsA ? 1 - res.p : res.p, spreadB = homeIsA ? -res.spread : res.spread;
+    // whole-number scores whose difference matches the rounded line (86-75 next to a 12.0 line looked wrong)
+    const d = Math.round(Math.abs(spreadB)); let tot = Math.round(res.ph + res.pa);
+    if ((tot + d) % 2) tot += (res.ph + res.pa) > tot ? 1 : -1;
+    const hi = (tot + d) / 2, lo = (tot - d) / 2;
+    const ptsA = spreadB >= 0 ? lo : hi, ptsB = spreadB >= 0 ? hi : lo;
     const nameLink = (t) => { const sp = el('span', 'tlink', t.team); sp.dataset.team = t.team_id; return sp; };
     $('#mu-an').replaceChildren(nameLink(A)); $('#mu-bn').replaceChildren(nameLink(B));
     $('#mu-ap').textContent = Math.round(ptsA); $('#mu-bp').textContent = Math.round(ptsB);
     const fav = spreadB >= 0 ? B : A;
     $('#mu-line').textContent = Math.abs(spreadB) < 0.05 ? "Pick'em" : `${fav.team} ${(-Math.abs(spreadB)).toFixed(1)}`;
     const where = neutral ? 'Neutral site' : `at ${(homeIsA ? A : B).team}`;
-    $('#mu-sub').textContent = `${where} · Win chance ${pctCap(1 - pB)}% / ${pctCap(pB)}% · Pace ${res.tempo.toFixed(1)} · Total ${Math.round(res.ph + res.pa)}`
+    $('#mu-sub').textContent = `${where} · Win chance ${pctCap(1 - pB)}% / ${pctCap(pB)}% · Pace ${res.tempo.toFixed(1)} · Total ${tot}`
       + (res.boost ? ` · includes ${res.boost.toFixed(1)}-pt November–December buy-game boost` : '');
     const ok = loadTeams(() => { if (S.tab === 'matchup') render(); });
     const pack = TEAMS[S.league] || {};
@@ -1307,6 +1381,15 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     });
   }
   const pickTeam = (input) => (NAME2ID[S.league] || {})[input.value.trim()] ?? null;
+  const siteLabels = () => {
+    const nameOf = (sel, id) => ((ofLeague(D.rankings).find((r) => r.team_id === (pickTeam($(sel)) ?? id)) || {}).team);
+    const a = nameOf('#mu-a', S.ma), b = nameOf('#mu-b', S.mb);
+    const o = $('#mu-site').options;
+    o[0].textContent = b ? `At ${b}` : 'Second team’s home';
+    o[1].textContent = 'Neutral site';
+    o[2].textContent = a ? `At ${a}` : 'First team’s home';
+  };
+  typeAhead($('#mu-a'), siteLabels); typeAhead($('#mu-b'), siteLabels);
   $('#mu-go').addEventListener('click', () => { S.ma = pickTeam($('#mu-a')); S.mb = pickTeam($('#mu-b')); S.ms = $('#mu-site').value; render(); });
   ['#mu-a', '#mu-b'].forEach((sel) => $(sel).addEventListener('keydown', (e) => { if (e.key === 'Enter') $('#mu-go').click(); }));
 
@@ -1352,27 +1435,46 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       svg.append(svgEl('text', {x: (L + W) / 2, y: H - 6, 'text-anchor': 'middle', class: 'ax-t'}, '← slower      tempo (possessions per 40)      faster →'));
       svg.append(svgEl('text', {x: 12, y: (T + H - B) / 2, 'text-anchor': 'middle', class: 'ax-t', transform: `rotate(-90 12 ${(T + H - B) / 2})`}, 'pace control'));
       [x0, (x0 + x1) / 2, x1].forEach((v, i) => svg.append(svgEl('text', {x: X(v), y: H - B + 14, 'text-anchor': ['start', 'middle', 'end'][i], class: 'ax-t'}, v.toFixed(0))));
-      pts.sort((a, b) => a.battles - b.battles).forEach((p) => {
-        const c = svgEl('circle', {cx: X(p.tempo), cy: Y(Math.max(5, Math.min(95, p.control))), r: 5,
-          class: 'pm-dot' + (p.battles < READY ? ' faint' : '') + (inConf(p.conf) ? '' : ' dim')});
+      const searching = S.q.trim() !== '';
+      const hit = (p) => searching && qMatch(p.team);
+      pts.sort((a, b) => (hit(a) - hit(b)) || (a.battles - b.battles)).forEach((p) => {
+        const on = hit(p);
+        const c = svgEl('circle', {cx: X(p.tempo), cy: Y(Math.max(5, Math.min(95, p.control))), r: on ? 8 : 5.5,
+          class: 'pm-dot' + (on ? ' pm-hit' : '') + (!on && p.battles < READY ? ' faint' : '') + ((searching && !on) || !inConf(p.conf) ? ' dim' : '')});
+        c.style.fill = COLOR[p.team] || '';
         c.addEventListener('mouseenter', () => showTip(tip, wrap, X(p.tempo) * wrap.getBoundingClientRect().width / W, Y(Math.max(5, Math.min(95, p.control))) * wrap.getBoundingClientRect().height / H,
           `<div class="d">${p.conf}</div><div class="m">${p.team}</div><div class="row"><span>Tempo</span><b>${f1(p.tempo)} (${ordinal(p.tempo_rank)})</b></div><div class="row"><span>Pace control</span><b>${Math.round(p.control)}%</b></div><div class="row"><span>Battles</span><b>${p.battles}</b></div>`));
         c.addEventListener('mouseleave', () => { tip.hidden = true; });
         c.addEventListener('click', () => openTeam(p.team_id));
         svg.append(c);
+        if (on && pts.filter(hit).length <= 6) {
+          const cx = X(p.tempo), right = cx < W / 2;
+          svg.append(svgEl('text', {x: cx + (right ? 12 : -12), y: Y(Math.max(5, Math.min(95, p.control))) + 4, 'text-anchor': right ? 'start' : 'end', class: 'pm-lab'}, p.team));
+        }
       });
     }
-    // board
-    const board = sortRows(all.filter((p) => inConf(p.conf)), S.psort);
-    fill($('#pace-table tbody'), board.map((p) => {
+    // board: fastest half and slowest half, 25 each until "show all"
+    const half = Math.ceil(all.length / 2), SHOW = 25;
+    const byTempo = [...all].sort((a, b) => a.tempo_rank - b.tempo_rank);
+    const row = (p) => {
       const tr = el('tr');
       tr.append(td(String(p.tempo_rank), 'num rk'), teamCell(p.team), confCell(p.conf), td(f1(p.tempo), 'num'),
         td(f1(p.pace_avg), 'num muted'), td(f1(p.pace_sd), 'num muted'),
         td(num(p.control) === null || !p.games ? '—' : Math.round(p.control) + '%', 'num' + (p.battles < READY ? ' faint' : '')),
         td(String(p.battles), 'num muted'), td(String(p.games), 'num rk'));
       return tr;
-    }));
-    markSort('#pace-table', S.psort);
+    };
+    [['pf', byTempo.slice(0, half), 'pfall', 'fastest'], ['ps', byTempo.slice(half).reverse(), 'psall', 'slowest']].forEach(([id, list, key, word]) => {
+      const rows = list.filter((p) => inConf(p.conf) && qMatch(p.team));
+      const filtered = S.q.trim() !== '';
+      const shown = S[key] || filtered ? rows : rows.slice(0, SHOW);
+      fill($(`#${id}-table tbody`), shown.map(row));
+      $(`#${id}-none`).hidden = rows.length > 0;
+      $(`#${id}-table`).parentElement.hidden = !rows.length;
+      const more = $(`#${id}-more`);
+      more.hidden = filtered || rows.length <= SHOW;
+      more.textContent = S[key] ? `Show top ${SHOW} only` : `Show all ${rows.length} ${word}`;
+    });
     // history
     const hist = ofLeague(D.pace_history).filter((h) => rank[h.team_id]);
     ['dictator', 'chameleon'].forEach((kind) => fill($(kind === 'dictator' ? '#ph-dict tbody' : '#ph-cham tbody'),
@@ -1399,7 +1501,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (best) items.push(it('Biggest', '+' + f1(best.home_court), best.team), it('Smallest', '+' + f1(worst.home_court), worst.team));
     if (hi.length >= 3 && lo.length) items.push(it('Altitude', `+${mean(hi).toFixed(1)} vs +${mean(lo).toFixed(1)}`, `${hi.length} teams above 4,000 ft vs. the rest`));
     $('#hc-ticker').replaceChildren(...items);
-    const rows = sortRows(all.filter((h) => inConf(h.conf)), S.hsort);
+    const rows = sortRows(all.filter((h) => inConf(h.conf) && qMatch(h.team)), S.hsort);
     fill($('#hc-table tbody'), rows.map((h) => {
       const tr = el('tr');
       tr.append(td(String(h.hc_rank), 'num ' + (h.hc_rank <= 25 ? 'top' : 'rk')), teamCell(h.team), confCell(h.conf),
@@ -1412,8 +1514,32 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     markSort('#hc-table', S.hsort);
     $('#hc-src').hidden = !all.some((h) => num(h.capacity) !== null);
   }
-  sortable('#pace-table', 'psort');
+  $('#pf-more').addEventListener('click', () => { S.pfall = !S.pfall; render(); });
+  $('#ps-more').addEventListener('click', () => { S.psall = !S.psall; render(); });
   sortable('#hc-table', 'hsort');
+
+  // ---------- biggest upsets ----------
+  function renderUpsets() {
+    const conf = Object.fromEntries(ofLeague(D.rankings).map((r) => [r.team, r.conf]));
+    const all = ofLeague(D.upsets);
+    const rows = all.filter((u) => inConf(conf[u.winner], conf[u.loser]) && (qMatch(u.winner) || qMatch(u.loser)))
+      .sort((a, b) => (S.usort === 'swing' ? b.swing - a.swing : 0) || String(b.date).localeCompare(String(a.date)) || b.swing - a.swing);
+    $('#up-sort').value = S.usort;
+    fill($('#up-table tbody'), rows.map((u) => {
+      const tr = el('tr');
+      const w = teamCell(u.winner); w.querySelector('.sw').after(el('span', 'rk up-rk', '#' + u.winner_rank));
+      const l = teamCell(u.loser); l.querySelector('.sw').after(el('span', 'rk up-rk', '#' + u.loser_rank));
+      tr.append(td(fmtDate(u.date), 'muted'), w, td(u.site === 'N' ? 'N' : u.site, 'muted'), l,
+        td('+' + f1(u.meech), 'num'), td(Math.max(1, Math.round(u.win_pct)) + '%', 'num muted'),
+        td(num(u.vegas) === null ? '—' : signed(u.vegas), 'num muted'), td(`${u.winner_pts}–${u.loser_pts}`, 'num'),
+        td(f1(u.swing), 'num swg'));
+      return tr;
+    }));
+    $('#up-table').parentElement.hidden = !rows.length;
+    const none = $('#up-none'); none.hidden = rows.length > 0;
+    none.textContent = all.length ? 'No upsets match this filter.' : 'No upsets yet. None of this season\u2019s 15-point underdogs have won.';
+  }
+  $('#up-sort').addEventListener('change', (e) => { S.usort = e.target.value; render(); });
 
   function render() {
     renderChrome();
@@ -1425,6 +1551,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (S.tab === 'matchup') renderMatchup();
     if (S.tab === 'pace') renderPace();
     if (S.tab === 'home') renderHome();
+    if (S.tab === 'upsets') renderUpsets();
     writeHash();
   }
 
@@ -1468,6 +1595,22 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   headerSort('#lines', 'scol', 'sdir', 'sort');
   headerSort('#ranks', 'rcol', 'rdir', 'rsort');
 
+  // keep "?" bubbles on screen
+  const fitPop = (e) => {
+    const q = e.target.closest && e.target.closest('.q'); if (!q) return;
+    const pop = q.querySelector('.pop'); if (!pop) return;
+    pop.style.transform = '';
+    requestAnimationFrame(() => {
+      const r = pop.getBoundingClientRect(), vw = document.documentElement.clientWidth;
+      let dx = 0;
+      if (r.right > vw - 8) dx = vw - 8 - r.right;
+      if (r.left + dx < 8) dx = 8 - r.left;
+      if (dx) pop.style.transform = `translateX(${dx}px)`;
+    });
+  };
+  document.addEventListener('mouseover', fitPop);
+  document.addEventListener('focusin', fitPop);
+
   // ---------- load ----------
   window.addEventListener('hashchange', () => { readHash(); if (D.info) render(); });
   readHash();
@@ -1476,7 +1619,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (!r.ok) throw new Error(`${f}.json: HTTP ${r.status}`);
     return r.json();
   });
-  const optional = ['colors', 'model', 'pace', 'pace_history', 'homecourt'];   // site still works without these
+  const optional = ['colors', 'model', 'pace', 'pace_history', 'homecourt', 'upsets'];   // site still works without these
   Promise.all([...files.map(get), ...optional.map((f) => get(f).catch(() => (f === 'model' ? {} : [])))]).then((results) => {
     files.forEach((f, i) => { D[f] = results[i]; });
     optional.forEach((f, i) => { D[f] = results[files.length + i]; });
