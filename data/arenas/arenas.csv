@@ -1,0 +1,730 @@
+team_id,league,capacity,arena_wiki,matched_by,elevation_ft
+25,mbb,11858.0,Haas Pavilion,arena name,171.0
+197,mbb,13611.0,Gallagher-Iba Arena,arena name,896.0
+2244,mbb,10000.0,EagleBank Arena,arena name,430.0
+254,mbb,15000.0,Jon M. Huntsman Center,arena name,4262.0
+2628,mbb,8500.0,Schollmaier Arena,arena name,653.0
+2579,mbb,18000.0,Colonial Life Arena,arena name,292.0
+59,mbb,8600.0,Hank McCamish Pavilion,arena name (partial),1050.0
+139,mbb,10600.0,Chaifetz Arena,arena name,466.0
+2116,mbb,9432.0,Addition Financial Arena,arena name,98.0
+2272,mbb,4500.0,Nido & Mariana Qubein Arena and Conference Center,school,922.0
+96,mbb,20545.0,Rupp Arena,arena name,968.0
+84,mbb,17472.0,Simon Skjodt Assembly Hall,arena name,
+154,mbb,14407.0,Lawrence Joel Veterans Memorial Coliseum,school,961.0
+167,mbb,15411.0,The Pit,arena name,4957.0
+245,mbb,12989.0,Reed Arena,arena name,338.0
+62,mbb,10300.0,Stan Sheriff Center,arena name,16.0
+350,mbb,5200.0,Trask Coliseum,arena name,30.0
+2132,mbb,12012.0,Fifth Third Arena,arena name,627.0
+2724,mbb,10506.0,Charles Koch Arena[f],arena name,1299.0
+24,mbb,7233.0,Maples Pavilion,arena name,75.0
+204,mbb,9301.0,Gill Coliseum,arena name,233.0
+238,mbb,14316.0,Memorial Gymnasium,arena name (partial),558.0
+2440,mbb,11536.0,Lawlor Events Center,arena name,4505.0
+87,mbb,9149.0,Purcell Pavilion at Edmund P. Joyce Center,arena name (partial),692.0
+153,mbb,,,,
+151,mbb,8000.0,Williams Arena at Minges Coliseum,arena name,59.0
+183,mbb,35446.0,JMA Wireless Dome,arena name,397.0
+99,mbb,13215.0,Pete Maravich Assembly Center,arena name,46.0
+2567,mbb,7000.0,Moody Coliseum,school,420.0
+2608,mbb,3500.0,University Credit Union Pavilion,arena name,499.0
+2752,mbb,10250.0,Cintas Center,arena name,627.0
+61,mbb,10523.0,Stegeman Coliseum,arena name,748.0
+46,mbb,20308.0,Capital One Arena,arena name,23.0
+2184,mbb,3500.0,UPMC Cooper Fieldhouse,arena name,764.0
+305,mbb,10387.0,Wintrust Arena[j],arena name,587.0
+2230,mbb,3200.0,Rose Hill Gymnasium,arena name (partial),
+2390,mbb,7972.0,Watsco Center,arena name,10.0
+2306,mbb,11000.0,Bramlage Coliseum,arena name,1020.0
+26,mbb,13800.0,Pauley Pavilion,arena name,292.0
+2168,mbb,13409.0,University of Dayton Arena,school,738.0
+38,mbb,11064.0,CU Events Center,arena name,5328.0
+2351,mbb,3900.0,Gersten Pavilion,arena name,292.0
+202,mbb,8355.0,Reynolds Center,arena name,722.0
+142,mbb,15061.0,Mizzou Arena,arena name,705.0
+233,mbb,6000.0,Sanford Coyote Sports Center,arena name,1227.0
+221,mbb,12508.0,Petersen Events Center,arena name,764.0
+164,mbb,8000.0,Jersey Mike's Arena,school,98.0
+158,mbb,15147.0,Pinnacle Bank Arena,arena name,1204.0
+127,mbb,14797.0,Breslin Student Events Center,school,856.0
+103,mbb,8606.0,Conte Forum,arena name,197.0
+2633,mbb,21678.0,Thompson–Boling Arena,school,
+2623,mbb,11000.0,Great Southern Bank Arena,arena name,1299.0
+2,mbb,9121.0,Neville Arena,arena name,705.0
+2193,mbb,6149.0,Freedom Hall Civic Center,school,1634.0
+276,mbb,9048.0,Cam Henderson Center,arena name,568.0
+259,mbb,10052.0,Cassell Coliseum,arena name,2077.0
+269,mbb,17385.0,Fiserv Forum,arena name,617.0
+251,mbb,10763.0,Moody Center,arena name,489.0
+2294,mbb,15500.0,Carver–Hawkeye Arena,school,669.0
+277,mbb,14000.0,WVU Coliseum,school,889.0
+2253,mbb,7000.0,Global Credit Union Arena,arena name,1086.0
+2348,mbb,8000.0,Thomas Assembly Center,arena name,335.0
+2229,mbb,5000.0,Ocean Bank Convocation Center,arena name,
+194,mbb,18809.0,Value City Arena,school,771.0
+2655,mbb,4100.0,Devlin Fieldhouse,arena name (partial),
+36,mbb,8083.0,Moby Arena,arena name,5003.0
+52,mbb,12100.0,Donald L. Tucker Civic Center,school,203.0
+2086,mbb,9100.0,Hinkle Fieldhouse,arena name,715.0
+2005,mbb,5508.0,Clune Arena,arena name,6010.0
+326,mbb,10000.0,Strahan Arena,arena name (partial),617.0
+2166,mbb,5223.0,John M. Belk Arena,arena name,840.0
+189,mbb,4700.0,Stroh Center,arena name,696.0
+8,mbb,19368.0,Bud Walton Arena,arena name,1401.0
+77,mbb,7039.0,Welsh–Ryan Arena,school,614.0
+2483,mbb,12369.0,Matthew Knight Arena,arena name,430.0
+66,mbb,14267.0,Hilton Coliseum,arena name,942.0
+2509,mbb,14848.0,Mackey Arena,arena name,
+5,mbb,8508.0,Bartow Arena,arena name,614.0
+275,mbb,17249.0,Kohl Center,arena name,876.0
+278,mbb,15596.0,Save Mart Center at Fresno State,arena name (partial),308.0
+258,mbb,14593.0,John Paul Jones Arena,arena name,466.0
+9,mbb,14198.0,Desert Financial Arena,arena name,1181.0
+257,mbb,7201.0,Robins Center,arena name,210.0
+45,mbb,5000.0,Charles E. Smith Center,arena name,23.0
+2751,mbb,11612.0,Arena-Auditorium,arena name,7165.0
+23,mbb,5000.0,Provident Credit Union Event Center,arena name,85.0
+249,mbb,9797.0,UNT Coliseum,school,659.0
+2429,mbb,9105.0,Dale F. Halton Arena,arena name (partial),751.0
+239,mbb,7500.0,Foster Pavilion,arena name,469.0
+300,mbb,4984.0,Bren Events Center,arena name,
+301,mbb,5100.0,Jenny Craig Pavilion,arena name,66.0
+2641,mbb,15300.0,United Supermarkets Arena,arena name,3202.0
+339,mbb,10000.0,Ford Center,arena name,387.0
+179,mbb,5480.0,Reilly Center,arena name,1427.0
+113,mbb,9493.0,Mullins Center,arena name,269.0
+2603,mbb,3800.0,Hagan Arena,school,39.0
+12,mbb,14688.0,McKale Center,arena name (partial),2490.0
+55,mbb,3500.0,Pete Mathews Coliseum,arena name,709.0
+2674,mbb,5000.0,Athletics–Recreation Center,school,794.0
+227,mbb,7657.0,Ryan Center,arena name (partial),246.0
+236,mbb,10995.0,McKenzie Arena,arena name,676.0
+213,mbb,15261.0,Bryce Jordan Center,arena name,
+228,mbb,9000.0,Littlejohn Coliseum,arena name,725.0
+201,mbb,11528.0,Lloyd Noble Center,arena name,1171.0
+264,mbb,10000.0,Alaska Airlines Arena at Hec Edmundson Pavilion,arena name (partial),184.0
+302,mbb,7600.0,University Credit Union Center,arena name,52.0
+2329,mbb,5600.0,Stabler Arena,arena name,358.0
+2181,mbb,6424.0,Knapp Center,arena name,873.0
+356,mbb,15544.0,State Farm Center,arena name,738.0
+2010,mbb,6000.0,Alabama A&M Events Center,school,633.0
+140,mbb,1500.0,Swinney Recreation Center,school,899.0
+71,mbb,11433.0,Carver Arena,arena name,502.0
+2492,mbb,3104.0,Firestone Fieldhouse,arena name,105.0
+94,mbb,9400.0,Truist Arena,arena name,853.0
+2619,mbb,4160.0,Island Federal Credit Union Arena,school,
+156,mbb,18320.0,CHI Health Center Omaha,arena name,1060.0
+152,mbb,19500.0,Lenovo Center,arena name,315.0
+231,mbb,4000.0,Timmons Arena,arena name,1007.0
+98,mbb,7326.0,E. A. Diddle Arena,arena name,528.0
+120,mbb,17300.0,Xfinity Center,arena name,69.0
+2540,mbb,5600.0,UC Santa Barbara Events Center,school,49.0
+2539,mbb,3005.0,The Sobrato Center,arena name,52.0
+68,mbb,12644.0,ExtraMile Arena,arena name,2700.0
+2934,mbb,3497.0,Icardo Center,arena name,404.0
+97,mbb,22090.0,KFC Yum! Center,arena name,466.0
+2638,mbb,12222.0,Don Haskins Center,arena name,3717.0
+48,mbb,5000.0,Bob Carpenter Center,arena name,
+30,mbb,10258.0,Galen Center,arena name,292.0
+58,mbb,10411.0,Yuengling Center,arena name,3.0
+44,mbb,4500.0,Bender Arena,arena name,23.0
+2198,mbb,6500.0,Baptist Health Arena,arena name,948.0
+338,mbb,4600.0,KSU Convocation Center,school,1089.0
+526,mbb,4633.0,Alico Arena,arena name,10.0
+344,mbb,10575.0,Humphrey Coliseum,arena name,331.0
+256,mbb,8500.0,Atlantic Union Bank Center,arena name,1325.0
+2197,mbb,5400.0,Lantz Arena,school,669.0
+248,mbb,7100.0,Fertitta Center,arena name,39.0
+2507,mbb,12400.0,Amica Mutual Pavilion,arena name,7.0
+2460,mbb,7018.0,McLeod Center,arena name,879.0
+2501,mbb,4852.0,Chiles Center,arena name,39.0
+193,mbb,10640.0,Millett Hall,arena name,928.0
+149,mbb,7321.0,Dahlberg Arena,arena name,
+235,mbb,18119.0,FedExForum,arena name,256.0
+232,mbb,5100.0,TD Arena,arena name,20.0
+242,mbb,5208.0,Tudor Fieldhouse,arena name,39.0
+2439,mbb,18776.0,Thomas & Mack Center,arena name,2001.0
+2426,mbb,5710.0,Alumni Hall,school,39.0
+2670,mbb,7637.0,Siegel Center,arena name,210.0
+328,mbb,10270.0,Smith Spectrum,arena name (partial),4534.0
+322,mbb,2453.0,Kirby Sports Center,arena name,318.0
+2032,mbb,10038.0,First National Bank Arena,arena name,325.0
+2000,mbb,3600.0,Moody Coliseum,school,1719.0
+2217,mbb,3500.0,Leo D. Mahoney Arena,arena name,
+2210,mbb,5100.0,Schar Center,arena name,705.0
+2226,mbb,3161.0,FAU Arena,school,13.0
+252,mbb,19000.0,Marriott Center,arena name,4551.0
+2335,mbb,4000.0,Liberty Arena,arena name (partial),
+2908,mbb,878.0,G. B. Hodge Center,arena name,807.0
+130,mbb,12707.0,Crisler Center,arena name,883.0
+150,mbb,9314.0,Cameron Indoor Stadium,arena name,404.0
+2523,mbb,4000.0,UPMC Events Center,arena name,1175.0
+2463,mbb,2500.0,Premier America Credit Union Arena,arena name,807.0
+2541,mbb,4500.0,Leavey Center,arena name,75.0
+2565,mbb,4000.0,Vadalabene Center,school,541.0
+82,mbb,6958.0,Credit Union 1 Arena,arena name,587.0
+93,mbb,8602.0,CFSB Center,arena name,535.0
+2617,mbb,7203.0,William R. Johnson Coliseum,arena name,302.0
+2636,mbb,4080.0,Convocation Center,school,650.0
+2378,mbb,5000.0,Chesapeake Employers Insurance Arena,arena name,
+145,mbb,9500.0,The Sandy and John Black Pavilion at Ole Miss,arena name,505.0
+2305,mbb,15300.0,Allen Fieldhouse,arena name,863.0
+2441,mbb,900.0,Jeffery P. Hazell Athletics Center,arena name,33.0
+195,mbb,13080.0,Convocation Center,school,719.0
+218,mbb,10206.0,Liacouras Center[e],arena name,39.0
+282,mbb,10200.0,Hulman Center,arena name,499.0
+2287,mbb,10200.0,CEFCU Arena,arena name,801.0
+2344,mbb,3000.0,Joan Perry Brock Center,arena name,308.0
+2309,mbb,6327.0,Memorial Athletic and Convocation Center,school,1066.0
+2110,mbb,6000.0,Farris Center,arena name,312.0
+2182,mbb,2509.0,Daskalakis Athletic Center,arena name,39.0
+349,mbb,5043.0,Christl Arena,arena name,154.0
+2057,mbb,5085.0,Curb Event Center,arena name (partial),558.0
+2747,mbb,3400.0,Jerry Richardson Indoor Stadium,arena name,807.0
+2754,mbb,6300.0,Beeghly Center,arena name (partial),850.0
+2692,mbb,11592.0,Dee Events Center,arena name,
+2750,mbb,9500.0,Nutter Center,arena name,738.0
+57,mbb,10500.0,Exactech Arena at the Stephen C. O'Connell Center,arena name (partial),177.0
+2678,mbb,5029.0,Cameron Hall,arena name,1063.0
+28,mbb,4200.0,LionTree Arena,arena name,66.0
+21,mbb,12414.0,Viejas Arena,arena name,66.0
+16,mbb,1012.0,Hornets Nest,school,30.0
+27,mbb,3168.0,UC Riverside Student Recreation Center,school,827.0
+2643,mbb,6000.0,McAlister Field House,arena name,20.0
+2698,mbb,5953.0,The Coliseum,arena name,1102.0
+47,mbb,2700.0,Burr Gymnasium,arena name,23.0
+2711,mbb,5421.0,University Arena,arena name (partial),784.0
+2050,mbb,11500.0,Worthen Arena,arena name,932.0
+333,mbb,15383.0,Coleman Coliseum,arena name,223.0
+295,mbb,8472.0,Chartway Arena,arena name,7.0
+292,mbb,2500.0,UTRGV Fieldhouse,arena name,98.0
+261,mbb,3228.0,Patrick Gym,arena name (partial),200.0
+2084,mbb,6783.0,Alumni Arena,school,600.0
+2099,mbb,2196.0,Koessler Athletic Center,arena name,600.0
+2046,mbb,5500.0,F&M Bank Arena,arena name,
+309,mbb,13500.0,Cajundome,arena name,36.0
+2856,mbb,5050.0,Fowler Events Center,arena name (partial),827.0
+2006,mbb,5500.0,James A. Rhodes Arena,arena name,955.0
+198,mbb,10154.0,Mabee Center,arena name,722.0
+2247,mbb,7500.0,Georgia State Convocation Center,school,1050.0
+2466,mbb,3900.0,Prather Coliseum,arena name,118.0
+2464,mbb,11230.0,Walkup Skydome,arena name (partial),6903.0
+2515,mbb,3205.0,Dedmon Center,arena name (partial),1860.0
+2514,mbb,3570.0,M&T Bank Arena,arena name,102.0
+2535,mbb,4974.0,Pete Hanna Center,arena name,666.0
+70,mbb,4200.0,Idaho Central Credit Union Arena,school,2579.0
+107,mbb,3536.0,Hart Center at the Luth Athletics Complex,school,482.0
+2546,mbb,7373.0,Show Me Center,arena name,
+2427,mbb,3200.0,Kimmel Arena,arena name,2129.0
+171,mbb,2500.0,Levien Gymnasium,arena name,33.0
+2350,mbb,4486.0,Joseph J. Gentile Arena,arena name (partial),587.0
+2635,mbb,9280.0,Hooper Eblen Center,arena name,1096.0
+2550,mbb,18711.0,Prudential Center,arena name,30.0
+2900,mbb,5000.0,Lee and Penny Anderson Arena,arena name,794.0
+6,mbb,10041.0,Mitchell Center,arena name,10.0
+3084,mbb,7500.0,UCCU Center,arena name,4774.0
+2320,mbb,10080.0,Neches Federal Credit Union Arena at the Montagne Center,arena name (partial),16.0
+2325,mbb,3000.0,John Glaser Arena,arena name,39.0
+2393,mbb,11520.0,Murphy Center,arena name,610.0
+299,mbb,4000.0,LBS Financial Credit Union Pyramid,arena name,30.0
+2199,mbb,8824.0,George Gervin GameAbove Center,arena name (partial),
+2083,mbb,4000.0,Sojka Pavilion,arena name,472.0
+288,mbb,5028.0,Allen Arena,arena name,558.0
+2239,mbb,4000.0,Titan Gym,arena name,164.0
+324,mbb,3212.0,HTC Center,arena name (partial),33.0
+325,mbb,13610.0,Wolstein Center,arena name,653.0
+2649,mbb,7300.0,Savage Arena,arena name,610.0
+2031,mbb,5600.0,Jack Stephens Center,arena name,335.0
+304,mbb,3214.0,Reed Gym,arena name,4462.0
+314,mbb,2578.0,Hynes Athletic Center,school,85.0
+2870,mbb,6250.0,Memorial Coliseum,arena name (partial),810.0
+2529,mbb,2062.0,William H. Pitt Center,arena name,
+2277,mbb,1000.0,Sharp Gymnasium,arena name,39.0
+2349,mbb,,,,118.0
+147,mbb,7250.0,Brick Breeden Fieldhouse,school,4816.0
+2413,mbb,6500.0,Ellis Johnson Arena,school,738.0
+155,mbb,3300.0,Betty Engelstad Sioux Center,arena name,830.0
+166,mbb,12482.0,Pan American Center,arena name,
+2368,mbb,3200.0,McCann Arena,arena name,203.0
+219,mbb,8722.0,Palestra,arena name (partial),39.0
+79,mbb,8284.0,Banterra Center,arena name,413.0
+88,mbb,4000.0,Liberty Arena,arena name (partial),387.0
+2453,mbb,4000.0,Flowers Hall,arena name (partial),548.0
+2026,mbb,,,,3219.0
+2737,mbb,6100.0,Winthrop Coliseum,arena name,679.0
+2803,mbb,2700.0,Chace Athletic Center,arena name,276.0
+2710,mbb,5139.0,Western Hall,arena name,705.0
+2653,mbb,5200.0,Trojan Arena,arena name,541.0
+2571,mbb,6500.0,First Bank and Trust Arena,arena name,1621.0
+2547,mbb,999.0,Redhawk Center,arena name,184.0
+104,mbb,1800.0,Case Gym,arena name,46.0
+91,mbb,2196.0,Knights Hall,arena name,466.0
+2506,mbb,2300.0,Templeton Physical Education Center,school,
+2502,mbb,3094.0,Viking Pavilion,arena name,39.0
+2729,mbb,11300.0,Kaplan Arena,arena name,
+2717,mbb,7826.0,Liston B. Ramsey Regional Activity Center,school,2116.0
+357,mbb,8000.0,American Bank Center Arena[ah],school,7.0
+290,mbb,5500.0,Jack and Ruth Ann Hill Convocation Center,arena name,253.0
+2241,mbb,3500.0,Paul Porter Arena,arena name,883.0
+2127,mbb,,,,20.0
+279,mbb,6150.0,Alex G. Spanos Center,arena name,13.0
+265,mbb,12058.0,Beasley Coliseum,arena name,2352.0
+56,mbb,5000.0,Edmunds Center,arena name (partial),39.0
+13,mbb,3032.0,Robert A. Mott Athletics Center,arena name (partial),233.0
+119,mbb,5200.0,TU Arena,school,463.0
+2382,mbb,3500.0,Hawkins Arena,arena name,367.0
+2363,mbb,2345.0,Draddy Gymnasium,arena name,
+2352,mbb,2100.0,Reitz Arena,arena name,
+2437,mbb,7898.0,Baxter Arena,arena name,1060.0
+2449,mbb,5460.0,Scheels Center,arena name,
+161,mbb,1862.0,Bogota Savings Bank Center,arena name,20.0
+2815,mbb,3270.0,Robert F. Hyland Performance Arena,school,482.0
+2630,mbb,4300.0,Kathleen and Tom Elam Center,arena name,407.0
+2458,mbb,2992.0,Bank of Colorado Arena,arena name,4675.0
+2916,mbb,2000.0,McDermott Center,arena name,650.0
+3101,mbb,4779.0,Burns Arena,arena name,2700.0
+2599,mbb,19812.0,Madison Square Garden[k],arena name,33.0
+2612,mbb,3200.0,Run Baby Run Arena,school,30.0
+2572,mbb,8095.0,Reed Green Coliseum,arena name,171.0
+116,mbb,3500.0,Knott Arena,arena name,436.0
+2415,mbb,4250.0,Talmadge L. Hill Field House,arena name (partial),
+225,mbb,2800.0,Pizzitola Sports Center,arena name,7.0
+2275,mbb,5124.0,Mack Sports Complex,school,56.0
+2377,mbb,4242.0,Townsley Law Arena,arena name,13.0
+250,mbb,7000.0,College Park Center,arena name,604.0
+2454,mbb,5800.0,UNF Arena,arena name,
+160,mbb,3000.0,Lundholm Gym,arena name (partial),49.0
+159,mbb,2100.0,Leede Arena,arena name,531.0
+2885,mbb,3500.0,Wellness and Events Center,arena name (partial),30.0
+2504,mbb,4000.0,William J. Nicks Building,arena name,269.0
+2534,mbb,6100.0,Bernard Johnson Coliseum,school,371.0
+2561,mbb,15229.0,MVP Arena,arena name,148.0
+2405,mbb,4100.0,OceanFirst Bank Center,arena name,30.0
+2250,mbb,6000.0,McCarthey Athletic Center,arena name,1873.0
+2117,mbb,5300.0,McGuirk Arena,arena name,771.0
+2755,mbb,7500.0,Fredrick C. Hobdy Assembly Center,arena name,305.0
+284,mbb,1560.0,Merkert Gymnasium,arena name,108.0
+2066,mbb,5142.0,Binghamton University Events Center,school,866.0
+2837,mbb,3055.0,The Field House,arena name,554.0
+294,mbb,1360.0,Swisher Gymnasium,arena name,
+2142,mbb,1750.0,Cotterell Court,arena name,1122.0
+270,mbb,,,,617.0
+2169,mbb,1800.0,Memorial Hall,arena name (partial),
+2448,mbb,5700.0,Corbett Sports Center,arena name,873.0
+222,mbb,6500.0,Finneran Pavilion[m],arena name,397.0
+2450,mbb,4500.0,Joseph G. Echols Memorial Hall,school,7.0
+2520,mbb,1650.0,Alumni Gymnasium,arena name (partial),121.0
+2385,mbb,1100.0,Mercyhurst Athletic Center,arena name,653.0
+2443,mbb,8933.0,Lakefront Arena,arena name,
+2640,mbb,8100.0,Health and Physical Education Arena,school,39.0
+2428,mbb,3500.0,McDougald–McLendon Arena,school,404.0
+2459,mbb,10000.0,Convocation Center,school,879.0
+2447,mbb,3800.0,Stopher Gymnasium,arena name (partial),13.0
+2330,mbb,2000.0,Le Moyne Events Center,school,397.0
+2261,mbb,7200.0,Hampton Convocation Center,school,3.0
+2172,mbb,2500.0,Hamilton Gymnasium,arena name,5279.0
+2115,mbb,2654.0,William H. Detrick Gymnasium,arena name (partial),167.0
+311,mbb,14316.0,Memorial Gymnasium,arena name (partial),125.0
+2569,mbb,3200.0,SHM Memorial Center,school,243.0
+2174,mbb,7917.0,Calihan Hall,arena name,600.0
+315,mbb,2400.0,Gallagher Center,arena name,614.0
+43,mbb,2532.0,John J. Lee Amphitheater,arena name,
+2681,mbb,2100.0,Spiro Sports Center,arena name,69.0
+2511,mbb,2500.0,Curry Arena,arena name,751.0
+331,mbb,6000.0,Reese Court,arena name,2352.0
+2739,mbb,9729.0,Resch Center,arena name,607.0
+2097,mbb,3095.0,"John W. Pope, Jr. Convocation Center",arena name,207.0
+399,mbb,4538.0,Broadview Center,arena name,148.0
+163,mbb,6854.0,Jadwin Gymnasium,arena name,203.0
+2582,mbb,7500.0,F. G. Clark Activity Center,arena name,46.0
+2473,mbb,4000.0,OU Credit Union O'rena,arena name,751.0
+108,mbb,2195.0,Lavietes Pavilion,arena name,16.0
+172,mbb,4473.0,Newman Arena,arena name,410.0
+111,mbb,1800.0,Cabot Center,arena name,46.0
+2634,mbb,9100.0,Gentry Complex,school,558.0
+50,mbb,9639.0,Al Lawson Center,arena name,203.0
+2545,mbb,7500.0,University Center,arena name,43.0
+2011,mbb,7400.0,Dunn–Oliver Acadome,school,240.0
+2154,mbb,4100.0,Physical Education Complex,arena name,
+2430,mbb,,,,873.0
+2771,mbb,1200.0,Hammel Court,school,95.0
+2029,mbb,4500.0,K. L. Johnson Complex,school,220.0
+2065,mbb,3000.0,Moore Gymnasium,arena name (partial),13.0
+2130,mbb,7000.0,Emil and Patricia Jones Convocation Center,school,587.0
+2379,mbb,5500.0,Hytche Athletic Center,school,
+2400,mbb,5000.0,Harrison HPER Complex,arena name (partial),131.0
+2296,mbb,8000.0,Williams Assembly Center,school,279.0
+2016,mbb,7000.0,Davey Whitney Complex,school,217.0
+135,mbb,14625.0,Williams Arena,arena name,830.0
+2627,mbb,8000.0,EECU Center[33],school,1273.0
+41,mbb,16294.0,PeoplesBank Arena,arena name,59.0
+85,mbb,,,,715.0
+112358,mbb,2500.0,Steinberg Wellness Center,arena name,49.0
+2433,mbb,,,,75.0
+253,mbb,5300.0,America First Event Center,school,5846.0
+2598,mbb,,,,1952.0
+333,wbb,15383.0,Coleman Coliseum,arena name,223.0
+97,wbb,22090.0,KFC Yum! Center,arena name,466.0
+252,wbb,19000.0,Marriott Center,arena name,4551.0
+164,wbb,8000.0,Jersey Mike's Arena,school,98.0
+251,wbb,10763.0,Moody Center,arena name,489.0
+194,wbb,18809.0,Value City Arena,school,771.0
+2628,wbb,8500.0,Schollmaier Arena,arena name,653.0
+120,wbb,17300.0,Xfinity Center,arena name,69.0
+154,wbb,14407.0,Lawrence Joel Veterans Memorial Coliseum,school,961.0
+2390,wbb,7972.0,Watsco Center,arena name,10.0
+259,wbb,10052.0,Cassell Coliseum,arena name,2077.0
+84,wbb,17472.0,Simon Skjodt Assembly Hall,arena name,
+68,wbb,12644.0,ExtraMile Arena,arena name,2700.0
+221,wbb,12508.0,Petersen Events Center,arena name,764.0
+238,wbb,14316.0,Memorial Gymnasium,arena name (partial),558.0
+135,wbb,14625.0,Williams Arena,school,830.0
+2116,wbb,9432.0,Addition Financial Arena,arena name,98.0
+2305,wbb,15300.0,Allen Fieldhouse,arena name,863.0
+8,wbb,19368.0,Bud Walton Arena,arena name,1401.0
+12,wbb,14688.0,McKale Center,arena name (partial),2490.0
+66,wbb,14267.0,Hilton Coliseum,arena name,942.0
+3101,wbb,4779.0,Burns Arena,arena name,2700.0
+57,wbb,10500.0,Exactech Arena at the Stephen C. O'Connell Center,arena name (partial),177.0
+344,wbb,10575.0,Humphrey Coliseum,arena name,331.0
+305,wbb,10387.0,Wintrust Arena[j],arena name,587.0
+2509,wbb,14848.0,Mackey Arena,arena name,
+153,wbb,8010.0,Carmichael Arena,arena name,
+277,wbb,14000.0,WVU Coliseum,school,889.0
+45,wbb,5000.0,Charles E. Smith Center,arena name,23.0
+25,wbb,11858.0,Haas Pavilion,arena name,171.0
+2405,wbb,4100.0,OceanFirst Bank Center,arena name,30.0
+2306,wbb,11000.0,Bramlage Coliseum,arena name,1020.0
+264,wbb,10000.0,Alaska Airlines Arena at Hec Edmundson Pavilion,arena name (partial),184.0
+275,wbb,17249.0,Kohl Center,arena name,876.0
+356,wbb,15544.0,State Farm Center,arena name,738.0
+2567,wbb,7000.0,Moody Coliseum,school,420.0
+242,wbb,5208.0,Tudor Fieldhouse,arena name,39.0
+228,wbb,9000.0,Littlejohn Coliseum,arena name,725.0
+142,wbb,15061.0,Mizzou Arena,arena name,705.0
+161,wbb,1862.0,Bogota Savings Bank Center,arena name,20.0
+158,wbb,15147.0,Pinnacle Bank Arena,arena name,1204.0
+103,wbb,8606.0,Conte Forum,arena name,197.0
+2655,wbb,4100.0,Devlin Fieldhouse,arena name (partial),
+167,wbb,15411.0,The Pit,arena name,4957.0
+201,wbb,11528.0,Lloyd Noble Center,arena name,1171.0
+249,wbb,9797.0,UNT Coliseum,school,659.0
+233,wbb,6000.0,Sanford Coyote Sports Center,arena name,1227.0
+2492,wbb,3104.0,Firestone Fieldhouse,arena name,105.0
+99,wbb,13215.0,Pete Maravich Assembly Center,arena name,46.0
+258,wbb,14593.0,John Paul Jones Arena,arena name,466.0
+5,wbb,8508.0,Bartow Arena,arena name,614.0
+276,wbb,9048.0,Cam Henderson Center,arena name,568.0
+254,wbb,15000.0,Jon M. Huntsman Center,arena name,4262.0
+239,wbb,7500.0,Foster Pavilion,arena name,469.0
+2086,wbb,9100.0,Hinkle Fieldhouse,arena name,715.0
+261,wbb,3228.0,Patrick Gym,arena name (partial),200.0
+52,wbb,12100.0,Donald L. Tucker Civic Center,school,203.0
+24,wbb,7233.0,Maples Pavilion,arena name,75.0
+2440,wbb,11536.0,Lawlor Events Center,arena name,4505.0
+2,wbb,9121.0,Neville Arena,arena name,705.0
+2294,wbb,15500.0,Carver–Hawkeye Arena,school,669.0
+2166,wbb,5223.0,John M. Belk Arena,arena name,840.0
+2198,wbb,6500.0,Baptist Health Arena,arena name,948.0
+2426,wbb,5710.0,Alumni Hall,school,39.0
+145,wbb,9500.0,The Sandy and John Black Pavilion at Ole Miss,arena name,505.0
+183,wbb,35446.0,JMA Wireless Dome,arena name,397.0
+62,wbb,10300.0,Stan Sheriff Center,arena name,16.0
+2501,wbb,4852.0,Chiles Center,arena name,39.0
+88,wbb,4000.0,Liberty Arena,arena name (partial),387.0
+151,wbb,8000.0,Williams Arena at Minges Coliseum,arena name,59.0
+2483,wbb,12369.0,Matthew Knight Arena,arena name,430.0
+301,wbb,5100.0,Jenny Craig Pavilion,arena name,66.0
+235,wbb,2565.0,Elma Roane Fieldhouse,arena name,256.0
+195,wbb,13080.0,Convocation Center,school,719.0
+197,wbb,13611.0,Gallagher-Iba Arena,arena name,896.0
+202,wbb,8355.0,Reynolds Center,arena name,722.0
+2507,wbb,,,,7.0
+61,wbb,10523.0,Stegeman Coliseum,arena name,748.0
+2287,wbb,10200.0,CEFCU Arena,arena name,801.0
+2239,wbb,4000.0,Titan Gym,arena name,164.0
+326,wbb,10000.0,Strahan Arena,arena name (partial),617.0
+2638,wbb,12222.0,Don Haskins Center,arena name,3717.0
+59,wbb,8600.0,Hank McCamish Pavilion,arena name (partial),1050.0
+245,wbb,12989.0,Reed Arena,arena name,338.0
+2539,wbb,3005.0,The Sobrato Center,arena name,52.0
+299,wbb,4000.0,LBS Financial Credit Union Pyramid,arena name,30.0
+248,wbb,7100.0,Fertitta Center,arena name,39.0
+2466,wbb,3900.0,Prather Coliseum,arena name,118.0
+2579,wbb,18000.0,Colonial Life Arena,arena name,292.0
+58,wbb,10411.0,Yuengling Center,arena name,3.0
+104,wbb,1800.0,Case Gym,arena name,46.0
+77,wbb,7039.0,Welsh–Ryan Arena,school,614.0
+2649,wbb,7300.0,Savage Arena,arena name,610.0
+2550,wbb,1316.0,Walsh Gymnasium,arena name,148.0
+130,wbb,12707.0,Crisler Center,arena name,883.0
+2641,wbb,15300.0,United Supermarkets Arena,arena name,3202.0
+2350,wbb,4486.0,Joseph J. Gentile Arena,arena name (partial),587.0
+2348,wbb,8000.0,Thomas Assembly Center,arena name,335.0
+9,wbb,14198.0,Desert Financial Arena,arena name,1181.0
+38,wbb,11064.0,CU Events Center,arena name,5328.0
+36,wbb,8083.0,Moby Arena,arena name,5003.0
+46,wbb,,,,23.0
+2739,wbb,4018.0,Kress Events Center,school,
+26,wbb,13800.0,Pauley Pavilion,arena name,292.0
+2272,wbb,4500.0,Nido & Mariana Qubein Arena and Conference Center,school,922.0
+2230,wbb,3200.0,Rose Hill Gymnasium,arena name (partial),
+2229,wbb,5000.0,Ocean Bank Convocation Center,arena name,
+2870,wbb,2300.0,Hilliard Gates Sports Center,arena name,810.0
+2172,wbb,2500.0,Hamilton Gymnasium,arena name,5279.0
+2184,wbb,3500.0,UPMC Cooper Fieldhouse,arena name,764.0
+139,wbb,10600.0,Chaifetz Arena,arena name,466.0
+2000,wbb,3600.0,Moody Coliseum,school,1719.0
+2132,wbb,12012.0,Fifth Third Arena,arena name,627.0
+526,wbb,4633.0,Alico Arena,arena name,10.0
+279,wbb,6150.0,Alex G. Spanos Center,arena name,13.0
+2427,wbb,3200.0,Kimmel Arena,arena name,2129.0
+2752,wbb,10250.0,Cintas Center,arena name,627.0
+2250,wbb,6000.0,McCarthey Athletic Center,arena name,1873.0
+2724,wbb,10506.0,Charles Koch Arena[f],arena name,1299.0
+2856,wbb,5050.0,Fowler Events Center,arena name (partial),827.0
+2226,wbb,3161.0,FAU Arena,school,13.0
+2057,wbb,5085.0,Curb Event Center,arena name (partial),558.0
+2900,wbb,5000.0,Lee and Penny Anderson Arena,arena name,794.0
+2448,wbb,5700.0,Corbett Sports Center,arena name,873.0
+2174,wbb,7917.0,Calihan Hall,arena name,600.0
+2754,wbb,6300.0,Beeghly Center,arena name (partial),850.0
+2934,wbb,3497.0,Icardo Center,arena name,404.0
+2168,wbb,13409.0,University of Dayton Arena,school,738.0
+2458,wbb,2992.0,Bank of Colorado Arena,arena name,4675.0
+28,wbb,4200.0,LionTree Arena,arena name,66.0
+21,wbb,12414.0,Viejas Arena,arena name,66.0
+2698,wbb,5953.0,The Coliseum,arena name,1102.0
+2710,wbb,5139.0,Western Hall,arena name,705.0
+2181,wbb,6424.0,Knapp Center,arena name,873.0
+314,wbb,2578.0,Hynes Athletic Center,school,85.0
+2385,wbb,1100.0,Mercyhurst Athletic Center,arena name,653.0
+257,wbb,7201.0,Robins Center,arena name,210.0
+256,wbb,8500.0,Atlantic Union Bank Center,arena name,1325.0
+270,wbb,3500.0,Klotsche Center,arena name,617.0
+2032,wbb,10038.0,First National Bank Arena,arena name,325.0
+2441,wbb,900.0,Jeffery P. Hazell Athletics Center,arena name,33.0
+2393,wbb,11520.0,Murphy Center,arena name,610.0
+2413,wbb,6500.0,Ellis Johnson Arena,school,738.0
+278,wbb,15596.0,Save Mart Center at Fresno State,arena name (partial),308.0
+231,wbb,4000.0,Timmons Arena,arena name,1007.0
+2565,wbb,4000.0,Vadalabene Center,school,541.0
+107,wbb,3536.0,Hart Center at the Luth Athletics Complex,school,482.0
+2572,wbb,8095.0,Reed Green Coliseum,arena name,171.0
+152,wbb,5500.0,Reynolds Coliseum,arena name,315.0
+2534,wbb,6100.0,Bernard Johnson Coliseum,school,371.0
+204,wbb,9301.0,Gill Coliseum,arena name,233.0
+300,wbb,4984.0,Bren Events Center,arena name,
+155,wbb,3300.0,Betty Engelstad Sioux Center,arena name,830.0
+127,wbb,14797.0,Breslin Student Events Center,school,856.0
+79,wbb,8284.0,Banterra Center,arena name,413.0
+82,wbb,6958.0,Credit Union 1 Arena,arena name,587.0
+2623,wbb,11000.0,Great Southern Bank Arena,arena name,1299.0
+2599,wbb,6107.0,Carnesecca Arena,arena name,39.0
+2633,wbb,21678.0,Thompson–Boling Arena,school,
+2561,wbb,4000.0,UHY Center,arena name,348.0
+2430,wbb,,,,873.0
+2429,wbb,9105.0,Dale F. Halton Arena,arena name (partial),751.0
+70,wbb,4200.0,Idaho Central Credit Union Arena,school,2579.0
+2617,wbb,7203.0,William R. Johnson Coliseum,arena name,302.0
+2635,wbb,9280.0,Hooper Eblen Center,arena name,1096.0
+87,wbb,9149.0,Purcell Pavilion at Edmund P. Joyce Center,arena name (partial),692.0
+2569,wbb,3200.0,SHM Memorial Center,school,243.0
+96,wbb,6250.0,Memorial Coliseum,arena name (partial),968.0
+2540,wbb,5600.0,UC Santa Barbara Events Center,school,49.0
+2502,wbb,3094.0,Viking Pavilion,arena name,39.0
+2547,wbb,999.0,Redhawk Center,arena name,184.0
+295,wbb,8472.0,Chartway Arena,arena name,7.0
+2454,wbb,5800.0,UNF Arena,arena name,
+2463,wbb,2500.0,Premier America Credit Union Arena,arena name,807.0
+227,wbb,7657.0,Ryan Center,arena name (partial),246.0
+189,wbb,4700.0,Stroh Center,arena name,696.0
+27,wbb,3168.0,UC Riverside Student Recreation Center,school,827.0
+23,wbb,5000.0,Provident Credit Union Event Center,arena name,85.0
+2692,wbb,11592.0,Dee Events Center,arena name,
+30,wbb,10258.0,Galen Center,arena name,292.0
+2717,wbb,7826.0,Liston B. Ramsey Regional Activity Center,school,2116.0
+2244,wbb,10000.0,EagleBank Arena,arena name,430.0
+2097,wbb,3095.0,"John W. Pope, Jr. Convocation Center",arena name,207.0
+2908,wbb,878.0,G. B. Hodge Center,arena name,807.0
+2433,wbb,,,,75.0
+2351,wbb,3900.0,Gersten Pavilion,arena name,292.0
+324,wbb,3212.0,HTC Center,arena name (partial),33.0
+2046,wbb,5500.0,F&M Bank Arena,arena name,
+2050,wbb,11500.0,Worthen Arena,arena name,932.0
+2363,wbb,2345.0,Draddy Gymnasium,arena name,
+2377,wbb,4242.0,Townsley Law Arena,arena name,13.0
+2368,wbb,3200.0,McCann Arena,arena name,203.0
+2005,wbb,5508.0,Clune Arena,arena name,6010.0
+2031,wbb,5600.0,Jack Stephens Center,arena name,335.0
+349,wbb,5043.0,Christl Arena,arena name,154.0
+2450,wbb,4500.0,Joseph G. Echols Memorial Hall,school,7.0
+2006,wbb,5500.0,James A. Rhodes Arena,arena name,955.0
+269,wbb,4000.0,Al McGuire Center,arena name,617.0
+2603,wbb,3800.0,Hagan Arena,school,39.0
+2630,wbb,4300.0,Kathleen and Tom Elam Center,arena name,407.0
+140,wbb,1500.0,Swinney Recreation Center,school,899.0
+147,wbb,7250.0,Brick Breeden Fieldhouse,school,4816.0
+2670,wbb,7637.0,Siegel Center,arena name,210.0
+71,wbb,4200.0,Renaissance Coliseum,arena name,502.0
+113,wbb,9493.0,Mullins Center,arena name,269.0
+98,wbb,7326.0,E. A. Diddle Arena,arena name,528.0
+93,wbb,8602.0,CFSB Center,arena name,535.0
+94,wbb,9400.0,Truist Arena,arena name,853.0
+218,wbb,10206.0,Liacouras Center[e],arena name,39.0
+222,wbb,6500.0,Finneran Pavilion[m],arena name,397.0
+2460,wbb,7018.0,McLeod Center,arena name,879.0
+2541,wbb,4500.0,Leavey Center,arena name,75.0
+2514,wbb,3570.0,M&T Bank Arena,arena name,102.0
+2546,wbb,7373.0,Show Me Center,arena name,
+2515,wbb,3205.0,Dedmon Center,arena name (partial),1860.0
+2523,wbb,4000.0,UPMC Events Center,arena name,1175.0
+292,wbb,2500.0,UTRGV Fieldhouse,arena name,98.0
+282,wbb,10200.0,Hulman Center,arena name,499.0
+265,wbb,12058.0,Beasley Coliseum,arena name,2352.0
+2026,wbb,,,,3219.0
+399,wbb,4538.0,Broadview Center,arena name,148.0
+328,wbb,10270.0,Smith Spectrum,arena name (partial),4534.0
+331,wbb,6000.0,Reese Court,arena name,2352.0
+338,wbb,4600.0,KSU Convocation Center,school,1089.0
+2182,wbb,2509.0,Daskalakis Athletic Center,arena name,39.0
+2352,wbb,2100.0,Reitz Arena,arena name,
+2447,wbb,3800.0,Stopher Gymnasium,arena name (partial),13.0
+2428,wbb,3500.0,McDougald–McLendon Arena,school,404.0
+325,wbb,13610.0,Wolstein Center,arena name,653.0
+2083,wbb,4000.0,Sojka Pavilion,arena name,472.0
+2247,wbb,7500.0,Georgia State Convocation Center,school,1050.0
+2210,wbb,5100.0,Schar Center,arena name,705.0
+2803,wbb,2700.0,Chace Athletic Center,arena name,276.0
+2320,wbb,10080.0,Neches Federal Credit Union Arena at the Montagne Center,arena name (partial),16.0
+2681,wbb,2100.0,Spiro Sports Center,arena name,69.0
+2837,wbb,3055.0,The Field House,arena name,554.0
+2751,wbb,11612.0,Arena-Auditorium,arena name,7165.0
+16,wbb,1012.0,Hornets Nest,school,30.0
+6,wbb,10041.0,Mitchell Center,arena name,10.0
+13,wbb,3032.0,Robert A. Mott Athletics Center,arena name (partial),233.0
+2674,wbb,5000.0,Athletics–Recreation Center,school,794.0
+55,wbb,3500.0,Pete Mathews Coliseum,arena name,709.0
+56,wbb,5000.0,Edmunds Center,arena name (partial),39.0
+48,wbb,5000.0,Bob Carpenter Center,arena name,
+50,wbb,9639.0,Al Lawson Center,arena name,203.0
+2737,wbb,6100.0,Winthrop Coliseum,arena name,679.0
+2750,wbb,9500.0,Nutter Center,arena name,738.0
+2711,wbb,5421.0,University Arena,arena name (partial),784.0
+2335,wbb,4000.0,Liberty Arena,arena name (partial),
+2084,wbb,6783.0,Alumni Arena,school,600.0
+2142,wbb,1750.0,Cotterell Court,arena name,1122.0
+2344,wbb,3000.0,Joan Perry Brock Center,arena name,308.0
+2349,wbb,,,,118.0
+2329,wbb,5600.0,Stabler Arena,arena name,358.0
+2253,wbb,7000.0,Global Credit Union Arena,arena name,1086.0
+2325,wbb,3000.0,John Glaser Arena,arena name,39.0
+2277,wbb,1000.0,Sharp Gymnasium,arena name,39.0
+2217,wbb,3500.0,Leo D. Mahoney Arena,arena name,
+2916,wbb,2000.0,McDermott Center,arena name,650.0
+2885,wbb,3500.0,Wellness and Events Center,arena name (partial),30.0
+2815,wbb,3270.0,Robert F. Hyland Performance Arena,school,482.0
+159,wbb,2100.0,Leede Arena,arena name,531.0
+160,wbb,3000.0,Lundholm Gym,arena name (partial),49.0
+2459,wbb,10000.0,Convocation Center,school,879.0
+2506,wbb,2300.0,Templeton Physical Education Center,school,
+149,wbb,7321.0,Dahlberg Arena,arena name,
+119,wbb,5200.0,TU Arena,school,463.0
+2545,wbb,7500.0,University Center,arena name,43.0
+2529,wbb,2062.0,William H. Pitt Center,arena name,
+150,wbb,9314.0,Cameron Indoor Stadium,arena name,404.0
+3084,wbb,7500.0,UCCU Center,arena name,4774.0
+163,wbb,6854.0,Jadwin Gymnasium,arena name,203.0
+166,wbb,12482.0,Pan American Center,arena name,
+179,wbb,5480.0,Reilly Center,arena name,1427.0
+2437,wbb,7898.0,Baxter Arena,arena name,1060.0
+2378,wbb,5000.0,Chesapeake Employers Insurance Arena,arena name,
+2382,wbb,3500.0,Hawkins Arena,arena name,367.0
+309,wbb,13500.0,Cajundome,arena name,36.0
+311,wbb,14316.0,Memorial Gymnasium,arena name (partial),125.0
+315,wbb,2400.0,Gallagher Center,arena name,614.0
+2453,wbb,4000.0,Flowers Hall,arena name (partial),548.0
+357,wbb,8000.0,American Bank Center Arena[ah],school,7.0
+350,wbb,5200.0,Trask Coliseum,arena name,30.0
+2010,wbb,6000.0,Alabama A&M Events Center,school,633.0
+339,wbb,1087.0,Meeks Family Fieldhouse at Carson Center,arena name (partial),387.0
+2439,wbb,,,,2001.0
+2464,wbb,11230.0,Walkup Skydome,arena name (partial),6903.0
+2511,wbb,2500.0,Curry Arena,arena name,751.0
+236,wbb,10995.0,McKenzie Arena,arena name,676.0
+294,wbb,1360.0,Swisher Gymnasium,arena name,
+302,wbb,7600.0,University Credit Union Center,arena name,52.0
+193,wbb,10640.0,Millett Hall,arena name,928.0
+288,wbb,5028.0,Allen Arena,arena name,558.0
+116,wbb,3500.0,Knott Arena,arena name,436.0
+91,wbb,2196.0,Knights Hall,arena name,466.0
+2619,wbb,4160.0,Island Federal Credit Union Arena,school,
+198,wbb,10154.0,Mabee Center,arena name,722.0
+2608,wbb,3500.0,University Credit Union Pavilion,arena name,499.0
+2571,wbb,6500.0,First Bank and Trust Arena,arena name,1621.0
+284,wbb,1560.0,Merkert Gymnasium,arena name,108.0
+112358,wbb,,,,49.0
+111,wbb,1800.0,Cabot Center,arena name,46.0
+2330,wbb,2000.0,Le Moyne Events Center,school,397.0
+43,wbb,2532.0,John J. Lee Amphitheater,arena name,
+44,wbb,4500.0,Bender Arena,arena name,23.0
+2729,wbb,11300.0,Kaplan Arena,arena name,
+2612,wbb,3200.0,Run Baby Run Arena,school,30.0
+108,wbb,2195.0,Lavietes Pavilion,arena name,16.0
+225,wbb,2800.0,Pizzitola Sports Center,arena name,7.0
+2193,wbb,6149.0,Freedom Hall Civic Center,school,1634.0
+2443,wbb,8933.0,Lakefront Arena,arena name,
+2449,wbb,5460.0,Scheels Center,arena name,
+2016,wbb,7000.0,Davey Whitney Complex,school,217.0
+2117,wbb,5300.0,McGuirk Arena,arena name,771.0
+2275,wbb,5124.0,Mack Sports Complex,school,56.0
+2309,wbb,6327.0,Memorial Athletic and Convocation Center,school,1066.0
+2199,wbb,8824.0,George Gervin GameAbove Center,arena name (partial),
+2099,wbb,2196.0,Koessler Athletic Center,arena name,600.0
+2755,wbb,7500.0,Fredrick C. Hobdy Assembly Center,arena name,305.0
+232,wbb,5100.0,TD Arena,arena name,20.0
+172,wbb,4473.0,Newman Arena,arena name,410.0
+250,wbb,7000.0,College Park Center,arena name,604.0
+2653,wbb,5200.0,Trojan Arena,arena name,541.0
+304,wbb,3214.0,Reed Gym,arena name,4462.0
+213,wbb,15261.0,Bryce Jordan Center,school,
+2241,wbb,3500.0,Paul Porter Arena,arena name,883.0
+2169,wbb,1800.0,Memorial Hall,arena name (partial),
+2154,wbb,4100.0,Physical Education Complex,arena name,
+2115,wbb,2654.0,William H. Detrick Gymnasium,arena name (partial),167.0
+322,wbb,2453.0,Kirby Sports Center,arena name,318.0
+219,wbb,8722.0,Palestra,arena name (partial),39.0
+2535,wbb,4974.0,Pete Hanna Center,arena name,666.0
+171,wbb,2500.0,Levien Gymnasium,arena name,33.0
+2747,wbb,3400.0,Jerry Richardson Indoor Stadium,arena name,807.0
+2473,wbb,4000.0,OU Credit Union O'rena,arena name,751.0
+2634,wbb,9100.0,Gentry Complex,school,558.0
+2640,wbb,8100.0,Health and Physical Education Arena,school,39.0
+2379,wbb,5500.0,Hytche Athletic Center,school,
+2110,wbb,6000.0,Farris Center,arena name,312.0
+2130,wbb,7000.0,Emil and Patricia Jones Convocation Center,school,587.0
+2066,wbb,5142.0,Binghamton University Events Center,school,866.0
+2636,wbb,4080.0,Convocation Center,school,650.0
+2065,wbb,3000.0,Moore Gymnasium,arena name (partial),13.0
+2127,wbb,,,,20.0
+2197,wbb,5400.0,Lantz Arena,school,669.0
+2261,wbb,7200.0,Hampton Convocation Center,school,3.0
+2504,wbb,4000.0,William J. Nicks Building,arena name,269.0
+2520,wbb,1650.0,Alumni Gymnasium,arena name (partial),121.0
+2011,wbb,7400.0,Dunn–Oliver Acadome,school,240.0
+156,wbb,2950.0,D. J. Sokol Arena,arena name,1060.0
+2296,wbb,8000.0,Williams Assembly Center,school,279.0
+2029,wbb,4500.0,K. L. Johnson Complex,school,220.0
+47,wbb,2700.0,Burr Gymnasium,arena name,23.0
+2400,wbb,5000.0,Harrison HPER Complex,arena name (partial),131.0
+2582,wbb,7500.0,F. G. Clark Activity Center,arena name,46.0
+2415,wbb,4250.0,Talmadge L. Hill Field House,arena name (partial),
+290,wbb,5500.0,Jack and Ruth Ann Hill Convocation Center,arena name,253.0
+41,wbb,10167.0,Harry A. Gampel Pavilion[l],school,614.0
+2771,wbb,1200.0,Hammel Court,arena name,95.0
+253,wbb,5300.0,America First Event Center,arena name,5846.0
+2627,wbb,8000.0,EECU Center[33],arena name,1273.0
+2697,wbb,1750.0,UWF Field House,arena name,102.0
+85,wbb,,,,715.0
+2598,wbb,,,,1952.0
