@@ -57,29 +57,45 @@ def wiki_arenas() -> pd.DataFrame:
                     city=t.get("City", ""), state=t.get("State", ""))[["arena", "team", "city", "state", "capacity"]]
 
 
+def agrees(r, school: str, city) -> bool:
+    """Wikipedia row r (normalized team r.nt) belongs to this school, or is in the same city."""
+    return bool(school) and f" {school} " in f" {r.nt} " or norm(r.city) == norm(city) != ""
+
+
 def match(v: pd.DataFrame, w: pd.DataFrame) -> pd.DataFrame:
     w = w.assign(na=w.arena.map(norm), nt=w.team.map(norm))
     out = []
     for x in v.itertuples():
         na, school = norm(x.venue), norm(x.school)
         hit, how = w[w.na == na], "arena name"
-        if len(hit) != 1:
+        if len(hit) != 1:   # partial name: only if the school or the city agrees (generic names repeat)
             hit, how = w[w.na.map(lambda a: bool(a) and (a in na or na in a))], "arena name (partial)"
+            hit = hit[[agrees(r, school, x.city) for r in hit.itertuples()]]
         if len(hit) != 1:
             hit, how = w[w.nt.map(lambda t: t == school or t.startswith(school + " "))], "school"
         if len(hit) > 1:   # school with several venues: the one in the same city
             hit = hit[hit.city.map(norm) == norm(x.city)]
-        row = {"team_id": x.team_id, "league": x.league, "capacity": None, "arena_wiki": None, "matched_by": None}
+        row = {"team_id": x.team_id, "league": x.league, "capacity": None, "arena_wiki": None,
+               "wiki_team": None, "matched_by": None}
         if len(hit) == 1:
-            row.update(capacity=hit.capacity.iloc[0], arena_wiki=hit.arena.iloc[0], matched_by=how)
+            row.update(capacity=hit.capacity.iloc[0], arena_wiki=hit.arena.iloc[0], wiki_team=hit.team.iloc[0],
+                       matched_by=how)
         out.append(row)
     return pd.DataFrame(out)
 
 
 def elevations(v: pd.DataFrame) -> dict:
     out = {}
+    old = FOLDER / "arenas.csv"   # reuse last run's elevations: cities don't move
+    if old.exists():
+        prev = pd.read_csv(old)
+        if "elevation_ft" in prev:
+            j = v.merge(prev[["team_id", "league", "elevation_ft"]], on=["team_id", "league"]).dropna(subset=["elevation_ft"])
+            out = {(c, s): int(e) for c, s, e in zip(j.city, j.state, j.elevation_ft)}
     pairs = v[["city", "state"]].dropna().drop_duplicates()
     for i, (city, st) in enumerate(pairs.itertuples(index=False)):
+        if (city, st) in out:
+            continue
         if i % 50 == 0:
             print(f"elevation {i}/{len(pairs)}", flush=True)
         try:
