@@ -1,0 +1,38 @@
+name: Fetch recruiting rankings (CollegeBasketballData.com)
+
+# Men's 247Sports composite rankings via the CBBD API (key in the CBBD_API_KEY secret).
+on:
+  workflow_dispatch:
+    inputs:
+      first:
+        description: "First high-school class"
+        default: "2019"
+      last:
+        description: "Last high-school class"
+        default: "2026"
+  schedule:
+    - cron: "37 14 1 10 *"   # Oct 1 every year: the new freshman class
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install pandas
+      - name: Fetch
+        env:
+          CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+        run: python -u scripts/fetch_cbbd_recruits.py ${{ inputs.first || '2019' }} ${{ inputs.last || '' }}$( [ -z "${{ inputs.last }}" ] && date +%Y )
+      - name: Save
+        run: |
+          git config user.name "meech-model-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/recruits
+          git diff --cached --quiet || (git commit -m "CBBD recruiting rankings" && git pull --rebase -q && git push)
