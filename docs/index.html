@@ -149,8 +149,11 @@ input[type=checkbox] { accent-color: var(--orange); }
 #cf-table th, #cf-players th { letter-spacing: .03em; padding-left: 6px; padding-right: 6px; }
 #cf-table td, #cf-players td { padding-left: 6px; padding-right: 6px; }
 @media (max-width: 900px) { .cf-split { grid-template-columns: minmax(0, 1fr); } }
-#cf-players td, #cf-players th { padding-top: 7px; padding-bottom: 7px; }
-#cf-players td:nth-child(2) { color: var(--muted); font-size: 12.5px; white-space: normal; }
+#cf-table tbody td, #cf-players tbody td { height: 31px; padding-top: 0; padding-bottom: 0; }
+#cf-players td:nth-child(2) { color: var(--muted); font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; }
+#cf-players td:first-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; }
+.cf-split .cvs { grid-template-columns: 1fr 1fr; gap: 0 20px; }
+.cvs .later { grid-column: 1 / -1; padding-top: 10px; font-size: 12.5px; color: var(--faint); line-height: 1.5; }
 .sheet .q { margin-left: 6px; vertical-align: 1px; }
 .clink { cursor: pointer; }
 .clink:hover { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
@@ -486,7 +489,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     <section data-page="top25" hidden>
       <div class="soon">
         <b>No rankings yet.</b>
-        <p>In my opinion, teams should not be ranked until after the Thanksgiving tournaments. In contrast to power ratings, rankings judge résumés, and in early November nobody has a true one. The first Meech rankings will drop <b class="d">December 1</b>, once teams have played real opponents. Until then, the <a href="#tab=rankings" data-go="rankings">power ratings</a> show who is playing strongest.</p>
+        <p>In my opinion, teams should not be ranked until after the Thanksgiving tournaments. In contrast to power ratings, rankings judge résumés, and in early November nobody has a true one. The first Meech rankings will drop <b class="d">December 1</b>, once teams have played real opponents. Until then, the <a href="#tab=power-ratings" data-go="rankings">power ratings</a> show who is playing strongest.</p>
       </div>
     </section>
 
@@ -515,9 +518,6 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
     <!-- ===== Pace ===== -->
     <section data-page="pace" hidden>
-      <div class="sec"><h2>Today&rsquo;s Pace Battles <span class="q" tabindex="0">?<span class="pop">Today&rsquo;s games where the two teams want the most different speeds. <b>Wants</b> = each team&rsquo;s rated tempo (possessions per 40 minutes vs. an average opponent). <b>Meech pace</b> = the pace the Meech line expects. <b>Edge</b> = the team that has done a better job of dragging games to its own speed this season (pace control), once both have enough games to tell.</span></span></h2></div>
-      <div class="scroll" style="max-height:none"><table id="pb-table"><thead><tr><th>Fast team</th><th class="num">Wants <span class="q" tabindex="0">?<span class="pop">The fast team&rsquo;s rated tempo: possessions per 40 minutes vs. an average opponent.</span></span></th><th>Slow team</th><th class="num">Wants <span class="q" tabindex="0">?<span class="pop">The slow team&rsquo;s rated tempo.</span></span></th><th class="num">Gap <span class="q r" tabindex="0">?<span class="pop">Difference between what the two teams want, in possessions.</span></span></th><th class="num">Meech pace <span class="q r" tabindex="0">?<span class="pop">The pace the Meech line expects for this game.</span></span></th><th>Edge <span class="q r" tabindex="0">?<span class="pop">The team that has done a better job of dragging games to its own speed this season. Shows once both teams have 5+ battles.</span></span></th></tr></thead><tbody></tbody></table></div>
-      <p class="empty" id="pb-none" hidden>No games today.</p>
       <div class="sec"><h2>Style Map <span class="q" tabindex="0">?<span class="pop">Every team by speed (left = slow, right = fast) and pace control (up = drags games to its own speed, down = adapts to the opponent). Control needs games against teams that want a different speed, so faded dots don&rsquo;t have enough of those yet. Click a dot for the team page.</span></span></h2><div class="legend pm-legend"><span>Dots in team colors · solid = enough games · faded = not enough yet</span></div></div>
       <div class="map-wrap"><svg id="pace-map" role="img" aria-label="Pace style map"></svg><div class="gtip" id="pm-tip" hidden></div></div>
       <div class="pboard">
@@ -657,10 +657,10 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           <div class="sec"><h2>Top Players <span class="q r" tabindex="0">?<span class="pop">The conference&rsquo;s top 10 scorers this season (per game), among players who&rsquo;ve played in at least half of their team&rsquo;s games.</span></span></h2></div>
           <table id="cf-players"><thead><tr><th>Player</th><th>Team</th><th class="num">PTS</th><th class="num">REB</th><th class="num">AST</th></tr></thead><tbody></tbody></table>
           <p class="empty" id="cf-players-none" hidden>No stats yet.</p>
+          <div class="sec"><h2>Vs. Other Conferences <span class="q" tabindex="0">?<span class="pop">This season&rsquo;s record against every other D1 conference, counting home, road and neutral-site games. Most of these games happen in November and December.</span></span></h2></div>
+          <div class="cvs" id="cf-vs"></div>
         </div>
       </div>
-      <div class="sec"><h2>Vs. Other Conferences <span class="q" tabindex="0">?<span class="pop">This season&rsquo;s record against every other D1 conference, counting home, road and neutral-site games. Most of these games happen in November and December.</span></span></h2></div>
-      <div class="cvs" id="cf-vs"></div>
       <div class="sec"><h2>Conference Strength <span class="q" tabindex="0">?<span class="pop">Average team rating in each conference. This conference is highlighted. Click any bar to open that conference.</span></span></h2></div>
       <div class="bars" id="cf-bars"></div>
     </section>
@@ -728,6 +728,10 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   const TOP_N = 100, TOSSUP = 4, BLOWOUT = 15;
   const PAGES = ['today', 'rankings', 'top25', 'matchup', 'pace', 'home', 'upsets', 'record', 'how', 'team', 'conf'];
   const DETAIL = ['team', 'conf'];
+  // what the address bar shows for each tab (matches the menu names)
+  const SLUG = {rankings: 'power-ratings', top25: 'rankings', upsets: 'biggest-upsets', matchup: 'matchup-predictor',
+                pace: 'pace-analysis', home: 'home-court-advantage', record: 'track-record', how: 'how-it-works', conf: 'conference'};
+  const UNSLUG = Object.fromEntries(Object.entries(SLUG).map(([k, v]) => [v, k]));
   const S = {stack: [], base: 'today', cname: '', ma: null, mb: null, ms: 'b', pfall: false, psall: false, usort: 'date', psort: {col: 'tempo_rank', dir: 'asc'}, hsort: {col: 'hc_rank', dir: 'asc'}, league: 'mbb', tab: 'today', confs: new Set(), sort: 'spread', scol: '', sdir: 'asc',
              hide: false, rall: false, logn: 200, rsort: 'rank', rcol: '', rdir: 'asc', q: ''};
   const D = {};
@@ -771,7 +775,8 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   const readHash = () => {
     const h = new URLSearchParams(location.hash.slice(1));
     if (h.get('league') === 'wbb') S.league = 'wbb';
-    if (PAGES.includes(h.get('tab'))) S.tab = h.get('tab');
+    const t = h.get('tab');
+    if (t && (UNSLUG[t] || PAGES.includes(t))) S.tab = UNSLUG[t] || t;   // old internal names still work
     if (h.get('conf')) S.confs = new Set(h.get('conf').split('|'));
     if (h.get('team')) S.team = Number(h.get('team'));
     if (h.get('cname')) S.cname = h.get('cname');
@@ -784,7 +789,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   const writeHash = () => {
     const h = new URLSearchParams();
     if (S.league !== 'mbb') h.set('league', S.league);
-    if (S.tab !== 'today') h.set('tab', S.tab);
+    if (S.tab !== 'today') h.set('tab', SLUG[S.tab] || S.tab);
     if (S.confs.size) h.set('conf', [...S.confs].join('|'));
     if (S.tab === 'team') h.set('team', S.team);
     if (S.tab === 'conf') h.set('cname', S.cname);
@@ -1245,13 +1250,15 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     const W = others.reduce((a, o) => a + o.w, 0), L = others.reduce((a, o) => a + o.l, 0);
     const tot = el('div', 'tot'); tot.append(document.createTextNode('All other conferences'), el('b', '', recTxt(W, L)),
       document.createTextNode(W + L ? `${Math.round(100 * W / (W + L))}%` : ''));
-    $('#cf-vs').replaceChildren(tot, ...others.map((o) => {
-      const r = el('div', 'r' + (o.w + o.l ? '' : ' none'));
+    const played = others.filter((o) => o.w + o.l), notYet = others.filter((o) => !(o.w + o.l));
+    const later = el('div', 'later', notYet.length ? 'Not played yet: ' + notYet.map((o) => o.conf).sort((a, b) => a.localeCompare(b)).join(', ') : '');
+    $('#cf-vs').replaceChildren(tot, ...played.map((o) => {
+      const r = el('div', 'r');
       const nm = el('span', 'clink', o.conf); nm.dataset.conf = o.conf;
       const rec = el('span', 'rec', o.w + o.l ? recTxt(o.w, o.l) : '—');
       rec.append(el('span', 'pc', o.w + o.l ? `${Math.round(100 * o.w / (o.w + o.l))}%` : ''));
       r.append(nm, rec); return r;
-    }));
+    }), later);
     drawConfBars($('#cf-bars'), S.cname);
   }
 
@@ -1461,22 +1468,6 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     [...all].sort((a, b) => b.tempo - a.tempo).forEach((p, i) => { p.tempo_rank = i + 1; });
     const byId = Object.fromEntries(all.map((p) => [p.team_id, p]));
     const READY = 5;   // battles needed before control means much
-    // today's pace battles
-    const battles = ofLeague(D.lines).map((g) => {
-      const h = byId[(NAME2ID[S.league] || {})[g.home]], a = byId[(NAME2ID[S.league] || {})[g.away]];
-      if (!h || !a) return null;
-      const [fast, slow] = h.tempo >= a.tempo ? [h, a] : [a, h];
-      let edge = 'Too early';
-      if (fast.battles >= READY && slow.battles >= READY) edge = Math.abs(fast.control - slow.control) < 5 ? 'Even' : (fast.control > slow.control ? fast.team : slow.team);
-      return {fast, slow, gap: fast.tempo - slow.tempo, pace: g.proj_tempo, edge};
-    }).filter(Boolean).filter((b) => inConf(b.fast.conf, b.slow.conf)).sort((x, y) => y.gap - x.gap).slice(0, 12);
-    fill($('#pb-table tbody'), battles.map((b) => {
-      const tr = el('tr');
-      tr.append(teamCell(b.fast.team), td(f1(b.fast.tempo), 'num'), teamCell(b.slow.team), td(f1(b.slow.tempo), 'num'),
-        td(f1(b.gap), 'num'), td(f1(b.pace), 'num'), td(b.edge, b.edge === 'Too early' || b.edge === 'Even' ? 'muted' : 'fav'));
-      return tr;
-    }));
-    $('#pb-none').hidden = battles.length > 0;
     // style map
     const svg = $('#pace-map'), tip = $('#pm-tip'), wrap = svg.parentElement;
     svg.replaceChildren(); tip.hidden = true;
