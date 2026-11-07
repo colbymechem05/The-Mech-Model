@@ -36,7 +36,7 @@ STATES = {"AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas", "C
 
 
 def get(url: str):
-    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
+    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=20) as r:
         return json.load(r)
 
 
@@ -78,7 +78,10 @@ def match(v: pd.DataFrame, w: pd.DataFrame) -> pd.DataFrame:
 
 def elevations(v: pd.DataFrame) -> dict:
     out = {}
-    for city, st in v[["city", "state"]].drop_duplicates().itertuples(index=False):
+    pairs = v[["city", "state"]].dropna().drop_duplicates()
+    for i, (city, st) in enumerate(pairs.itertuples(index=False)):
+        if i % 50 == 0:
+            print(f"elevation {i}/{len(pairs)}", flush=True)
         try:
             res = get(GEO + urllib.parse.quote(str(city))).get("results", [])
         except Exception:
@@ -92,7 +95,10 @@ def elevations(v: pd.DataFrame) -> dict:
 
 if __name__ == "__main__":
     v = pd.read_csv(FOLDER / "venues.csv")
-    m = match(v, wiki_arenas())
+    w = wiki_arenas()
+    print(f"wikipedia: {len(w)} arenas", flush=True)
+    m = match(v, w)
+    print(f"matched {m.capacity.notna().sum()} of {len(m)}", flush=True)
     elev = elevations(v)
     m["elevation_ft"] = [elev.get((c, s)) for c, s in zip(v.city, v.state)]
     m.to_csv(FOLDER / "arenas.csv", index=False)
