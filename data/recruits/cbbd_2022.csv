@@ -1,0 +1,338 @@
+class,rank,player,college,rating,stars,position
+2022,1,Nick Smith,Arkansas,0.9996,5,CG
+2022,2,Dariq Whitehead,Duke,0.9996,5,SF
+2022,3,Dereck Lively II,Duke,0.9996,5,C
+2022,4,Kyle Filipowski,Duke,0.9984,5,C
+2022,5,Dillon Mitchell,Texas,0.9983,5,SF
+2022,6,GG Jackson,South Carolina,0.9981,5,PF
+2022,7,Kel'el Ware,Oregon,0.9976,5,C
+2022,8,Keyonte George,Baylor,0.9973,5,SG
+2022,9,Amari Bailey,UCLA,0.9967,5,CG
+2022,10,Cason Wallace,Kentucky,0.9964,5,CG
+2022,11,Jarace Walker,Houston,0.9961,5,PF
+2022,12,Chris Livingston,Kentucky,0.9954,5,SF
+2022,13,Cam Whitmore,Villanova,0.9952,5,SF
+2022,14,Brandon Miller,Alabama,0.9952,5,SF
+2022,15,Julian Phillips,Tennessee,0.9945,5,SF
+2022,16,Arterio Morris,Texas,0.9941,5,PG
+2022,17,Anthony Black,Arkansas,0.994,5,PG
+2022,18,Adem Bona,UCLA,0.9932,5,C
+2022,19,Jordan Walsh,Arkansas,0.9931,5,SF
+2022,20,Mark Mitchell,Duke,0.9929,5,PF
+2022,21,JJ Starling,Notre Dame,0.9925,5,CG
+2022,22,Gradey Dick,Kansas,0.9923,5,SF
+2022,23,Jalen Hood-Schifino,Indiana,0.9918,5,CG
+2022,24,Yohan Traore,Auburn,0.9916,5,C
+2022,25,Vincent Iwuchukwu,USC,0.9909,5,C
+2022,26,Jaden Bradley,Alabama,0.9905,5,PG
+2022,27,Tyrese Proctor,Duke,0.9898,4,PG
+2022,28,Leonard Miller,,0.9896,4,SF
+2022,29,Kylan Boswell,Arizona,0.9894,4,PG
+2022,30,Malik Reneau,Indiana,0.9894,4,PF
+2022,31,Ernest Udeh Jr.,Kansas,0.9891,4,C
+2022,32,MJ Rice,Kansas,0.9882,4,SF
+2022,33,Skyy Clark,Illinois,0.988,4,PG
+2022,34,Tyrell Ward,LSU,0.9879,4,SF
+2022,35,Tarris Reed Jr.,Michigan,0.9876,4,C
+2022,36,Ugonna Onyenso,Kentucky,0.9875,4,C
+2022,37,Collin Chandler,Kentucky,0.9872,4,CG
+2022,38,Seth Trimble,North Carolina,0.9864,4,PG
+2022,39,Chance Westry,Auburn,0.9859,4,SF
+2022,40,Terrance Arceneaux,Houston,0.9853,4,SF
+2022,41,Freddie Dilione,Tennessee,0.9845,4,CG
+2022,42,Dior Johnson,Pittsburgh,0.984,4,PG
+2022,43,Jett Howard,Michigan,0.9839,4,SF
+2022,44,Dylan Andrews,UCLA,0.9832,4,PG
+2022,45,Isaiah Miranda,NC State,0.983,4,C
+2022,46,London Johnson,,0.983,4,CG
+2022,47,Baba Miller,Florida State,0.983,4,C
+2022,48,Elijah Fisher,Texas Tech,0.9823,4,SF
+2022,49,Roddy Gayle Jr.,Ohio State,0.9821,4,SG
+2022,50,Tre White,USC,0.9813,4,SF
+2022,51,Bruce Thornton,Ohio State,0.9812,4,PG
+2022,52,Kijani Wright,USC,0.9806,4,PF
+2022,53,Rylan Griffen,Alabama,0.9805,4,SG
+2022,54,Judah Mintz,Syracuse,0.9804,4,CG
+2022,55,Jalen Washington,North Carolina,0.9803,4,C
+2022,56,Donovan Clingan,UConn,0.98,4,C
+2022,57,Zuby Ejiofor,Kansas,0.9796,4,PF
+2022,58,Mark Armstrong,Villanova,0.9795,4,CG
+2022,59,Ty Rodgers,Illinois,0.9795,4,PF
+2022,60,Kam Craft,Xavier,0.9781,4,SG
+2022,61,Jaxon Kohler,Michigan State,0.977,4,PF
+2022,62,Aidan Shaw,Missouri,0.9764,4,SF
+2022,63,Isaac McKneely,Virginia,0.9759,4,CG
+2022,64,Isaac Traudt,Virginia,0.9757,4,PF
+2022,65,Brice Sensabaugh,Ohio State,0.9753,4,SF
+2022,66,Felix Okpara,Ohio State,0.975,4,C
+2022,67,Taylor Hendricks,UCF,0.9748,4,PF
+2022,68,Leon Bond,Virginia,0.9748,4,SF
+2022,69,Kamari Lands,Louisville,0.9737,4,SF
+2022,70,Otega Oweh,Oklahoma,0.9727,4,SG
+2022,71,Jalen Reed,LSU,0.9726,4,PF
+2022,72,Jayden Epps,Illinois,0.9724,4,CG
+2022,73,Rodney Rice,Virginia Tech,0.9722,4,CG
+2022,74,Ven-Allen Lubin,Notre Dame,0.9718,4,PF
+2022,75,Jaden Schutt,Duke,0.9716,4,SG
+2022,76,Milos Uzan,Oklahoma,0.9716,4,PG
+2022,77,Zion Cruz,DePaul,0.9711,4,SG
+2022,78,Derrian Ford,Arkansas,0.9709,4,CG
+2022,79,Noah Clowney,Alabama,0.9707,4,PF
+2022,80,AJ Casey,Miami,0.9693,4,PF
+2022,81,Tre Holloman,Michigan State,0.9692,4,PG
+2022,82,Pop Isaacs,Texas Tech,0.9682,4,PG
+2022,83,Riley Kugel,Florida,0.9672,4,SG
+2022,84,Tyler Nickel,North Carolina,0.9671,4,PF
+2022,85,Devin Ree,Louisville,0.9666,4,SF
+2022,86,Desmond Claude,Xavier,0.9662,4,PG
+2022,87,Dug McDaniel,Michigan,0.9658,4,PG
+2022,88,Adrame Diongue,Washington State,0.9647,4,C
+2022,89,Rowan Brumbaugh,Texas,0.9632,4,PG
+2022,90,Denver Anglin,Georgetown,0.9631,4,CG
+2022,91,Malique Ewin,Ole Miss,0.9623,4,C
+2022,92,Kaleb Banks,Indiana,0.962,4,PF
+2022,93,Mike Sharavjamts,Dayton,0.9614,4,SF
+2022,94,Cameron Corhen,Florida State,0.9589,4,C
+2022,95,De'Ante Green,Florida State,0.9575,4,PF
+2022,96,Fletcher Loyer,Purdue,0.9572,4,SG
+2022,97,AJ Storr,St. John's,0.9567,4,SG
+2022,98,Lamar Washington,Texas Tech,0.9556,4,SG
+2022,98,KyeRon Lindsay,Georgia,0.9556,4,PF
+2022,100,Barry Dunning,Arkansas,0.955,4,SF
+2022,101,Davin Cosby,Alabama,0.955,4,SG
+2022,102,Austin Nunez,Arizona State,0.9546,4,PG
+2022,103,Alphonzo Billups,VCU,0.9535,4,SG
+2022,104,Sadraque NgaNga,Boise State,0.9529,4,PF
+2022,105,Lee Dort,Vanderbilt,0.9518,4,C
+2022,106,Joseph Pinion,Arkansas,0.9515,4,SF
+2022,107,Joseph Hunter Jr.,Fresno State,0.9504,4,SG
+2022,108,Quion Williams,Oklahoma State,0.9502,4,SF
+2022,109,Amaree Abram,Ole Miss,0.9501,4,PG
+2022,110,Chris Bell,Syracuse,0.9501,4,SF
+2022,111,Ramel Lloyd Jr.,Nebraska,0.9495,4,SF
+2022,112,BJ Edwards,Tennessee,0.9485,4,PG
+2022,113,Sencire Harris,Illinois,0.9481,4,SG
+2022,114,Daniel Skillings,Cincinnati,0.9469,4,SG
+2022,115,Dylan Anderson,Arizona,0.9465,4,C
+2022,116,Christian Fermin,VCU,0.9464,4,C
+2022,117,Brendan Hausen,Villanova,0.9449,4,SG
+2022,118,Kebba Njie,Penn State,0.9448,4,C
+2022,119,Favour Aire,Miami,0.9437,4,C
+2022,120,Shawn Phillips,LSU,0.943,4,C
+2022,121,Noah Shelby,Vanderbilt,0.9428,4,PG
+2022,122,Jaylen Thompson,Stanford,0.9428,4,SF
+2022,123,Tafara Gapare,Massachusetts,0.942,4,PF
+2022,124,Gregg Glenn,Michigan,0.9418,4,PF
+2022,125,DJ Jefferson,Tennessee,0.9413,4,SF
+2022,126,Chandler Jackson,Florida State,0.9412,4,CG
+2022,127,Prince Aligbe,Boston College,0.9404,4,PF
+2022,128,Justin Taylor,Syracuse,0.939,4,SF
+2022,129,Colin Smith,Vanderbilt,0.938,4,PF
+2022,130,Ryan Dunn,Virginia,0.9372,4,SF
+2022,131,Zach Keller,Wake Forest,0.9372,4,PF
+2022,132,Koren Johnson,Washington,0.9361,4,CG
+2022,133,Donald Hand,Boston College,0.9356,4,CG
+2022,134,Aidan Mahaney,Saint Mary's,0.9352,4,SG
+2022,135,Camden Heide,Purdue,0.9352,4,SF
+2022,136,Tre Donaldson,Auburn,0.9329,3,PG
+2022,137,Ryan Agarwal,Stanford,0.9321,3,SF
+2022,138,Joe Hurlburt,Colorado,0.932,3,C
+2022,139,Jayden Pierre,Providence,0.9316,3,PG
+2022,140,Quadir Copeland,Syracuse,0.9301,3,CG
+2022,141,Dom Campbell,Notre Dame,0.9299,3,C
+2022,142,Kimani Hamilton,Mississippi State,0.9298,3,SF
+2022,143,Jameel Brown,Penn State,0.9294,3,CG
+2022,144,Braden Huff,Gonzaga,0.9289,3,PF
+2022,145,Christian Reeves,Duke,0.9288,3,C
+2022,146,Dasonte Bowen,Iowa,0.9283,3,PG
+2022,147,Oziyah Sellers,USC,0.9278,3,SG
+2022,148,Yann Farell,St. Bonaventure,0.9276,3,PF
+2022,149,Trey Pettigrew,Nevada,0.9275,3,CG
+2022,150,Denzel Aberdeen,Florida,0.9264,3,CG
+2022,151,Demarion Watson,Iowa State,0.9263,3,SF
+2022,152,Eli King,Iowa State,0.9256,3,CG
+2022,153,Tae Davis,Seton Hall,0.9252,3,SF
+2022,154,Christian Watson,Miami,0.9248,3,SF
+2022,155,Josh Reed,Cincinnati,0.9235,3,SF
+2022,156,Patrick Wessler,Virginia Tech,0.9231,3,C
+2022,157,RJ Godfrey,Clemson,0.9223,3,SF
+2022,158,Joshua Ojianwuna,Baylor,0.9217,3,C
+2022,159,Sean Jones,Marquette,0.9216,3,PG
+2022,160,Solomon Washington,Texas A&M,0.9212,3,SF
+2022,161,Josiah Harris,West Virginia,0.921,3,PF
+2022,162,Josh Dix,Iowa,0.9207,3,SG
+2022,163,Keba Keita,Utah,0.919,3,C
+2022,164,Dillon Hunter,Clemson,0.9179,3,CG
+2022,165,Miles Byrd,San Diego State,0.9165,3,SG
+2022,166,Amarr Knox,Alabama State,0.9163,3,PG
+2022,167,Ben Shtolzberg,Creighton,0.9153,3,PG
+2022,168,Jaylen Martin,,0.9144,3,SF
+2022,169,Adou Thiero,Kentucky,0.9076,3,CG
+2022,170,TJ Caldwell,Ole Miss,0.9061,3,SG
+2022,171,Jordan Pope,Oregon State,0.906,3,SG
+2022,172,Jevon Porter,Pepperdine,0.9055,3,PF
+2022,173,Donovan Dent,New Mexico,0.9047,3,PG
+2022,174,PJ Haggerty,TCU,0.904,3,CG
+2022,175,Paul McMillan,Central Michigan,0.9034,3,PG
+2022,176,Pharrel Payne,Minnesota,0.9033,3,PF
+2022,177,Chase Ross,Marquette,0.9028,3,SG
+2022,178,CJ Gunn,Indiana,0.9026,3,SG
+2022,179,Will Richardson,Fordham,0.9006,3,CG
+2022,180,Bobi Klintman,Wake Forest,0.9005,3,PF
+2022,181,Chisom Okpara,Harvard,0.9,3,PF
+2022,182,LJ Thomas,NC State,0.8997,3,PG
+2022,183,Chauncey Wiggins,Clemson,0.8989,3,PF
+2022,184,Daniel Hankins-Sanford,South Carolina,0.8983,3,PF
+2022,185,Kanye Clary,Penn State,0.8975,3,PG
+2022,186,MJ Collins,Virginia Tech,0.8973,3,CG
+2022,187,Evan Mahaffey,Penn State,0.8968,3,SF
+2022,188,Reed Bailey,Davidson,0.8967,3,PF
+2022,189,Jasen Green,Creighton,0.8964,3,PF
+2022,190,Danilo Jovanovich,Miami,0.8956,3,SF
+2022,191,Elijah Saunders,San Diego State,0.8952,3,PF
+2022,192,Tamin Lipsey,Iowa State,0.8952,3,PG
+2022,193,Taj Manning,Kansas State,0.8946,3,PF
+2022,194,Avery Brown,,0.894,3,PG
+2022,195,Jaden Henley,Minnesota,0.8936,3,SF
+2022,196,Jamarques Lawrence,Nebraska,0.8923,3,SG
+2022,197,Quinton Webb,New Mexico,0.8922,3,PF
+2022,198,Braden Smith,Purdue,0.892,3,PG
+2022,199,Koat Keat,UC Santa Barbara,0.8919,3,C
+2022,200,Duke Brennan,Arizona State,0.8912,3,C
+2022,201,Jaquan Sanders,Seton Hall,0.8911,3,SG
+2022,202,Zocko Littleton,App State,0.891,3,CG
+2022,203,Jaquan Harris,Seton Hall,0.8907,3,CG
+2022,204,Luke Hunger,Northwestern,0.8906,3,PF
+2022,205,AJ Brown,Ohio,0.89,3,SG
+2022,206,D'Ante Bass,Georgetown,0.8899,3,PF
+2022,207,Noah Batchelor,Maryland,0.8895,3,SF
+2022,208,Alex Anamekwe,Texas,0.8888,3,PF
+2022,209,Malik Dia,Vanderbilt,0.8884,3,PF
+2022,210,Willie Lightfoot,Bowling Green,0.8883,3,PG
+2022,211,Robert Jennings,Texas Tech,0.8883,3,PF
+2022,212,ND Okafor,California,0.888,3,PF
+2022,213,Angel Montas,Fordham,0.887,3,SF
+2022,214,Jaylen Drane,,0.8866,3,PG
+2022,215,Josiah Davis,West Virginia,0.8863,3,PG
+2022,216,Keyon Menifield,Washington,0.885,3,PG
+2022,217,Robert Cowherd,Ole Miss,0.8844,3,SG
+2022,218,Chauncey Gibson,Clemson,0.8844,3,SG
+2022,219,Cruz Davis,Iona,0.8842,3,PG
+2022,220,Tyler Bilodeau,Oregon State,0.883,3,PF
+2022,221,Brenen Lorient,Florida Atlantic,0.8822,3,PF
+2022,222,Josh Ola-Joseph,Minnesota,0.882,3,PF
+2022,223,Christ Essandoko,Saint Joseph's,0.8818,3,C
+2022,224,Joshua Rivera,Lafayette,0.8816,3,SF
+2022,225,Connor Essegian,Wisconsin,0.8811,3,SG
+2022,226,Braeden Carrington,Minnesota,0.8808,3,SG
+2022,227,Dorian Finister,Kansas State,0.8806,3,SG
+2022,228,Blair Thompson,Columbia,0.8804,3,SG
+2022,229,Jermahri Hill,,0.8802,3,SG
+2022,230,Tyler Linhardt,Washington,0.88,3,PF
+2022,231,Jordan Williams,Texas A&M,0.8786,3,PG
+2022,232,RJ Luis,Massachusetts,0.878,3,SG
+2022,233,Kadyn Betts,Minnesota,0.8778,3,SF
+2022,234,Will Lovings-Watts,,0.8774,3,SF
+2022,235,Kyran Ratliff,,0.875,3,PF
+2022,235,Sam Murray,Murray State,0.875,3,PF
+2022,237,Mady Traore,New Mexico State,0.873,3,C
+2022,237,DJ Dudley,Rider,0.873,3,PG
+2022,239,Christian Winborne,Saint Joseph's,0.8719,3,PG
+2022,239,Chas Kelley,Boston College,0.8719,3,SG
+2022,239,Cade Hornecker,Southern Illinois,0.8719,3,C
+2022,239,Ahjany Lee,,0.8719,3,PF
+2022,243,Jai Smith,,0.8707,3,PF
+2022,244,Jason Hart Jr.,Long Beach State,0.87,3,PG
+2022,244,Leland Walker,Eastern Kentucky,0.87,3,CG
+2022,244,Elvis Nnaji,George Mason,0.87,3,PF
+2022,247,Quante Berry,Providence,0.8696,3,PG
+2022,247,Derek Simpson,Rutgers,0.8696,3,PG
+2022,247,Maliq Brown,Syracuse,0.8696,3,PF
+2022,250,Mason Manning,,0.8685,3,PG
+2022,250,Sage Tolentino,Cincinnati,0.8685,3,C
+2022,252,Peter Carey,Syracuse,0.8674,3,PF
+2022,252,Paul Lewis,Vanderbilt,0.8674,3,PG
+2022,252,Percy Daniels,Tulane,0.8674,3,C
+2022,252,Preston Murphy Jr.,New Orleans,0.8674,3,PG
+2022,252,Jason Thirdkill,Lamar,0.8674,3,SF
+2022,257,James Johns Jr.,Fairfield,0.8652,3,SG
+2022,257,Shy Odom,Howard,0.8652,3,PF
+2022,257,Reggie Bass,Central Michigan,0.8652,3,SG
+2022,257,JaVaughn Hannah,Western Michigan,0.8652,3,SG
+2022,257,Kendall Campbell,,0.8652,3,SF
+2022,262,Jeffery Brazziel,,0.8641,3,SG
+2022,262,Charles Chukwu,Tulsa,0.8641,3,C
+2022,262,Lewis Duarte,,0.8641,3,SG
+2022,265,Jeremiah Bembry,Florida State,0.8638,3,PG
+2022,266,Demetrius Lilley,Penn State,0.8619,3,C
+2022,266,Steven Clay,Chicago,0.8619,3,SF
+2022,266,Nigel Burris,Idaho,0.8619,3,PF
+2022,266,Kolby King,St. John's,0.8619,3,PG
+2022,270,Shawn Jones,Mississippi State,0.8607,3,PF
+2022,270,Jaret Valencia,Monmouth,0.8607,3,PF
+2022,272,Jason Drake,Cleveland State,0.86,3,CG
+2022,272,AJ Clayton,Ohio,0.86,3,PF
+2022,274,Tom House,Florida State,0.8596,3,SF
+2022,274,Korey Richardson,,0.8596,3,CG
+2022,276,Henri Adiassa,Lehigh,0.8585,3,C
+2022,276,Dasean Lecque,,0.8585,3,PG
+2022,276,Jared Turner,Northeastern,0.8585,3,SF
+2022,276,L.J. Glover,,0.8585,3,C
+2022,280,Chase Cormier,Northeastern,0.8578,3,CG
+2022,280,Larry Hughes Jr.,Saint Louis,0.8578,3,SG
+2022,280,Zachary Davis,South Carolina,0.8578,3,PG
+2022,280,Connor Turnbull,Butler,0.8578,3,C
+2022,284,Denim Dawson,Nebraska,0.8574,3,SF
+2022,285,Perry Smith Jr.,Vermont,0.8563,3,PF
+2022,285,Joyful Hawkins,,0.8563,3,PF
+2022,287,D.J. Nix,Cornell,0.8552,3,SF
+2022,287,Adante Holiman,UT Rio Grande Valley,0.8552,3,PG
+2022,289,Tayshawn Comer,Eastern Kentucky,0.855,3,CG
+2022,289,Randi Ovalle,Troy,0.855,3,SF
+2022,289,Kyle Thomas,Eastern Illinois,0.855,3,C
+2022,289,Javion Guy-King,,0.855,3,SF
+2022,293,Braeden Moore,BYU,0.8541,3,PF
+2022,294,Antwone Woolfolk,Rutgers,0.8528,3,PF
+2022,294,Tobe Awaka,Tennessee,0.8528,3,PF
+2022,294,Braxton Stacker,Murray State,0.8528,3,SG
+2022,294,Caden Powell,Wyoming,0.8528,3,C
+2022,294,Braden Appelhans,New Mexico,0.8528,3,SG
+2022,294,Fabio Basili,Louisville,0.8528,3,PG
+2022,300,Jerome Beya,Tennessee Tech,0.8519,3,C
+2022,301,Grant Newell,California,0.8517,3,SF
+2022,302,Kendall Blue,,0.8507,3,SG
+2022,303,Jorge Ochoa,South Carolina Upstate,0.85,3,PF
+2022,304,Corneilous Williams,LSU,0.8483,3,C
+2022,305,Mouhamadou Cisse,Saint Louis,0.8478,3,C
+2022,305,RJ Smith,Colorado,0.8478,3,SG
+2022,305,Learic Davis,Tennessee State,0.8478,3,SF
+2022,305,Aidan Hadaway,Ohio,0.8478,3,SF
+2022,309,Silas Sunday,Iona,0.8474,3,C
+2022,309,Jakobe Strozier,,0.8474,3,SG
+2022,311,CJ Jones,Chicago,0.8463,3,CG
+2022,311,Kyle Hicks,,0.8463,3,SG
+2022,313,Trae Clayton,,0.8456,3,SF
+2022,314,Didier Maleng,,0.845,3,C
+2022,315,Bowen Hardman,Ohio State,0.843,3,SG
+2022,316,Max Allen,San José State,0.8428,3,C
+2022,316,Tyrese Elliott,North Carolina A&T,0.8428,3,CG
+2022,316,Andrew Rohde,,0.8428,3,SG
+2022,319,Sonny Johnson Jr.,Detroit Mercy,0.84,3,PG
+2022,320,Tajavis Miller,North Dakota State,0.8378,3,PG
+2022,320,Jeremiah Nyarko,San Diego,0.8378,3,PF
+2022,322,Damien Mayo,Missouri State,0.8367,3,SG
+2022,323,Tyler Hendricks,UCF,0.833,3,SG
+2022,324,Donovan Atwell,UNC Greensboro,0.8328,3,SG
+2022,324,Christian Watson,,0.8328,3,PG
+2022,324,Devin Dinkins,George Mason,0.8328,3,PG
+2022,327,Noah Best,,0.8278,3,SG
+2022,327,Kiante Williams,,0.8278,3,SF
+2022,329,Isaiah Foster,,0.825,3,PG
+2022,329,Cameron Crockett,,0.825,3,SF
+2022,329,Richard Nweke,,0.825,3,PF
+2022,329,Lual Manyang,Hofstra,0.825,3,C
+2022,329,Willie Wilson,,0.825,3,CG
+2022,329,David Onanina,Eastern Kentucky,0.825,3,C
+2022,335,Donovan Short,,0.8228,3,C
+2022,336,Julian Norris,,0.8167,3,SG
+2022,337,Deuce Roberts,Temple,0.7767,2,SF
