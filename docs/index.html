@@ -46,6 +46,12 @@ button, select, input { font: inherit; color: inherit; }
 
 /* ---------- layout: sidebar + page ---------- */
 .app { display: grid; grid-template-columns: 206px minmax(0, 1fr); min-height: 100vh; }
+.nav-toggle { position: fixed; z-index: 70; top: 16px; left: 194px; width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--line); background: var(--panel); color: var(--muted); font: 700 16px/1 var(--body); cursor: pointer; display: grid; place-items: center; padding: 0 0 2px; box-shadow: var(--shadow); }
+.nav-toggle:hover { color: var(--fg); }
+html.nav-hidden .app { grid-template-columns: minmax(0, 1fr); }
+html.nav-hidden aside { display: none; }
+html.nav-hidden .nav-toggle { left: 10px; }
+@media (max-width: 900px) { .nav-toggle { display: none; } html.nav-hidden aside { display: flex; } }
 aside { background: var(--side); color: var(--side-fg); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; padding: 22px 0 18px; }
 aside > * { flex-shrink: 0; }
 aside { overflow-y: auto; }
@@ -150,9 +156,9 @@ input[type=checkbox] { accent-color: var(--orange); }
 #cf-table td, #cf-players td { padding-left: 6px; padding-right: 6px; }
 @media (max-width: 900px) { .cf-split { grid-template-columns: minmax(0, 1fr); } }
 #cf-table tbody td, #cf-players tbody td { height: 31px; padding-top: 0; padding-bottom: 0; }
+#cf-table thead th, #cf-players thead th { height: 36px; padding-top: 0; padding-bottom: 0; vertical-align: middle; }
 #cf-players td:nth-child(2) { color: var(--muted); font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; }
 #cf-players td:first-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 150px; }
-.cf-split .cvs { grid-template-columns: 1fr 1fr; gap: 0 20px; }
 .cvs .later { grid-column: 1 / -1; padding-top: 10px; font-size: 12.5px; color: var(--faint); line-height: 1.5; }
 .sheet .q { margin-left: 6px; vertical-align: 1px; }
 .clink { cursor: pointer; }
@@ -177,16 +183,18 @@ tr.month td { padding-top: 16px; background: none !important; font: 600 11px var
 @media (max-width: 900px) { .split { grid-template-columns: minmax(0, 1fr); } .tm-big { text-align: left; } .tm-big .big { font-size: 34px; } }
 
 /* ---------- game of the day ---------- */
-.gotd { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px 26px; padding: 14px 18px; margin: 26px 0 0; border: 1px solid var(--line); border-left: 4px solid var(--orange); border-radius: 6px; background: var(--panel); }
-.gotd .lbl { font: 700 13px var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--orange); white-space: nowrap; }
-.gotd .teams { font: 700 21px/1.15 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+.gotd { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 8px 30px; padding: 14px 18px; margin: 26px 0 0; border: 1px solid var(--line); border-left: 4px solid var(--orange); border-radius: 6px; background: var(--panel); }
+.gotd .lbl { font: 700 12px var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--orange); white-space: nowrap; margin-bottom: 5px; }
+.gotd .teams { font: 700 20px/1.2 var(--display); text-transform: uppercase; letter-spacing: .01em; }
 .gotd .teams .rk { font: 600 13px var(--body); margin-right: 4px; }
 .gotd .teams .at { font: 500 14px var(--body); color: var(--muted); text-transform: none; margin: 0 8px; }
-.gotd .nums { display: flex; gap: 22px; flex-wrap: wrap; justify-content: flex-end; }
+.gotd .teams > span { white-space: nowrap; }
+.gotd .nums { display: flex; gap: 22px; flex-wrap: nowrap; justify-content: flex-end; }
+.gotd .nums b { white-space: nowrap; }
 .gotd .nums span { display: flex; flex-direction: column; align-items: flex-end; }
 .gotd .nums i { font: 600 10.5px var(--body); font-style: normal; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .gotd .nums b { font: 600 17px var(--num); }
-@media (max-width: 900px) { .gotd { grid-template-columns: 1fr; } .gotd .nums { justify-content: flex-start; } .gotd .nums span { align-items: flex-start; } }
+@media (max-width: 1150px) { .gotd { grid-template-columns: 1fr; } .gotd .nums { justify-content: flex-start; flex-wrap: wrap; } .gotd .nums span { align-items: flex-start; } }
 
 /* ---------- matchup ---------- */
 .mu-pick { display: grid; grid-template-columns: 1fr auto 1fr auto; gap: 12px; align-items: end; margin: 18px 0 8px; }
@@ -384,6 +392,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 </head>
 <body>
 <div class="app">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Hide menu" title="Hide menu">&lsaquo;</button>
   <aside>
     <div class="brand"><img src="assets/logo-128.png" alt="The Meech Model logo"><b>The <span>Meech</span><br>Model</b></div>
     <div class="league" aria-label="League">
@@ -518,13 +527,13 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
     <!-- ===== Pace ===== -->
     <section data-page="pace" hidden>
-      <div class="sec"><h2>Style Map <span class="q" tabindex="0">?<span class="pop">Every team by speed (left = slow, right = fast) and pace control (up = drags games to its own speed, down = adapts to the opponent). Control needs games against teams that want a different speed, so faded dots don&rsquo;t have enough of those yet. Click a dot for the team page.</span></span></h2><div class="legend pm-legend"><span>Dots in team colors · solid = enough games · faded = not enough yet</span></div></div>
+      <div class="sec"><h2>Style Map <span class="q" tabindex="0">?<span class="pop">Every team by speed (left = slow, right = fast) and pace control (up = drags games to its own speed, down = adapts to the opponent). Control is this season only, measured from games against teams that want a different speed, so it&rsquo;s jumpy early in the season. Click a dot for the team page.</span></span></h2><div class="legend pm-legend"><span>Dots in team colors</span></div></div>
       <div class="map-wrap"><svg id="pace-map" role="img" aria-label="Pace style map"></svg><div class="gtip" id="pm-tip" hidden></div></div>
       <div class="pboard">
         <div><div class="sec"><h2>Fastest Teams</h2></div>
-          <div class="scroll" style="max-height:none"><table id="pf-table"><thead><tr><th class="num">Rk <span class="q" tabindex="0">?<span class="pop">Tempo rank: 1 = fastest team in D1.</span></span></th><th>Team</th><th>Conf</th><th class="num">Tempo <span class="q" tabindex="0">?<span class="pop">Possessions per 40 minutes against an average opponent. This is what the Meech lines use.</span></span></th><th class="num">Actual <span class="q" tabindex="0">?<span class="pop">Average possessions per 40 minutes in their games so far, against the opponents they actually played.</span></span></th><th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">How much their pace moves from game to game (standard deviation, in possessions). Lower = more consistent.</span></span></th><th class="num">Control <span class="q r" tabindex="0">?<span class="pop">When the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed. 50% = meets in the middle; higher = drags games to its own speed. Faded until a team has 5+ battles.</span></span></th><th class="num">Battles <span class="q r" tabindex="0">?<span class="pop">Games against a team whose preferred speed was at least 2.5 possessions different. Control is only measured from these.</span></span></th><th class="num">GP <span class="q r" tabindex="0">?<span class="pop">Games played vs. D1 teams.</span></span></th></tr></thead><tbody></tbody></table></div><p class="empty" id="pf-none" hidden>No matches.</p><button class="more" id="pf-more"></button></div>
+          <div class="scroll" style="max-height:none"><table id="pf-table"><thead><tr><th class="num">Rk <span class="q" tabindex="0">?<span class="pop">Tempo rank: 1 = fastest team in D1.</span></span></th><th>Team</th><th>Conf</th><th class="num">Tempo <span class="q" tabindex="0">?<span class="pop">Possessions per 40 minutes against an average opponent. This is what the Meech lines use.</span></span></th><th class="num">Actual <span class="q" tabindex="0">?<span class="pop">Average possessions per 40 minutes in their games so far, against the opponents they actually played.</span></span></th><th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">How much their pace moves from game to game (standard deviation, in possessions). Lower = more consistent.</span></span></th><th class="num">Control <span class="q r" tabindex="0">?<span class="pop">When the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed. 50% = meets in the middle; higher = drags games to its own speed. This season only; faded until a team has 5+ games against a team wanting a different speed.</span></span></th><th class="num">GP <span class="q r" tabindex="0">?<span class="pop">Games played vs. D1 teams.</span></span></th></tr></thead><tbody></tbody></table></div><p class="empty" id="pf-none" hidden>No matches.</p><button class="more" id="pf-more"></button></div>
         <div><div class="sec"><h2>Slowest Teams</h2></div>
-          <div class="scroll" style="max-height:none"><table id="ps-table"><thead><tr><th class="num">Rk <span class="q" tabindex="0">?<span class="pop">Tempo rank: 1 = fastest team in D1.</span></span></th><th>Team</th><th>Conf</th><th class="num">Tempo <span class="q" tabindex="0">?<span class="pop">Possessions per 40 minutes against an average opponent. This is what the Meech lines use.</span></span></th><th class="num">Actual <span class="q" tabindex="0">?<span class="pop">Average possessions per 40 minutes in their games so far, against the opponents they actually played.</span></span></th><th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">How much their pace moves from game to game (standard deviation, in possessions). Lower = more consistent.</span></span></th><th class="num">Control <span class="q r" tabindex="0">?<span class="pop">When the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed. 50% = meets in the middle; higher = drags games to its own speed. Faded until a team has 5+ battles.</span></span></th><th class="num">Battles <span class="q r" tabindex="0">?<span class="pop">Games against a team whose preferred speed was at least 2.5 possessions different. Control is only measured from these.</span></span></th><th class="num">GP <span class="q r" tabindex="0">?<span class="pop">Games played vs. D1 teams.</span></span></th></tr></thead><tbody></tbody></table></div><p class="empty" id="ps-none" hidden>No matches.</p><button class="more" id="ps-more"></button></div>
+          <div class="scroll" style="max-height:none"><table id="ps-table"><thead><tr><th class="num">Rk <span class="q" tabindex="0">?<span class="pop">Tempo rank: 1 = fastest team in D1.</span></span></th><th>Team</th><th>Conf</th><th class="num">Tempo <span class="q" tabindex="0">?<span class="pop">Possessions per 40 minutes against an average opponent. This is what the Meech lines use.</span></span></th><th class="num">Actual <span class="q" tabindex="0">?<span class="pop">Average possessions per 40 minutes in their games so far, against the opponents they actually played.</span></span></th><th class="num">Swing <span class="q r" tabindex="0">?<span class="pop">How much their pace moves from game to game (standard deviation, in possessions). Lower = more consistent.</span></span></th><th class="num">Control <span class="q r" tabindex="0">?<span class="pop">When the two teams want different speeds, how far the game ends up toward this team&rsquo;s speed. 50% = meets in the middle; higher = drags games to its own speed. This season only; faded until a team has 5+ games against a team wanting a different speed.</span></span></th><th class="num">GP <span class="q r" tabindex="0">?<span class="pop">Games played vs. D1 teams.</span></span></th></tr></thead><tbody></tbody></table></div><p class="empty" id="ps-none" hidden>No matches.</p><button class="more" id="ps-more"></button></div>
       </div>
       <div class="grid2">
         <div><div class="sec"><h2>Five-Year Dictators <span class="q" tabindex="0">?<span class="pop">Teams that dragged games toward their own speed in at least 4 of the last 5 seasons (2021-22 to 2025-26).</span></span></h2></div>
@@ -657,10 +666,10 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           <div class="sec"><h2>Top Players <span class="q r" tabindex="0">?<span class="pop">The conference&rsquo;s top 10 scorers this season (per game), among players who&rsquo;ve played in at least half of their team&rsquo;s games.</span></span></h2></div>
           <table id="cf-players"><thead><tr><th>Player</th><th>Team</th><th class="num">PTS</th><th class="num">REB</th><th class="num">AST</th></tr></thead><tbody></tbody></table>
           <p class="empty" id="cf-players-none" hidden>No stats yet.</p>
-          <div class="sec"><h2>Vs. Other Conferences <span class="q" tabindex="0">?<span class="pop">This season&rsquo;s record against every other D1 conference, counting home, road and neutral-site games. Most of these games happen in November and December.</span></span></h2></div>
-          <div class="cvs" id="cf-vs"></div>
         </div>
       </div>
+      <div class="sec"><h2>Vs. Other Conferences <span class="q" tabindex="0">?<span class="pop">This season&rsquo;s record against every other D1 conference, counting home, road and neutral-site games. Most of these games happen in November and December.</span></span></h2></div>
+      <div class="cvs" id="cf-vs"></div>
       <div class="sec"><h2>Conference Strength <span class="q" tabindex="0">?<span class="pop">Average team rating in each conference. This conference is highlighted. Click any bar to open that conference.</span></span></h2></div>
       <div class="bars" id="cf-bars"></div>
     </section>
@@ -881,7 +890,8 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     n('Tip ET', g.tip); n('Meech', `${g.favorite} ${f1(g.my_line)}`);
     if (g.vegas_line !== null && g.vegas_line !== undefined) n('Vegas', signed(g.vegas_line));
     n('Win %', pct(g.fav_win_pct)); n('Proj.', g.proj_score);
-    box.replaceChildren(el('div', 'lbl', 'Meech Game of the Day'), teams, nums);
+    const left = el('div'); left.append(el('div', 'lbl', 'Meech Game of the Day'), teams);
+    box.replaceChildren(left, nums);
   }
 
   function renderToday() {
@@ -1234,7 +1244,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
         .catch(() => { TEAMS[S.league] = {}; });
     }
     const players = pack ? teams.flatMap((t) => ((pack[t.team_id] || {}).l || []).map((p) => ({...p, team: t.team})))
-      .sort((a, b) => b.pts - a.pts).slice(0, 10) : [];
+      .sort((a, b) => b.pts - a.pts).slice(0, Math.max(10, teams.length)) : [];   // as many rows as the standings, so the two tables end together
     fill($('#cf-players tbody'), players.map((p) => {
       const tr = el('tr'); const tc = el('td'); const nm = el('span', 'tlink', p.team);
       nm.dataset.team = (NAME2ID[S.league] || {})[p.team]; tc.append(nm);
@@ -1250,15 +1260,13 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     const W = others.reduce((a, o) => a + o.w, 0), L = others.reduce((a, o) => a + o.l, 0);
     const tot = el('div', 'tot'); tot.append(document.createTextNode('All other conferences'), el('b', '', recTxt(W, L)),
       document.createTextNode(W + L ? `${Math.round(100 * W / (W + L))}%` : ''));
-    const played = others.filter((o) => o.w + o.l), notYet = others.filter((o) => !(o.w + o.l));
-    const later = el('div', 'later', notYet.length ? 'Not played yet: ' + notYet.map((o) => o.conf).sort((a, b) => a.localeCompare(b)).join(', ') : '');
-    $('#cf-vs').replaceChildren(tot, ...played.map((o) => {
-      const r = el('div', 'r');
+    $('#cf-vs').replaceChildren(tot, ...others.map((o) => {
+      const r = el('div', 'r' + (o.w + o.l ? '' : ' none'));
       const nm = el('span', 'clink', o.conf); nm.dataset.conf = o.conf;
       const rec = el('span', 'rec', o.w + o.l ? recTxt(o.w, o.l) : '—');
       rec.append(el('span', 'pc', o.w + o.l ? `${Math.round(100 * o.w / (o.w + o.l))}%` : ''));
       r.append(nm, rec); return r;
-    }), later);
+    }));
     drawConfBars($('#cf-bars'), S.cname);
   }
 
@@ -1484,7 +1492,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       [['Slow · dictates', L + 6, T + 14, 'start'], ['Fast · dictates', W - Rt - 6, T + 14, 'end'],
        ['Slow · adapts', L + 6, H - B - 8, 'start'], ['Fast · adapts', W - Rt - 6, H - B - 8, 'end']].forEach(([t, x, y, a]) =>
         svg.append(svgEl('text', {x, y, 'text-anchor': a, class: 'pm-q'}, t)));
-      svg.append(svgEl('text', {x: (L + W) / 2, y: H - 6, 'text-anchor': 'middle', class: 'ax-t'}, '← slower      tempo (possessions per 40)      faster →'));
+      svg.append(svgEl('text', {x: (L + W) / 2, y: H - 6, 'text-anchor': 'middle', class: 'ax-t'}, '← slower      tempo (possessions per 40 min)      faster →'));
       svg.append(svgEl('text', {x: 12, y: (T + H - B) / 2, 'text-anchor': 'middle', class: 'ax-t', transform: `rotate(-90 12 ${(T + H - B) / 2})`}, 'pace control'));
       [x0, (x0 + x1) / 2, x1].forEach((v, i) => svg.append(svgEl('text', {x: X(v), y: H - B + 14, 'text-anchor': ['start', 'middle', 'end'][i], class: 'ax-t'}, v.toFixed(0))));
       const searching = S.q.trim() !== '';
@@ -1492,7 +1500,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       pts.sort((a, b) => (hit(a) - hit(b)) || (a.battles - b.battles)).forEach((p) => {
         const on = hit(p);
         const c = svgEl('circle', {cx: X(p.tempo), cy: Y(Math.max(5, Math.min(95, p.control))), r: on ? 8 : 5.5,
-          class: 'pm-dot' + (on ? ' pm-hit' : '') + (!on && p.battles < READY ? ' faint' : '') + ((searching && !on) || !inConf(p.conf) ? ' dim' : '')});
+          class: 'pm-dot' + (on ? ' pm-hit' : '') + ((searching && !on) || !inConf(p.conf) ? ' dim' : '')});
         c.style.fill = COLOR[p.team] || '';
         c.addEventListener('mouseenter', () => showTip(tip, wrap, X(p.tempo) * wrap.getBoundingClientRect().width / W, Y(Math.max(5, Math.min(95, p.control))) * wrap.getBoundingClientRect().height / H,
           `<div class="d">${p.conf}</div><div class="m">${p.team}</div><div class="row"><span>Tempo</span><b>${f1(p.tempo)} (${ordinal(p.tempo_rank)})</b></div><div class="row"><span>Pace control</span><b>${Math.round(p.control)}%</b></div><div class="row"><span>Net rating</span><b>${signed(rank[p.team_id].net)} (${ordinal(rank[p.team_id].rank)})</b></div>`));
@@ -1513,7 +1521,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       tr.append(td(String(p.tempo_rank), 'num rk'), teamCell(p.team), confCell(p.conf), td(f1(p.tempo), 'num'),
         td(f1(p.pace_avg), 'num muted'), td(f1(p.pace_sd), 'num muted'),
         td(num(p.control) === null || !p.games ? '—' : Math.round(p.control) + '%', 'num' + (p.battles < READY ? ' faint' : '')),
-        td(String(p.battles), 'num muted'), td(String(p.games), 'num rk'));
+        td(String(p.games), 'num rk'));
       return tr;
     };
     [['pf', byTempo.slice(0, half), 'pfall', 'fastest'], ['ps', byTempo.slice(half).reverse(), 'psall', 'slowest']].forEach(([id, list, key, word]) => {
@@ -1647,6 +1655,18 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   });
   headerSort('#lines', 'scol', 'sdir', 'sort');
   headerSort('#ranks', 'rcol', 'rdir', 'rsort');
+
+  // hide / show the left menu (remembered per browser)
+  const navBtn = $('#nav-toggle');
+  const paintNav = () => { const hid = document.documentElement.classList.contains('nav-hidden');
+    navBtn.innerHTML = hid ? '&rsaquo;' : '&lsaquo;'; navBtn.title = hid ? 'Show menu' : 'Hide menu'; navBtn.setAttribute('aria-label', navBtn.title); };
+  try { if (localStorage.getItem('mech-nav') === 'hidden') document.documentElement.classList.add('nav-hidden'); } catch (e) {}
+  navBtn.addEventListener('click', () => {
+    const hid = document.documentElement.classList.toggle('nav-hidden');
+    try { localStorage.setItem('mech-nav', hid ? 'hidden' : 'shown'); } catch (e) {}
+    paintNav(); if (D.info) render();   // charts redraw at the new width
+  });
+  paintNav();
 
   // keep "?" bubbles on screen
   const fitPop = (e) => {
