@@ -104,7 +104,7 @@ input[type=checkbox] { accent-color: var(--orange); }
 .stat .s { font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* rankings placeholder */
-.soon { padding: 40px 0; max-width: 560px; }
+.soon { padding: 40px 0; max-width: none; }
 .soon > b { font: 700 24px var(--display); letter-spacing: .03em; text-transform: uppercase; }
 .soon p { font-size: 15.5px; line-height: 1.6; color: var(--fg); margin: 8px 0 0; }
 .soon a { color: var(--blue); }
@@ -771,6 +771,8 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   const f1 = (x) => (num(x) === null ? '—' : num(x).toFixed(1));
   const signed = (x) => (num(x) === null ? '—' : (num(x) > 0 ? '+' : '') + num(x).toFixed(1));
   const pct = (x) => (num(x) === null ? '—' : num(x).toFixed(1) + '%');
+  // a win chance is never shown as a sure thing: 0.1% to 99.9%
+  const winPct = (x) => (num(x) === null ? '—' : Math.min(99.9, Math.max(0.1, num(x))).toFixed(1) + '%');
   const cmp = (a, b) => {
     const na = a === null || a === undefined, nb = b === null || b === undefined;
     if (na && nb) return 0; if (na) return 1; if (nb) return -1;
@@ -905,7 +907,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     const n = (k, v) => { const sp = el('span'); sp.append(el('i', '', k), el('b', '', v)); nums.append(sp); };
     n('Tip ET', g.tip); n('Meech', f1(g.my_line));
     if (g.vegas_line !== null && g.vegas_line !== undefined) n('Vegas', signed(g.vegas_line));
-    n('Win %', pct(g.fav_win_pct)); n('Proj.', g.proj_score);
+    n('Win %', winPct(g.fav_win_pct)); n('Proj.', g.proj_score);
     const left = el('div'); left.append(el('div', 'lbl', 'Meech Game of the Day'), teams);
     box.replaceChildren(left, nums);
   }
@@ -942,7 +944,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       tr.append(td(r.tip, 'num muted'), td(String(r.away_rank), 'num rk'),
         teamCell(r.away, {fav: !favHome, conf: r.away_conf, stripe: false}), td(String(r.home_rank), 'num rk'),
         teamCell(r.home, {fav: favHome, conf: r.home_conf, neutral: !!r.site, stripe: false}),
-        td(f1(r.my_line), 'num' + (close ? ' hot' : '')), td(pct(r.fav_win_pct), 'num'),
+        td(f1(r.my_line), 'num' + (close ? ' hot' : '')), td(winPct(r.fav_win_pct), 'num'),
         td(r.proj_score, 'num'), td(f1(r.proj_tempo), 'num muted'), td(signed(r.vegas_line), 'num'),
         td(signed(r.gap), 'num'));
       return tr;
@@ -1060,7 +1062,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     fill($('#log tbody'), games.slice(0, S.logn).map((r) => {
       const tr = el('tr');
       tr.append(td(r.date, 'num muted'), teamCell(r.away, {fav: r.favorite === r.away}), teamCell(r.home, {fav: r.favorite === r.home}),
-        td(f1(r.my_line), 'num'), td(signed(r.vegas_line), 'num muted'), td(pct(r.fav_win_pct), 'num'), td(r.final, 'num'),
+        td(f1(r.my_line), 'num'), td(signed(r.vegas_line), 'num muted'), td(winPct(r.fav_win_pct), 'num'), td(r.final, 'num'),
         td(f1(r.miss), 'num'), td(f1(r.vegas_miss), 'num muted'), td(r.winner, r.winner === 'Yes' ? 'good' : 'muted'),
         td(r.closer || '—', r.closer === 'Meech' ? 'good' : 'muted'));
       return tr;
@@ -1593,8 +1595,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     const hi = all.filter((h) => h.elevation_ft >= 4000), lo = all.filter((h) => num(h.elevation_ft) !== null && h.elevation_ft < 4000);
     const mean = (xs) => xs.reduce((a, h) => a + h.home_court, 0) / xs.length;
     const items = [it('League average', '+' + avg.toFixed(1), 'points')];
-    const tied = (ref) => all.filter((h) => f1(h.home_court) === f1(ref.home_court)).map((h) => h.team).join(', ');   // ties at the shown decimal
-    if (best) items.push(it('Biggest', '+' + f1(best.home_court), tied(best)), it('Smallest', '+' + f1(worst.home_court), tied(worst)));
+    if (best) items.push(it('Biggest', '+' + f1(best.home_court)), it('Smallest', '+' + f1(worst.home_court)));
     if (hi.length >= 3 && lo.length) items.push(it('Altitude', `+${mean(hi).toFixed(1)} vs +${mean(lo).toFixed(1)}`, `${hi.length} teams above 4,000 ft vs. the rest`));
     $('#hc-ticker').replaceChildren(...items);
     const rows = sortRows(all.filter((h) => inConf(h.conf) && qMatch(h.team)), S.hsort);
@@ -1626,7 +1627,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       const w = teamCell(u.winner); w.querySelector('.sw').after(el('span', 'rk up-rk', '#' + u.winner_rank));
       const l = teamCell(u.loser); l.querySelector('.sw').after(el('span', 'rk up-rk', '#' + u.loser_rank));
       tr.append(td(fmtDate(u.date), 'muted'), w, td(u.site === 'N' ? 'N' : u.site, 'muted'), l,
-        td('+' + f1(u.meech), 'num'), td(Math.max(1, Math.round(u.win_pct)) + '%', 'num muted'),
+        td('+' + f1(u.meech), 'num'), td(Math.min(99, Math.max(1, Math.round(u.win_pct))) + '%', 'num muted'),
         td(num(u.vegas) === null ? '—' : signed(u.vegas), 'num muted'), td(`${u.winner_pts}–${u.loser_pts}`, 'num'),
         td(f1(u.swing), 'num swg'));
       return tr;
@@ -1637,7 +1638,20 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   }
   $('#up-sort').addEventListener('change', (e) => { S.usort = e.target.value; render(); });
 
+  // filters and search belong to the page they were set on
+  const perPage = {confs: {}, q: {}};
+  let lastTab = null;
+  const swapFilters = () => {
+    if (lastTab === S.tab) return;
+    if (lastTab !== null) {
+      perPage.confs[lastTab] = S.confs; perPage.q[lastTab] = S.q;
+      S.confs = perPage.confs[S.tab] || new Set(); S.q = perPage.q[S.tab] || '';
+      const box = $('#search'); box.value = S.q; if (box._clear) box._clear.hidden = !S.q;
+    }
+    lastTab = S.tab;
+  };
   function render() {
+    swapFilters();
     renderChrome();
     if (S.tab === 'today') renderToday();
     if (S.tab === 'rankings') renderRankings();
