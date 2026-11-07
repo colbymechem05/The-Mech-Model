@@ -8,8 +8,8 @@ import daily
 import data as D
 import export
 import odds
-import recruits as RC
 import ratings as R
+import recruits as RC
 import talent as T
 
 HAVE_DATA = (D.ROOT / "data" / "games_mbb.csv").exists()

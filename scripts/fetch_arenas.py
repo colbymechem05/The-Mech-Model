@@ -69,10 +69,10 @@ def match(v: pd.DataFrame, w: pd.DataFrame) -> pd.DataFrame:
         na, school = norm(x.venue), norm(x.school)
         hit, how = w[w.na == na], "arena name"
         if len(hit) != 1:   # partial name: only if the school or the city agrees (generic names repeat)
-            hit, how = w[w.na.map(lambda a: bool(a) and (a in na or na in a))], "arena name (partial)"
+            hit, how = w[w.na.map(lambda a, na=na: bool(a) and (a in na or na in a))], "arena name (partial)"
             hit = hit[[agrees(r, school, x.city) for r in hit.itertuples()]]
         if len(hit) != 1:
-            hit, how = w[w.nt.map(lambda t: t == school or t.startswith(school + " "))], "school"
+            hit, how = w[w.nt.map(lambda t, sc=school: t == sc or t.startswith(sc + " "))], "school"
         if len(hit) > 1:   # school with several venues: the one in the same city
             hit = hit[hit.city.map(norm) == norm(x.city)]
         row = {"team_id": x.team_id, "league": x.league, "capacity": None, "arena_wiki": None,

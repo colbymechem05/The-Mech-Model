@@ -126,11 +126,9 @@ def fill_closing(league: str, now: pd.Timestamp | None = None, lookback_days: in
     """Closing lines for finished games we made a line for (or saw a Vegas line for)
     that don't have one yet. One small request per game, politely spaced."""
     now = now or pd.Timestamp.now(tz="UTC")
-    sched = D.RAW / f"{league}_schedule_{D.CURRENT}.csv"
-    if not sched.exists():
+    if not (D.RAW / f"{league}_schedule_{D.CURRENT}.csv").exists():
         return 0
-    tips = (pd.read_csv(sched, low_memory=False, usecols=["game_id", "game_date", "game_date_time"])
-              .drop_duplicates("game_id").set_index("game_id"))
+    tips = D.schedule(league, cols=["game_id", "game_date", "game_date_time"]).drop_duplicates("game_id").set_index("game_id")
     v = load(league)
     pred = LOGS / f"predictions_{league}.csv"
     ids = set(v.game_id)

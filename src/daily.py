@@ -1,7 +1,8 @@
 """Daily run: refresh data, rate every D1 team, make lines for a date's games,
 and append them to a permanent log (saved before tip-off; never overwritten).
 
-Usage:  python src/daily.py [YYYY-MM-DD] [--no-refresh]     (default: today)
+Usage:  python src/daily.py [YYYY-MM-DD] [--no-refresh] [--force]
+        (default date: today; before 6 AM Central, still last night's slate: data.default_day)
 Outputs per league (mbb, wbb):
   output/ratings_{lg}.csv          power ratings, all D1
   output/lines_{lg}_{date}.csv     that day's lines
@@ -53,9 +54,8 @@ def buy_boost(league: str, day: pd.Timestamp, home_ids, away_ids, neutral, sprea
 
 
 def todays_games(league: str, day: pd.Timestamp) -> pd.DataFrame:
-    s = pd.read_csv(D.RAW / f"{league}_schedule_{D.CURRENT}.csv", low_memory=False,
-                    usecols=["game_id", "game_date", "game_date_time", "home_id", "away_id",
-                             "home_display_name", "away_display_name", "neutral_site"])
+    s = D.schedule(league, cols=["game_id", "game_date", "game_date_time", "home_id", "away_id",
+                                 "home_display_name", "away_display_name", "neutral_site"])
     s = s[pd.to_datetime(s.game_date) == day]
     return s.assign(neutral=s.neutral_site.fillna(False).astype(bool))
 
@@ -135,9 +135,7 @@ def project_schedule(league: str, day: pd.Timestamp, r: pd.DataFrame, lg_info: d
                      dials: R.Dials, conf: pd.Series | None = None) -> pd.DataFrame:
     """Every remaining D1-vs-D1 game this season (today on), rated as the teams stand today.
     Same math as the daily lines, including each date's buy-game boost."""
-    s = pd.read_csv(D.RAW / f"{league}_schedule_{D.CURRENT}.csv", low_memory=False,
-                    usecols=["game_id", "game_date", "home_id", "away_id", "neutral_site",
-                             "status_type_completed"])
+    s = D.schedule(league, cols=["game_id", "game_date", "home_id", "away_id", "neutral_site", "status_type_completed"])
     s["date"] = pd.to_datetime(s.game_date)
     g = s[(s.date >= day) & ~s.status_type_completed.fillna(False).astype(bool)
           & s.home_id.isin(r.index) & s.away_id.isin(r.index)].reset_index(drop=True)

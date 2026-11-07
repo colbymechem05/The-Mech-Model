@@ -31,10 +31,9 @@ def conferences(league: str) -> pd.Series:
 
 def tip_times(league: str) -> pd.Series:
     """game_id -> scheduled tip (ISO string with offset)."""
-    f = D.RAW / f"{league}_schedule_{D.CURRENT}.csv"
-    if not f.exists():
+    if not (D.RAW / f"{league}_schedule_{D.CURRENT}.csv").exists():
         return pd.Series(dtype=object)
-    s = pd.read_csv(f, low_memory=False, usecols=["game_id", "game_date_time"])
+    s = D.schedule(league, cols=["game_id", "game_date_time"])
     return s.drop_duplicates("game_id").set_index("game_id").game_date_time
 
 
@@ -85,11 +84,10 @@ def clean_score(proj_score: str, spread_home: float) -> str:
 def conf_vs(league: str) -> pd.DataFrame:
     """This season's record of each conference against each other conference (completed D1 vs.
     D1 games between teams in different conferences; neutral, home and road all count)."""
-    f = D.RAW / f"{league}_schedule_{D.CURRENT}.csv"
-    if not f.exists():
+    if not (D.RAW / f"{league}_schedule_{D.CURRENT}.csv").exists():
         return pd.DataFrame()
-    s = pd.read_csv(f, low_memory=False, usecols=["game_id", "home_id", "away_id", "home_score", "away_score",
-                                                  "status_type_completed"]).drop_duplicates("game_id")
+    s = D.schedule(league, cols=["game_id", "home_id", "away_id", "home_score", "away_score",
+                                 "status_type_completed"]).drop_duplicates("game_id")
     s = s[s.status_type_completed.fillna(False).astype(bool) & (s.home_score != s.away_score)]
     conf = conferences(league)
     s = s.assign(hc=s.home_id.map(conf), ac=s.away_id.map(conf)).dropna(subset=["hc", "ac"])
@@ -102,14 +100,14 @@ def conf_vs(league: str) -> pd.DataFrame:
     return out[["conf", "opp", "w", "l"]].astype({"w": int, "l": int})
 
 
-def upsets(league: str) -> pd.DataFrame:
+def upsets(league: str, graded: pd.DataFrame | None = None) -> pd.DataFrame:
     """Logged games where a Meech underdog of UPSET_DOG+ points won outright (from the winner's side)."""
-    x = grade(league)
+    x = grade(league) if graded is None else graded
     if x.empty:
         return pd.DataFrame()
     hd = x.spread_home < 0                                   # home team was the Meech underdog
-    won = np.where(hd, x.margin > 0, x.margin < 0)
-    x, hd = x[(x.spread_home.abs() >= UPSET_DOG) & won], hd[(x.spread_home.abs() >= UPSET_DOG) & won]
+    keep = (x.spread_home.abs() >= UPSET_DOG) & np.where(hd, x.margin > 0, x.margin < 0)   # big underdog won
+    x, hd = x[keep], hd[keep]
     if x.empty:
         return pd.DataFrame()
     neutral = x.neutral.astype(str).str.lower() == "true"
@@ -131,9 +129,9 @@ def vegas_for_favorite(spread_home, vegas_home):
     return np.where(spread_home >= 0, -vegas_home, vegas_home)
 
 
-def record(league: str) -> dict:
+def record(league: str, graded: pd.DataFrame | None = None) -> dict:
     """Graded games plus summary, monthly and calibration tables (rows)."""
-    x = grade(league)
+    x = grade(league) if graded is None else graded.copy()
     summary = {"kind": "summary", "league": league, "graded": len(x),
                "avg_miss": round(x.miss.mean(), 2) if len(x) else None,
                "winner_pct": round(100 * x.correct.mean(), 1) if len(x) else None,
@@ -179,9 +177,8 @@ def record(league: str) -> dict:
 
 def records(league: str) -> pd.DataFrame:
     """Overall and conference W-L per team (all completed games, any opponent)."""
-    s = pd.read_csv(D.RAW / f"{league}_schedule_{D.CURRENT}.csv", low_memory=False,
-                    usecols=["home_id", "away_id", "home_score", "away_score", "status_type_completed",
-                             "conference_competition"])
+    s = D.schedule(league, cols=["home_id", "away_id", "home_score", "away_score", "status_type_completed",
+                                 "conference_competition"])
     s = s[s.status_type_completed.fillna(False).astype(bool)]
     conf = s.conference_competition.fillna(False).astype(bool)
     home_won = s.home_score > s.away_score
@@ -201,8 +198,7 @@ def league_tables(league: str, day: pd.Timestamp) -> dict:
     r["conf"] = r.team_id.map(conf).fillna("Ind.")
     r["vs_preseason"] = (r.net - r.preseason).round(1)
     r = r.join(records(league), on="team_id")
-    sc = pd.read_csv(D.RAW / f"{league}_schedule_{D.CURRENT}.csv", low_memory=False,
-                     usecols=["home_id", "home_location"]).drop_duplicates("home_id").set_index("home_id")
+    sc = D.schedule(league, cols=["home_id", "home_location"]).drop_duplicates("home_id").set_index("home_id")
     r["school"] = r.team_id.map(sc.home_location).fillna(r.team)   # short name ("Michigan") for tight spots
     rc = ["wins", "losses", "conf_wins", "conf_losses"]
     r[rc] = r[rc].fillna(0).astype(int)
@@ -213,8 +209,7 @@ def league_tables(league: str, day: pd.Timestamp) -> dict:
     f = OUT / f"lines_{league}_{day.date()}.csv"
     lines = pd.read_csv(f) if f.exists() and f.stat().st_size > 1 else pd.DataFrame()
     if len(lines):
-        ids = pd.read_csv(D.RAW / f"{league}_schedule_{D.CURRENT}.csv", low_memory=False,
-                          usecols=["game_id", "home_id", "away_id"]).set_index("game_id")
+        ids = D.schedule(league, cols=["game_id", "home_id", "away_id"]).set_index("game_id")
         lines["home_conf"] = lines.game_id.map(ids.home_id).map(conf).fillna("Ind.")
         lines["away_conf"] = lines.game_id.map(ids.away_id).map(conf).fillna("Ind.")
         vegas = odds.load(league).set_index("game_id")
@@ -226,15 +221,16 @@ def league_tables(league: str, day: pd.Timestamp) -> dict:
         lines["site"] = np.where(lines.neutral, "Neutral", "")
         lines["proj_score"] = [clean_score(s, h) for s, h in zip(lines.proj_score, lines.spread_home)]
         lines = lines.drop(columns=["date", "made_at", "neutral"])
-    sc = pd.read_csv(D.RAW / f"{league}_schedule_{D.CURRENT}.csv", low_memory=False,
-                     usecols=["home_display_name", "home_color", "away_display_name", "away_color"])
+    sc = D.schedule(league, cols=["home_display_name", "home_color", "away_display_name", "away_color"])
     colors = pd.concat([sc[["home_display_name", "home_color"]].set_axis(["team", "color"], axis=1),
                         sc[["away_display_name", "away_color"]].set_axis(["team", "color"], axis=1)])
     colors = colors.dropna().drop_duplicates("team")
     colors["color"] = "#" + colors.color.astype(str).str.lstrip("#")
-    rec = record(league)  # one file: summary rows always exist, so it never comes up empty
+    graded = grade(league)
+    rec = record(league, graded)  # one file: summary rows always exist, so it never comes up empty
     out = {"lines": lines, "rankings": r, "conferences": strength, "colors": colors,
-           "upsets": upsets(league), "conf_vs": conf_vs(league), "pace": pace_table(league), "pace_history": pace_history(league), "homecourt": homecourt(league),
+           "upsets": upsets(league, graded), "conf_vs": conf_vs(league), "pace": pace_table(league),
+           "pace_history": pace_history(league), "homecourt": homecourt(league),
            "record": [rec["summary"]] + rec["months"] + rec["calibration"] + rec["games"]}
     return {k: (v if isinstance(v, list) else v.assign(league=league).replace({np.nan: None})
                 .to_dict("records")) for k, v in out.items()}
@@ -296,10 +292,9 @@ def venues(league: str) -> pd.DataFrame:
     this season and last."""
     rows = []
     for season in (D.CURRENT - 1, D.CURRENT):
-        f = D.RAW / f"{league}_schedule_{season}.csv"
-        if f.exists():
-            rows.append(pd.read_csv(f, low_memory=False, usecols=[
-                "home_id", "neutral_site", "venue_full_name", "venue_address_city", "venue_address_state"]))
+        if (D.RAW / f"{league}_schedule_{season}.csv").exists():
+            rows.append(D.schedule(league, season, ["home_id", "neutral_site", "venue_full_name",
+                                                    "venue_address_city", "venue_address_state"]))
     s = pd.concat(rows)
     s = s[~s.neutral_site.fillna(False).astype(bool)].dropna(subset=["venue_full_name"])
     top = (s.groupby(["home_id", "venue_full_name", "venue_address_city", "venue_address_state"], dropna=False)
@@ -312,10 +307,9 @@ def team_pages(league: str, day: pd.Timestamp) -> dict:
     """Per-team schedule (results, logged or projected Meech line, win chance) + stat leaders,
     keyed by team_id. Loaded by the site only when a team page is opened."""
     r = pd.read_csv(OUT / f"ratings_{league}.csv").set_index("team_id")
-    s = pd.read_csv(D.RAW / f"{league}_schedule_{D.CURRENT}.csv", low_memory=False,
-                    usecols=["game_id", "game_date", "home_id", "away_id", "home_display_name",
-                             "away_display_name", "home_score", "away_score", "neutral_site",
-                             "status_type_completed", "conference_competition"])
+    s = D.schedule(league, cols=["game_id", "game_date", "home_id", "away_id", "home_display_name",
+                                 "away_display_name", "home_score", "away_score", "neutral_site",
+                                 "status_type_completed", "conference_competition"])
     s["done"] = s.status_type_completed.fillna(False).astype(bool)
     s["neutral"] = s.neutral_site.fillna(False).astype(bool)
     spread, prob = pd.Series(dtype=float), pd.Series(dtype=float)
@@ -395,8 +389,7 @@ def write_venues() -> None:
     for lg in D.LEAGUES:
         v = venues(lg)
         v = v[v.index.isin(pd.read_csv(OUT / f"ratings_{lg}.csv").team_id)]
-        sc = (pd.read_csv(D.RAW / f"{lg}_schedule_{D.CURRENT}.csv", low_memory=False,
-                          usecols=["home_id", "home_location", "home_display_name"])
+        sc = (D.schedule(lg, cols=["home_id", "home_location", "home_display_name"])
                 .drop_duplicates("home_id").set_index("home_id"))
         rows.append(v.assign(school=sc.home_location.reindex(v.index), team=sc.home_display_name.reindex(v.index),
                              league=lg).rename_axis("team_id").reset_index())

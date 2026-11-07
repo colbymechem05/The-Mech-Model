@@ -97,7 +97,8 @@ jobs:
             echo "No changes"
           else
             if [ "${{ steps.kind.outputs.full }}" = "true" ]; then what="Daily run"; else what="Vegas refresh"; fi
-            git commit -m "$what $(TZ=America/Chicago date +%Y-%m-%d)"
+            day=$(python -c "import json; print(json.load(open('docs/data/info.json'))[0]['date'])")   # the slate, not the clock
+            git commit -m "$what $day"
             git pull --rebase -q
             git push
           fi

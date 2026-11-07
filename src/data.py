@@ -3,9 +3,10 @@ games table per league. Season 2027 = the 2026-27 season.
 
 Output: data/games_{league}.csv, one row per game (home perspective).
 """
-from pathlib import Path
 import time
 import urllib.request
+from functools import lru_cache
+from pathlib import Path
 
 import pandas as pd
 
@@ -33,6 +34,7 @@ def fetch(remote: str, path: Path, refresh: bool = False, tries: int = 5) -> Pat
         try:
             urllib.request.urlretrieve(f"{BASE}/{remote}", tmp)
             tmp.replace(path)
+            schedule.cache_clear()   # a fresh download replaces any schedule read earlier in this run
             return path
         except OSError:
             tmp.unlink(missing_ok=True)
@@ -50,6 +52,30 @@ def download(league: str, season: int, refresh: bool = False) -> None:
           RAW / f"{league}_schedule_{season}.csv", refresh)
 
 
+# every schedule column the pipeline uses (the raw file has ~100; only these are kept in memory)
+SCHEDULE_COLS = {"game_id", "game_date", "game_date_time", "status_period", "status_type_completed",
+                 "neutral_site", "conference_competition", "groups_id", "groups_short_name",
+                 "home_id", "home_location", "home_display_name", "home_color", "home_score", "home_conference_id",
+                 "away_id", "away_display_name", "away_color", "away_score", "away_conference_id",
+                 "venue_full_name", "venue_address_city", "venue_address_state"}
+
+
+@lru_cache(maxsize=None)
+def _schedule(league: str, season: int) -> pd.DataFrame:
+    return pd.read_csv(RAW / f"{league}_schedule_{season}.csv", low_memory=False,
+                       usecols=lambda c: c in SCHEDULE_COLS)
+
+
+def schedule(league: str, season: int = CURRENT, cols: list | None = None) -> pd.DataFrame:
+    """A season's ESPN schedule (read once per run, then served from memory). Returns a copy,
+    so callers can add columns freely."""
+    s = _schedule(league, season)
+    return (s[cols] if cols else s).copy()
+
+
+schedule.cache_clear = _schedule.cache_clear
+
+
 def possessions(fga, oreb, tov, fta):
     return fga - oreb + tov + FT_FACTOR * fta
 
@@ -57,8 +83,7 @@ def possessions(fga, oreb, tov, fta):
 def load_season(league: str, season: int) -> pd.DataFrame:
     _, reg_periods = LEAGUES[league]
     box = pd.read_csv(RAW / f"{league}_team_box_{season}.csv", low_memory=False)
-    sched = pd.read_csv(RAW / f"{league}_schedule_{season}.csv", low_memory=False,
-                        usecols=["game_id", "neutral_site", "status_period"])
+    sched = schedule(league, season, ["game_id", "neutral_site", "status_period"])
     box["poss"] = possessions(box.field_goals_attempted, box.offensive_rebounds,
                               box.turnovers, box.free_throws_attempted)
     keep = ["game_id", "team_id", "team_display_name", "team_score", "poss"]
@@ -85,8 +110,7 @@ def d1_teams(league: str) -> set:
     for s in SEASONS:
         f = RAW / f"{league}_schedule_{s}.csv"
         if f.exists():
-            sc = pd.read_csv(f, low_memory=False, usecols=[
-                "home_id", "home_conference_id", "away_id", "away_conference_id"])
+            sc = schedule(league, s, ["home_id", "home_conference_id", "away_id", "away_conference_id"])
             ids |= set(sc.loc[sc.home_conference_id.notna(), "home_id"])
             ids |= set(sc.loc[sc.away_conference_id.notna(), "away_id"])
     return ids
@@ -107,9 +131,8 @@ def build(league: str, refresh_current: bool = True) -> pd.DataFrame:
 def conferences(league: str, season: int) -> pd.Series:
     """team_id -> conference short name for a season (from that season's schedule)."""
     download(league, season, refresh=False)
-    sc = pd.read_csv(RAW / f"{league}_schedule_{season}.csv", low_memory=False, usecols=[
-        "home_id", "home_conference_id", "away_id", "away_conference_id",
-        "groups_id", "groups_short_name", "conference_competition"])
+    sc = schedule(league, season, ["home_id", "home_conference_id", "away_id", "away_conference_id",
+                                   "groups_id", "groups_short_name", "conference_competition"])
     names = (sc[sc.conference_competition == True]  # noqa: E712
              .drop_duplicates("groups_id").set_index("groups_id").groups_short_name)
     ids = pd.concat([sc.set_index("home_id").home_conference_id, sc.set_index("away_id").away_conference_id])

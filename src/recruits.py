@@ -36,7 +36,7 @@ def school_ids(league: str = "mbb") -> dict:
     for s in D.SEASONS:
         f = D.RAW / f"{league}_schedule_{s}.csv"
         if f.exists():
-            sc = pd.read_csv(f, low_memory=False, usecols=["home_id", "home_location"])
+            sc = D.schedule(league, s, ["home_id", "home_location"])
             out.update(dict(zip(sc.home_location, sc.home_id)))
     return out
 
