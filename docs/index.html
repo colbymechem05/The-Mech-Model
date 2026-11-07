@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="assets/logo-256.png">
 <meta property="og:image" content="assets/logo-256.png">
 <script>
-  try { if (localStorage.getItem('mech-theme') === 'dark') delete document.documentElement.dataset.theme; } catch (e) {}
+  try { if (localStorage.getItem('meech-theme') === 'dark') delete document.documentElement.dataset.theme; } catch (e) {}
 </script>
 <style>
 /* Fonts (SIL Open Font License, files in assets/fonts) */
@@ -245,7 +245,6 @@ tr.month td { padding-top: 16px; background: none !important; font: 600 11px var
 #pace-map .ax-t { font-size: 13px; }
 .pm-q { fill: var(--muted); font: 600 12.5px var(--body); letter-spacing: .12em; text-transform: uppercase; }
 .pm-mid { stroke: var(--line); stroke-dasharray: 3 4; }
-.legend .lf::before { background: var(--faint); opacity: .5; }
 #hc-table td.arena { line-height: 1.25; padding-top: 6px; padding-bottom: 6px; white-space: normal; min-width: 160px; max-width: 185px; }
 #hc-table th { letter-spacing: .06em; }
 #hc-table td.arena .sub { font-size: 11.5px; color: var(--muted); }
@@ -297,8 +296,6 @@ input[type=search] { min-width: 210px; }
 .legend { display: flex; gap: 14px; font-size: 12px; color: var(--muted); }
 .legend span::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; }
 .legend .lb::before { background: var(--blue); }
-.pm-legend { font-size: 13.5px; }
-.pm-legend span::before { display: none; }
 .legend .lo::before { background: var(--orange); }
 .btn { background: none; border: 1px solid var(--line); border-radius: 5px; padding: 6px 13px; font: 600 12px var(--body); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); cursor: pointer; margin-top: 12px; }
 .btn:hover { color: var(--fg); border-color: var(--muted); }
@@ -402,7 +399,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   .stat:nth-child(2n) { border-right: 0; margin-right: 0; }
   main { padding: 18px 14px 32px; }
   .mast h1 { font-size: 26px; }
-  .grid2 { grid-template-columns: 1fr; }
+  .grid2 { grid-template-columns: minmax(0, 1fr); } .grid2 th { white-space: normal; } .grid2 td:first-child { white-space: normal; }
 }
 </style>
 </head>
@@ -758,7 +755,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   const SLUG = {rankings: 'power-ratings', top25: 'rankings', upsets: 'biggest-upsets', matchup: 'matchup-predictor',
                 pace: 'pace-analysis', home: 'home-court-advantage', record: 'track-record', how: 'how-it-works', conf: 'conference'};
   const UNSLUG = Object.fromEntries(Object.entries(SLUG).map(([k, v]) => [v, k]));
-  const S = {stack: [], base: 'today', cname: '', ma: null, mb: null, ms: 'b', pfall: false, psall: false, usort: 'date', psort: {col: 'tempo_rank', dir: 'asc'}, hsort: {col: 'hc_rank', dir: 'asc'}, league: 'mbb', tab: 'today', confs: new Set(), sort: 'spread', scol: '', sdir: 'asc',
+  const S = {stack: [], base: 'today', cname: '', ma: null, mb: null, ms: 'b', pfall: false, psall: false, usort: 'date', hsort: {col: 'hc_rank', dir: 'asc'}, league: 'mbb', tab: 'today', confs: new Set(), sort: 'spread', scol: '', sdir: 'asc',
              hide: false, rall: false, logn: 200, rsort: 'rank', rcol: '', rdir: 'asc', q: ''};
   const D = {};
   let COLOR = {};
@@ -1671,7 +1668,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   themeBtn.addEventListener('click', () => {
     const light = document.documentElement.dataset.theme !== 'light';
     if (light) document.documentElement.dataset.theme = 'light'; else delete document.documentElement.dataset.theme;
-    try { localStorage.setItem('mech-theme', light ? 'light' : 'dark'); } catch (e) {}
+    try { localStorage.setItem('meech-theme', light ? 'light' : 'dark'); } catch (e) {}
     paintTheme();
   });
   paintTheme();
@@ -1709,13 +1706,20 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
   const navBtn = $('#nav-toggle');
   const paintNav = () => { const hid = document.documentElement.classList.contains('nav-hidden');
     navBtn.innerHTML = hid ? '&rsaquo;' : '&lsaquo;'; navBtn.title = hid ? 'Show menu' : 'Hide menu'; navBtn.setAttribute('aria-label', navBtn.title); };
-  try { if (localStorage.getItem('mech-nav') === 'hidden') document.documentElement.classList.add('nav-hidden'); } catch (e) {}
+  try { if (localStorage.getItem('meech-nav') === 'hidden') document.documentElement.classList.add('nav-hidden'); } catch (e) {}
   navBtn.addEventListener('click', () => {
     const hid = document.documentElement.classList.toggle('nav-hidden');
-    try { localStorage.setItem('mech-nav', hid ? 'hidden' : 'shown'); } catch (e) {}
+    try { localStorage.setItem('meech-nav', hid ? 'hidden' : 'shown'); } catch (e) {}
     paintNav(); if (D.info) render();   // charts redraw at the new width
   });
   paintNav();
+
+  // charts are drawn to the page width: redraw them after the window is resized
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { if (D.info && (S.tab === 'pace' || S.tab === 'team')) render(); }, 200);
+  });
 
   // keep "?" bubbles on screen
   const fitPop = (e) => {
