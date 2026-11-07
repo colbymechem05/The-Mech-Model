@@ -266,7 +266,7 @@ tr.month td { padding-top: 16px; background: none !important; font: 600 11px var
 .pm-lab { font: 700 13.5px var(--body); fill: var(--fg); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; }
 .more { margin-top: 8px; background: none; border: 1px solid var(--line); border-radius: 5px; padding: 6px 12px; color: var(--muted); font: 600 12px var(--body); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
 .more:hover { color: var(--fg); }
-.intro { max-width: 860px; margin: 18px 0 0; font-size: 15px; line-height: 1.6; color: var(--fg); }
+.intro { max-width: none; margin: 18px 0 0; font-size: 15px; line-height: 1.6; color: var(--fg); }
 #board-filters .filters { flex-wrap: nowrap; }
 #rank-tools .sg-list { left: auto; right: 0; min-width: 320px; }
 /* clear (x) button for every search box, same look in every browser */
@@ -452,7 +452,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <div class="ticker">
         <span class="it"><span class="k">Games</span><b id="t-games">—</b><span class="t" id="t-scope">All conferences</span></span>
         <span class="it" title="Games where the Meech line is under 4 points"><span class="k">Toss-ups</span><b id="t-tossups">—</b></span>
-        <span class="it" id="t-gap-tile" hidden><span class="k">Gap vs. Vegas</span><b id="t-gap">—</b><span class="t" id="t-gap-note">—</span></span>
+        <span class="it" id="t-gap-tile" hidden><span class="k">Biggest gap vs. Vegas</span><b id="t-gap">—</b><span class="t" id="t-gap-note">—</span></span>
       </div>
       <div class="sec">
         <h2>The Board <span class="q" tabindex="0">?<span class="pop">The table below shows every D1 game today with the Meech line. The Vegas line is also shown from that team's perspective (a &ldquo;+&rdquo; number means Vegas has them as the underdog). Lines are locked before tip and never edited.</span></span></h2>
@@ -543,7 +543,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
     <!-- ===== Pace ===== -->
     <section data-page="pace" hidden>
-      <p class="intro">This part of the model is experimental. All season we track two things for every team: the pace it likes to play at, and how good it is at getting games played at that pace (<b>pace control</b>). The question we&rsquo;re testing is whether owning the pace actually helps you win. Do teams that drag opponents to their speed beat expectations, or do the teams that adapt to whatever speed the other team wants have the edge? None of this goes into the Meech lines yet. Five past seasons say the effect is small at best, and it didn&rsquo;t point the same way for men&rsquo;s and women&rsquo;s, so it only earns a spot in the model if it shows up clearly this season.</p>
+      <p class="intro">This part of the Meech Model is purely experimental. All season we track two things for every team: the pace it likes to play at, and how good it is at forcing games into that pace (<b>pace control</b>). The question we&rsquo;re testing is whether owning the pace actually helps you win. Do teams that drag opponents to their speed beat expectations, or do the teams that adapt to whatever speed the other team wants have the edge? None of this goes into the Meech lines yet. Five past seasons say the effect is small at best, and it didn&rsquo;t point the same way for men&rsquo;s and women&rsquo;s, so it is research-focused only for now.</p>
       <div class="sec"><h2>Style Map <span class="q" tabindex="0">?<span class="pop">Every team by speed (left = slow, right = fast) and pace control (up = drags games to its own speed, down = adapts to the opponent). Control is this season only, measured from games against teams that want a different speed, so it&rsquo;s jumpy early in the season. Click a dot for the team page.</span></span></h2><div id="pm-tools"></div></div>
       <div class="map-wrap"><svg id="pace-map" role="img" aria-label="Pace style map"></svg><div class="gtip" id="pm-tip" hidden></div></div>
       <div class="pboard">
@@ -694,7 +694,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     <!-- ===== How it works ===== -->
     <section data-page="how" hidden>
       <div class="how">
-        <p>The Meech Model rates every Division I men's and women's basketball team and puts out a line for every game before tip-off. Every line gets graded against the final score and against Vegas. The point is twofold:</p>
+        <p>The Meech Model rates every Division I men's and women's basketball team and puts out a line for every game before tip-off. Every line is locked before tip, never edited, and graded against the final score and against Vegas&rsquo;s closing line. The point is twofold:</p>
         <ol>
           <li>To see if a model built from scratch can hang with the numbers and ranking systems everybody else uses.</li>
           <li>Create a model that uses the same engine to rate both NCAA men's and women's teams in a similar manner in order to produce lines.</li>
@@ -707,7 +707,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           <div><b>Defense</b><p>Points allowed per 100 above an average D1 defense. Lower is better.</p></div>
           <div><b>Pace</b><p>Possessions per 40 minutes the team plays at against an average opponent.</p></div>
         </div>
-        <p><b>Net rating</b> = offense &minus; defense. That's the ranking.</p>
+        <p><b>Net rating</b> = offense &minus; defense. That's the power rating.</p>
 
         <h3>Where a team starts</h3>
         <p>Before anyone plays, each team gets a starting rating built from last year's team rating, its strength of conference, last season's production from returning players and transfers, and recruiting rankings for incoming freshmen. That starting point counts for about six games' worth of evidence for men's teams and four games' worth for women's, then this season's results take over.</p>
@@ -1568,13 +1568,16 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       more.textContent = S[key] ? `Show top ${SHOW} only` : `Show all ${rows.length} ${word}`;
     });
     // history
-    const hist = ofLeague(D.pace_history).filter((h) => rank[h.team_id]);
+    const hist = ofLeague(D.pace_history).filter((h) => rank[h.team_id] && inConf(rank[h.team_id].conf) && qMatch(rank[h.team_id].team));
     ['dictator', 'chameleon'].forEach((kind) => fill($(kind === 'dictator' ? '#ph-dict tbody' : '#ph-cham tbody'),
-      hist.filter((h) => h.kind === kind).map((h) => {
+      hist.filter((h) => h.kind === kind).sort((a, b) => (kind === 'dictator' ? b.avg - a.avg : a.avg - b.avg)).slice(0, 12).map((h) => {
         const tr = el('tr'); const n = kind === 'dictator' ? h.above : h.seasons - h.above;
         tr.append(teamCell(rank[h.team_id].team), td(`${n} of ${h.seasons}`, 'num'), td(Math.round(Math.max(0, Math.min(100, h.avg))) + '%', 'num muted'));
         return tr;
       })));
+    ['#ph-dict tbody', '#ph-cham tbody'].forEach((sel) => {
+      if (!$(sel).children.length) { const tr = el('tr'); const c = td('No teams in this filter.', 'muted'); c.colSpan = 3; tr.append(c); $(sel).append(tr); }
+    });
   }
 
   // ---------- home court ----------

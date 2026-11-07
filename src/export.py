@@ -262,7 +262,8 @@ def pace_history(league: str, seasons_needed: int = 4) -> pd.DataFrame:
     g["team_id"] = g.index
     dic = g[g.above >= seasons_needed].assign(kind="dictator").sort_values("avg", ascending=False)
     cham = g[(g.seasons - g.above) >= seasons_needed].assign(kind="chameleon").sort_values("avg")
-    return pd.concat([dic.head(12), cham.head(12)])[["team_id", "kind", "seasons", "above", "avg"]].round(1)
+    # every qualifying team (the site shows the top 12 after its conference / search filters)
+    return pd.concat([dic, cham])[["team_id", "kind", "seasons", "above", "avg"]].round(1)
 
 
 def homecourt(league: str) -> pd.DataFrame:
