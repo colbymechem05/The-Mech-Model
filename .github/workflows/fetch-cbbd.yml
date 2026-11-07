@@ -10,6 +10,10 @@ on:
       last:
         description: "Last high-school class"
         default: "2026"
+      rosters:
+        description: "Also fetch team rosters (for the newcomer-age test only)"
+        type: boolean
+        default: false
       portal:
         description: "Also fetch transfer portal entries (for the portal test only)"
         type: boolean
@@ -39,9 +43,14 @@ jobs:
         env:
           CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
         run: python -u scripts/fetch_cbbd_portal.py 2021 2026
+      - name: Rosters (test data)
+        if: ${{ inputs.rosters }}
+        env:
+          CBBD_API_KEY: ${{ secrets.CBBD_API_KEY }}
+        run: python -u scripts/fetch_cbbd_rosters.py 2021 2027
       - name: Save
         run: |
           git config user.name "meech-model-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/recruits data/transfers 2>/dev/null || git add data/recruits
+          git add data/recruits $(ls -d data/transfers data/rosters 2>/dev/null)
           git diff --cached --quiet || (git commit -m "CBBD recruiting rankings" && git pull --rebase -q && git push)
