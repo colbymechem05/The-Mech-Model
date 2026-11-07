@@ -1,0 +1,49 @@
+date,game_id,tip,away,home,neutral,away_rank,home_rank,favorite,my_line,fav_win_pct,proj_score,proj_tempo,spread_home,p_home,made_at
+2026-11-07,401920371,22:00,Fresno State Bulldogs,UC San Diego Tritons,False,145,129,UC San Diego Tritons,-3.7,62.5,68-72,69.5,3.74,0.6254,2026-11-07T07:56-06:00
+2026-11-07,401917519,22:00,Sacramento State Hornets,Santa Clara Broncos,False,190,87,Santa Clara Broncos,-14.4,89.0,78-92,75.7,14.36,0.8902,2026-11-07T07:56-06:00
+2026-11-07,401917517,22:00,Portland State Vikings,Seattle U Redhawks,False,246,121,Seattle U Redhawks,-11.8,84.3,61-73,69.9,11.77,0.8429,2026-11-07T07:56-06:00
+2026-11-07,401911470,22:00,San José State Spartans,UC Irvine Anteaters,False,172,140,UC Irvine Anteaters,-4.2,64.0,70-74,68.2,4.2,0.6403,2026-11-07T07:56-06:00
+2026-11-07,401920435,21:00,Utah Valley Wolverines,Weber State Wildcats,False,134,296,Utah Valley Wolverines,-5.7,68.7,81-75,72.4,-5.7,0.3132,2026-11-07T07:56-06:00
+2026-11-07,401925077,20:00,Northwestern State Demons,Murray State Racers,False,299,100,Murray State Racers,-17.8,93.6,67-85,71.8,17.79,0.9358,2026-11-07T07:56-06:00
+2026-11-07,401923392,20:00,Southern Indiana Screaming Eagles,Evansville Purple Aces,False,333,216,Evansville Purple Aces,-10.7,82.0,63-74,69.0,10.73,0.8204,2026-11-07T07:56-06:00
+2026-11-07,401920816,20:00,SE Louisiana Lions,Little Rock Trojans,False,282,182,Little Rock Trojans,-8.4,76.4,64-72,67.0,8.43,0.7644,2026-11-07T07:56-06:00
+2026-11-07,401917518,20:00,Pacific Tigers,Bradley Braves,False,139,167,Bradley Braves,-2.8,59.5,69-72,65.9,2.81,0.5948,2026-11-07T07:56-06:00
+2026-11-07,401911345,20:00,Bethune-Cookman Wildcats,Grand Canyon Lopes,False,232,77,Grand Canyon Lopes,-17.2,92.9,66-83,72.0,17.15,0.9287,2026-11-07T07:56-06:00
+2026-11-07,401926227,19:30,Denver Pioneers,UC Riverside Highlanders,False,154,259,Denver Pioneers,-1.9,56.5,81-79,70.5,-1.92,0.4348,2026-11-07T07:56-06:00
+2026-11-07,401909513,19:30,Maryland Terrapins,Georgetown Hoyas,False,60,90,Maryland Terrapins,-0.5,51.7,72-71,67.2,-0.5,0.4829,2026-11-07T07:56-06:00
+2026-11-07,401925772,19:00,Mercer Bears,Davidson Wildcats,False,212,96,Davidson Wildcats,-11.9,84.5,67-79,67.3,11.88,0.8451,2026-11-07T07:56-06:00
+2026-11-07,401924951,19:00,Houston Christian Huskies,Western Illinois Leathernecks,False,274,362,Houston Christian Huskies,-4.2,63.9,70-66,65.4,-4.16,0.3611,2026-11-07T07:56-06:00
+2026-11-07,401911262,19:00,St. Bonaventure Bonnies,Canisius Golden Griffins,False,170,363,St. Bonaventure Bonnies,-9.2,78.3,74-65,66.6,-9.17,0.2167,2026-11-07T07:56-06:00
+2026-11-07,401911186,19:00,Northern Illinois Huskies,Dayton Flyers,False,304,88,Dayton Flyers,-20.4,95.9,63-83,68.2,20.38,0.9592,2026-11-07T07:56-06:00
+2026-11-07,401909532,19:00,Providence Friars,Nebraska Cornhuskers,True,54,9,Nebraska Cornhuskers,-9.1,78.2,75-84,71.9,9.13,0.7824,2026-11-07T07:56-06:00
+2026-11-07,401924843,18:30,Morgan State Bears,Niagara Purple Eagles,False,326,360,Morgan State Bears,-0.8,52.7,72-71,68.3,-0.78,0.4735,2026-11-07T07:56-06:00
+2026-11-07,401926825,18:00,Hampton Pirates,George Washington Revolutionaries,False,211,67,George Washington Revolutionaries,-16.8,92.5,63-80,69.7,16.82,0.9247,2026-11-07T07:56-06:00
+2026-11-07,401924895,18:00,Northern Arizona Lumberjacks,New Mexico Lobos,False,301,64,New Mexico Lobos,-22.0,97.0,65-87,68.7,22.03,0.9701,2026-11-07T07:56-06:00
+2026-11-07,401925106,17:30,Prairie View A&M Panthers,UT Rio Grande Valley Vaqueros,False,305,214,UT Rio Grande Valley Vaqueros,-8.6,76.8,69-78,70.8,8.59,0.7685,2026-11-07T07:56-06:00
+2026-11-07,401922291,17:30,Western Carolina Catamounts,UNC Asheville Bulldogs,False,153,284,Western Carolina Catamounts,-3.8,62.6,77-73,68.3,-3.76,0.374,2026-11-07T07:56-06:00
+2026-11-07,401928788,17:00,New Mexico State Aggies,Gonzaga Bulldogs,False,137,25,Gonzaga Bulldogs,-21.8,96.9,62-84,69.5,21.77,0.9686,2026-11-07T07:56-06:00
+2026-11-07,401926201,17:00,VMI Keydets,UTSA Roadrunners,False,314,303,UTSA Roadrunners,-3.6,62.2,76-80,71.9,3.63,0.6218,2026-11-07T07:56-06:00
+2026-11-07,401926112,17:00,Northern Iowa Panthers,Furman Paladins,False,115,135,Furman Paladins,-0.0,50.0,64-65,62.4,0.01,0.5004,2026-11-07T07:56-06:00
+2026-11-07,401924940,17:00,Old Dominion Monarchs,Bucknell Bison,False,204,347,Old Dominion Monarchs,-5.8,69.0,74-68,69.1,-5.79,0.3105,2026-11-07T07:56-06:00
+2026-11-07,401921174,17:00,UT Martin Skyhawks,IU Indianapolis Jaguars,False,273,298,IU Indianapolis Jaguars,-1.6,55.6,75-77,72.0,1.65,0.556,2026-11-07T07:56-06:00
+2026-11-07,401920703,17:00,SIU Edwardsville Cougars,Lipscomb Bisons,False,266,218,Lipscomb Bisons,-6.2,70.3,66-72,68.6,6.23,0.7028,2026-11-07T07:56-06:00
+2026-11-07,401920411,17:00,Washington State Cougars,High Point Panthers,False,185,92,High Point Panthers,-14.0,88.5,70-84,71.5,14.05,0.885,2026-11-07T07:56-06:00
+2026-11-07,401911007,17:00,Bellarmine Knights,Miami (OH) RedHawks,False,309,111,Miami (OH) RedHawks,-17.0,92.7,73-90,69.3,17.04,0.9273,2026-11-07T07:56-06:00
+2026-11-07,401929293,16:00,Omaha Mavericks,Utah State Aggies,False,294,45,Utah State Aggies,-28.1,99.2,64-92,69.3,28.07,0.9918,2026-11-07T07:56-06:00
+2026-11-07,401928352,16:00,Oakland Golden Grizzlies,UC Santa Barbara Gauchos,False,178,128,UC Santa Barbara Gauchos,-6.8,71.9,74-81,68.0,6.77,0.7186,2026-11-07T07:56-06:00
+2026-11-07,401924912,16:00,Samford Bulldogs,UNLV Rebels,False,210,109,UNLV Rebels,-10.5,81.5,75-86,71.1,10.51,0.8155,2026-11-07T07:56-06:00
+2026-11-07,401920192,16:00,Lafayette Leopards,Saint Joseph's Hawks,False,341,122,Saint Joseph's Hawks,-17.1,92.9,63-80,70.7,17.14,0.9286,2026-11-07T07:56-06:00
+2026-11-07,401920062,16:00,Monmouth Hawks,Rhode Island Rams,True,147,93,Rhode Island Rams,-6.9,72.3,65-72,68.2,6.94,0.7234,2026-11-07T07:56-06:00
+2026-11-07,401919805,15:30,Long Island University Sharks,La Salle Explorers,False,277,166,La Salle Explorers,-9.4,78.9,66-75,70.0,9.4,0.7892,2026-11-07T07:56-06:00
+2026-11-07,401909760,15:30,San Diego State Aztecs,Colorado Buffaloes,True,91,62,Colorado Buffaloes,-3.0,60.0,76-79,71.6,2.96,0.6,2026-11-07T07:56-06:00
+2026-11-07,401924264,15:00,Long Beach State Beach,Montana State Bobcats,False,219,148,Montana State Bobcats,-7.3,73.3,69-76,69.2,7.28,0.7331,2026-11-07T07:56-06:00
+2026-11-07,401922044,15:00,North Carolina Central Eagles,Longwood Lancers,False,308,252,Longwood Lancers,-7.1,72.7,69-76,69.4,7.07,0.7271,2026-11-07T07:56-06:00
+2026-11-07,401918986,15:00,VCU Rams,Memphis Tigers,False,53,82,VCU Rams,-0.3,51.1,79-78,72.5,-0.32,0.4889,2026-11-07T07:56-06:00
+2026-11-07,401920856,14:00,Toledo Rockets,Marshall Thundering Herd,False,159,158,Marshall Thundering Herd,-4.0,63.4,77-81,72.5,4.01,0.6341,2026-11-07T07:56-06:00
+2026-11-07,401920770,14:00,Colgate Raiders,Drexel Dragons,False,226,225,Drexel Dragons,-3.9,63.1,68-72,67.3,3.91,0.6308,2026-11-07T07:56-06:00
+2026-11-07,401920156,14:00,Cal State Fullerton Titans,South Dakota Coyotes,False,228,310,Cal State Fullerton Titans,-0.9,53.0,88-87,77.3,-0.88,0.47,2026-11-07T07:56-06:00
+2026-11-07,401918977,14:00,UNC Wilmington Seahawks,East Carolina Pirates,False,125,205,UNC Wilmington Seahawks,-2.1,57.1,73-71,67.6,-2.08,0.4294,2026-11-07T07:56-06:00
+2026-11-07,401917962,14:00,Lamar Cardinals,Abilene Christian Wildcats,False,257,280,Abilene Christian Wildcats,-1.7,55.8,66-68,66.9,1.71,0.5581,2026-11-07T07:56-06:00
+2026-11-07,401921154,13:00,North Carolina A&T Aggies,Ohio Bobcats,False,238,127,Ohio Bobcats,-11.0,82.7,73-84,71.6,11.02,0.8268,2026-11-07T07:56-06:00
+2026-11-07,401918948,12:00,Morehead State Eagles,Louisville Cardinals,False,329,16,Louisville Cardinals,-34.1,99.8,58-92,69.0,34.1,0.9982,2026-11-07T07:56-06:00
+2026-11-07,401925707,12:00,North Dakota Fighting Hawks,Winthrop Eagles,False,342,229,Winthrop Eagles,-10.0,80.4,76-86,72.4,10.02,0.8041,2026-11-07T07:56-06:00
