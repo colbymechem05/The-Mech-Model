@@ -1,0 +1,620 @@
+year,first,last,position,origin,origin_id,origin_conf,dest,dest_id,dest_conf,stars,rating,years_left,eligibility
+2021,Jabri,Abdur-Rahim,SF,Virginia,339,ACC,Georgia,98.0,SEC,4.0,0.97,,Immediate
+2021,Brendan,Adams,PG,UConn,314,Big East,George Washington,96.0,A-10,3.0,0.88,,TBD
+2021,Quadry,Adams,PG,Wake Forest,342,ACC,St. Bonaventure,277.0,A-10,3.0,0.85,,Immediate
+2021,Mike,Adewunmi,CG,SIU Edwardsville,247,OVC,,,,3.0,0.86,,Immediate
+2021,Abdul,Ado,C,Mississippi State,174,SEC,Cincinnati,51.0,American,3.0,0.89,1.0,Immediate
+2021,Franklin,Agunanne,C,Loyola Chicago,151,MVC,SMU,248.0,American,3.0,0.88,,Immediate
+2021,Kim,Aiken,SF,Eastern Washington,80,Big Sky,Arizona,11.0,Pac-12,,,,Immediate
+2021,Madut,Akec,SF,South Florida,271,American,,,,3.0,0.88,,Immediate
+2021,James,Akinjo,PG,Arizona,11,Pac-12,Baylor,20.0,Big 12,4.0,0.91,,TBD
+2021,Jonathan,Aku,C,Texas A&M,293,SEC,Stephen F. Austin,282.0,Southland,3.0,0.89,,Immediate
+2021,Braelee,Albert,SF,Vanderbilt,336,SEC,Tulane,303.0,American,,,1.0,Immediate
+2021,Cade,Alger,SF,Seattle U,262,UAC,San Diego State,257.0,Mountain West,,,,SittingOne
+2021,Teddy,Allen,SG,Nebraska,188,Big Ten,New Mexico State,192.0,UAC,3.0,0.88,,TBD
+2021,Timmy,Allen,SF,Utah,331,Pac-12,Texas,295.0,Big 12,4.0,0.92,,Immediate
+2021,De'Sean,Allen-Eikens,SF,North Dakota,201,Summit,New Orleans,193.0,Southland,3.0,0.84,,Immediate
+2021,Alphonso,Anderson,SF,Utah State,329,Mountain West,Pacific,225.0,WCC,3.0,0.87,,Immediate
+2021,Trevor,Anderson,PG,Wisconsin,355,Big Ten,Valparaiso,335.0,MVC,3.0,0.85,,Immediate
+2021,Trey,Anderson,SF,South Carolina,266,SEC,San José State,260.0,Mountain West,2.0,0.79,2.0,Immediate
+2021,Bernie,Andre,SF,Vermont,337,Am. East,Florida International,89.0,CUSA,,,,MidTerm
+2021,Yor,Anei,C,SMU,248,American,,,,3.0,0.88,,SittingOne
+2021,E.J.,Anosike,PF,Tennessee,292,SEC,Cal State Fullerton,37.0,Big West,,,,Immediate
+2021,Terrell,Ard,PF,UAB,305,CUSA,Presbyterian,233.0,Big South,,,,Immediate
+2021,Akol,Arop,SF,Nebraska,188,Big Ten,Omaha,221.0,Summit,3.0,0.88,,Immediate
+2021,Devin,Askew,CG,Kentucky,135,SEC,Texas,295.0,Big 12,4.0,0.97,,Immediate
+2021,Paul,Atkinson,PF,Yale,360,Ivy,Notre Dame,213.0,ACC,3.0,0.87,,Immediate
+2021,Chris,Austin,SG,Fordham,91,A-10,Portland,230.0,WCC,,,1.0,Immediate
+2021,Leon,Ayers III,SG,Mercer,164,SoCon,Duquesne,73.0,A-10,,,,Immediate
+2021,DeVon,Baker,PG,UNC Asheville,319,Big South,Tulane,303.0,American,,,,TBD
+2021,Jemarl,Baker,SG,Arizona,11,Pac-12,Fresno State,92.0,Mountain West,4.0,0.93,,Immediate
+2021,Will,Baker,C,Texas,295,Big 12,Nevada,189.0,Mountain West,4.0,0.97,,Immediate
+2021,Chad,Baker-Mazara,SF,Duquesne,73,A-10,San Diego State,257.0,Mountain West,,,,Immediate
+2021,Oumar,Ballo,C,Gonzaga,102,WCC,Arizona,11.0,Pac-12,4.0,0.95,,Immediate
+2021,Joe,Bamisile,PG,Virginia Tech,340,ACC,George Washington,96.0,A-10,4.0,0.91,,TBD
+2021,Kris,Bankston,PF,Little Rock,144,Sun Belt,Norfolk State,196.0,MEAC,,,,Immediate
+2021,Luka,Barisic,PF,UTSA,328,CUSA,Western Illinois,349.0,Summit,3.0,0.85,,Immediate
+2021,Cobie,Barnes,SF,Indiana State,122,MVC,,,,,,,Immediate
+2021,Chase,Barrs,PF,Western Michigan,351,MAC,Florida A&M,85.0,MEAC,,,,Immediate
+2021,Bitumba,Baruti,PF,East Carolina,74,American,Florida Atlantic,86.0,CUSA,2.0,0.79,,Immediate
+2021,Daniel,Batcho,PF,Arizona,11,Pac-12,Texas Tech,298.0,Big 12,4.0,0.92,,TBD
+2021,Jamison,Battle,SF,George Washington,96,A-10,Minnesota,173.0,Big Ten,,,,Immediate
+2021,RaeQuan,Battle,SF,Washington,343,Pac-12,Montana State,180.0,Big Sky,4.0,0.93,,Immediate
+2021,Damion,Baugh,PG,Memphis,163,American,TCU,287.0,Big 12,4.0,0.92,,Immediate
+2021,Noah,Baumann,SG,USC,323,Pac-12,Georgia,98.0,SEC,,,,Immediate
+2021,Jalen,Benjamin,PG,UAB,305,CUSA,,,,3.0,0.85,,Immediate
+2021,Avery,Benson,PG,Texas Tech,298,Big 12,,,,,,,Immediate
+2021,TJ,Berger,PG,Georgetown,97,Big East,San Diego,258.0,WCC,,,,Immediate
+2021,Braxton,Beverly,PG,NC State,185,ACC,Eastern Kentucky,78.0,OVC,3.0,0.86,,TBD
+2021,Tai,Bibbs,PG,Columbia,58,Ivy,Howard,114.0,MEAC,,,,Immediate
+2021,T.J.,Bickerstaff,PF,Drexel,71,CAA,Boston College,26.0,ACC,3.0,0.88,,Immediate
+2021,Christian,Bishop,SF,Creighton,61,Big East,Texas,295.0,Big 12,3.0,0.89,,Immediate
+2021,Kenan,Blackshear,SG,Florida Atlantic,86,CUSA,Nevada,189.0,Mountain West,3.0,0.86,,Immediate
+2021,Dudley,Blackwell,SF,Iowa State,125,Big 12,,,,3.0,0.89,,Immediate
+2021,Nick,Blake,SG,UNLV,322,Mountain West,Pacific,225.0,WCC,3.0,0.89,,Immediate
+2021,Jimmy,Boeheim,SF,Cornell,60,Ivy,Syracuse,286.0,ACC,,,,Immediate
+2021,Naz,Bohannon,PF,Youngstown State,361,Horizon,Clemson,52.0,ACC,,,,Immediate
+2021,Rasir,Bolton,PG,Iowa State,125,Big 12,Gonzaga,102.0,WCC,3.0,0.89,,Immediate
+2021,LaDamien,Bradford,SG,Texas A&M,293,SEC,,,,3.0,0.88,,Immediate
+2021,Matt,Bradley,SF,California,40,Pac-12,San Diego State,257.0,Mountain West,4.0,0.93,,Immediate
+2021,Jaemyn,Brakefield,PF,Duke,72,ACC,Ole Miss,220.0,SEC,4.0,0.96,,Immediate
+2021,AJ,Bramah,SF,Robert Morris,244,Horizon,,,,,,,Immediate
+2021,Robert,Braswell,PF,Syracuse,286,ACC,Charlotte,48.0,CUSA,3.0,0.89,,TBD
+2021,Parker,Braun,PF,Missouri,177,SEC,Santa Clara,261.0,WCC,3.0,0.8,,Immediate
+2021,Braelen,Bridges,PF,Chicago,373,,Georgia,98.0,SEC,,,,Immediate
+2021,Jordan,Brinson,CG,Utah Valley,332,UAC,,,,,,,Immediate
+2021,Wayne,Bristol Jr.,SG,Howard,114,MEAC,Georgetown,97.0,Big East,,,,Immediate
+2021,Izaiah,Brockington,PG,Penn State,226,Big Ten,Iowa State,125.0,Big 12,,,,Immediate
+2021,Garrison,Brooks,PF,North Carolina,200,ACC,Mississippi State,174.0,SEC,3.0,0.89,,Immediate
+2021,J'Raan,Brooks,PF,Washington,343,Pac-12,UC San Diego,310.0,Big West,4.0,0.92,,Immediate
+2021,Nysier,Brooks,C,Miami,168,ACC,Ole Miss,220.0,SEC,3.0,0.88,,Immediate
+2021,Peyton,Broughton,SG,Eastern Kentucky,78,OVC,,,,,,,Immediate
+2021,Christian,Brown,SF,Georgia,98,SEC,Tennessee State,290.0,OVC,4.0,0.93,,Immediate
+2021,Clevon,Brown,C,Vanderbilt,336,SEC,Florida International,89.0,CUSA,3.0,0.89,,Immediate
+2021,Jordan,Brown,PF,Arizona,11,Pac-12,Louisiana,148.0,Sun Belt,5.0,0.98,,TBD
+2021,Justin,Brown,SG,South Florida,271,American,UAB,305.0,CUSA,,,,Immediate
+2021,Terrell,Brown,PF,Pittsburgh,229,ACC,San Diego,258.0,WCC,3.0,0.87,,Immediate
+2021,Javonte,Brown-Ferguson,C,UConn,314,Big East,Texas A&M,293.0,SEC,4.0,0.91,,Immediate
+2021,Terrell,Brown Jr.,SG,Arizona,11,Pac-12,Washington,343.0,Pac-12,,,,Immediate
+2021,Randy,Brumant,SF,Columbia,58,Ivy,,,,,,,Immediate
+2021,Tommy,Bruner,SG,South Carolina Upstate,268,Big South,Jacksonville,127.0,ASUN,3.0,0.86,,Immediate
+2021,Joey,Brunk,C,Indiana,121,Big Ten,Ohio State,216.0,Big Ten,3.0,0.89,,Immediate
+2021,KJ,Buffen,PF,Ole Miss,220,SEC,UAB,305.0,CUSA,3.0,0.89,,Immediate
+2021,Drew,Buggs,PG,Missouri,177,SEC,Winthrop,354.0,Big South,,,,Immediate
+2021,John,Buggs III,PG,Massachusetts,161,A-10,,,,,,,Immediate
+2021,Antwan,Burnett,SG,Troy,302,Sun Belt,,,,,,,Immediate
+2021,Nimari,Burnett,CG,Texas Tech,298,Big 12,Alabama,5.0,SEC,4.0,0.97,,Immediate
+2021,DJ,Burns,SF,Southern,274,SWAC,Murray State,184.0,OVC,,,,Immediate
+2021,Jamarius,Burton,PG,Texas Tech,298,Big 12,Pittsburgh,229.0,ACC,,,,TBD
+2021,Austin,Butler,SG,Holy Cross,111,Patriot,Charlotte,48.0,CUSA,,,,Immediate
+2021,Trent,Buttrick,PF,Penn State,226,Big Ten,Massachusetts,161.0,A-10,3.0,0.84,1.0,Immediate
+2021,Devin,Butts,CG,Louisiana,148,Sun Belt,,,,,,,Immediate
+2021,Jaylen,Butz,PF,DePaul,65,Big East,Western Kentucky,350.0,CUSA,3.0,0.87,,Immediate
+2021,PJ,Byrd,PG,Colorado State,57,Mountain West,Southern,274.0,SWAC,3.0,0.89,,Immediate
+2021,Jamal,Cain,SF,Marquette,157,Big East,Oakland,214.0,Horizon,4.0,0.92,,Immediate
+2021,Sardaar,Calhoun,SG,Florida State,90,ACC,Texas Tech,298.0,Big 12,3.0,0.89,,Immediate
+2021,Toumani,Camara,PF,Georgia,98,SEC,Dayton,64.0,A-10,4.0,0.91,,Immediate
+2021,Josh,Carlton,C,UConn,314,Big East,Houston,113.0,American,3.0,0.87,,Immediate
+2021,Marcus,Carr,PG,Minnesota,173,Big Ten,Texas,295.0,Big 12,3.0,0.89,,Immediate
+2021,Dimon,Carrigan,PF,Florida International,89,CUSA,West Virginia,347.0,Big 12,3.0,0.86,,Immediate
+2021,Sincere,Carry,PG,Duquesne,73,A-10,Kent State,134.0,MAC,3.0,0.82,,Immediate
+2021,Devante,Carter,SG,Norfolk State,196,MEAC,Nicholls,195.0,Southland,,,,Immediate
+2021,Jason,Carter,PF,Xavier,359,Big East,Ohio,215.0,MAC,,,,TBD
+2021,Chico,Carter Jr.,PG,Murray State,184,OVC,South Carolina,266.0,SEC,,,,Immediate
+2021,Xavier,Castaneda,PG,South Florida,271,American,Akron,3.0,MAC,3.0,0.88,,Immediate
+2021,Tim,Ceaser,PF,Coastal Carolina,54,Sun Belt,Utah Valley,332.0,UAC,,,,Immediate
+2021,Jay Jay,Chandler,PG,Texas A&M,293,SEC,South Alabama,265.0,Sun Belt,4.0,0.92,,Immediate
+2021,Ethan,Chargois,PF,SMU,248,American,Oklahoma,217.0,Big 12,3.0,0.87,,Immediate
+2021,Brandt,Chatfield,PF,Washington State,344,Pac-12,Seattle U,262.0,UAC,,,,Immediate
+2021,Rodney,Chatman,CG,Dayton,64,A-10,Vanderbilt,336.0,SEC,,,,Immediate
+2021,Tahlik,Chavez,CG,Iona,123,Metro,Charleston Southern,47.0,Big South,,,,Immediate
+2021,Taeshon,Cherry,SF,Arizona State,10,Pac-12,Grand Canyon,104.0,UAC,5.0,0.98,,Immediate
+2021,Elijah,Childs,SF,Bradley,29,MVC,,,,,,,Immediate
+2021,Michael,Christmas,SF,James Madison,129,CAA,Longwood,147.0,Big South,3.0,0.88,,Immediate
+2021,Caleb,Christopher,PG,Arizona State,10,Pac-12,Tennessee Tech,291.0,OVC,3.0,0.87,,TBD
+2021,Moussa,Cisse,C,Memphis,163,American,Oklahoma State,218.0,Big 12,5.0,0.99,,Immediate
+2021,Tristan,Clark,PF,Baylor,20,Big 12,SMU,248.0,American,4.0,0.91,,Immediate
+2021,Hugo,Clarkin,C,San José State,260,Mountain West,Sacramento State,249.0,Big Sky,,,4.0,Immediate
+2021,Donovan,Clay,PF,Valparaiso,335,MVC,Missouri State,176.0,MVC,,,,Immediate
+2021,Tyler,Cochran,PG,Northern Illinois,208,MAC,Ball State,19.0,MAC,,,,Immediate
+2021,Vince,Cole,SG,St. John's,279,Big East,Coastal Carolina,54.0,Sun Belt,3.0,0.8,,Immediate
+2021,Charles,Coleman,C,East Carolina,74,American,Saint Joseph's,251.0,A-10,3.0,0.88,,Immediate
+2021,Henry,Coleman,SF,Duke,72,ACC,Texas A&M,293.0,SEC,4.0,0.97,,Immediate
+2021,Jarron,Coleman,SG,Ball State,19,MAC,Missouri,177.0,SEC,,,,Immediate
+2021,Jalen,Coleman-Lands,PG,Iowa State,125,Big 12,Kansas,131.0,Big 12,4.0,0.97,,Immediate
+2021,Jakobe,Coles,PF,Butler,34,Big East,TCU,287.0,Big 12,3.0,0.89,,Immediate
+2021,David,Collins,SG,South Florida,271,American,Clemson,52.0,ACC,3.0,0.87,,Immediate
+2021,Antavion,Collum,SF,Ole Miss,220,SEC,Cal State Bakersfield,36.0,Big West,3.0,0.88,,Immediate
+2021,Jalen,Cone,PG,Virginia Tech,340,ACC,Northern Arizona,206.0,Big Sky,3.0,0.89,,Immediate
+2021,Aaron,Cook,PG,Gonzaga,102,WCC,Georgia,98.0,SEC,,,1.0,Immediate
+2021,Jalen,Cook,PG,LSU,136,SEC,Tulane,303.0,American,3.0,0.89,,Immediate
+2021,Devon,Cooper,SG,Morehead State,181,OVC,George Mason,95.0,A-10,,,,Immediate
+2021,Jaheam,Cornwall,PG,Gardner-Webb,94,Big South,Penn State,226.0,Big Ten,,,,Immediate
+2021,Virshon,Cotton,PG,Long Island University,146,NEC,New Mexico State,192.0,UAC,,,,Immediate
+2021,Karim,Coulibaly,PF,Pittsburgh,229,ACC,St. Bonaventure,277.0,A-10,3.0,0.88,,TBD
+2021,Ben,Coupet,SF,Little Rock,144,Sun Belt,Southern Illinois,273.0,MVC,3.0,0.87,,Immediate
+2021,Matt,Cross,SF,Miami,168,ACC,Louisville,150.0,ACC,4.0,0.94,,Immediate
+2021,K.K.,Curry,PF,South Alabama,265,Sun Belt,UT Martin,325.0,OVC,,,,Immediate
+2021,Malik,Curry,PG,Old Dominion,219,CUSA,West Virginia,347.0,Big 12,,,,Immediate
+2021,Charlie,Daniels,C,Stephen F. Austin,282,Southland,Minnesota,173.0,Big Ten,,,,Immediate
+2021,Amari,Davis,CG,Green Bay,105,Horizon,Missouri,177.0,SEC,3.0,0.88,,Immediate
+2021,Daejon,Davis,CG,Stanford,281,Pac-12,Washington,343.0,Pac-12,4.0,0.95,,Immediate
+2021,Jyare,Davis,SF,Providence,235,Big East,Delaware,66.0,CAA,3.0,0.89,,Immediate
+2021,Antonio,Daye,PG,Florida International,89,CUSA,Fordham,91.0,A-10,,,,Immediate
+2021,Ronnie,DeGray,PF,Massachusetts,161,A-10,Missouri,177.0,SEC,3.0,0.88,4.0,Immediate
+2021,RayJ,Dennis,PG,Boise State,25,Mountain West,Toledo,300.0,MAC,,,1.0,Immediate
+2021,Silvio,De Sousa,PF,Kansas,131,Big 12,Chattanooga,49.0,SoCon,4.0,0.97,,Immediate
+2021,Jerome,Desrosiers,PF,Princeton,234,Ivy,,,,,,,Immediate
+2021,Matt,DeWolf,PF,Brown,30,Ivy,Washington State,344.0,Pac-12,,,,Immediate
+2021,Ibrahima,Diallo,C,Ohio State,216,Big Ten,San José State,260.0,Mountain West,3.0,0.88,2.0,Immediate
+2021,Cartier,Diarra,PG,Kansas State,132,Big 12,Virginia Tech,340.0,ACC,3.0,0.87,,Immediate
+2021,David,Didenko,PF,Georgia Tech,101,ACC,UT Martin,325.0,OVC,3.0,0.86,,Immediate
+2021,Avery,Diggs,C,UCF,312,American,Chattanooga,49.0,SoCon,3.0,0.86,,Immediate
+2021,Dylan,Disu,PF,Vanderbilt,336,SEC,Texas,295.0,Big 12,4.0,0.91,,Immediate
+2021,Mikey,Dixon,PG,Grand Canyon,104,UAC,,,,,,,Immediate
+2021,Nikola,Djogo,PG,Notre Dame,213,ACC,Northeastern,205.0,CAA,3.0,0.89,,Immediate
+2021,Danilo,Djuricic,PF,Harvard,107,Ivy,,,,,,,Immediate
+2021,Nolan,Dorsey,PG,New Mexico,191,Mountain West,Holy Cross,111.0,Patriot,,,,Immediate
+2021,Jakigh,Dottin,PG,Towson,301,CAA,,,,,,,Immediate
+2021,William,Douglas,SG,SMU,248,American,,,,3.0,0.89,,Immediate
+2021,Gerald,Drumgoole Jr.,SF,Pittsburgh,229,ACC,UAlbany,306.0,Am. East,2.0,0.79,,Immediate
+2021,Darlinstone,Dubar,SF,Iowa State,125,Big 12,Hofstra,110.0,CAA,3.0,0.89,,Immediate
+2021,Al,Durham,PG,Indiana,121,Big Ten,Providence,235.0,Big East,3.0,0.89,,Immediate
+2021,Michael,Durr,C,South Florida,271,American,Indiana,121.0,Big Ten,3.0,0.88,,Immediate
+2021,Pavlo,Dziuba,PF,Arizona State,10,Pac-12,Maryland,160.0,Big Ten,4.0,0.92,,Immediate
+2021,Marcellus,Earlington,SF,St. John's,279,Big East,San Diego,258.0,WCC,3.0,0.88,,TBD
+2021,Kevin,Easley,SF,TCU,287,Big 12,Duquesne,73.0,A-10,3.0,0.87,,Immediate
+2021,Tari,Eason,PF,Cincinnati,51,American,LSU,136.0,SEC,4.0,0.9,,Immediate
+2021,Keon,Edwards,SF,DePaul,65,Big East,Nebraska,188.0,Big Ten,4.0,0.9,,TBD
+2021,Kyler,Edwards,SG,Texas Tech,298,Big 12,Houston,113.0,American,3.0,0.89,,Immediate
+2021,Boogie,Ellis,PG,Memphis,163,American,USC,323.0,Pac-12,4.0,0.97,,Immediate
+2021,Kobe,Elvis,PG,DePaul,65,Big East,Dayton,64.0,A-10,3.0,0.89,,Immediate
+2021,Tristan,Enaruna,SF,Kansas,131,Big 12,Iowa State,125.0,Big 12,4.0,0.96,,Immediate
+2021,Aaron,Estrada,SG,Oregon,223,Pac-12,Hofstra,110.0,CAA,,,,TBD
+2021,Maxwell,Evans,SG,Vanderbilt,336,SEC,TCU,287.0,Big 12,3.0,0.87,,Immediate
+2021,Tye,Fagan,PG,Georgia,98,SEC,Ole Miss,220.0,SEC,3.0,0.89,,Immediate
+2021,Charles,Falden,SG,Winthrop,354,Big South,James Madison,129.0,CAA,,,,Immediate
+2021,Noah,Farrakhan,PG,East Carolina,74,American,Eastern Michigan,79.0,MAC,3.0,0.89,4.0,Immediate
+2021,Nick,Farrar,PF,NC State,185,ACC,Charleston,46.0,CAA,3.0,0.89,,Immediate
+2021,Mason,Faulkner,PG,Colorado,56,Pac-12,,,,,,,Immediate
+2021,Kyle,Feit,SG,Arizona State,10,Pac-12,,,,,,,Immediate
+2021,CJ,Felder,PF,Boston College,26,ACC,Florida,87.0,SEC,3.0,0.88,,Immediate
+2021,Keith,Fisher,PF,Illinois State,119,MVC,Pepperdine,228.0,WCC,,,,Immediate
+2021,Savion,Flagg,SF,Texas A&M,293,SEC,Sam Houston,255.0,Southland,4.0,0.95,,Immediate
+2021,Ferron,Flavors,SG,Oklahoma State,218,Big 12,Robert Morris,244.0,Horizon,,,,TBD
+2021,Phlandrous,Fleming,CG,Charleston Southern,47,Big South,Florida,87.0,SEC,,,,Immediate
+2021,Cam'Ron,Fletcher,SF,Kentucky,135,SEC,Florida State,90.0,ACC,4.0,0.94,,Immediate
+2021,Michael,Flowers,PG,South Alabama,265,Sun Belt,Washington State,344.0,Pac-12,,,,Immediate
+2021,Chase,Forte,PG,UNC Asheville,319,Big South,,,,,,,Immediate
+2021,Parker,Fox,SF,Northern State,1525,,Minnesota,173.0,Big Ten,,,,Immediate
+2021,Terren,Frank,PF,TCU,287,Big 12,Vanderbilt,336.0,SEC,3.0,0.89,,Immediate
+2021,Armaan,Franklin,SG,Indiana,121,Big Ten,Virginia,339.0,ACC,4.0,0.9,,Immediate
+2021,Damaria,Franklin,CG,Tennessee Tech,291,OVC,Chicago,373.0,,,,,Immediate
+2021,Ja'von,Franklin,SF,Auburn,16,SEC,South Alabama,265.0,Sun Belt,3.0,0.87,,Immediate
+2021,Julien,Franklin,SG,Oregon State,224,Pac-12,Cal Poly,35.0,Big West,3.0,0.88,,Immediate
+2021,Marquell,Fraser,SG,Detroit Mercy,69,Horizon,,,,3.0,0.85,,Immediate
+2021,CJ,Fredrick,SG,Iowa,124,Big Ten,Kentucky,135.0,SEC,3.0,0.89,,TBD
+2021,Mark,Freeman,PG,Tennessee State,290,OVC,Illinois State,119.0,MVC,,,,Immediate
+2021,Sam,Freeman,C,Minnesota,173,Big Ten,Pacific,225.0,WCC,3.0,0.88,,Immediate
+2021,Alanzo,Frink,PF,South Carolina,266,SEC,East Carolina,74.0,American,3.0,0.85,1.0,Immediate
+2021,P.J.,Fuller,SG,TCU,287,Big 12,Washington,343.0,Pac-12,4.0,0.94,,Immediate
+2021,Both,Gach,SF,Minnesota,173,Big Ten,Utah,331.0,Pac-12,4.0,0.9,,Immediate
+2021,Clashon,Gaffney,SF,Tarleton State,288,UAC,,,,3.0,0.8,,Immediate
+2021,Anthony,Gaines,SG,Northwestern,212,Big Ten,Siena,264.0,Metro,,,,TBD
+2021,Davonte,Gaines,SF,Tennessee,292,SEC,George Mason,95.0,A-10,3.0,0.89,,Immediate
+2021,Brevin,Galloway,PG,Charleston,46,CAA,Boston College,26.0,ACC,,,,Immediate
+2021,Greg,Gantt,SF,Providence,235,Big East,NC State,185.0,ACC,4.0,0.94,,Immediate
+2021,Andrew,Garcia,SG,Georgia,98,SEC,Kent State,134.0,MAC,,,,Immediate
+2021,Dawson,Garcia,PF,Marquette,157,Big East,North Carolina,200.0,ACC,4.0,0.97,,Immediate
+2021,Jayden,Gardner,PF,East Carolina,74,American,Virginia,339.0,ACC,3.0,0.86,,Immediate
+2021,Zondrick,Garrett,PF,South Alabama,265,Sun Belt,,,,3.0,0.88,,Immediate
+2021,Najee,Garvin,PF,Nicholls,195,Southland,Hampton,106.0,Big South,,,,Immediate
+2021,Thomasi,Gilgeous-Alexander,SG,Evansville,82,MVC,,,,,,,Immediate
+2021,Evan,Gilyard,PG,New Mexico State,192,UAC,,,,,,,Immediate
+2021,Ques,Glover,PG,Florida,87,SEC,Samford,256.0,SoCon,3.0,0.88,,Immediate
+2021,Vladislav,Goldin,C,Texas Tech,298,Big 12,Florida Atlantic,86.0,CUSA,4.0,0.9,,Immediate
+2021,Jordan,Goldwire,SG,Duke,72,ACC,Oklahoma,217.0,Big 12,3.0,0.86,,Immediate
+2021,Antonio,Gordon,PF,Kansas State,132,Big 12,SE Louisiana,246.0,Southland,3.0,0.8,,Immediate
+2021,DaJuan,Gordon,SG,Kansas State,132,Big 12,Missouri,177.0,SEC,3.0,0.89,,Immediate
+2021,DJ,Gordon,SG,Penn State,226,Big Ten,Fordham,91.0,A-10,3.0,0.89,,Immediate
+2021,Tibet,Görener,SF,Arizona,11,Pac-12,San José State,260.0,Mountain West,4.0,0.9,4.0,Immediate
+2021,Kellan,Grady,PG,Davidson,63,A-10,Kentucky,135.0,SEC,4.0,0.94,,Immediate
+2021,Tyon,Grant-Foster,SG,Kansas,131,Big 12,DePaul,65.0,Big East,4.0,0.95,,Immediate
+2021,Josh,Gray,C,LSU,136,SEC,South Carolina,266.0,SEC,3.0,0.89,,Immediate
+2021,Wendell,Green Jr.,PG,Auburn,16,SEC,,,,3.0,0.88,,MidTerm
+2021,Sam,Griffin,PG,UT Arlington,324,Sun Belt,Tulsa,304.0,American,,,,Immediate
+2021,Caleb,Grill,SG,UNLV,322,Mountain West,Iowa State,125.0,Big 12,3.0,0.88,,TBD
+2021,Jacob,Groves,SF,Eastern Washington,80,Big Sky,Oklahoma,217.0,Big 12,,,,Immediate
+2021,Tanner,Groves,SF,Eastern Washington,80,Big Sky,Oklahoma,217.0,Big 12,,,,Immediate
+2021,Quincy,Guerrier,SG,Syracuse,286,ACC,Oregon,223.0,Pac-12,4.0,0.95,,TBD
+2021,Noah,Gurley,SF,Furman,93,SoCon,Alabama,5.0,SEC,,,,Immediate
+2021,Darious,Hall,SF,DePaul,65,Big East,Central Arkansas,43.0,Southland,3.0,0.87,,TBD
+2021,Sadaidriene,Hall,PF,East Tennessee State,75,SoCon,Stephen F. Austin,282.0,Southland,,,,Immediate
+2021,Jairus,Hamilton,SF,Maryland,160,Big Ten,,,,4.0,0.94,,TBD
+2021,Jermaine,Hamlin,C,Illinois,118,Big Ten,Eastern Illinois,77.0,OVC,,,,Immediate
+2021,James,Hampshire,C,Pacific,225,WCC,UNLV,322.0,Mountain West,,,,Immediate
+2021,Trae,Hannibal,PG,South Carolina,266,SEC,Murray State,184.0,OVC,3.0,0.88,,TBD
+2021,De'Vion,Harmon,PG,Oklahoma,217,Big 12,Oregon,223.0,Pac-12,4.0,0.96,,Immediate
+2021,John,Harrar,PF,Penn State,226,Big Ten,,,,2.0,0.76,,Withdrawn
+2021,Jamir,Harris,SG,American University,8,Patriot,Seton Hall,263.0,Big East,3.0,0.87,,Immediate
+2021,Tyler,Harris,PG,Iowa State,125,Big 12,Memphis,163.0,American,4.0,0.9,,TBD
+2021,Juhwan,Harris-Dyson,SG,California,40,Pac-12,,,,3.0,0.88,,Immediate
+2021,Gary,Harris Jr.,SG,Siena,264,Metro,,,,,,,Immediate
+2021,Sama'Zha,Hart,PF,Stephen F. Austin,282,Southland,Alcorn State,7.0,SWAC,3.0,0.88,,Immediate
+2021,Braun,Hartfield,SG,San Diego,258,WCC,Pepperdine,228.0,WCC,,,,Immediate
+2021,DJ,Harvey,SF,Vanderbilt,336,SEC,Detroit Mercy,69.0,Horizon,4.0,0.96,,Immediate
+2021,Jayvis,Harvey,CG,James Madison,129,CAA,,,,,,,Immediate
+2021,Zach,Harvey,SG,Cincinnati,51,American,UC Santa Barbara,311.0,Big West,4.0,0.95,,Immediate
+2021,Mario,Haskett,CG,Harvard,107,Ivy,Hampton,106.0,Big South,3.0,0.86,,Immediate
+2021,Markeese,Hastings,SF,Butler,34,Big East,Western Michigan,351.0,MAC,2.0,0.79,,Immediate
+2021,Ryan,Hawkins,PF,Northwest Missouri State,421,,Creighton,61.0,Big East,,,,Immediate
+2021,Cameron,Healy,PG,UAlbany,306,Am. East,Central Michigan,45.0,MAC,,,,Immediate
+2021,Jay,Heath,SG,Boston College,26,ACC,Arizona State,10.0,Pac-12,3.0,0.89,,Immediate
+2021,Baylor,Hebb,SG,Loyola Chicago,151,MVC,Colorado State,57.0,Mountain West,3.0,0.86,,Immediate
+2021,Joe,Hedstrom,C,Wisconsin,355,Big Ten,Valparaiso,335.0,MVC,3.0,0.86,,Immediate
+2021,Ethan,Henderson,PF,Arkansas,12,SEC,Texas A&M,293.0,SEC,3.0,0.89,,Immediate
+2021,Jacquez,Henderson,SG,Indiana,121,Big Ten,,,,,,,Immediate
+2021,PJ,Henry,PG,Hartford,363,Am. East,Texas Southern,296.0,SWAC,,,,Immediate
+2021,Kamaka,Hepa,PF,Texas,295,Big 12,Hawai'i,108.0,Big West,4.0,0.96,,TBD
+2021,Jarius,Hicklen,SG,Oklahoma Baptist,1018,,North Florida,203.0,ASUN,,,,Immediate
+2021,Isaiah,Hill,PG,Tulsa,304,American,Fresno State,92.0,Mountain West,3.0,0.88,,SittingOne
+2021,Cameron,Holden,SF,UT Martin,325,OVC,,,,,,,Immediate
+2021,Alfred,Hollins,SF,Oregon State,224,Pac-12,,,,3.0,0.87,,Immediate
+2021,DJ,Horne,PG,Illinois State,119,MVC,Arizona State,10.0,Pac-12,,,,Immediate
+2021,Jeriah,Horne,SF,Colorado,56,Pac-12,Tulsa,304.0,American,3.0,0.88,,Immediate
+2021,Brandon,Horvath,SG,UMBC,317,Am. East,,,,,,,Immediate
+2021,Jaelen,House,PG,Arizona State,10,Pac-12,New Mexico,191.0,Mountain West,4.0,0.91,,Immediate
+2021,Trent,Hudgens Jr.,PG,Santa Clara,261,WCC,Northern Colorado,207.0,Big Sky,3.0,0.89,,Immediate
+2021,Michael,Hueitt Jr.,PG,UNC Greensboro,320,SoCon,Catawba,1168.0,,,,,Immediate
+2021,Caleb,Huffman,SG,Central Michigan,45,MAC,Nicholls,195.0,Southland,,,,Immediate
+2021,Jerome,Hunter,SF,Indiana,121,Big Ten,Xavier,359.0,Big East,4.0,0.96,,Immediate
+2021,Aundre,Hyatt,SF,LSU,136,SEC,Rutgers,245.0,Big Ten,3.0,0.88,,Immediate
+2021,Aidan,Igiehon,C,Louisville,150,ACC,Grand Canyon,104.0,UAC,4.0,0.96,,Immediate
+2021,Tyree,Ihenacho,CG,North Dakota,201,Summit,James Madison,129.0,CAA,,,,Immediate
+2021,Jailyn,Ingram,SF,Florida Atlantic,86,CUSA,Georgia,98.0,SEC,3.0,0.86,,Immediate
+2021,Christian,Ings,PG,Rider,243,Metro,Norfolk State,196.0,MEAC,3.0,0.86,,Immediate
+2021,Donovan,Ivory,SF,Boise State,25,Mountain West,Green Bay,105.0,Horizon,,,,TBD
+2021,Victor,Iwuakor,PF,Oklahoma,217,Big 12,UNLV,322.0,Mountain West,4.0,0.91,,Immediate
+2021,Abayomi,Iyiola,PF,Arkansas,12,SEC,Hofstra,110.0,CAA,,,,Immediate
+2021,Nathanael,Jack,SG,Florida State,90,ACC,Cleveland State,53.0,Horizon,3.0,0.87,,Immediate
+2021,Marreon,Jackson,PG,Toledo,300,MAC,Arizona State,10.0,Pac-12,,,,Immediate
+2021,Tyrie,Jackson,SG,East Carolina,74,American,Prairie View A&M,232.0,SWAC,3.0,0.85,1.0,Immediate
+2021,Tyson,Jackson,PF,Middle Tennessee,171,CUSA,New Orleans,193.0,Southland,3.0,0.88,,Immediate
+2021,Vance,Jackson,SF,Arkansas,12,SEC,East Carolina,74.0,American,4.0,0.92,,Immediate
+2021,Jermaine,Jackson Jr.,PG,LIU Brooklyn,1243,,Central Michigan,45.0,MAC,,,,Immediate
+2021,Musa,Jallow,SF,Ohio State,216,Big Ten,Charlotte,48.0,CUSA,4.0,0.94,,Immediate
+2021,Miles,James,SG,East Carolina,74,American,Cal State Northridge,38.0,Big West,,,,Immediate
+2021,Zep,Jasper,PG,Charleston,46,CAA,Auburn,16.0,SEC,,,,Immediate
+2021,James,Jean-Marie,SF,Hawai'i,108,Big West,,,,3.0,0.87,,TBD
+2021,DJ,Jeffries,SF,Memphis,163,American,Mississippi State,174.0,SEC,4.0,0.94,,Immediate
+2021,Daniss,Jenkins,CG,Pacific,225,WCC,,,,,,,Immediate
+2021,David,Jenkins,PG,UNLV,322,Mountain West,Utah,331.0,Pac-12,,,,Immediate
+2021,Isaac,Jessup,CG,Colorado,56,Pac-12,Colorado Mesa,1283.0,,,,,Immediate
+2021,Theo,John,PF,Marquette,157,Big East,Duke,72.0,ACC,4.0,0.9,,Immediate
+2021,Brandon,Johnson,PF,Minnesota,173,Big Ten,DePaul,65.0,Big East,,,,TBD
+2021,Jalen,Johnson,SF,Mississippi State,174,SEC,Texas A&M,293.0,SEC,,,,Immediate
+2021,Jalen,Johnson,SF,Wake Forest,342,ACC,Mercer,164.0,SoCon,3.0,0.89,,TBD
+2021,Jamal,Johnson,SG,Auburn,16,SEC,UAB,305.0,CUSA,3.0,0.89,,Immediate
+2021,Javan,Johnson,SF,Iowa State,125,Big 12,DePaul,65.0,Big East,,,,Immediate
+2021,K.D.,Johnson,PG,Georgia,98,SEC,Auburn,16.0,SEC,4.0,0.92,,TBD
+2021,Marvin,Johnson,SG,Eastern Illinois,77,OVC,Oklahoma,217.0,Big 12,,,,Immediate
+2021,Myles,Johnson,PF,Rutgers,245,Big Ten,UCLA,313.0,Pac-12,3.0,0.86,,Immediate
+2021,Xavier,Johnson,CG,Pittsburgh,229,ACC,Indiana,121.0,Big Ten,3.0,0.89,,Immediate
+2021,Jarkel,Joiner,PG,UTEP,327,CUSA,,,,,,,Immediate
+2021,Tyson,Jolly,PG,SMU,248,American,Iona,123.0,Metro,3.0,0.88,,Immediate
+2021,Antwann,Jones,SG,Creighton,61,Big East,Louisiana,148.0,Sun Belt,4.0,0.9,,Immediate
+2021,Bates,Jones,SF,Davidson,63,A-10,Duke,72.0,ACC,,,,Immediate
+2021,DeVante',Jones,SG,Coastal Carolina,54,Sun Belt,Michigan,170.0,Big Ten,,,,Immediate
+2021,Latrell,Jones,SG,Portland,230,WCC,Nicholls,195.0,Southland,,,,Immediate
+2021,Myreon,Jones,CG,Penn State,226,Big Ten,Florida,87.0,SEC,4.0,0.93,,Immediate
+2021,Robert,Jones,C,Denver,68,Summit,Iowa State,125.0,Big 12,3.0,0.88,,Immediate
+2021,Rylan,Jones,PG,Utah,331,Pac-12,Utah State,329.0,Mountain West,4.0,0.93,,Immediate
+2021,Tyrell,Jones,PG,Auburn,16,SEC,South Alabama,265.0,Sun Belt,4.0,0.91,,Immediate
+2021,Tai'Reon,Joseph,SG,Austin Peay,17,OVC,Radford,239.0,Big South,,,,Immediate
+2021,Latrell,Jossell,PG,Kansas,131,Big 12,Stephen F. Austin,282.0,Southland,3.0,0.89,,Immediate
+2021,Gabe,Kalscheur,SG,Minnesota,173,Big Ten,Iowa State,125.0,Big 12,4.0,0.9,,Immediate
+2021,Jordan,Kellier,SG,Utah,331,Pac-12,Siena,264.0,Metro,,,,Immediate
+2021,Amari,Kelly,PF,Duquesne,73,A-10,UNC Wilmington,321.0,CAA,,,,Immediate
+2021,CJ,Kelly,SG,UAlbany,306,Am. East,Massachusetts,161.0,A-10,,,1.0,Immediate
+2021,Patrick,Kelly,SF,Penn State,226,Big Ten,Fordham,91.0,A-10,3.0,0.88,,Immediate
+2021,Rich,Kelly,PG,Boston College,26,ACC,Massachusetts,161.0,A-10,,,1.0,Immediate
+2021,Walker,Kessler,C,North Carolina,200,ACC,Auburn,16.0,SEC,5.0,0.98,,Immediate
+2021,Lynn,Kidd,PF,Clemson,52,ACC,Virginia Tech,340.0,ACC,4.0,0.9,,Immediate
+2021,Dontavius,King,SF,Charleston,46,CAA,North Carolina Central,199.0,MEAC,,,,Immediate
+2021,Tre,King,PF,Eastern Kentucky,78,OVC,Iowa State,125.0,Big 12,,,,MidTerm
+2021,Isiah,Kirby,SG,SE Louisiana,246,Southland,,,,,,,Immediate
+2021,Thomas,Kithier,PF,Michigan State,169,Big Ten,Valparaiso,335.0,MVC,3.0,0.89,,Immediate
+2021,Brandon,Knapper,PG,Eastern Kentucky,78,OVC,,,,3.0,0.89,1.0,Immediate
+2021,Chris,Knight,PF,Dartmouth,62,Ivy,Loyola Chicago,151.0,MVC,,,,Immediate
+2021,Seneca,Knight,SG,LSU,136,SEC,BYU,18.0,WCC,,,1.0,PendingAppeal
+2021,Buay,Koka,C,Tulane,303,American,Detroit Mercy,69.0,Horizon,3.0,0.86,,Immediate
+2021,Tyler,Kolek,PG,George Mason,95,A-10,Marquette,157.0,Big East,,,,Immediate
+2021,Owen,Koonce,SG,Colorado,56,Pac-12,Colorado Mesa,1283.0,,,,,Immediate
+2021,Miller,Kopp,SF,Northwestern,212,Big Ten,Indiana,121.0,Big Ten,4.0,0.93,,Immediate
+2021,Dwayne,Koroma,SF,Iona,123,Metro,,,,,,,Immediate
+2021,Kur,Kuath,SF,Oklahoma,217,Big 12,Marquette,157.0,Big East,,,,Immediate
+2021,Aljaz,Kunc,SF,Washington State,344,Pac-12,Iowa State,125.0,Big 12,,,,Immediate
+2021,Arkel,Lamar,SF,UMBC,317,Am. East,Kansas City,130.0,Summit,,,,Immediate
+2021,Drew,LaMont,PF,Wyoming,358,Mountain West,,,,,,,Immediate
+2021,Ahmir,Langlais,PF,Western Carolina,348,SoCon,South Carolina Upstate,268.0,Big South,,,,Immediate
+2021,Jake,Laravia,SF,Indiana State,122,MVC,Wake Forest,342.0,ACC,,,,Immediate
+2021,Pelle,Larsson,SG,Utah,331,Pac-12,Arizona,11.0,Pac-12,4.0,0.91,,Immediate
+2021,Chandler,Lawson,PF,Oregon,223,Pac-12,Memphis,163.0,American,4.0,0.92,,Immediate
+2021,Josh,LeBlanc,SF,LSU,136,SEC,UAB,305.0,CUSA,4.0,0.92,,SittingOne
+2021,Jaedon,LeDee,SF,TCU,287,Big 12,San Diego State,257.0,Mountain West,3.0,0.89,,TBD
+2021,Greg,Lee,PF,Western Michigan,351,MAC,Penn State,226.0,Big Ten,,,1.0,Immediate
+2021,Ira,Lee,C,Arizona,11,Pac-12,George Washington,96.0,A-10,4.0,0.97,,Immediate
+2021,Kendall,Lewis,SF,App State,9,Sun Belt,Illinois State,119.0,MVC,3.0,0.88,,Immediate
+2021,Terrence,Lewis,SG,South Alabama,265,Sun Belt,Grambling,103.0,SWAC,4.0,0.9,,Immediate
+2021,Terence,Lewis II,SF,North Texas,204,CUSA,Jackson State,126.0,SWAC,,,,Immediate
+2021,Gerald,Liddell,SF,Texas,295,Big 12,Alabama State,6.0,SWAC,4.0,0.97,,Immediate
+2021,Isaac,Lindsey,SG,UNLV,322,Mountain West,Wisconsin,355.0,Big Ten,3.0,0.88,,Immediate
+2021,Manny,Littles,SF,North Alabama,197,ASUN,Nicholls,195.0,Southland,,,,Immediate
+2021,Noah,Locke,SG,Florida,87,SEC,Louisville,150.0,ACC,4.0,0.91,,Immediate
+2021,Luke,Loewe,CG,William & Mary,353,CAA,Minnesota,173.0,Big Ten,,,,Immediate
+2021,Oscar,Lopez,SG,DePaul,65,Big East,Montana,179.0,Big Sky,,,,TBD
+2021,Drew,Lowder,PG,Eastern Michigan,79,MAC,,,,,,,Immediate
+2021,Foster,Loyer,PG,Michigan State,169,Big Ten,Davidson,63.0,A-10,3.0,0.89,,Immediate
+2021,Te'Jon,Lucas,PG,Milwaukee,172,Horizon,BYU,18.0,WCC,3.0,0.87,,Immediate
+2021,Seth,Lundy,SF,Penn State,226,Big Ten,,,,3.0,0.89,,Withdrawn
+2021,Edra,Luster,C,East Carolina,74,American,Northeastern State,543.0,,2.0,0.79,,Immediate
+2021,Chris,Lykes,PG,Miami,168,ACC,Arkansas,12.0,SEC,4.0,0.94,,Immediate
+2021,Gabe,Madsen,SF,Cincinnati,51,American,Utah,331.0,Pac-12,3.0,0.89,,Immediate
+2021,Brandon,Mahan,SG,UCF,312,American,,,,,,,Immediate
+2021,Dusan,Mahorcic,C,Illinois State,119,MVC,Utah,331.0,Pac-12,,,,Immediate
+2021,Xzavier,Malone-Key,SG,Fairleigh Dickinson,84,NEC,Oregon State,224.0,Pac-12,,,,Immediate
+2021,Brady,Manek,PF,Oklahoma,217,Big 12,North Carolina,200.0,ACC,3.0,0.88,,Immediate
+2021,Jamaine,Mann,PF,Gardner-Webb,94,Big South,Vanderbilt,336.0,SEC,3.0,0.88,,Immediate
+2021,Charles,Manning,SG,LSU,136,SEC,South Alabama,265.0,Sun Belt,3.0,0.88,,MidTerm
+2021,Kevin,Marfo,PF,Texas A&M,293,SEC,Quinnipiac,238.0,Metro,3.0,0.89,,Immediate
+2021,Cam,Martin,PF,Missouri Southern State,636,,Kansas,131.0,Big 12,,,,Immediate
+2021,Remy,Martin,PG,Arizona State,10,Pac-12,Kansas,131.0,Big 12,3.0,0.89,,TBD
+2021,Ian,Martinez,SG,Utah,331,Pac-12,Maryland,160.0,Big Ten,4.0,0.96,,TBD
+2021,Jamal,Mashburn Jr.,CG,Minnesota,173,Big Ten,New Mexico,191.0,Mountain West,4.0,0.91,,Immediate
+2021,Ismael,Massoud,SG,Wake Forest,342,ACC,Kansas State,132.0,Big 12,3.0,0.89,,Immediate
+2021,Montez,Mathis,SG,Rutgers,245,Big Ten,St. John's,279.0,Big East,4.0,0.91,,TBD
+2021,Bayron,Matos,C,New Mexico,191,Mountain West,South Florida,271.0,American,3.0,0.89,,Immediate
+2021,Emmitt,Matthews Jr.,SF,West Virginia,347,Big 12,Washington,343.0,Pac-12,3.0,0.88,,Immediate
+2021,Issac,McBride,CG,Vanderbilt,336,SEC,Oral Roberts,222.0,Summit,3.0,0.89,,Immediate
+2021,Jordan,McCabe,PG,West Virginia,347,Big 12,UNLV,322.0,Mountain West,3.0,0.89,,Immediate
+2021,Liam,McChesney,PF,Utah State,329,Mountain West,Illinois State,119.0,MVC,3.0,0.89,,Immediate
+2021,Mac,McClung,PG,Texas Tech,298,Big 12,,,,3.0,0.88,,Withdrawn
+2021,Jalyn,McCreary,PF,South Carolina,266,SEC,South Florida,271.0,American,3.0,0.88,,TBD
+2021,DJ,McDonald,PG,UC Riverside,309,Big West,Colorado Christian,652.0,,,,,Immediate
+2021,Koby,McEwen,PG,Marquette,157,Big East,Weber State,345.0,Big Sky,3.0,0.89,,TBD
+2021,Tyler,McGhie,SF,Western Carolina,348,SoCon,Southern Nazarene,984.0,,3.0,0.8,,Immediate
+2021,A.J.,McGinnis,SG,UNC Greensboro,320,SoCon,Cincinnati,51.0,American,,,,Immediate
+2021,John,McGriff,PG,St. John's,279,Big East,Binghamton,24.0,Am. East,3.0,0.88,,Immediate
+2021,Walt,McGrory,PG,Wisconsin,355,Big Ten,South Dakota,269.0,Summit,,,,Immediate
+2021,Brandon,McKissic,SG,Kansas City,130,Summit,Florida,87.0,SEC,,,,Immediate
+2021,Justin,McKoy,SF,Virginia,339,ACC,North Carolina,200.0,ACC,3.0,0.89,,Immediate
+2021,Darius,McNeill,PG,SMU,248,American,UTSA,328.0,CUSA,3.0,0.89,,Immediate
+2021,Cashius,McNeilly,SG,Texas A&M,293,SEC,,,,4.0,0.93,,Immediate
+2021,Mike,Meadows,PG,Eastern Washington,80,Big Sky,Portland,230.0,WCC,,,,Immediate
+2021,Brendan,Medley-Bacon,C,VCU,333,A-10,McNeese,162.0,Southland,,,,Immediate
+2021,John,Meeks,SF,Bucknell,32,Patriot,Charleston,46.0,CAA,,,,Immediate
+2021,Zane,Meeks,PF,Nevada,189,Mountain West,San Francisco,259.0,WCC,,,,Immediate
+2021,Rifen,Miguel,PF,Ohio,215,MAC,Troy,302.0,Sun Belt,,,,Immediate
+2021,Adam,Miller,PG,Illinois,118,Big Ten,LSU,136.0,SEC,4.0,0.97,,Immediate
+2021,Emanuel,Miller,PF,Texas A&M,293,SEC,TCU,287.0,Big 12,3.0,0.89,,Immediate
+2021,Jordan,Miller,SF,George Mason,95,A-10,Miami,168.0,ACC,,,,Immediate
+2021,Randy,Miller,PG,Indiana State,122,MVC,North Carolina Central,199.0,MEAC,,,,Immediate
+2021,Walker,Miller,C,North Carolina,200,ACC,Monmouth,178.0,Metro,,,,Immediate
+2021,Caleb,Mills,PG,Houston,113,American,Florida State,90.0,ACC,3.0,0.89,,Immediate
+2021,Kylen,Milton,SG,Western Kentucky,350,CUSA,Arkansas-Pine Bluff,14.0,SWAC,,,,Immediate
+2021,Justin,Minaya,SF,South Carolina,266,SEC,Providence,235.0,Big East,3.0,0.86,,TBD
+2021,Martice,Mitchell,C,Minnesota,173,Big Ten,Northern Illinois,208.0,MAC,4.0,0.9,,Immediate
+2021,Steffon,Mitchell,SF,Boston College,26,ACC,,,,3.0,0.85,,Immediate
+2021,Tre,Mitchell,C,Massachusetts,161,A-10,Texas,295.0,Big 12,4.0,0.91,2.0,Immediate
+2021,Abdullahi,Mohamed,PF,Eastern Washington,80,Big Sky,,,,,,,Immediate
+2021,Takal,Molson,SG,Seton Hall,263,Big East,James Madison,129.0,CAA,,,,Immediate
+2021,Bryce,Monroe,PG,Sam Houston,255,Southland,San Diego,258.0,WCC,3.0,0.88,,Immediate
+2021,Kris,Monroe,SF,Providence,235,Big East,North Carolina Central,199.0,MEAC,3.0,0.88,,Immediate
+2021,Damari,Monsanto,SG,East Tennessee State,75,SoCon,Wake Forest,342.0,ACC,3.0,0.87,,Immediate
+2021,Keondre,Montgomery,SF,Mississippi State,174,SEC,Alcorn State,7.0,SWAC,3.0,0.89,,Immediate
+2021,Charlie,Moore,PG,DePaul,65,Big East,Miami,168.0,ACC,4.0,0.9,,Immediate
+2021,Isaih,Moore,PF,St. John's,279,Big East,Southern Miss,275.0,CUSA,3.0,0.8,,Immediate
+2021,Shakeel,Moore,CG,NC State,185,ACC,Mississippi State,174.0,SEC,4.0,0.91,,Immediate
+2021,J.P.,Moorman,PF,Temple,289,American,UC Riverside,309.0,Big West,3.0,0.89,,Immediate
+2021,Casey,Morsell,SG,NC State,185,ACC,,,,4.0,0.96,,Withdrawn
+2021,Darryl,Morsell,SG,Maryland,160,Big Ten,,,,4.0,0.91,,Immediate
+2021,TJ,Moss,SG,South Carolina,266,SEC,McNeese,162.0,Southland,3.0,0.89,,Immediate
+2021,Montavious,Murphy,PF,Kansas State,132,Big 12,,,,3.0,0.87,1.0,Immediate
+2021,Gethro,Muscadin,C,Kansas,131,Big 12,New Mexico,191.0,Mountain West,3.0,0.89,,Immediate
+2021,David,Mutaf,SG,Minnesota,173,Big Ten,,,,3.0,0.89,,Immediate
+2021,Assane,Ndiaye,C,New Mexico,191,Mountain West,,,,,,,Immediate
+2021,Jahcobi,Neath,PG,Wake Forest,342,ACC,Wisconsin,355.0,Big Ten,3.0,0.88,,TBD
+2021,Anders,Nelson,PG,St. Thomas-Minnesota,280,,,,,3.0,0.8,,Immediate
+2021,Jordan,Nesbitt,SF,Memphis,163,American,Saint Louis,252.0,A-10,4.0,0.95,,Immediate
+2021,John,Newman,SG,Clemson,52,ACC,Cincinnati,51.0,American,3.0,0.89,,TBD
+2021,Woody,Newton,PF,Syracuse,286,ACC,Oklahoma State,218.0,Big 12,4.0,0.9,,Immediate
+2021,Jeff,Ngandu,C,Seton Hall,263,Big East,,,,,,,Immediate
+2021,Jimmy,Nichols,PF,Providence,235,Big East,VCU,333.0,A-10,4.0,0.9,,TBD
+2021,Josh,Nickelberry,SG,Louisville,150,ACC,La Salle,137.0,A-10,3.0,0.89,,Immediate
+2021,Lamar,Norman,SG,Duquesne,73,A-10,Western Michigan,351.0,MAC,3.0,0.87,,Immediate
+2021,Markquis,Nowell,PG,Little Rock,144,Sun Belt,Kansas State,132.0,Big 12,3.0,0.88,,Immediate
+2021,Joel,Ntambwe,SF,Texas Tech,298,Big 12,,,,,,,TBD
+2021,Jack,Nunge,PF,Iowa,124,Big Ten,Xavier,359.0,Big East,4.0,0.9,,TBD
+2021,Zach,Nutall,SG,Sam Houston,255,Southland,SMU,248.0,American,3.0,0.82,,Immediate
+2021,Esahia,Nyiwe,PF,Texas Tech,298,Big 12,St. John's,279.0,Big East,3.0,0.89,,MidTerm
+2021,Kevin,Obanor,PF,Oral Roberts,222,Summit,Texas Tech,298.0,Big 12,,,,Immediate
+2021,Ejike,Obinna,C,Vanderbilt,336,SEC,Saint Joseph's,251.0,A-10,3.0,0.89,,Immediate
+2021,Efe,Odigie,PF,UTEP,327,CUSA,Troy,302.0,Sun Belt,,,,Immediate
+2021,Akeem,Odusipe,C,Vanderbilt,336,SEC,Kent State,134.0,MAC,3.0,0.88,,Immediate
+2021,Josh,O'Garro,SG,Oklahoma,217,Big 12,San José State,260.0,Mountain West,,,4.0,Immediate
+2021,Alec,Oglesby,SG,Cleveland State,53,Horizon,UNC Wilmington,321.0,CAA,,,,Immediate
+2021,Jacob,Ognacevic,PF,Valparaiso,335,MVC,Lipscomb,143.0,ASUN,,,,Immediate
+2021,Ody,Oguama,PF,Wake Forest,342,ACC,Cincinnati,51.0,American,2.0,0.79,,TBD
+2021,Emmanuel,Okpomo,C,Wake Forest,342,ACC,Temple,289.0,American,3.0,0.89,,Immediate
+2021,Elijah,Olaniyi,SG,Miami,168,ACC,Stony Brook,285.0,Am. East,,,,Immediate
+2021,Jarvis,Omersa,PF,Minnesota,173,Big Ten,St. Thomas-Minnesota,280.0,,3.0,0.89,,Immediate
+2021,Nick,Ongenda,C,DePaul,65,Big East,,,,3.0,0.88,,TBD
+2021,EJ,Onu,PF,Shawnee State,775,,,,,,,,Immediate
+2021,Osayi,Osifo,PF,Florida,87,SEC,Jacksonville,127.0,ASUN,3.0,0.89,,Immediate
+2021,Chris,Osten,C,Arizona State,10,Pac-12,Northern Illinois,208.0,MAC,2.0,0.79,,Immediate
+2021,Yvan,Ouedraogo,PF,Nebraska,188,Big Ten,Grand Canyon,104.0,UAC,3.0,0.89,,Immediate
+2021,Chase,Paar,C,George Washington,96,A-10,Towson,301.0,CAA,3.0,0.88,,Immediate
+2021,Alden,Parham,CG,VMI,334,SoCon,South Alabama,265.0,Sun Belt,,,1.0,Immediate
+2021,Deshon,Parker,CG,App State,9,Sun Belt,Cleveland State,53.0,Horizon,,,,Immediate
+2021,Eric,Parrish,SG,UTSA,328,CUSA,,,,3.0,0.88,,TBD
+2021,Addison,Patterson,SG,Oregon,223,Pac-12,Nevada,189.0,Mountain West,,,,MidTerm
+2021,Pauly,Paulicap,PF,DePaul,65,Big East,West Virginia,347.0,Big 12,,,,Immediate
+2021,Omar,Payne,PF,Florida,87,SEC,Illinois,118.0,Big Ten,4.0,0.96,,Immediate
+2021,Mickey,Pearson,SF,TCU,287,Big 12,Ball State,19.0,MAC,3.0,0.88,,Immediate
+2021,Micah,Peavy,SG,Texas Tech,298,Big 12,TCU,287.0,Big 12,4.0,0.96,,Immediate
+2021,Drew,Pember,PF,Tennessee,292,SEC,UNC Asheville,319.0,Big South,3.0,0.89,,Immediate
+2021,Bryan,Penn-Johnson,C,LSU,136,SEC,,,,3.0,0.89,,TBD
+2021,Jose,Perez,SG,Marquette,157,Big East,Manhattan,155.0,Metro,,,,Immediate
+2021,De'Vondre,Perry,SF,Temple,289,American,UAlbany,306.0,Am. East,3.0,0.87,,Immediate
+2021,Joe,Petrakis,C,Kansas State,132,Big 12,Western Carolina,348.0,SoCon,,,,Immediate
+2021,John,Pettway,PG,South Alabama,265,Sun Belt,Tennessee Tech,291.0,OVC,3.0,0.85,,Immediate
+2021,Trey,Phipps,SG,Oklahoma,217,Big 12,Oral Roberts,222.0,Summit,3.0,0.89,,Immediate
+2021,Jalen,Pickett,SG,Siena,264,Metro,Penn State,226.0,Big Ten,,,,Immediate
+2021,Carl,Pierre,SG,Massachusetts,161,A-10,Rice,241.0,CUSA,,,1.0,Immediate
+2021,Xavier,Pinson,PG,Missouri,177,SEC,LSU,136.0,SEC,3.0,0.88,,Immediate
+2021,Joe,Pleasant,PF,Abilene Christian,1,Southland,Wichita State,352.0,American,,,,Immediate
+2021,Alfonso,Plummer,SG,Utah,331,Pac-12,Illinois,118.0,Big Ten,,,,Immediate
+2021,Quinten,Post,C,Mississippi State,174,SEC,Boston College,26.0,ACC,,,,Immediate
+2021,Justin,Powell,PG,Auburn,16,SEC,Tennessee,292.0,SEC,3.0,0.89,,Immediate
+2021,Jahbril,Price-Noel,SF,Pacific,225,WCC,Wagner,341.0,NEC,,,,Immediate
+2021,Olivier-Maxence,Prosper,PF,Clemson,52,ACC,Marquette,157.0,Big East,4.0,0.94,,Immediate
+2021,Nate,Pryor,PG,Washington,343,Pac-12,New Mexico State,192.0,UAC,,,,Immediate
+2021,Tyrece,Radford,PG,Virginia Tech,340,ACC,Texas A&M,293.0,SEC,,,,Immediate
+2021,Aaryn,Rai,SG,Dartmouth,62,Ivy,,,,,,,Immediate
+2021,Daniel,Ramsey,PF,Xavier,359,Big East,Tennessee Tech,291.0,OVC,3.0,0.89,,Immediate
+2021,Ahmad,Rand,PF,Memphis,163,American,Oregon State,224.0,Pac-12,3.0,0.89,,Immediate
+2021,Isaiah,Range,PG,Tarleton State,288,UAC,Alabama State,6.0,SWAC,,,,Immediate
+2021,Jordan,Rawls,PG,Western Kentucky,350,CUSA,Georgia State,100.0,Sun Belt,4.0,0.92,,Immediate
+2021,Everett,Ray,PF,SMU,248,American,Old Dominion,219.0,CUSA,3.0,0.87,,Immediate
+2021,Camron,Reece,SF,Akron,3,MAC,,,,,,,Immediate
+2021,James,Reese,SG,North Texas,204,CUSA,South Carolina,266.0,SEC,,,,Immediate
+2021,Nate,Reuvers,PF,Wisconsin,355,Big Ten,,,,4.0,0.95,,Immediate
+2021,Kadary,Richmond,SF,Syracuse,286,ACC,Seton Hall,263.0,Big East,4.0,0.94,,TBD
+2021,Liam,Robbins,C,Minnesota,173,Big Ten,Vanderbilt,336.0,SEC,,,,Immediate
+2021,C.J.,Roberts,PG,New Mexico State,192,UAC,Lamar,139.0,Southland,,,,Immediate
+2021,Tyrell,Roberts,SG,UC San Diego,310,Big West,Washington State,344.0,Pac-12,,,,Immediate
+2021,Demond,Robinson,PF,Murray State,184,OVC,Kennesaw State,133.0,ASUN,,,,Immediate
+2021,Jaxson,Robinson,SG,Texas A&M,293,SEC,Arkansas,12.0,SEC,4.0,0.95,,Immediate
+2021,Robby,Robinson,PF,Nevada,189,Mountain West,New Orleans,193.0,Southland,,,,Immediate
+2021,Shon,Robinson,PF,Ole Miss,220,SEC,San José State,260.0,Mountain West,3.0,0.88,3.0,Immediate
+2021,Colby,Rogers,SG,Cal Poly,35,Big West,Siena,264.0,Metro,,,,Immediate
+2021,Anthony,Roy,SG,San Francisco,259,WCC,,,,,,,Immediate
+2021,Fatts,Russell,PG,Rhode Island,240,A-10,Maryland,160.0,Big Ten,3.0,0.88,,Immediate
+2021,Phillip,Russell,PG,Saint Louis,252,A-10,Southeast Missouri State,272.0,OVC,,,,Immediate
+2021,Ray,Salnave,SG,DePaul,65,Big East,,,,3.0,0.85,,TBD
+2021,Kevin,Samuel,C,TCU,287,Big 12,Florida Gulf Coast,88.0,ASUN,4.0,0.9,,Immediate
+2021,Jaja,Sanni,SG,UTSA,328,CUSA,,,,,,,TBD
+2021,Marcus,Santos-Silva,C,Texas Tech,298,Big 12,,,,3.0,0.87,,Withdrawn
+2021,Zaakir,Sawyer,SG,UL Monroe,316,Sun Belt,,,,,,,Immediate
+2021,Tobin,Schwannecke,SG,Grand Valley State,1483,,Detroit Mercy,69.0,Horizon,,,,Immediate
+2021,D'Shawn,Schwartz,SF,Colorado,56,Pac-12,George Mason,95.0,A-10,4.0,0.93,,Immediate
+2021,Ryan,Schwieger,SG,Princeton,234,Ivy,Loyola Chicago,151.0,MVC,,,,Immediate
+2021,Jaden,Seymour,SF,Wichita State,352,American,East Tennessee State,75.0,SoCon,,,,Immediate
+2021,Acton,Shirley,C,IU Indianapolis,115,Horizon,,,,,,1.0,Immediate
+2021,Jamari,Sibley,PF,Georgetown,97,Big East,UTEP,327.0,CUSA,4.0,0.9,,Immediate
+2021,Desi,Sills,SG,Arkansas,12,SEC,Arkansas State,13.0,Sun Belt,3.0,0.88,,Immediate
+2021,Tariq,Silver,SG,Oregon State,224,Pac-12,Austin Peay,17.0,OVC,3.0,0.88,,Immediate
+2021,KJ,Simon,PG,Bethune-Cookman,23,,UT Martin,325.0,OVC,,,,Immediate
+2021,Quinn,Slazinski,PF,Louisville,150,ACC,Iona,123.0,Metro,3.0,0.88,,TBD
+2021,Isiah,Small,SF,Texas State,297,Sun Belt,,,,,,,Immediate
+2021,Aquan,Smart,PG,Maryland,160,Big Ten,Florida International,89.0,CUSA,3.0,0.88,,Immediate
+2021,Angel,Smith,SG,Southern Miss,275,CUSA,Samford,256.0,SoCon,,,,Immediate
+2021,Deivon,Smith,PG,Mississippi State,174,SEC,Georgia Tech,101.0,ACC,4.0,0.96,,Immediate
+2021,Diante,Smith,SF,TCU,287,Big 12,South Alabama,265.0,Sun Belt,4.0,0.9,,MidTerm
+2021,Mark,Smith,CG,Missouri,177,SEC,Kansas State,132.0,Big 12,3.0,0.89,,Immediate
+2021,Treylan,Smith,SG,Mississippi Valley State,175,SWAC,,,,,,,Immediate
+2021,Tyreek,Smith,PF,Texas Tech,298,Big 12,Oklahoma State,218.0,Big 12,3.0,0.89,,Immediate
+2021,Charles,Smith IV,SG,SMU,248,American,Old Dominion,219.0,CUSA,3.0,0.88,,Immediate
+2021,Joel,Soriano,PF,Fordham,91,A-10,St. John's,279.0,Big East,3.0,0.88,,Immediate
+2021,Scott,Spencer,SF,La Salle,137,A-10,Tulane,303.0,American,3.0,0.85,,Immediate
+2021,Chris,Spenkuch,PF,Louisiana,148,Sun Belt,,,,,,,Immediate
+2021,Mikal,Starks,PG,Georgia,98,SEC,,,,3.0,0.89,,Immediate
+2021,Michael,Steadman,PF,Montana,179,Big Sky,Massachusetts,161.0,A-10,,,1.0,Immediate
+2021,Gabe,Stefanini,PG,Columbia,58,Ivy,South Florida,271.0,American,,,,Immediate
+2021,Eylijah,Stephens,PG,Lafayette,138,Patriot,Minnesota,173.0,Big Ten,,,,Immediate
+2021,Dimingus,Stevens,SG,Seton Hall,263,Big East,Florida A&M,85.0,MEAC,3.0,0.89,,Immediate
+2021,Erik,Stevenson,SG,Washington,343,Pac-12,South Carolina,266.0,SEC,3.0,0.89,,Immediate
+2021,Parker,Stewart,SG,Indiana,121,Big Ten,,,,3.0,0.87,,Withdrawn
+2021,Sean,Sutherlin,CG,New Hampshire,190,Am. East,Minnesota,173.0,Big Ten,,,1.0,Immediate
+2021,Cole,Swider,SF,Villanova,338,Big East,Syracuse,286.0,ACC,4.0,0.95,,TBD
+2021,Khadim,Sy,PF,Ole Miss,220,SEC,Wake Forest,342.0,ACC,3.0,0.89,,TBD
+2021,Wynston,Tabbs,SG,Boston College,26,ACC,East Carolina,74.0,American,3.0,0.88,,Immediate
+2021,Patrick,Tape,C,Duke,72,ACC,,,,,,,Immediate
+2021,Dana,Tate,SF,Siena,264,Metro,Norfolk State,196.0,MEAC,3.0,0.89,,Immediate
+2021,A.J.,Taylor,SF,NC State,185,ACC,Grambling,103.0,SWAC,,,,Immediate
+2021,Jalen,Terry,PG,Oregon,223,Pac-12,DePaul,65.0,Big East,4.0,0.95,,Immediate
+2021,Anthony,Thomas,SF,UT Martin,325,OVC,,,,,,,Immediate
+2021,Lance,Thomas,PF,Memphis,163,American,South Alabama,265.0,Sun Belt,4.0,0.93,,Immediate
+2021,Bryce,Thompson,SG,Kansas,131,Big 12,Oklahoma State,218.0,Big 12,5.0,0.98,,Immediate
+2021,Race,Thompson,PF,Indiana,121,Big Ten,,,,4.0,0.93,,Withdrawn
+2021,Terrance,Thompson,PF,Green Bay,105,Horizon,,,,,,,Immediate
+2021,Devin,Tillis,PF,UNLV,322,Mountain West,UC Irvine,308.0,Big West,,,,Immediate
+2021,Earl,Timberlake,SF,Miami,168,ACC,Memphis,163.0,American,4.0,0.97,,Immediate
+2021,Taryn,Todd,SG,TCU,287,Big 12,New Mexico,191.0,Mountain West,,,,Immediate
+2021,Au'Diese,Toney,SG,Pittsburgh,229,ACC,Arkansas,12.0,SEC,3.0,0.89,,Immediate
+2021,JoJo,Toppin,SF,Georgia State,100,Sun Belt,,,,,,,TBD
+2021,Symir,Torrence,CG,Marquette,157,Big East,Syracuse,286.0,ACC,4.0,0.93,,Immediate
+2021,Clyde,Trapp,PG,Clemson,52,ACC,Charlotte,48.0,CUSA,3.0,0.87,,TBD
+2021,D'Mitrik,Trice,PG,Wisconsin,355,Big Ten,,,,,,,Immediate
+2021,Oscar,Tshiebwe,PF,West Virginia,347,Big 12,Kentucky,135.0,SEC,5.0,0.98,,Immediate
+2021,Abdou,Tsimbila,PF,Penn State,226,Big Ten,Fordham,91.0,A-10,3.0,0.88,,Immediate
+2021,Marcus,Tsohonis,SG,Washington,343,Pac-12,VCU,333.0,A-10,3.0,0.87,,Immediate
+2021,Dearon,Tucker,PF,Oregon State,224,Pac-12,Indiana State,122.0,MVC,,,,Immediate
+2021,Deuce,Turner,CG,Bucknell,32,Patriot,,,,,,,Immediate
+2021,Cameron,Tyson,SG,Houston,113,American,Seattle U,262.0,UAC,3.0,0.82,,Immediate
+2021,Alonzo,Verge Jr.,SG,Arizona State,10,Pac-12,Nebraska,188.0,Big Ten,3.0,0.88,,Immediate
+2021,Chris,Vogt,C,Cincinnati,51,American,Wisconsin,355.0,Big Ten,,,,Immediate
+2021,Trevin,Wade,PG,Wichita State,352,American,Eastern Kentucky,78.0,OVC,,,,Immediate
+2021,Trey,Wade,SF,Wichita State,352,American,Arkansas,12.0,SEC,3.0,0.88,,Immediate
+2021,Qudus,Wahab,C,Georgetown,97,Big East,Maryland,160.0,Big Ten,4.0,0.91,,Immediate
+2021,Corey,Walker,PF,Tennessee,292,SEC,South Florida,271.0,American,4.0,0.94,,Immediate
+2021,David,Walker,SG,South Alabama,265,Sun Belt,Cal State Bakersfield,36.0,Big West,3.0,0.88,,Immediate
+2021,Jordan,Walker,PG,Tulane,303,American,UAB,305.0,CUSA,3.0,0.89,,Immediate
+2021,Tyson,Walker,PG,Northeastern,205,CAA,Michigan State,169.0,Big Ten,3.0,0.85,,Immediate
+2021,Dallas,Walton,C,Colorado,56,Pac-12,Wake Forest,342.0,ACC,,,,TBD
+2021,Jaykwon,Walton,SF,Georgia,98,SEC,,,,3.0,0.87,,Immediate
+2021,Davion,Warren,SG,Hampton,106,Big South,Texas Tech,298.0,Big 12,,,,Immediate
+2021,Myles,Warren,PG,Washington State,344,Pac-12,,,,,,,Immediate
+2021,Marcus,Watson,PF,New Mexico State,192,UAC,North Carolina A&T,198.0,MEAC,4.0,0.94,,Immediate
+2021,Marcus,Watson Jr.,PG,Western Illinois,349,Summit,,,,,,,Immediate
+2021,Rocket,Watts,PG,Michigan State,169,Big Ten,Mississippi State,174.0,SEC,4.0,0.97,,Immediate
+2021,Marcus,Weathers,SF,Duquesne,73,A-10,SMU,248.0,American,,,,Immediate
+2021,Michael,Weathers,PG,Texas Southern,296,SWAC,SMU,248.0,American,,,,Immediate
+2021,Andre,Weir,C,Richmond,242,A-10,Florida Gulf Coast,88.0,ASUN,,,,MidTerm
+2021,Shahada,Wells,PG,UT Arlington,324,Sun Belt,TCU,287.0,Big 12,,,,Immediate
+2021,Brendan,Wenzel,SG,Utah,331,Pac-12,Wyoming,358.0,Mountain West,3.0,0.8,,Immediate
+2021,Aaron,Wheeler,SF,Purdue,236,Big Ten,St. John's,279.0,Big East,3.0,0.89,,TBD
+2021,Jamari,Wheeler,PG,Penn State,226,Big Ten,Ohio State,216.0,Big Ten,3.0,0.85,,Immediate
+2021,Sahvir,Wheeler,PG,Georgia,98,SEC,Kentucky,135.0,SEC,3.0,0.89,,TBD
+2021,Jalanni,White,PF,Penn State,226,Big Ten,,,,,,,Withdrawn
+2021,Brion,Whitley,PG,Murray State,184,OVC,Southern,274.0,SWAC,,,,Immediate
+2021,C.J.,Wilcher,SG,Xavier,359,Big East,Nebraska,188.0,Big Ten,4.0,0.9,,Immediate
+2021,Alondes,Williams,CG,Oklahoma,217,Big 12,Wake Forest,342.0,ACC,3.0,0.88,,Immediate
+2021,Bryson,Williams,SF,UTEP,327,CUSA,,,,,,,Immediate
+2021,Donovan,Williams,SG,Texas,295,Big 12,UNLV,322.0,Mountain West,4.0,0.95,,TBD
+2021,Greg,Williams,SG,St. John's,279,Big East,Louisiana,148.0,Sun Belt,3.0,0.89,,TBD
+2021,Kalen,Williams,PG,New Mexico State,192,UAC,,,,,,,Immediate
+2021,Keshawn,Williams,CG,Tulsa,304,American,Northern Illinois,208.0,MAC,3.0,0.89,,Immediate
+2021,Marcus,Williams,PG,Wyoming,358,Mountain West,Texas A&M,293.0,SEC,,,,TBD
+2021,Rashun,Williams,SF,South Florida,271,American,,,,,,,Immediate
+2021,Rudi,Williams,PG,Kansas State,132,Big 12,Coastal Carolina,54.0,Sun Belt,3.0,0.89,,Immediate
+2021,Tre,Williams,SF,Indiana State,122,MVC,,,,,,,Immediate
+2021,Tre,Williams,SG,Minnesota,173,Big Ten,Oregon State,224.0,Pac-12,4.0,0.91,,Immediate
+2021,Diego,Willis,PG,NJIT,186,Am. East,Stephen F. Austin,282.0,Southland,,,,Immediate
+2021,Payton,Willis,CG,Charleston,46,CAA,Minnesota,173.0,Big Ten,3.0,0.89,,Immediate
+2021,A.J.,Wilson,SF,George Mason,95,A-10,South Carolina,266.0,SEC,,,,Immediate
+2021,Mylik,Wilson,SG,Louisiana,148,Sun Belt,Texas Tech,298.0,Big 12,3.0,0.88,,Immediate
+2021,"Roger ""RJ""",Wilson Jr,PF,App State,9,Sun Belt,,,,,,,Immediate
+2021,Deschon,Winston,PG,Central Michigan,45,MAC,,,,,,,Immediate
+2021,Paxson,Wojcik,SG,Loyola Chicago,151,MVC,Brown,30.0,Ivy,3.0,0.88,,Immediate
+2021,Diante,Wood,SG,Jacksonville,127,ASUN,Tennessee Tech,291.0,OVC,3.0,0.88,,Immediate
+2021,Elijah,Wood,CG,Nebraska,188,Big Ten,Eastern Illinois,77.0,OVC,,,,Immediate
+2021,Moses,Wood,SF,UNLV,322,Mountain West,Portland,230.0,WCC,3.0,0.88,3.0,Immediate
+2021,Holland,Woods,PG,Arizona State,10,Pac-12,Grand Canyon,104.0,UAC,,,,Immediate
+2021,Kam,Woods,PG,Troy,302,Sun Belt,,,,,,,Immediate
+2021,Seventh,Woods,PG,South Carolina,266,SEC,Morgan State,182.0,MEAC,4.0,0.94,,Immediate
+2021,Rollie,Worster,SG,Utah State,329,Mountain West,Utah,331.0,Pac-12,,,,Immediate
+2021,Hameir,Wright,PF,Washington,343,Pac-12,North Texas,204.0,CUSA,4.0,0.95,,Immediate
+2021,Joseph,Yesufu,PG,Drake,70,MVC,Kansas,131.0,Big 12,,,,TBD
+2021,Alexis,Yetna,SF,South Florida,271,American,Seton Hall,263.0,Big East,3.0,0.87,,Immediate
+2021,Jacob,Young,PG,Rutgers,245,Big Ten,Oregon,223.0,Pac-12,4.0,0.91,,Immediate
