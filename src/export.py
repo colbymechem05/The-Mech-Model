@@ -170,9 +170,77 @@ def league_tables(league: str, day: pd.Timestamp) -> dict:
     colors["color"] = "#" + colors.color.astype(str).str.lstrip("#")
     rec = record(league)  # one file: summary rows always exist, so it never comes up empty
     out = {"lines": lines, "rankings": r, "conferences": strength, "colors": colors,
+           "pace": pace_table(league), "pace_history": pace_history(league), "homecourt": homecourt(league),
            "record": [rec["summary"]] + rec["months"] + rec["calibration"] + rec["games"]}
     return {k: (v if isinstance(v, list) else v.assign(league=league).replace({np.nan: None})
                 .to_dict("records")) for k, v in out.items()}
+
+
+def pace_table(league: str) -> pd.DataFrame:
+    f = OUT / f"pace_{league}.csv"
+    if not f.exists():
+        return pd.DataFrame()
+    p = pd.read_csv(f)
+    p[["battles", "games"]] = p[["battles", "games"]].fillna(0).astype(int)
+    return p.round(1)
+
+
+def pace_history(league: str, seasons_needed: int = 4) -> pd.DataFrame:
+    """Teams that dictated (or adapted to) the pace in at least `seasons_needed` of the last five
+    seasons (output/pace_profiles.csv, from analysis/pace_control.py)."""
+    f = OUT / "pace_profiles.csv"
+    if not f.exists():
+        return pd.DataFrame()
+    p = pd.read_csv(f)
+    p = p[p.league == league]
+    g = p.groupby("team").agg(seasons=("season", "size"), above=("control", lambda c: int((c > 50).sum())),
+                              avg=("control", "mean"))
+    g["team_id"] = g.index
+    dic = g[g.above >= seasons_needed].assign(kind="dictator").sort_values("avg", ascending=False)
+    cham = g[(g.seasons - g.above) >= seasons_needed].assign(kind="chameleon").sort_values("avg")
+    return pd.concat([dic.head(12), cham.head(12)])[["team_id", "kind", "seasons", "above", "avg"]].round(1)
+
+
+def homecourt(league: str) -> pd.DataFrame:
+    """Home court page: each team's home venue, how many home games its home edge was measured
+    on (last 4 full seasons, COVID year skipped, as in ratings.team_hca), arena capacity and
+    elevation (data/arenas/arenas.csv, from scripts/fetch_arenas.py), this season's home/road record."""
+    g = D.d1_games(D.load_games(league))
+    used = g[(g.season >= max(2022, D.CURRENT - 4)) & (g.season < D.CURRENT) & ~g.neutral]
+    out = pd.DataFrame({"home_games": used.groupby("home_id").size()})
+    cur = g[(g.season == D.CURRENT) & ~g.neutral]
+    out["home_w"] = cur[cur.margin > 0].groupby("home_id").size()
+    out["home_l"] = cur[cur.margin < 0].groupby("home_id").size()
+    out["road_w"] = cur[cur.margin < 0].groupby("away_id").size()
+    out["road_l"] = cur[cur.margin > 0].groupby("away_id").size()
+    out = out.fillna(0).astype(int)
+    v = venues(league)
+    out = out.join(v, how="outer")
+    out = out[out.index.isin(pd.read_csv(OUT / f"ratings_{league}.csv").team_id)]
+    f = D.ROOT / "data" / "arenas" / "arenas.csv"
+    if f.exists():
+        a = pd.read_csv(f)
+        a = a[a.league == league].set_index("team_id")[["capacity", "elevation_ft"]]
+        out = out.join(a)
+    out.index.name = "team_id"
+    return out.reset_index()
+
+
+def venues(league: str) -> pd.DataFrame:
+    """Each team's usual home venue: the most common site of its non-neutral home games,
+    this season and last."""
+    rows = []
+    for season in (D.CURRENT - 1, D.CURRENT):
+        f = D.RAW / f"{league}_schedule_{season}.csv"
+        if f.exists():
+            rows.append(pd.read_csv(f, low_memory=False, usecols=[
+                "home_id", "neutral_site", "venue_full_name", "venue_address_city", "venue_address_state"]))
+    s = pd.concat(rows)
+    s = s[~s.neutral_site.fillna(False).astype(bool)].dropna(subset=["venue_full_name"])
+    top = (s.groupby(["home_id", "venue_full_name", "venue_address_city", "venue_address_state"], dropna=False)
+             .size().rename("n").reset_index().sort_values("n", ascending=False).drop_duplicates("home_id"))
+    return (top.set_index("home_id")[["venue_full_name", "venue_address_city", "venue_address_state"]]
+               .set_axis(["venue", "city", "state"], axis=1))
 
 
 def team_pages(league: str, day: pd.Timestamp) -> dict:
@@ -196,7 +264,12 @@ def team_pages(league: str, day: pd.Timestamp) -> dict:
         spread = pd.concat([lg.spread_home, spread[~spread.index.isin(lg.index)]])
         prob = pd.concat([lg.p_home, prob[~prob.index.isin(lg.index)]])
     s["sp"], s["ph"] = s.game_id.map(spread), s.game_id.map(prob)
-    pages = {int(t): {"g": [], "l": []} for t in r.index}
+    pages = {int(t): {"g": [], "l": [], "h": []} for t in r.index}
+    hist = LOGS / f"ratings_history_{league}.csv"
+    if hist.exists():   # rating trend chart: one point per day
+        h = pd.read_csv(hist)
+        for t, grp in h[h.team_id.isin(r.index)].groupby("team_id"):
+            pages[int(t)]["h"] = grp[["date", "net", "rank"]].values.tolist()
     for x in s.sort_values("game_date").itertuples():
         for home in (True, False):
             me, opp = (x.home_id, x.away_id) if home else (x.away_id, x.home_id)
@@ -242,14 +315,35 @@ def export(day: pd.Timestamp) -> Path:
                        "updated": pd.Timestamp.now(tz="America/Chicago").strftime("%b %-d, %-I:%M %p CT")}]
     for name, rows in tables.items():
         (folder / f"{name}.json").write_text(json.dumps(rows, default=str))
+    (folder / "model.json").write_text(json.dumps(
+        {lg: json.loads((OUT / f"model_{lg}.json").read_text()) for lg in D.LEAGUES
+         if (OUT / f"model_{lg}.json").exists()}, separators=(",", ":")))
     for lg in D.LEAGUES:
         (folder / f"teams_{lg}.json").write_text(json.dumps(team_pages(lg, day), default=str,
                                                             separators=(",", ":")))
     return folder
 
 
+def write_venues() -> None:
+    """data/arenas/venues.csv: input for scripts/fetch_arenas.py (run once a year)."""
+    rows = []
+    for lg in D.LEAGUES:
+        v = venues(lg)
+        v = v[v.index.isin(pd.read_csv(OUT / f"ratings_{lg}.csv").team_id)]
+        sc = (pd.read_csv(D.RAW / f"{lg}_schedule_{D.CURRENT}.csv", low_memory=False,
+                          usecols=["home_id", "home_location", "home_display_name"])
+                .drop_duplicates("home_id").set_index("home_id"))
+        rows.append(v.assign(school=sc.home_location.reindex(v.index), team=sc.home_display_name.reindex(v.index),
+                             league=lg).rename_axis("team_id").reset_index())
+    (D.ROOT / "data" / "arenas").mkdir(parents=True, exist_ok=True)
+    pd.concat(rows).to_csv(D.ROOT / "data" / "arenas" / "venues.csv", index=False)
+
+
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    if "--venues" in sys.argv:
+        write_venues()
+        sys.exit()
     folder = export(pd.Timestamp(args[0]) if args else pd.Timestamp.now(tz="America/Chicago").normalize().tz_localize(None))
     for f in sorted(folder.glob("*.json")):
         print(f"{f.name:20s} {f.stat().st_size / 1024:6.1f} KB")

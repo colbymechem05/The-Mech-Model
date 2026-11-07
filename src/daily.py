@@ -9,6 +9,7 @@ Outputs per league (mbb, wbb):
   logs/predictions_{lg}.csv        every line ever made (append-only)
   logs/ratings_history_{lg}.csv    one ratings snapshot per day
 """
+import json
 import sys
 from pathlib import Path
 
@@ -18,6 +19,7 @@ from scipy.stats import norm
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # run as a script
 import data as D  # noqa: E402
+import pace as PACE  # noqa: E402
 import players as P  # noqa: E402
 import ratings as R  # noqa: E402
 import rosters as RS  # noqa: E402
@@ -161,6 +163,17 @@ def append_log(league: str, lines: pd.DataFrame) -> int:
 SNAP_COLS = ["rank", "net", "O", "D", "tempo", "games"]
 
 
+def model_params(league: str, r: pd.DataFrame, lg_info: dict, dials: R.Dials) -> dict:
+    """Everything the website's matchup tool needs to rebuild a Meech line (same math as
+    make_lines): league constants + per-team O, D, T and home edge, per 100 possessions."""
+    a, b = BUY_BOOST[league]
+    t = pd.DataFrame({"O": r.O, "D": r.D, "T": r["T"],
+                      "hc": r.home_court * 100 / lg_info["avg_tempo"]}).round(3)
+    return {"avg_eff": round(lg_info["avg_eff"], 3), "avg_tempo": round(lg_info["avg_tempo"], 3),
+            "sigma": dials.sigma[league], "buy": [a, b], "power": sorted(POWER),
+            "teams": {int(k): v for k, v in t.T.to_dict(orient="list").items()}}
+
+
 def snapshot(league: str, day: pd.Timestamp, r: pd.DataFrame) -> None:
     """Daily ratings history (logs/ratings_history_{lg}.csv) for team pages and trend charts.
     One block of rows per date; a rerun on the same day replaces that day's block."""
@@ -200,6 +213,8 @@ def run(day: pd.Timestamp, refresh: bool = True, force: bool = False) -> None:
           ].round(1).to_csv(OUT / f"ratings_{league}.csv", index_label="team_id")
         snapshot(league, day, r)
         project_schedule(league, day, r, lg_info, dials, conf).to_csv(OUT / f"projections_{league}.csv", index=False)
+        PACE.profile(league, day, r, lg_info).round(2).to_csv(OUT / f"pace_{league}.csv", index_label="team_id")
+        (OUT / f"model_{league}.json").write_text(json.dumps(model_params(league, r, lg_info, dials)))
         f = OUT / f"lines_{league}_{day.date()}.csv"
         if f.exists() and f.stat().st_size > 1 and not force:
             lines = pd.read_csv(f)

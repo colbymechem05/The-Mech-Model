@@ -1,0 +1,25 @@
+name: Fetch arena capacity + elevation
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "11 15 2 10 *"   # Oct 2 each year (arenas rarely change)
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install pandas lxml
+      - run: python scripts/fetch_arenas.py
+      - name: Commit
+        run: |
+          git config user.name "meech-model-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/arenas
+          git diff --cached --quiet && exit 0
+          git commit -m "Arena capacity + elevation $(date +%Y-%m-%d)"
+          git pull --rebase && git push
