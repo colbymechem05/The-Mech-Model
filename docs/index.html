@@ -223,7 +223,8 @@ tr.month td { padding-top: 16px; background: none !important; font: 600 11px var
 .pm-dot.pm-hit { stroke-opacity: 1; opacity: 1; }
 .up-rk { margin-right: 6px; font-size: 12px; }
 .pm-dot:hover { stroke: var(--fg); stroke-width: 2; }
-.pm-q { fill: var(--muted); font: 600 10.5px var(--body); letter-spacing: .12em; text-transform: uppercase; }
+#pace-map .ax-t { font-size: 13px; }
+.pm-q { fill: var(--muted); font: 600 12.5px var(--body); letter-spacing: .12em; text-transform: uppercase; }
 .pm-mid { stroke: var(--line); stroke-dasharray: 3 4; }
 .legend .lf::before { background: var(--faint); opacity: .5; }
 #hc-table td.arena { line-height: 1.25; padding-top: 6px; padding-bottom: 6px; white-space: normal; min-width: 160px; max-width: 185px; }
@@ -243,7 +244,7 @@ tr.month td { padding-top: 16px; background: none !important; font: 600 11px var
 /* upsets */
 #up-table td.swg { font-weight: 700; }
 .pm-hit { stroke: var(--fg); stroke-width: 2.5; }
-.pm-lab { font: 700 12px var(--body); fill: var(--fg); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; }
+.pm-lab { font: 700 13.5px var(--body); fill: var(--fg); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; }
 .more { margin-top: 8px; background: none; border: 1px solid var(--line); border-radius: 5px; padding: 6px 12px; color: var(--muted); font: 600 12px var(--body); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
 .more:hover { color: var(--fg); }
 .fine-src { font-size: 12px; color: var(--muted); margin-top: 14px; }
@@ -269,6 +270,8 @@ input[type=search] { min-width: 210px; }
 .legend { display: flex; gap: 14px; font-size: 12px; color: var(--muted); }
 .legend span::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; }
 .legend .lb::before { background: var(--blue); }
+.pm-legend { font-size: 13.5px; }
+.pm-legend span::before { display: none; }
 .legend .lo::before { background: var(--orange); }
 .btn { background: none; border: 1px solid var(--line); border-radius: 5px; padding: 6px 13px; font: 600 12px var(--body); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); cursor: pointer; margin-top: 12px; }
 .btn:hover { color: var(--fg); border-color: var(--muted); }
@@ -502,7 +505,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <div class="sec"><h2>Today&rsquo;s Pace Battles <span class="q" tabindex="0">?<span class="pop">Today&rsquo;s games where the two teams want the most different speeds. <b>Wants</b> = each team&rsquo;s rated tempo (possessions per 40 minutes vs. an average opponent). <b>Meech pace</b> = the pace the Meech line expects. <b>Edge</b> = the team that has done a better job of dragging games to its own speed this season (pace control), once both have enough games to tell.</span></span></h2></div>
       <div class="scroll" style="max-height:none"><table id="pb-table"><thead><tr><th>Fast team</th><th class="num">Wants <span class="q" tabindex="0">?<span class="pop">The fast team&rsquo;s rated tempo: possessions per 40 minutes vs. an average opponent.</span></span></th><th>Slow team</th><th class="num">Wants <span class="q" tabindex="0">?<span class="pop">The slow team&rsquo;s rated tempo.</span></span></th><th class="num">Gap <span class="q r" tabindex="0">?<span class="pop">Difference between what the two teams want, in possessions.</span></span></th><th class="num">Meech pace <span class="q r" tabindex="0">?<span class="pop">The pace the Meech line expects for this game.</span></span></th><th>Edge <span class="q r" tabindex="0">?<span class="pop">The team that has done a better job of dragging games to its own speed this season. Shows once both teams have 5+ battles.</span></span></th></tr></thead><tbody></tbody></table></div>
       <p class="empty" id="pb-none" hidden>No games today.</p>
-      <div class="sec"><h2>Style Map <span class="q" tabindex="0">?<span class="pop">Every team by speed (left = slow, right = fast) and pace control (up = drags games to its own speed, down = adapts to the opponent). Control needs games against teams that want a different speed, so faded dots don&rsquo;t have enough of those yet. Click a dot for the team page.</span></span></h2><div class="legend"><span>Dots in team colors · solid = enough games · faded = not enough yet</span></div></div>
+      <div class="sec"><h2>Style Map <span class="q" tabindex="0">?<span class="pop">Every team by speed (left = slow, right = fast) and pace control (up = drags games to its own speed, down = adapts to the opponent). Control needs games against teams that want a different speed, so faded dots don&rsquo;t have enough of those yet. Click a dot for the team page.</span></span></h2><div class="legend pm-legend"><span>Dots in team colors · solid = enough games · faded = not enough yet</span></div></div>
       <div class="map-wrap"><svg id="pace-map" role="img" aria-label="Pace style map"></svg><div class="gtip" id="pm-tip" hidden></div></div>
       <div class="pboard">
         <div><div class="sec"><h2>Fastest Teams</h2></div>
@@ -1454,7 +1457,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
           class: 'pm-dot' + (on ? ' pm-hit' : '') + (!on && p.battles < READY ? ' faint' : '') + ((searching && !on) || !inConf(p.conf) ? ' dim' : '')});
         c.style.fill = COLOR[p.team] || '';
         c.addEventListener('mouseenter', () => showTip(tip, wrap, X(p.tempo) * wrap.getBoundingClientRect().width / W, Y(Math.max(5, Math.min(95, p.control))) * wrap.getBoundingClientRect().height / H,
-          `<div class="d">${p.conf}</div><div class="m">${p.team}</div><div class="row"><span>Tempo</span><b>${f1(p.tempo)} (${ordinal(p.tempo_rank)})</b></div><div class="row"><span>Pace control</span><b>${Math.round(p.control)}%</b></div><div class="row"><span>Battles</span><b>${p.battles}</b></div>`));
+          `<div class="d">${p.conf}</div><div class="m">${p.team}</div><div class="row"><span>Tempo</span><b>${f1(p.tempo)} (${ordinal(p.tempo_rank)})</b></div><div class="row"><span>Pace control</span><b>${Math.round(p.control)}%</b></div><div class="row"><span>Net rating</span><b>${signed(rank[p.team_id].net)} (${ordinal(rank[p.team_id].rank)})</b></div>`));
         c.addEventListener('mouseleave', () => { tip.hidden = true; });
         c.addEventListener('click', () => openTeam(p.team_id));
         svg.append(c);
