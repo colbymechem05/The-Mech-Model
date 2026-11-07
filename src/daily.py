@@ -29,7 +29,7 @@ OUT = D.ROOT / "output"
 LOGS = D.ROOT / "logs"
 HISTORY = [s for s in D.SEASONS if s < D.CURRENT]
 # Tuned on 2021-22..2024-25, checked on 2025-26 (see build log; analysis/differentiators.py).
-SETTINGS = {"mbb": dict(new_value=-4.0, prior_games=6, recruits="feature"),   # RSCI top 100 freshmen
+SETTINGS = {"mbb": dict(new_value=-4.0, prior_games=6, recruits="feature"),   # top-100 freshmen (CBBD 247 composite)
             "wbb": dict(new_value=-4.0, prior_games=4, recruits="feature")}  # avg of ESPN/On3/247 (2025+)
 CONF_GAMES = 30   # in-season conference pooling (analysis/buy_game_fix.py)
 # Buy games: Power team at home vs. a non-Power visitor in Nov-Dec. Extra points for the home

@@ -1,4 +1,4 @@
-"""Freshmen valued by recruiting rank (RSCI top 100, men's) vs. today's flat default.
+"""Freshmen valued by recruiting rank (top 100, men's; RSCI until Nov 6, 2026, now CBBD) vs. today's flat default.
 Walk-forward backtests on the current model; tune 2022-23..2024-25, hold out 2025-26.
 Run: python analysis/recruit_test.py"""
 import sys
@@ -48,7 +48,7 @@ if __name__ == "__main__":
         rows.append({"version": mode or "today (flat freshmen)", **run(g, tps[mode], confs)})
         print("done", mode, flush=True)
     tp = tps["feature"]
-    print("\nWhat a freshman adds by RSCI tier (learned from 2020-21..2024-25 freshmen):")
+    print("\nWhat a freshman adds by recruiting tier (learned from 2020-21..2024-25 freshmen):")
     print(tp.tier_table.round(2).to_string())
     print(f"typical unranked newcomer value: {tp.v_typical:.2f}")
     print("Team model (feature): net = " + " + ".join(f"{c:.2f}" for c in tp.coef)

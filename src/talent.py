@@ -108,7 +108,7 @@ class TalentPrior:
             A = np.column_stack([np.ones(len(nt)), nt.last_net]) * np.sqrt(nt.w.values)[:, None]
             self.new_coef = tuple(np.linalg.lstsq(A, nt.v.values * np.sqrt(nt.w.values), rcond=None)[0])
 
-        # 4c. recruiting curves: what a freshman in each RSCI tier actually adds (minutes share
+        # 4c. recruiting curves: what a freshman in each recruiting tier actually adds (minutes share
         # and share x value), relative to a typical unranked newcomer, from training seasons
         if recruit_mode and not self.recruits[self.recruits.season.isin(train)].empty:
             rows = []

@@ -1,6 +1,9 @@
-"""Recruiting rankings for incoming freshmen (men's: RSCI consensus top 100).
+"""Recruiting rankings for incoming freshmen.
 
-data/recruits/rsci_{class}.csv comes from scripts/fetch_rsci.py (GitHub Actions).
+Men's: 247Sports composite top 100 from CollegeBasketballData.com (data/recruits/cbbd_{class}.csv,
+scripts/fetch_cbbd_recruits.py in GitHub Actions; replaced the RSCI lists on Nov 6, 2026 after an
+identical backtest: analysis/cbbd_recruit_test_results.txt).
+Women's: On3 (data/recruits/wbb_on3_{class}.csv, scripts/fetch_wbb_recruits.py).
 High-school class Y plays its freshman season in season Y + 1 (class of 2026 -> 2026-27).
 """
 import re
@@ -43,7 +46,7 @@ WBB_SOURCES = ["espn_rank", "on3_rank", "247_rank"]   # On3 = Rivals' parent; Ri
 
 def load(league: str = "mbb", source: str = "avg") -> pd.DataFrame:
     """All recruits: class, season (freshman year), rank, player, team_id (NaN if unknown).
-    Men's: RSCI consensus top 100. Women's: On3's page with each service's rank (classes 2025+);
+    Men's: CollegeBasketballData.com 247 composite top 100. Women's: On3's page with each service's rank (classes 2025+);
     `source` picks ESPN, On3/Rivals, 247 or the average of whichever ranked the player."""
     if league == "wbb":
         files = sorted(FOLDER.glob("wbb_on3_*.csv"))
@@ -60,10 +63,11 @@ def load(league: str = "mbb", source: str = "avg") -> pd.DataFrame:
         r["key"] = r.player.map(norm_name)
         r["tier"] = pd.cut(r["rank"], BINS, labels=LABELS)
         return r[["class", "season", "rank", "tier", "player", "college", "team_id", "key"]]
-    files = sorted(FOLDER.glob("rsci_*.csv"))
+    files = sorted(FOLDER.glob("cbbd_*.csv"))
     if not files:
         return pd.DataFrame(columns=["class", "season", "rank", "player", "college", "team_id", "key"])
     r = pd.concat([pd.read_csv(f) for f in files], ignore_index=True)
+    r = r[r["rank"] < BINS[-1]]
     ids = school_ids(league)
     r["team_id"] = r.college.map(lambda c: ids.get(ALIAS.get(c, c)) if isinstance(c, str) else None)
     r["season"] = r["class"] + 1

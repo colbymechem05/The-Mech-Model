@@ -378,4 +378,4 @@ def test_team_pages_and_records_agree(tmp_path, monkeypatch):
             assert (w, l) == (rec.wins[tid], rec.losses[tid])
         for x in g:
             if "r" not in x and "p" in x:
-                assert 0 <= x["p"] <= 1 and (x["ln"] > 0) == (x["p"] > 0.5)
+                assert 0 <= x["p"] <= 1 and (abs(x["ln"]) < 0.05 or (x["ln"] > 0) == (x["p"] > 0.5))  # a 0.0 line can round either way
