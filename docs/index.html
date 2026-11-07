@@ -266,6 +266,14 @@ tr.month td { padding-top: 16px; background: none !important; font: 600 11px var
 .pm-lab { font: 700 13.5px var(--body); fill: var(--fg); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; }
 .more { margin-top: 8px; background: none; border: 1px solid var(--line); border-radius: 5px; padding: 6px 12px; color: var(--muted); font: 600 12px var(--body); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
 .more:hover { color: var(--fg); }
+.intro { max-width: 860px; margin: 18px 0 0; font-size: 15px; line-height: 1.6; color: var(--fg); }
+#board-filters .filters { flex-wrap: nowrap; }
+#rank-tools .sg-list { left: auto; right: 0; min-width: 320px; }
+/* clear (x) button for every search box, same look in every browser */
+.sg .sg-x { position: absolute; right: 7px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border: 0; border-radius: 50%; background: var(--row); color: var(--muted); font: 600 13px/1 var(--body); cursor: pointer; display: grid; place-items: center; padding: 0; }
+.sg .sg-x:hover { color: var(--fg); }
+.sg input { padding-right: 32px; }
+input[type=search]::-webkit-search-cancel-button { -webkit-appearance: none; display: none; }
 .fine-src { font-size: 12px; color: var(--muted); margin-top: 14px; }
 
 /* ---------- sections ---------- */
@@ -426,7 +434,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <h1><span id="title">—</span> <span class="q mast-q" id="pr-q" tabindex="0" hidden>?<span class="pop"><b>Power ratings are not rankings.</b> They measure how strong each team is right now relative to an average D1 team per 100 possessions, so any two teams can be compared, turned into a line, and converted to a win probability. A team can be rated above a team with a better record. Rankings judge résumés (who you&rsquo;ve beaten) and will come later in the season in the Rankings tab.</span></span> <span class="q mast-q" id="up-q" tabindex="0" hidden>?<span class="pop"><b>What counts as an upset.</b> A team the Meech line had losing by 15 or more points, before tip, that won the game outright. At 15 points the Meech line gives the underdog about a 10% chance (11% in women&rsquo;s), so these are genuine shocks without the list going empty for weeks. <b>Swing</b> = how many points better than the line the winner played. Only games with a logged Meech line count, so the list starts Nov 4, 2026.</span></span><span class="q mast-q" id="hc-q" tabindex="0" hidden>?<span class="pop"><b>How home court is measured.</b> For each of the last four full seasons (the COVID year is skipped), every team gets a full-season rating. Then we check how each team did in its home games compared with what its rating said, and the same for its road games. A team&rsquo;s raw home edge is its home result minus its road result. That raw number is noisy, so it&rsquo;s pulled toward the league average: a team&rsquo;s own history counts as n&nbsp;/&nbsp;(n&nbsp;+&nbsp;200) of its edge, where n is the home games measured. A team with 60 home games keeps about 23% of its own edge; the rest comes from the league average. Altitude teams rise to the top on their own: the model is never told anything about altitude.</span></span></h1>
       <div class="filters" id="filters">
         <div class="tools" id="rank-tools" hidden>
-          <input type="search" id="search" placeholder="Search teams" aria-label="Search teams">
+          <div class="sg"><input type="search" id="search" placeholder="Search teams" aria-label="Search teams" autocomplete="off" spellcheck="false"></div>
           <select id="sort-rank" aria-label="Sort"><option value="rank">Sort: Rank</option><option value="team">Sort: Name (A–Z)</option><option value="col" disabled>Sort: By column</option></select>
         </div>
         <button class="chip" id="conf-all" aria-pressed="true">All</button>
@@ -444,7 +452,6 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
       <div class="ticker">
         <span class="it"><span class="k">Games</span><b id="t-games">—</b><span class="t" id="t-scope">All conferences</span></span>
         <span class="it" title="Games where the Meech line is under 4 points"><span class="k">Toss-ups</span><b id="t-tossups">—</b></span>
-        <span class="it"><span class="k">Closest</span><b id="t-closest">—</b><span class="t" id="t-closest-team">—</span></span>
         <span class="it" id="t-gap-tile" hidden><span class="k">Gap vs. Vegas</span><b id="t-gap">—</b><span class="t" id="t-gap-note">—</span></span>
       </div>
       <div class="sec">
@@ -456,6 +463,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
             <option value="gap" id="opt-gap">Biggest gap vs. Vegas</option><option value="matchup">Best matchup</option>
             <option value="col" disabled>By column</option></select></label>
           <label><input type="checkbox" id="hide"> Hide 15+</label>
+          <div id="board-filters"></div>
         </div>
       </div>
       <div class="scroll">
@@ -535,6 +543,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
 
     <!-- ===== Pace ===== -->
     <section data-page="pace" hidden>
+      <p class="intro">This part of the model is experimental. All season we track two things for every team: the pace it likes to play at, and how good it is at getting games played at that pace (<b>pace control</b>). The question we&rsquo;re testing is whether owning the pace actually helps you win. Do teams that drag opponents to their speed beat expectations, or do the teams that adapt to whatever speed the other team wants have the edge? None of this goes into the Meech lines yet. Five past seasons say the effect is small at best, and it didn&rsquo;t point the same way for men&rsquo;s and women&rsquo;s, so it only earns a spot in the model if it shows up clearly this season.</p>
       <div class="sec"><h2>Style Map <span class="q" tabindex="0">?<span class="pop">Every team by speed (left = slow, right = fast) and pace control (up = drags games to its own speed, down = adapts to the opponent). Control is this season only, measured from games against teams that want a different speed, so it&rsquo;s jumpy early in the season. Click a dot for the team page.</span></span></h2><div id="pm-tools"></div></div>
       <div class="map-wrap"><svg id="pace-map" role="img" aria-label="Pace style map"></svg><div class="gtip" id="pm-tip" hidden></div></div>
       <div class="pboard">
@@ -851,10 +860,9 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $('#hc-q').hidden = S.tab !== 'home';
     $('#filters').hidden = ['how', 'record', 'conf', 'matchup'].includes(S.tab);
     // Today's Lines: the conference filters sit in the stat strip; everywhere else in the masthead
-    const strip = $('section[data-page="today"] .ticker'), f = $('#filters');
-    const home = S.tab === 'today' ? strip : S.tab === 'pace' ? $('#pm-tools') : $('.mast');   // filters sit next to what they filter
+    const f = $('#filters');
+    const home = S.tab === 'today' ? $('#board-filters') : S.tab === 'pace' ? $('#pm-tools') : $('.mast');   // filters sit next to what they filter
     if (f.parentElement !== home) home.append(f);
-    strip.classList.toggle('has-filters', S.tab === 'today');
     $('#conf-all').setAttribute('aria-pressed', String(!S.confs.size));
     $('#conf-power').setAttribute('aria-pressed', String(isPower()));
     const custom = S.confs.size > 0 && !isPower();
@@ -907,18 +915,15 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     const everything = ofLeague(D.lines);
     renderGOTD(everything);
     const all = everything.filter((r) => inConf(r.home_conf, r.away_conf));
-    $('#t-scope').textContent = confLabel();
-    const best = all.reduce((a, r) => (a === null || Math.abs(r.my_line) < Math.abs(a.my_line) ? r : a), null);
+    $('#t-scope').textContent = all.length ? confLabel() : (everything.length ? 'No games in this filter' : 'No games today');
     $('#t-games').textContent = String(all.length);
     $('#t-tossups').textContent = String(all.filter((r) => Math.abs(r.my_line) < TOSSUP).length);
-    $('#t-closest').textContent = best ? f1(best.my_line) : '—';
-    $('#t-closest-team').textContent = best ? short(best.favorite) : (everything.length ? 'No games in this filter' : 'No games today');
     const withGap = all.filter((r) => r.gap !== null && r.gap !== undefined);
     const big = withGap.reduce((a, r) => (a === null || Math.abs(r.gap) > Math.abs(a.gap) ? r : a), null);
     $('#t-gap-tile').hidden = !big;
     if (big) {
       $('#t-gap').textContent = Math.abs(big.gap).toFixed(1);
-      $('#t-gap-note').textContent = short(big.favorite);
+      $('#t-gap-note').textContent = `${short(big.away)} ${big.site ? 'vs' : '@'} ${short(big.home)} · Meech ${short(big.favorite)} ${f1(big.my_line)}, Vegas ${signed(big.vegas_line)}`;
       $('#t-gap-tile').title = `${big.favorite}: Meech ${f1(big.my_line)}, Vegas ${signed(big.vegas_line)}`;
     }
     let g = all.filter((r) => !S.hide || Math.abs(r.my_line) < BLOWOUT);
@@ -1416,6 +1421,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     if (!byId[S.ma]) S.ma = null; if (!byId[S.mb]) S.mb = null;
     if (document.activeElement !== $('#mu-a')) $('#mu-a').value = S.ma ? byId[S.ma].team : '';
     if (document.activeElement !== $('#mu-b')) $('#mu-b').value = S.mb ? byId[S.mb].team : '';
+    ['#mu-a', '#mu-b'].forEach((sel) => { const i = $(sel); if (i._clear) i._clear.hidden = !i.value; });
     siteLabels();
     const out = $('#mu-out'), msg = $('#mu-msg');
     if (!S.ma || !S.mb || S.ma === S.mb) { out.hidden = true; msg.hidden = false; msg.textContent = S.ma && S.ma === S.mb ? 'Pick two different teams.' : 'Pick two teams and hit Predict.'; return; }
@@ -1476,6 +1482,16 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     $$('#mu-site button').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.v === S.ms)));
   };
   typeAhead($('#mu-a'), siteLabels); typeAhead($('#mu-b'), siteLabels);
+  typeAhead($('#search'), () => { S.q = $('#search').value; render(); });
+  // clear (x) button inside every search box
+  $$('.sg input').forEach((inp) => {
+    const x = el('button', 'sg-x', '\u00d7'); x.type = 'button'; x.setAttribute('aria-label', 'Clear'); x.hidden = !inp.value;
+    x.addEventListener('mousedown', (e) => e.preventDefault());
+    x.addEventListener('click', () => { inp.value = ''; inp.dispatchEvent(new Event('input')); inp.focus(); });
+    inp.addEventListener('input', () => { x.hidden = !inp.value; });
+    inp.parentElement.append(x);
+    inp._clear = x;
+  });
   $('#mu-go').addEventListener('click', () => { S.ma = pickTeam($('#mu-a')); S.mb = pickTeam($('#mu-b')); render(); });
   $$('#mu-site button').forEach((x) => x.addEventListener('click', () => { S.ms = x.dataset.v; siteLabels(); if (S.ma && S.mb) render(); }));
   ['#mu-a', '#mu-b'].forEach((sel) => $(sel).addEventListener('keydown', (e) => { if (e.key === 'Enter') $('#mu-go').click(); }));
