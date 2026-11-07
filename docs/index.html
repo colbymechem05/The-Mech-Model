@@ -1354,7 +1354,7 @@ footer { margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
     msg.hidden = true; out.hidden = false;
     const pB = homeIsA ? 1 - res.p : res.p, spreadB = homeIsA ? -res.spread : res.spread;
     // whole-number scores whose difference matches the rounded line (86-75 next to a 12.0 line looked wrong)
-    const d = Math.round(Math.abs(spreadB)); let tot = Math.round(res.ph + res.pa);
+    const d = Math.max(1, Math.round(Math.abs(spreadB))); let tot = Math.round(res.ph + res.pa);
     if ((tot + d) % 2) tot += (res.ph + res.pa) > tot ? 1 : -1;
     const hi = (tot + d) / 2, lo = (tot - d) / 2;
     const ptsA = spreadB >= 0 ? lo : hi, ptsB = spreadB >= 0 ? hi : lo;

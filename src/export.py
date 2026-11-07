@@ -67,6 +67,21 @@ def grade(league: str) -> pd.DataFrame:
     return x
 
 
+def clean_score(proj_score: str, spread_home: float) -> str:
+    """Projected score for display, made consistent with the line: whole points, the favorite
+    ahead by the rounded line (at least 1). Logged lines from before Nov 7, 2026 rounded each
+    team separately (a 0.1 favorite at 62-61 next to a 0.4 favorite at 65-65)."""
+    try:
+        a, h = (int(x) for x in str(proj_score).split("-"))
+    except ValueError:
+        return proj_score
+    d, tot = max(1, round(abs(spread_home))), a + h
+    if (tot + d) % 2:
+        tot += 1
+    hi, lo = (tot + d) // 2, (tot - d) // 2
+    return f"{lo}-{hi}" if spread_home >= 0 else f"{hi}-{lo}"
+
+
 def upsets(league: str) -> pd.DataFrame:
     """Logged games where a Meech underdog of UPSET_DOG+ points won outright (from the winner's side)."""
     x = grade(league)
@@ -186,6 +201,7 @@ def league_tables(league: str, day: pd.Timestamp) -> dict:
         lines["tip24"] = lines.tip
         lines["tip"] = pd.to_datetime(lines.tip, format="%H:%M").dt.strftime("%-I:%M %p")
         lines["site"] = np.where(lines.neutral, "Neutral", "")
+        lines["proj_score"] = [clean_score(s, h) for s, h in zip(lines.proj_score, lines.spread_home)]
         lines = lines.drop(columns=["date", "made_at", "neutral"])
     sc = pd.read_csv(D.RAW / f"{league}_schedule_{D.CURRENT}.csv", low_memory=False,
                      usecols=["home_display_name", "home_color", "away_display_name", "away_color"])

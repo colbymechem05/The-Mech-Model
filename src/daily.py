@@ -86,10 +86,11 @@ def rate(league: str, day: pd.Timestamp, refresh: bool):
 
 def score_text(home_pts, away_pts) -> list:
     """"away-home" in whole points whose difference equals the rounded spread (so a 12.0 line
-    never shows an 11-point score)."""
+    never shows an 11-point score). The favorite always wins the projection by at least 1, so a
+    0.1 and a 0.4 favorite both show a 1-point win instead of one win and one tie."""
     out = []
     for h, a in zip(home_pts, away_pts):
-        d, tot = round(abs(h - a)), round(h + a)
+        d, tot = max(1, round(abs(h - a))), round(h + a)
         if (tot + d) % 2:
             tot += 1 if h + a > tot else -1
         hi, lo = (tot + d) // 2, (tot - d) // 2
